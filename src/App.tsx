@@ -38,8 +38,8 @@ function App() {
             <li className='cadastroProdutos'><p>Cadastro de Produtos</p><img className='imgClass' src={imgCadastroProduto} alt="" /></li>
         </ul> 
           <ul className='ulMenuScreen'>
-            <li className='detalhesVenda'><p>Realizar Venda</p><img className='imgClass' src={imgDetalhesVendas} alt="" /></li>
-            <li className='entradaSaida'><p>Realizar Venda</p><img className='imgClass' src={imgEntradaSaida} alt="" /></li>
+            <li className='detalhesVenda'><p>Detalhes de Venda</p><img className='imgClass' src={imgDetalhesVendas} alt="" /></li>
+            <li className='entradaSaida'><p>Controle Entrada/Saída</p><img className='imgClass' src={imgEntradaSaida} alt="" /></li>
           </ul>
           
       </div>
