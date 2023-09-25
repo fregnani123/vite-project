@@ -1,8 +1,13 @@
-import '../index.css'
+import '../components/index.css'
 
 function PaginaLogin() {
     return (<>
-      <h1>Pagina Login</h1>
+      <form>
+            <h1>Login</h1> 
+            <input type='text' placeholder='Digite o seu usuário' />
+            <input type='password' placeholder='Digite a sua senha' />
+            <input type='submit'/>
+      </form>
     </>)
 }
 
