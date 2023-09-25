@@ -1,4 +1,4 @@
-import '../components/index.css'
+import '../components/Login.css'
 import imgMenu from '../assets/imagens gestaoLite/f.png'
 
 function PaginaLogin() {

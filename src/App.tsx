@@ -1,5 +1,5 @@
 import MenuPage from './components/Menu'
-import PaginaLogin from './components/index';
+import PaginaLogin from './components/Login';
 import './App.css'
 
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
