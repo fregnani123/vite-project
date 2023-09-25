@@ -40,3 +40,24 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+.logo{
+    position: absolute;
+    top: 80px;
+    align-items: center;
+    width: 100%;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    color:rgb(0, 38, 87)
+}
+
+.imgMenuLogin{
+    width: 80px;
+}
+
+footer{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+}
