@@ -26,7 +26,7 @@ form input {
 }
 
 /* Estilo para o botão de envio */
-form input[type="submit"] {
+form input .logar[type="submit"] {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
@@ -37,7 +37,7 @@ form input[type="submit"] {
 }
 
 /* Estilo para o botão de envio ao passar o mouse */
-form input[type="submit"]:hover {
+form input  [type="submit"]:hover {
     background-color: #0056b3;
 }
 
