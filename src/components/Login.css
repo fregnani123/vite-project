@@ -53,6 +53,7 @@ button:hover {
 
 
 .logo{
+    z-index: -1;
     position: absolute;
     top: 80px;
     align-items: center;
@@ -61,7 +62,6 @@ button:hover {
     display: flex;
     justify-content: center;
     color:rgb(0, 38, 87);
-    display: none;
 }
 
 .imgMenuLogin{
