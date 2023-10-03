@@ -9,10 +9,11 @@ interface Produto {
 }
 
 function MyComponent() {
+    const url = "http://localhost:3000/findProduto";
     const [data, setData] = useState<Produto[]>([]); // Tipando o estado como um array de objetos Produto
     console.log(data)
     useEffect(() => {
-        axios.get("http://localhost:3000/findProduto")
+        axios.get(url)
             .then(response => {
                 setData(response.data);
             })
