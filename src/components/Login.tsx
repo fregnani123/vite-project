@@ -14,11 +14,8 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
     const [senhaInput, setSenha] = useState('');
     const keySenha = 'adm';
     const keyUsuario = 'adm'
-
     return (
-        
         <>
-
             <h1 className='logo'><img className='imgMenuLogin' src={imgMenu} /> Gestão Lite</h1>
             <form>
                 <h1 >Login</h1>

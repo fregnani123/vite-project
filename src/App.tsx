@@ -3,17 +3,16 @@ import MenuPage from './components/Menu';
 import PaginaLogin from './components/Login';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import MyComponent from './components/services/acessValida';
+import MyComponent from './components/views/queryProdutos';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <div className='app'>
-     
       <Router>
         <Routes>
-          <Route path='/api' element={<MyComponent/>}/>
+          <Route path='/produtos' element={<MyComponent/>}/>
           <Route path='/' element={<PaginaLogin setIsAuthenticated={setIsAuthenticated} />} />
           <Route
             path='/painel'
