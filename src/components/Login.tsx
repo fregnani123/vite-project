@@ -3,6 +3,7 @@ import imgMenu from '../assets/imagens gestaoLite/f.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 interface PaginaLoginProps {
     setIsAuthenticated: (value: boolean) => void; // Define o tipo esperado para setIsAuthenticated
 }
@@ -15,7 +16,9 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
     const keyUsuario = 'adm'
 
     return (
+        
         <>
+
             <h1 className='logo'><img className='imgMenuLogin' src={imgMenu} /> Gestão Lite</h1>
             <form>
                 <h1 >Login</h1>
