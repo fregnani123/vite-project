@@ -15,13 +15,19 @@ function registerProduct() {
         nome: "Nome do Produto",
         descricao: "Descrição do Produto",
         preco: 10.00,
-        categoria: "",
-        estoque: ""
+        categoria: "teste",
+        estoque: "1"
     };
 
     useEffect(() => {
-     axios.post(url, data)
- }, [] )
+        axios.post(url, data)
+    }, []);
+
+    return (
+        <div>
+            registrar produtos
+        </div>
+    )
 
 }
 
