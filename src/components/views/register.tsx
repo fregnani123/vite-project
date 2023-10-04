@@ -35,8 +35,8 @@ function RegisterProduct() {
     };
 
     return (
-        <div>
-            <h1>Registrar Produtos</h1>
+        <div className="register-container">
+            <h1>Registrar novo Produto</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Nome do Produto:</label>
