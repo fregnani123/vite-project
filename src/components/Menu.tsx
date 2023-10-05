@@ -18,7 +18,7 @@ function Menu() {
                 <h4 className='nameMenu'>Menu</h4>
                 <ul>
                     <li className='listaMenu'>Realizar Venda</li>
-                    <li className='listaMenu'>Cadastro de Produtos</li>
+                    <a><li className='listaMenu'>Cadastro de Produtos</li></a>
                     <li className='listaMenu'>Detalhes de Venda</li>
                     <li className='listaMenu'>Controle de Entrada/Saída</li>
                 </ul>

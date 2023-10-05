@@ -64,11 +64,20 @@ function RegisterProduct() {
                 </div>
                 <div>
                     <label>Categoria:</label>
-                    <input
-                        type="text"
-                        value={categoria}
-                        onChange={(e) => setCategoria(e.target.value)}
-                    />
+                    <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+                        <option></option>
+                        <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
+                        <option value="Beleza e Cuidados Pessoais">Beleza e Cuidados Pessoais</option>
+                        <option value="Brinquedos">Brinquedos</option>
+                        <option value="Calçados">Calçados</option>
+                        <option value="Eletrodomésticos">Eletrodomésticos</option>
+                        <option value="Eletrônicos">Eletrônicos</option>
+                        <option value="Esportes e Fitness">Esportes e Fitness</option>
+                        <option value="Joias e Relógios">Joias e Relógios</option>
+                        <option value="Livros">Livros</option>
+                        <option value="Móveis">Móveis</option>
+                        <option value="Roupas">Roupas</option>
+                    </select>
                 </div>
                 <div>
                     <label>Estoque:</label>

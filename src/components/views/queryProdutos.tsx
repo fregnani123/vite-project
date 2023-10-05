@@ -4,6 +4,7 @@ import '../views/queryProdutos.css';
 
 
 interface Produto {
+    _id: string ;
     nome: string;
     preco: Number;
     descricao: string;
@@ -18,6 +19,7 @@ function MyComponent() {
         axios.get(url)
             .then(response => {
                 setData(response.data);
+                
             })
             .catch(error => {
                 console.error("Erro ao buscar dados:", error);
@@ -30,6 +32,7 @@ function MyComponent() {
             <table className="my-table">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Nome do Produto</th>
                         <th>Preço</th>
                         <th>Descrição</th>
@@ -40,6 +43,7 @@ function MyComponent() {
                 <tbody>
                     {data.map((produto, index) => (
                         <tr key={index}>
+                            <td>{produto._id}</td>
                             <td>{produto.nome}</td>
                             <td>R$  {produto.preco.toFixed(2)}</td>
                             <td>{produto.descricao}</td>
