@@ -37,7 +37,6 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
                     }}
                     required
                 />
-
                 <button
                     className='logar'
                     onClick={() => {

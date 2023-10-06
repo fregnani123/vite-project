@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import MenuToolbar from "../MenuToolbar";
+import '../menu.css'
 
 function RegisterProduct() {
     const [nome, setNome] = useState("");
@@ -35,9 +37,10 @@ function RegisterProduct() {
     };
 
     return (
-        <div className="register-container">
-            <h1>Registrar novo Produto</h1>
+        <div className="register-container"> <MenuToolbar />
+            
             <form onSubmit={handleSubmit}>
+                <h1>Registrar novo Produto</h1>
                 <div>
                     <label>Nome do Produto:</label>
                     <input

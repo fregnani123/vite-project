@@ -26,11 +26,11 @@ function MyComponent() {
             });
     }, []); // O array vazio significa que o efeito é executado apenas uma vez, quando o componente é montado.
 
-    return (
+    return (<div>
         <div className="query-Container">
             <h1>Informações Produtos</h1>
             <table className="my-table">
-                <thead>
+                <thead> 
                     <tr>
                         <th>Id</th>
                         <th>Nome do Produto</th>
@@ -53,7 +53,7 @@ function MyComponent() {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </div></div>
     );
 }
 
