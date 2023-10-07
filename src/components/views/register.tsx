@@ -36,11 +36,10 @@ function RegisterProduct() {
         }
     };
 
-    return (
-        <div className="register-container"> <MenuToolbar />
-            
+    return (<div className="register-container"><MenuToolbar />
+        <div className="register-form"> <h1 className="registroH1">Cadastro de Produtos</h1>
             <form onSubmit={handleSubmit}>
-                <h1>Registrar novo Produto</h1>
+              
                 <div>
                     <label>Nome do Produto:</label>
                     <input
@@ -60,7 +59,7 @@ function RegisterProduct() {
                 <div>
                     <label>Preço:</label>
                     <input
-                        type="number"
+                        type="number" 
                         value={preco}
                         onChange={(e) => setPreco(parseFloat(e.target.value))}
                     />
@@ -68,7 +67,7 @@ function RegisterProduct() {
                 <div>
                     <label>Categoria:</label>
                     <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
-                        <option></option>
+                        <option className="optionSelecionar">Selecionar</option>
                         <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
                         <option value="Beleza e Cuidados Pessoais">Beleza e Cuidados Pessoais</option>
                         <option value="Brinquedos">Brinquedos</option>
@@ -84,7 +83,7 @@ function RegisterProduct() {
                 </div>
                 <div>
                     <label>Estoque:</label>
-                    <input
+                    <input 
                         type="number"
                         value={estoque}
                         onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
@@ -92,7 +91,7 @@ function RegisterProduct() {
                 </div>
                 <button type="submit">Registrar Produto</button>
             </form>
-        </div>
+        </div></div>
     );
 }
 

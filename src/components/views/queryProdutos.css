@@ -1,11 +1,15 @@
 /* Estilo para o formulário */
-.register-container {
-
+.register-form {
+     
     width: 100%;
     align-items: center;
     justify-content: center;
     height: 100vh;
+   
+}
+.register-container{
     display: flex;
+    width: 100%;
 }
 
 form {
@@ -27,11 +31,24 @@ select {
         border-radius: 5px;
         font-size: 16px;
 }
+.optionSelecionar{
+    background-color: #0056b3;
+    color: white;
+}
 
 /* Estilo para o cabeçalho do formulário */
+ .registroH1{
+    margin-top: 60px;
+    margin-bottom: 25px;
+    color: rgb(0, 38, 87);
+ }
+
 form h1 {
-    font-size: 24px;
-    color: #333;
+    font-size: 26px;
+}
+
+label{
+   color: rgb(0, 38, 87);
 }
 
 /* Estilo para os campos de entrada */
@@ -54,7 +71,7 @@ form input {
 }
 
 button {
-    background-color: #007bff;
+    background-color: rgb(0, 38, 87);
     /* Cor de fundo padrão do botão */
     color: #fff;
     /* Cor do texto padrão do botão */
@@ -112,3 +129,9 @@ th{color: rgb(0, 0, 0);}
     color: white;
 }
 
+/* tela Venda */
+.telaVenda{
+    width: 400px;
+    height: 400px;
+    background-color: red;
+}

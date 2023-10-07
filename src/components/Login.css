@@ -1,4 +1,6 @@
-
+.loginH1{
+color: rgb(0, 38, 87);
+}
 .logo{
     z-index: -1;
     position: absolute;
