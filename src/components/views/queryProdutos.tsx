@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import '../views/queryProdutos.css';
-
+import MenuToolbar from "../MenuToolbar";
 
 interface Produto {
     _id: string ;
@@ -26,13 +26,13 @@ function MyComponent() {
             });
     }, []); // O array vazio significa que o efeito é executado apenas uma vez, quando o componente é montado.
 
-    return (<div>
-        <div className="query-Container">
-            <h1>Informações Produtos</h1>
+    return (<div className="query-Container">
+        <MenuToolbar />
+        <div className="register-queryProdutos">
+            <h1 className="registroH1">Informações Produtos</h1> 
             <table className="my-table">
-                <thead> 
+                <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Nome do Produto</th>
                         <th>Preço</th>
                         <th>Descrição</th>
@@ -43,7 +43,6 @@ function MyComponent() {
                 <tbody>
                     {data.map((produto, index) => (
                         <tr key={index}>
-                            <td>{produto._id}</td>
                             <td>{produto.nome}</td>
                             <td>R$  {produto.preco.toFixed(2)}</td>
                             <td>{produto.descricao}</td>
@@ -53,7 +52,8 @@ function MyComponent() {
                     ))}
                 </tbody>
             </table>
-        </div></div>
+            
+            </div></div>
     );
 }
 

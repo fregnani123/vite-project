@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/SalesScreen' element={<SalesScreen/>} />
           <Route path='/newProduct' element={ <RegisterProduct/>}/>
-          <Route path='/produtos' element={<MyComponent/>}/>
+          <Route path='/queryProdutos' element={<MyComponent/>}/>
           <Route path='/' element={<PaginaLogin setIsAuthenticated={setIsAuthenticated} />} />
           <Route
             path='/painel'

@@ -87,18 +87,21 @@ button:hover {
     /* Cor de fundo quando o mouse passa sobre o botão */
 }
 
-
-
-
 /* MyComponent.css */
 
-.query-Container{
-    margin: 10px;
-    margin-top: 100px;
+.register-queryProdutos{
     width: 100%;
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+
+.query-Container{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    display: flex;
 }
 
 .my-table {

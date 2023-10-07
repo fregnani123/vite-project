@@ -36,7 +36,7 @@ function RegisterProduct() {
         }
     };
 
-    return (<div className="register-container"><MenuToolbar />
+    return (<div className="register-container"><MenuToolbar/>
         <div className="register-form"> <h1 className="registroH1">Cadastro de Produtos</h1>
             <form onSubmit={handleSubmit}>
               
