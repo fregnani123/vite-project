@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-form {
+.form {
     max-width: 300px;
     margin: 0 auto;
     padding: 20px;
@@ -21,8 +21,8 @@ form {
     border-radius: 5px;
     text-align: center;
     margin-top: 10px;
-    
 }
+
 select {
         width: 107%;
         padding: 10px;
@@ -133,8 +133,55 @@ th{color: rgb(0, 0, 0);}
 }
 
 /* tela Venda */
-.telaVenda{
-    width: 400px;
+
+.spanVendas{
+    width: 100%;
+    height: 80px;
+    font-size: 40px;
+    background-color: rgb(24, 58, 211);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.spanVendas{
+    width: 250px;
+    align-items: center;
+    position: relative;
+    margin-left: 15px;
+}
+
+.h4Sales{
+    font-size: 30px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.sales-container{
+display: flex;
+height: 400px;
+width: 100%;
+align-items: center;
+text-align: center;
+}
+
+.cupom{
+    margin-bottom: 10px;
+    display: flex;
     height: 400px;
-    background-color: red;
+    width: 100%;
+    justify-content: center;
+}
+.cupom-form{
+    background-color: rgb(24, 58, 211);
+    width: 400px;
+    color: white;
+    font-size: 20px;
+}
+
+.sales-form{
+    width: 100%;
 }
