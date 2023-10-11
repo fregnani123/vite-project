@@ -38,8 +38,7 @@ select {
 
 /* Estilo para o cabeçalho do formulário */
  .registroH1{
-    margin-top: 60px;
-    margin-bottom: 25px;
+    margin-top: 20px;
     color: rgb(0, 38, 87);
  }
 
@@ -59,6 +58,10 @@ form input {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+}
+
+input:focus{
+outline: 1px solid rgb(0, 0, 0);
 }
 
 .logar {
@@ -177,11 +180,40 @@ text-align: center;
 }
 .cupom-form{
     background-color: rgb(24, 58, 211);
-    width: 400px;
+    width: 430px;
     color: white;
     font-size: 20px;
+    position: relative;
 }
 
 .sales-form{
     width: 100%;
+}
+
+.labelSales{
+position: absolute;
+bottom: 10px;
+color: white;
+left: 15px;
+}
+
+.h4register{
+    color: rgb(0, 38, 87);
+    margin-left: 57px;
+}
+
+.labelQtd{
+position: absolute;
+max-width: 80px;
+bottom: 10px;
+color: white;
+right: 30px;
+}
+
+.relatorio{
+    align-items: center;
+    margin: auto;
+    width: 300px;
+    height: 270px;
+    border: 1px solid rgb(0, 38, 87);;
 }

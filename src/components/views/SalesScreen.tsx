@@ -6,13 +6,15 @@ const SalesScreen = () => {
         <MenuToolbar /><div className="sales-form"><h1 className="registroH1">Tela de Vendas</h1>
             <div className="cupom">
                 <form className="cupom-form">
-                   <br></br> <p>Relogio R$ 50,00 - 1x</p>
+                   <br></br><p className="relatorio"></p>
                     <p></p>
+                    <label className="labelSales">Produto<input className="inputProduto" /></label>
+                    <label className="labelQtd">Qtd.<input type="number"/></label>
                 </form>
             </div>
             <div className="h4Sales">
-                <h4 >TOTAL<br/>VENDA
-                </h4><p className="spanVendas">R$ 50,00</p>
+                <h4 className="h4register" >TOTAL<br/>VENDA
+                </h4><p className="spanVendas">R$ 0,00</p>
             </div>
             </div>
     </div>
