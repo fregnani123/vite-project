@@ -86,7 +86,8 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #7c7c7c;
+    color: white;
     /* Cor de fundo quando o mouse passa sobre o botão */
 }
 
@@ -161,6 +162,8 @@ th{color: rgb(0, 0, 0);}
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin-left: 25px;
+    
 }
 
 .sales-container{
@@ -180,7 +183,7 @@ text-align: center;
 }
 .cupom-form{
     background-color: rgb(24, 58, 211);
-    width: 430px;
+    width: 480px;
     color: white;
     font-size: 20px;
     position: relative;
@@ -195,25 +198,36 @@ position: absolute;
 bottom: 10px;
 color: white;
 left: 15px;
+max-width: 180px;
 }
 
 .h4register{
     color: rgb(0, 38, 87);
     margin-left: 57px;
 }
-
 .labelQtd{
 position: absolute;
 max-width: 80px;
 bottom: 10px;
 color: white;
-right: 30px;
+right: 160px;
+}
+.buttonSales {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+    background-color: white;
+    color: rgb(0, 38, 87);
+    font-weight: bold;
+    border-radius: 5px;
+    height: 40px;
 }
 
+
 .relatorio{
-    align-items: center;
-    margin: auto;
-    width: 300px;
-    height: 270px;
-    border: 1px solid rgb(0, 38, 87);;
+align-items: center;
+margin: auto;
+width: 370px;
+height: 270px;
+border: 1px solid rgb(255, 255, 255);;
 }
