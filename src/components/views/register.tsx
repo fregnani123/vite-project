@@ -39,8 +39,7 @@ function RegisterProduct() {
     return (<div className="register-container"><MenuToolbar/>
         <div className="register-form"> <h1 className="registroH1">Cadastro de Produtos</h1>
             <form className="form" onSubmit={handleSubmit}>
-              
-                <div>
+              <div>
                     <label>Nome do Produto:</label>
                     <input
                         type="text"
@@ -89,7 +88,7 @@ function RegisterProduct() {
                         onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
                     />
                 </div>
-                <button type="submit">Registrar Produto</button>
+                <button type="submit" className="button">Registrar Produto</button>
             </form>
         </div></div>
     );

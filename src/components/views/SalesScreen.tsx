@@ -1,7 +1,9 @@
 import MenuToolbar from "../MenuToolbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import carrinhoCompras from "../../assets/imagens gestaoLite/carrinho-de-compras.png";
 import '../views/queryProdutos.css';
+
 
 interface Produto {
     _id: string;
@@ -33,29 +35,26 @@ function SalesScreen() {
     return (
         <div className="sales-container">
             <MenuToolbar />
-            <div className="sales-form">
-                <h1 className="registroH1">Tela de Vendas</h1>
-                <div className="cupom">
-                    <form className="cupom-form">
-                        <br />
-                        <p className="relatorio">
-                        </p>
-                        <label className="labelSales">Código de Barras
-                            <input className="inputProduto"
-                            />
-                        </label>
-                        <label className="labelQtd">Qtd.
+            <div className="cupom"><div className="cupom-div"><h1 className="tituloVenda">Carrinho de Compras</h1>
+                
+                <div className="cupom-form">
+                    <ul className="carrinho">
+                    </ul>
+                    <form >  
+                        <label className="labelCodigo">Código de Barras
                             <input type="number" />
                         </label>
+                        
+                        <label className="labelQtd">Qtd<input type="number" /></label>
 
                         <button className="buttonSales">Adicionar</button>
+                        <button className="buttonFinalizar" type="submit">Finalizar</button>
                     </form>
                 </div>
-                <div className="h4Sales">
-                    <h4 className="h4register">TOTAL<br />VENDA</h4>
-                    <p className="spanVendas">R$ 0,00</p>
-                </div>
+                <p className="totalCarrinho">Total R$ <span className="span" >0.00</span></p>
             </div>
+        
+       </div> 
         </div>
     );
 }

@@ -85,7 +85,7 @@ button {
     /* Transição suave de cor de fundo */
 }
 
-button:hover {
+.button:hover {
     background-color: #7c7c7c;
     color: white;
     /* Cor de fundo quando o mouse passa sobre o botão */
@@ -137,33 +137,29 @@ th{color: rgb(0, 0, 0);}
 }
 
 /* tela Venda */
+.h2{
+   padding-top: 10px;
+}
 
 .spanVendas{
     width: 100%;
     height: 80px;
     font-size: 40px;
-    background-color: rgb(24, 58, 211);
+    background-color: rgb(0, 38, 87);
     color: white;
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
-.spanVendas{
-    width: 250px;
-    align-items: center;
-    position: relative;
-    margin-left: 15px;
-}
-
-.h4Sales{
-    font-size: 30px;
+.tituloVenda{
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: center;
-    margin-left: 25px;
-    
+    justify-content: center; 
+    color: rgb(0, 38, 87);
+    margin-top: -30px;
+    margin-bottom: 15px;
 }
 
 .sales-container{
@@ -176,58 +172,100 @@ text-align: center;
 
 .cupom{
     margin-bottom: 10px;
-    display: flex;
     height: 400px;
     width: 100%;
     justify-content: center;
+    display: flex;
+    position: relative;
 }
 .cupom-form{
-    background-color: rgb(24, 58, 211);
+    background-color: rgb(0, 38, 87);
     width: 480px;
     color: white;
     font-size: 20px;
     position: relative;
+    height: 400px;
+  
 }
 
-.sales-form{
-    width: 100%;
-}
-
-.labelSales{
-position: absolute;
-bottom: 10px;
-color: white;
-left: 15px;
-max-width: 180px;
-}
-
-.h4register{
-    color: rgb(0, 38, 87);
-    margin-left: 57px;
-}
 .labelQtd{
 position: absolute;
-max-width: 80px;
+max-width: 50px;
 bottom: 10px;
 color: white;
-right: 160px;
+right: 230px;
 }
+
+.labelCodigo{
+position: absolute;
+max-width: 150px;
+bottom: 10px;
+color: white;
+left: 20px;
+}
+
+.cupom-div{
+    position: relative;
+}
+
+.totalCarrinho{
+background-color: white;
+font-size: 50px;
+color: rgb(0, 38, 87);
+position: absolute;
+left: 0;
+margin-top: 10px;
+border: 1px solid rgb(0, 38, 87);;
+width: 100%;
+
+}
+
+.span{
+    background-color: white;
+    color:rgb(0, 38, 87);   
+}
+
+.carrinho{
+
+width: 95%;
+height: 270px;
+border: 1px solid rgb(255, 255, 255);
+position: absolute;
+top: 15px;
+right: 2.5%;
+}
+.imgCarrinho {
+    width: 60px;
+}
+
 .buttonSales {
     position: absolute;
     bottom: 20px;
-    right: 15px;
+    right: 109px;
     background-color: white;
     color: rgb(0, 38, 87);
     font-weight: bold;
     border-radius: 5px;
     height: 40px;
 }
+.buttonSales:hover {
+    background-color: #059200;
+    color: white;
+    /* Cor de fundo quando o mouse passa sobre o botão */
+}
 
+.buttonFinalizar{
+    position: absolute;
+    bottom: 20px;
+    right: 8px;
+    background-color: white;
+    color: rgb(0, 38, 87);
+    font-weight: bold;
+    border-radius: 5px;
+    height: 70px;
+    font-size: 13px;
+}
 
-.relatorio{
-align-items: center;
-margin: auto;
-width: 370px;
-height: 270px;
-border: 1px solid rgb(255, 255, 255);;
+.buttonFinalizar:hover{
+    background: yellow;
 }
