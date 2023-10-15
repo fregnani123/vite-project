@@ -17,10 +17,10 @@ function MenuToolbar() {
             <Link to="/queryProdutos" className='link'><li className='listaMenu'>Informções Produtos</li></Link >
             <li className='listaMenu'>Controle de Entrada/Saída</li>
         </ul>
-        <p className='exit'>
+        <div className='exit'>
             <img src={imgExit} className='imgExit' />
             <p className='textoSair'>Sair</p>
-        </p>
+        </div>
     </div>)
 }
 

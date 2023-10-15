@@ -227,6 +227,7 @@ width: 100%;
 
 .carrinho{
 
+justify-content: center;
 width: 95%;
 height: 270px;
 border: 1px solid rgb(255, 255, 255);
@@ -237,7 +238,9 @@ right: 2.5%;
 .imgCarrinho {
     width: 60px;
 }
-
+.liCarrinho{
+    margin-top: 10px;
+}
 .buttonSales {
     position: absolute;
     bottom: 20px;
