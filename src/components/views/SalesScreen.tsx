@@ -12,6 +12,7 @@ interface Produto {
     descricao: string;
     categoria: string;
     estoque: string;
+    qtd: number;
 }
 
 function SalesScreen() {
@@ -19,6 +20,7 @@ function SalesScreen() {
     const [codigo, setCodigo] = useState("");
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
     const [total, setTotal] = useState(0);
+    const [qtd, setQtd] = useState("");
 
     // O URL da solicitação deve ser construído corretamente
     const url = "http://localhost:3000/findProduto";
@@ -75,7 +77,7 @@ function SalesScreen() {
                                     onChange={(e) => setCodigo(e.target.value)}
                                 />
                             </label>
-                            <label className="labelQtd">Qtd<input type="number" /></label>
+                            <label className="labelQtd">Qtd<input type="number" value={parseInt(qtd)} onChange={(e) => setQtd(e.target.value)}/></label>
                             <button onClick={(e) => {
                                 e.preventDefault();
                                 adicionarAoCarrinho();

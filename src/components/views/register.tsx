@@ -5,6 +5,7 @@ import '../menu.css'
 
 function RegisterProduct() {
     const [nome, setNome] = useState("");
+    const [EAN, setEAN] = useState("");
     const [descricao, setDescricao] = useState("");
     const [preco, setPreco] = useState(0);
     const [categoria, setCategoria] = useState("");
@@ -16,6 +17,7 @@ function RegisterProduct() {
     
         const data = {
             nome: nome,
+            codigoDeBarras: EAN,
             descricao: descricao,
             preco: preco,
             categoria: categoria,
@@ -27,6 +29,7 @@ function RegisterProduct() {
             console.log("Produto registrado com sucesso:", response.data);
             // Limpar os campos do formulário após o registro bem-sucedido
             setNome("");
+            setPreco(0);
             setDescricao("");
             setPreco(0);
             setCategoria("");
@@ -39,6 +42,14 @@ function RegisterProduct() {
     return (<div className="register-container"><div><MenuToolbar/></div>
         <div className="register-form"> <h1 className="registroH1">Cadastro de Produtos</h1>
             <form className="form" onSubmit={handleSubmit}>
+                <div>
+                    <label>EAN (Código de barras)</label>
+                    <input
+                        type="number"
+                        value={parseInt(EAN)}
+                        onChange={(e) => setEAN(e.target.value)}
+                    />
+                </div>
               <div>
                     <label>Nome do Produto:</label>
                     <input
