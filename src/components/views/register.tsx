@@ -69,8 +69,7 @@ function RegisterProduct() {
                 <div>
                     <label>Preço:</label>
                     <input
-                        type="number" 
-                        value={preco}
+                        type="number"value={preco.toFixed(2)}
                         onChange={(e) => setPreco(parseFloat(e.target.value))}
                     />
                 </div>

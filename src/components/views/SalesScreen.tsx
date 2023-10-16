@@ -46,16 +46,21 @@ function SalesScreen() {
 
     function adicionarAoCarrinho() {
         const produtoSelecionado = encontrarProdutoPorCodigo(Number(codigo));
-        if (produtoSelecionado) {
-            setCarrinho([...carrinho, produtoSelecionado]);
+        if (produtoSelecionado && parseInt(qtd) > 0) {
+            const produtoComQtd = { ...produtoSelecionado, qtd: parseInt(qtd) };
+            setCarrinho([...carrinho, produtoComQtd]);
+            setCodigo(""); // Limpa o campo de código
+            setQtd(""); // Limpa o campo de quantidade
+        } else {
+            console.log("Erro: Produto não encontrado ou quantidade inválida.");
         }
-        setCodigo(""); // Limpa o campo de código
     }
 
     function calcularTotal() {
-        const novoTotal = carrinho.reduce((acc, produto) => acc + produto.preco, 0);
+        const novoTotal = carrinho.reduce((acc, produto) => acc + produto.preco * (produto.qtd || 1), 0);
         setTotal(novoTotal);
     }
+
 
     return (
         <div className="sales-container">
@@ -66,7 +71,7 @@ function SalesScreen() {
                     <div className="cupom-form">
                         <ul className="carrinho">
                             {carrinho.map((produto, index) => (
-                                <li className="liCarrinho" key={index}>{`${produto.codigoDeBarras} ${produto.nome} - R$ ${produto.preco.toFixed(2)}`}</li>
+                                <li className="liCarrinho" key={index}>{`${produto.codigoDeBarras} ${produto.nome} ${produto.qtd}x - R$ ${produto.preco.toFixed(2)}`}</li>
                             ))}
                         </ul>
                         <form >
@@ -85,7 +90,8 @@ function SalesScreen() {
                             <button className="buttonFinalizar" type="submit">Finalizar</button>
                         </form>
                     </div>
-                    <span className="totalCarrinho">Total R$ <span className="span">{parseFloat(total.toFixed(2))}</span></span>
+                    <span className="totalCarrinho">Total R$ <span className="span">{total.toFixed(2)}</span></span>
+
                 </div>
             </div>
         </div>
