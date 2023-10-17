@@ -1,6 +1,8 @@
 import MenuToolbar from "../MenuToolbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import carrinhoTotal from '../../assets/imagens gestaoLite/carrinhoTotal.png';
+import imgRemover from '../../assets/imagens gestaoLite/remover.png';
 
 import '../views/queryProdutos.css';
 
@@ -47,7 +49,7 @@ function SalesScreen() {
     function adicionarAoCarrinho() {
         const produtoSelecionado = encontrarProdutoPorCodigo(Number(codigo));
         if (produtoSelecionado && parseInt(qtd) > 0) {
-            const produtoComQtd = { ...produtoSelecionado, qtd: parseInt(qtd) };
+            const produtoComQtd = { ...produtoSelecionado, qtd: parseInt(qtd)};
             setCarrinho([...carrinho, produtoComQtd]);
             setCodigo(""); // Limpa o campo de código
             setQtd(""); // Limpa o campo de quantidade
@@ -61,6 +63,12 @@ function SalesScreen() {
         setTotal(novoTotal);
     }
 
+    function removerDoCarrinho(index: number) {
+        const novoCarrinho = [...carrinho];
+        novoCarrinho.splice(index, 1); // Remove o item do carrinho
+        setCarrinho(novoCarrinho); // Atualiza o estado do carrinho
+        calcularTotal(); // Recalcula o total
+    }
 
     return (
         <div className="sales-container">
@@ -69,9 +77,12 @@ function SalesScreen() {
                 <div className="cupom-div">
                     <h1 className="tituloVenda">Tela de Venda</h1>
                     <div className="cupom-form">
-                        <ul className="carrinho">
+                        <ul className="carrinho"><br/>
                             {carrinho.map((produto, index) => (
-                                <li className="liCarrinho" key={index}>{`${produto.codigoDeBarras} ${produto.nome} ${produto.qtd}x - R$ ${produto.preco.toFixed(2)}`}</li>
+                                <li className="liCarrinho" key={index}>
+                                    {`${produto.codigoDeBarras} ${produto.nome} ${produto.qtd}x - R$ ${produto.preco.toFixed(2)}`}
+                                    <span className="btnRemover" onClick={() => removerDoCarrinho(index)}><img className="imgRemover" src={imgRemover}/></span>
+                                </li>
                             ))}
                         </ul>
                         <form >
@@ -82,7 +93,13 @@ function SalesScreen() {
                                     onChange={(e) => setCodigo(e.target.value)}
                                 />
                             </label>
-                            <label className="labelQtd">Qtd<input type="number" value={parseInt(qtd)} onChange={(e) => setQtd(e.target.value)}/></label>
+                            <label className="labelQtd">Qtd<input type="number" value={parseInt(qtd)} onChange={(e) => {
+                                const inputValue = e.target.value
+                                if (!isNaN(parseInt(inputValue)) && parseInt(inputValue) >= 0) {
+                                    setQtd(inputValue)
+                            }
+                                
+                            }} /></label>
                             <button onClick={(e) => {
                                 e.preventDefault();
                                 adicionarAoCarrinho();
@@ -90,7 +107,7 @@ function SalesScreen() {
                             <button className="buttonFinalizar" type="submit">Finalizar</button>
                         </form>
                     </div>
-                    <span className="totalCarrinho">Total R$ <span className="span">{total.toFixed(2)}</span></span>
+                    <span className="totalCarrinho"> <img className="carrinhoTotal" src={carrinhoTotal} />Total R$ <span className="span">{total.toFixed(2)}</span></span>
 
                 </div>
             </div>
