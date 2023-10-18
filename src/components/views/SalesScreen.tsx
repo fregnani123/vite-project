@@ -72,12 +72,19 @@ function SalesScreen() {
 
     return (
         <div className="sales-container">
-            <div><MenuToolbar /></div>
+            {/* <div><MenuToolbar /></div> */}
             <div className="cupom">
                 <div className="cupom-div">
-                    <h1 className="tituloVenda">Tela de Venda</h1>
+                    {/* <h1 className="tituloVenda">Tela de Venda</h1> */}
                     <div className="cupom-form">
-                        <ul className="carrinho"><br/>
+                        <label className="labelCliente">Cliente:</label><select className="selectCliente">
+                            <option value="">Consumidor</option>
+                        </select>
+                        <label className="labelPag">Pagamento:</label><select className="selectPag">
+                            <option value="">À vista</option>
+                        </select>
+                        
+                       <ul className="carrinho"><br/>
                             {carrinho.map((produto, index) => (
                                 <li className="liCarrinho" key={index}>
                                     {`${produto.codigoDeBarras} ${produto.nome} ${produto.qtd}x - R$ ${produto.preco.toFixed(2)}`}
