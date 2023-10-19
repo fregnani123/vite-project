@@ -72,23 +72,27 @@ function SalesScreen() {
 
     return (
         <div className="sales-container">
-            {/* <div><MenuToolbar /></div> */}
+            <div><MenuToolbar/></div>
             <div className="cupom">
                 <div className="cupom-div">
                     {/* <h1 className="tituloVenda">Tela de Venda</h1> */}
                     <div className="cupom-form">
-                        <label className="labelCliente">Cliente:</label><select className="selectCliente">
-                            <option value="">Consumidor</option>
-                        </select>
                         <label className="labelPag">Pagamento:</label><select className="selectPag">
                             <option value="">À vista</option>
                         </select>
-                        
-                       <ul className="carrinho"><br/>
+                        <ul className="carrinho"><br />
+                            <li className="liInformacao"><tr className="trInformacao">
+                                <th className="thCliente" >Cliente:<select className="selectCliente">
+                                    <option value="">Consumidor</option>
+                                </select></th>
+                                <th className="thNome" ></th>
+                                <th className="thPreco" ></th>
+                                <th className="thExcluir">Excluir produto ↓</th>
+                            </tr></li>
                             {carrinho.map((produto, index) => (
                                 <li className="liCarrinho" key={index}>
                                     {`${produto.codigoDeBarras} ${produto.nome} ${produto.qtd}x - R$ ${produto.preco.toFixed(2)}`}
-                                    <span className="btnRemover" onClick={() => removerDoCarrinho(index)}><img className="imgRemover" src={imgRemover}/></span>
+                                    <span className="btnRemover" onClick={() => removerDoCarrinho(index)}><img className="imgRemover" src={imgRemover} /> ←</span>
                                 </li>
                             ))}
                         </ul>
