@@ -137,21 +137,18 @@ th{color: rgb(0, 0, 0);}
 }
 
 /* tela Venda */
-.h2{
+/* .h2{
    padding-top: 10px;
-}
+} */
 
 .tituloVenda{
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: center; 
-    margin-top: -30px;
-    margin-bottom: 15px;
+    top: 0;
     color:rgb(0, 38, 87);
-    font-size: 40px;
-    border: 1px solid rgb(0, 38, 87);
-    
+    font-size: 35px;
+    font-weight: normal;
 }
 
 .sales-container{
@@ -160,6 +157,7 @@ height: 100vh;
 width: 100%;
 /* align-items: center;
 text-align: center; */
+background-color: rgb(0, 38, 87);
 }
 
 .cupom{
@@ -172,7 +170,7 @@ text-align: center; */
    
 }
 .cupom-form{
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(255, 255, 255);
     width: 570px;
     color:rgb(0, 38, 87);
     font-size: 20px;
@@ -190,14 +188,37 @@ max-width: 50px;
 bottom: 10px;
 color:rgb(0, 38, 87);
 right: 355px;
+display: flex;
+}
+.inputQtd{
+padding: 0;
+    border-radius: 0;
+    color: rgb(0, 38, 87);
+    position: absolute;
+    bottom: 79px;
+    width: 130px;
+    left: 78px;
+    padding: 2px;
+    border: 1px solid rgb(0, 38, 87);
 }
 
-.labelCodigo{
+.labelEAN{
 position: absolute;
-max-width: 150px;
-bottom: 10px;
+bottom: 80px;
 color: rgb(0, 38, 87);
 left: 20px;
+display: flex;
+}
+.inputEAN{
+    padding: 0;
+    border-radius: 0;
+    color: rgb(0, 38, 87);
+    position: absolute;
+    bottom: 72px;
+    width: 130px;
+    left: 78px;
+    padding: 2px;
+    border: 1px solid rgb(0, 38, 87);
 }
 
 .cupom-div{
@@ -225,15 +246,14 @@ border-radius: 5px;
 
 .carrinho{
 width: 95%;
-height: 150px;
+height: 250px;
 border: 1px solid rgb(0, 38, 87);;
 position: absolute;
-top: 150px;
+top: 65px;
 right: 2.5%;
 background-color: white;
 box-sizing: border-box;
 overflow: auto;
-
 }
 .imgCarrinho {
     width: 60px;
@@ -242,7 +262,7 @@ overflow: auto;
     font-size: 15px;
     text-align: start;
     color: rgb(0, 38, 87);
-    margin-top: 20px;
+    margin-top: 2px;
     margin-left: 5px;
     /* background-color: red; */
     position: relative;
@@ -252,11 +272,11 @@ overflow: auto;
     position: absolute;
     bottom: 20px;
     left: 280px;
-    background-color: white;
-    color: rgb(0, 38, 87);
-    font-weight: bold;
+    background-color:rgb(0, 38, 87);
+    color: rgb(255, 255, 255);
     border-radius: 5px;
     height: 40px;
+    font-weight: none;
 }
 .buttonSales:hover {
     background-color: #059200;
@@ -268,16 +288,18 @@ overflow: auto;
     position: absolute;
     bottom: 20px;
     right: 8px;
-    background-color: white;
-    color: rgb(0, 38, 87);
-    font-weight: bold;
+    background-color:rgb(0, 38, 87);
+    color: rgb(255, 255, 255);
+    font-weight: none;
     border-radius: 5px;
-    height: 70px;
+    height: 40px;
     font-size: 13px;
 }
 
 .buttonFinalizar:hover{
     background: yellow;
+    color: rgb(0, 38, 87);
+    border: 1px solid rgb(0, 38, 87);
 }
 
 .carrinhoTotal{
@@ -308,22 +330,34 @@ overflow: auto;
     cursor: pointer;
 }
 
-.selectPag{
-    width: 130px;
-    margin-left: 8px;
-    margin-top: 1px;
-    padding: 0;
-    border-radius: 0;
-}
 
 .selectCliente{
     width: 130px;
-    margin-left: 8px;
+    margin-left: 1px;
     margin-top: 1px;
     padding: 0px;
     border-radius: 0;
     color:rgb(0, 38, 87);
     border: 1px solid rgb(0, 38, 87);
+}
+.selectPag{
+    width: 130px;
+    margin-left: 1px;
+    margin-top: 1px;
+    padding: 0px;
+    border-radius: 0;
+    color: rgb(0, 38, 87);
+    border: 1px solid rgb(0, 38, 87);
+}
+.thPag{
+position: absolute;
+top: 0;
+left: 210px;
+width: 210px;
+display: flex;
+font-weight: normal;
+margin-left: 1px;
+color: rgb(0, 38, 87);
 }
 
 .thCliente {
@@ -336,24 +370,15 @@ overflow: auto;
    color: rgb(0, 38, 87);
 }
 
-.thNome {
-    position: absolute;
-    top: 0;
-    left: 90px;
-}
-.thPreco {
-    position: absolute;
-    right: 200px;
-    top: 0;
-}
 .thExcluir {
     position: absolute;
-    right: 50px;
+    right: 30px;
     top: 0;
     color: rgb(0, 38, 87);
     font-weight: normal;
 }
+
 .liInformacao{
-    border-bottom: 1px solid rgb(0, 38, 87); 
-    
+    border-bottom: 1px solid rgb(0, 38,87); 
+    margin-bottom: 8px;
 }

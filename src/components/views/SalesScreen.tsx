@@ -72,21 +72,21 @@ function SalesScreen() {
 
     return (
         <div className="sales-container">
-            <div><MenuToolbar/></div>
+            {/* <div><MenuToolbar/></div> */}
             <div className="cupom">
                 <div className="cupom-div">
-                    {/* <h1 className="tituloVenda">Tela de Venda</h1> */}
+                    
                     <div className="cupom-form">
-                        <label className="labelPag">Pagamento:</label><select className="selectPag">
-                            <option value="">À vista</option>
-                        </select>
+                        <h1 className="tituloVenda">Tela de Venda</h1>
                         <ul className="carrinho"><br />
                             <li className="liInformacao"><tr className="trInformacao">
                                 <th className="thCliente" >Cliente:<select className="selectCliente">
                                     <option value="">Consumidor</option>
                                 </select></th>
                                 <th className="thNome" ></th>
-                                <th className="thPreco" ></th>
+                                <th className="thPag" > Pgto:<select className="selectPag">
+                                    <option value="">À vista</option>
+                                </select></th>
                                 <th className="thExcluir">Excluir produto ↓</th>
                             </tr></li>
                             {carrinho.map((produto, index) => (
@@ -97,20 +97,13 @@ function SalesScreen() {
                             ))}
                         </ul>
                         <form >
-                            <label className="labelCodigo">Código de Barras
-                                <input
-                                    type="number"
-                                    value={codigo}
-                                    onChange={(e) => setCodigo(e.target.value)}
-                                />
-                            </label>
-                            <label className="labelQtd">Qtd<input type="number" value={parseInt(qtd)} onChange={(e) => {
-                                const inputValue = e.target.value
-                                if (!isNaN(parseInt(inputValue)) && parseInt(inputValue) >= 0) {
-                                    setQtd(inputValue)
-                            }
-                                
-                            }} /></label>
+                            <label className="labelEAN">EAN:
+                            </label> <input className="inputEAN"
+                                type="number"
+                                value={codigo}
+                                onChange={(e) => setCodigo(e.target.value)}
+                            />
+                            <label className="labelQtd">Qtd:</label>
                             <button onClick={(e) => {
                                 e.preventDefault();
                                 adicionarAoCarrinho();
