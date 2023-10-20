@@ -142,13 +142,13 @@ th{color: rgb(0, 0, 0);}
 } */
 
 .tituloVenda{
-    display: flex;
-    align-items: center;
     justify-content: center; 
-    top: 0;
     color:rgb(0, 38, 87);
     font-size: 35px;
     font-weight: normal;
+    position: absolute;
+    top: 10px;
+    right: 205px;
 }
 
 .sales-container{
@@ -177,6 +177,8 @@ background-color: rgb(0, 38, 87);
     position: relative;
     height: 400px;
     border-radius: 5px;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius: 0;
     margin-top: 100px;
     padding: 20px;
     border: 1px solid rgb(0, 38, 87);
@@ -184,20 +186,20 @@ background-color: rgb(0, 38, 87);
 
 .labelQtd{
 position: absolute;
-max-width: 50px;
-bottom: 10px;
+bottom: 30px;
 color:rgb(0, 38, 87);
-right: 355px;
 display: flex;
 }
+
 .inputQtd{
-padding: 0;
+    padding: 0;
     border-radius: 0;
     color: rgb(0, 38, 87);
     position: absolute;
-    bottom: 79px;
-    width: 130px;
-    left: 78px;
+    bottom: 20px;
+    width: 80px;
+    height: 20px;
+    left: 67px;
     padding: 2px;
     border: 1px solid rgb(0, 38, 87);
 }
@@ -231,18 +233,18 @@ font-size: 30px;
 color: rgb(0, 38, 87);
 position: absolute;
 left: 0;
-margin-top: 10px;
+margin-top: -1px;
 border: 1px solid rgb(0, 38, 87);
 width: 100%;
 padding-top: 5px;
 padding-bottom: 5px;
-border-radius: 5px;
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+height: 50px;
+box-sizing: border-box;
 }
 
-.span{
-    background-color: white;
-    color:rgb(0, 38, 87);   
-}
+
 
 .carrinho{
 width: 95%;
@@ -268,25 +270,45 @@ overflow: auto;
     position: relative;
 }
 
-.buttonSales {
+.buttonAdd {
     position: absolute;
-    bottom: 20px;
-    left: 280px;
+    bottom: 27px;
+    left: 150px;
     background-color:rgb(0, 38, 87);
     color: rgb(255, 255, 255);
     border-radius: 5px;
-    height: 40px;
+    height: 50px;
     font-weight: none;
 }
-.buttonSales:hover {
+
+.buttonAdd:hover {
     background-color: #059200;
     color: white;
     /* Cor de fundo quando o mouse passa sobre o botão */
 }
+.labelTRD{
+    position: absolute;
+    bottom: 88px;
+    right: 158px;
+    font-size: 16px;
+
+}
+.inputTRD{
+    position: absolute;
+    padding: 0;
+    border-radius: 0;
+    color: rgb(0, 38, 87);
+    position: absolute;
+    bottom: 72px;
+    width: 130px;
+    right: 25px;
+    padding: 5px;
+    border: 1px solid rgb(0, 38, 87);
+}
 
 .buttonFinalizar{
     position: absolute;
-    bottom: 20px;
+    bottom: 2px;
     right: 8px;
     background-color:rgb(0, 38, 87);
     color: rgb(255, 255, 255);
@@ -301,6 +323,40 @@ overflow: auto;
     color: rgb(0, 38, 87);
     border: 1px solid rgb(0, 38, 87);
 }
+.troco{
+    position: absolute;
+    bottom: 47px;
+    font-size: 25px;
+    right: 160px;
+}
+.spanTroco{
+    position: absolute;
+    bottom: 43px;
+    right: 10px; 
+    width: 130px;
+    right: 15px;
+    padding: 5px;
+    border: 1px solid rgb(0, 38, 87);
+    background-color: rgb(230, 230, 230);
+}
+.total {
+    background-color: white;
+    color: rgb(0, 38, 87);
+    position: absolute;
+    bottom: 5px;
+    font-size: 30px;
+    right: 160px;
+}
+.spanTotal {
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+    width: 130px;
+    right: 15px;
+    padding: 5px;
+    border: 1px solid rgb(0, 38, 87);
+    background-color:rgb(230, 230, 230);
+}
 
 .carrinhoTotal{
     width: 30px;
@@ -308,7 +364,6 @@ overflow: auto;
     position: absolute;
     left: 20px;
     bottom: 6px;
-    
 }
 
 .imgRemover{
@@ -380,5 +435,5 @@ color: rgb(0, 38, 87);
 
 .liInformacao{
     border-bottom: 1px solid rgb(0, 38,87); 
-    margin-bottom: 8px;
+    margin-bottom: 13px;
 }

@@ -1,4 +1,4 @@
-import MenuToolbar from "../MenuToolbar";
+// import MenuToolbar from "../MenuToolbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import carrinhoTotal from '../../assets/imagens gestaoLite/carrinhoTotal.png';
@@ -15,6 +15,7 @@ interface Produto {
     categoria: string;
     estoque: string;
     qtd: number;
+    TRD: number;
 }
 
 function SalesScreen() {
@@ -23,6 +24,7 @@ function SalesScreen() {
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
     const [total, setTotal] = useState(0);
     const [qtd, setQtd] = useState("");
+    const [TRD, setTRD] = useState("")
 
     // O URL da solicitação deve ser construído corretamente
     const url = "http://localhost:3000/findProduto";
@@ -104,14 +106,28 @@ function SalesScreen() {
                                 onChange={(e) => setCodigo(e.target.value)}
                             />
                             <label className="labelQtd">Qtd:</label>
+                            <input type="number" className="inputQtd" value={parseInt(qtd)} onChange={(e) => {
+                                const inputValue = e.target.value
+                                if (!isNaN(parseInt(inputValue)) && parseInt(inputValue) >= 0) {
+                                    setQtd(inputValue)
+                                }
+
+                            }} />
                             <button onClick={(e) => {
                                 e.preventDefault();
                                 adicionarAoCarrinho();
-                            }} className="buttonSales">Adicionar</button>
-                            <button className="buttonFinalizar" type="submit">Finalizar</button>
+                            }} className="buttonAdd">Adicionar</button>
+                            <span className="labelTRD">Total recebido em Dinheiro:</span>
+
+                            <input value={parseFloat(TRD)} onChange={(e) => {
+                                setTRD(e.target.value)
+                            }} className="inputTRD" type="number" />
+
+                            <span className="troco">Troco R$:</span><span className="spanTroco">0,00</span>
+                            <span className="total">Total R$:</span><span className="spanTotal">{total.toFixed(2)}</span>
                         </form>
                     </div>
-                    <span className="totalCarrinho"> <img className="carrinhoTotal" src={carrinhoTotal} />Total R$ <span className="span">{total.toFixed(2)}</span></span>
+                    <span className="totalCarrinho"><img className="carrinhoTotal" src={carrinhoTotal} /><button className="buttonFinalizar" type="submit">Finalizar Venda</button></span>
 
                 </div>
             </div>
