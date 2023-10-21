@@ -36,6 +36,8 @@ select {
     color: white;
 }
 
+
+
 /* Estilo para o cabeçalho do formulário */
  .registroH1{
     margin-top: 20px;
@@ -339,6 +341,21 @@ overflow: auto;
     border: 1px solid rgb(0, 38, 87);
     background-color: rgb(230, 230, 230);
 }
+
+
+
+.vermelho {
+    background-color: red;
+    color: white;
+    /* Outros estilos vermelhos, se necessário */
+}
+
+.gray {
+    background-color: rgb(230, 230, 230);
+    
+    /* Outros estilos verdes, se necessário */
+}
+
 .total {
     background-color: white;
     color: rgb(0, 38, 87);

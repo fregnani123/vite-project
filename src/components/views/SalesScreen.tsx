@@ -15,16 +15,18 @@ interface Produto {
     categoria: string;
     estoque: string;
     qtd: number;
-    TRD: number;
+   
 }
+
 
 function SalesScreen() {
     const [data, setData] = useState<Produto[]>([]);
     const [codigo, setCodigo] = useState("");
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
     const [total, setTotal] = useState(0);
-    const [qtd, setQtd] = useState("");
-    const [TRD, setTRD] = useState("")
+    const [qtd, setQtd] = useState(""); 
+    const [TRD, setTRD] = useState(0);
+   
 
     // O URL da solicitação deve ser construído corretamente
     const url = "http://localhost:3000/findProduto";
@@ -40,14 +42,13 @@ function SalesScreen() {
             });
     }, []);
 
-    useEffect(() => {
-        calcularTotal();
-    }, [carrinho]); //atualiza o estado do carrinho sempre que for add um novo item
+  
 
     function encontrarProdutoPorCodigo(codigo: number) {
         return data.find(produto => produto.codigoDeBarras === codigo);
     }
 
+  
     function adicionarAoCarrinho() {
         const produtoSelecionado = encontrarProdutoPorCodigo(Number(codigo));
         if (produtoSelecionado && parseInt(qtd) > 0) {
@@ -64,6 +65,10 @@ function SalesScreen() {
         const novoTotal = carrinho.reduce((acc, produto) => acc + produto.preco * (produto.qtd || 1), 0);
         setTotal(novoTotal);
     }
+    
+    function calcularTroco(trocoRecebido: number, total: number): number {
+        return trocoRecebido - total;
+    }
 
     function removerDoCarrinho(index: number) {
         const novoCarrinho = [...carrinho];
@@ -71,6 +76,10 @@ function SalesScreen() {
         setCarrinho(novoCarrinho); // Atualiza o estado do carrinho
         calcularTotal(); // Recalcula o total
     }
+
+      useEffect(() => {
+        calcularTotal();
+    }, [carrinho,TRD]); //atualiza o estado do carrinho sempre que for add um novo item
 
     return (
         <div className="sales-container">
@@ -81,16 +90,16 @@ function SalesScreen() {
                     <div className="cupom-form">
                         <h1 className="tituloVenda">Tela de Venda</h1>
                         <ul className="carrinho"><br />
-                            <li className="liInformacao"><tr className="trInformacao">
-                                <th className="thCliente" >Cliente:<select className="selectCliente">
+                            <li className="liInformacao"><span className="trInformacao">
+                                <span className="thCliente" >Cliente:<select className="selectCliente">
                                     <option value="">Consumidor</option>
-                                </select></th>
-                                <th className="thNome" ></th>
-                                <th className="thPag" > Pgto:<select className="selectPag">
+                                </select></span>
+                                <span className="thNome" ></span>
+                                <span className="thPag" > Pgto:<select className="selectPag">
                                     <option value="">À vista</option>
-                                </select></th>
-                                <th className="thExcluir">Excluir produto ↓</th>
-                            </tr></li>
+                                </select></span>
+                                <span className="thExcluir">Excluir produto ↓</span>
+                            </span></li>
                             {carrinho.map((produto, index) => (
                                 <li className="liCarrinho" key={index}>
                                     {`${produto.codigoDeBarras} ${produto.nome} ${produto.qtd}x - R$ ${produto.preco.toFixed(2)}`}
@@ -98,14 +107,14 @@ function SalesScreen() {
                                 </li>
                             ))}
                         </ul>
-                        <form >
-                            <label className="labelEAN">EAN:
-                            </label> <input className="inputEAN"
+                        <form>
+                            <span className="labelEAN">EAN:
+                            </span><input className="inputEAN"
                                 type="number"
                                 value={codigo}
                                 onChange={(e) => setCodigo(e.target.value)}
                             />
-                            <label className="labelQtd">Qtd:</label>
+                            <span className="labelQtd">Qtd:</span>
                             <input type="number" className="inputQtd" value={parseInt(qtd)} onChange={(e) => {
                                 const inputValue = e.target.value
                                 if (!isNaN(parseInt(inputValue)) && parseInt(inputValue) >= 0) {
@@ -119,11 +128,30 @@ function SalesScreen() {
                             }} className="buttonAdd">Adicionar</button>
                             <span className="labelTRD">Total recebido em Dinheiro:</span>
 
-                            <input value={parseFloat(TRD)} onChange={(e) => {
-                                setTRD(e.target.value)
-                            }} className="inputTRD" type="number" />
+                            <input
+                                type="number"
+                                className="inputTRD"
+                                value={TRD === 0 ? "" : TRD}
+                                onChange={(e) => {
+                                    const inputValue = e.target.value;
+                                    if (inputValue === "" || inputValue === "0" || (inputValue.startsWith("0.") && inputValue.length === 2)) {
+                                        // Limpar o TRD se estiver vazio, "0" ou "0." (deixe apenas o ponto decimal)
+                                        setTRD(0);
+                                    } else {
+                                        const parsedValue = parseFloat(inputValue);
+                                        if (!isNaN(parsedValue) && parsedValue >= 0) {
+                                            setTRD(parsedValue);
+                                        }
+                                    }
+                                }}
+                            />
 
-                            <span className="troco">Troco R$:</span><span className="spanTroco">0,00</span>
+                            <span className="troco">Troco R$:</span>
+                            <span className={`spanTroco ${calcularTroco(TRD, total) < 0 ? 'vermelho' : 'gray'}`}>
+                                {isNaN(TRD) ? '0.00' : calcularTroco(TRD, total).toFixed(2)
+                                }
+                            </span>
+
                             <span className="total">Total R$:</span><span className="spanTotal">{total.toFixed(2)}</span>
                         </form>
                     </div>
