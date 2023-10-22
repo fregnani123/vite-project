@@ -1,9 +1,9 @@
 // import MenuToolbar from "../MenuToolbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import carrinhoTotal from '../../assets/imagens gestaoLite/carrinhoTotal.png';
+// import carrinhoTotal from '../../assets/imagens gestaoLite/carrinhoTotal.png';
 import imgRemover from '../../assets/imagens gestaoLite/remover.png';
-
+import imgCarrinho from '../../assets/imagens gestaoLite/carrinho-de-compras.png'
 import '../views/queryProdutos.css';
 
 interface Produto {
@@ -24,7 +24,7 @@ function SalesScreen() {
     const [codigo, setCodigo] = useState("");
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
     const [total, setTotal] = useState(0);
-    const [qtd, setQtd] = useState(""); 
+    const [Qtd, setQtd] = useState(""); 
     const [TRD, setTRD] = useState(0);
    
 
@@ -48,11 +48,10 @@ function SalesScreen() {
         return data.find(produto => produto.codigoDeBarras === codigo);
     }
 
-  
     function adicionarAoCarrinho() {
-        const produtoSelecionado = encontrarProdutoPorCodigo(Number(codigo));
-        if (produtoSelecionado && parseInt(qtd) > 0) {
-            const produtoComQtd = { ...produtoSelecionado, qtd: parseInt(qtd)};
+        const produtoSelecionado = encontrarProdutoPorCodigo(parseInt(codigo));
+        if (produtoSelecionado && parseInt(Qtd) > 0) {
+            const produtoComQtd = { ...produtoSelecionado, qtd: parseInt(Qtd)};
             setCarrinho([...carrinho, produtoComQtd]);
             setCodigo(""); // Limpa o campo de código
             setQtd(""); // Limpa o campo de quantidade
@@ -82,84 +81,59 @@ function SalesScreen() {
     }, [carrinho,TRD]); //atualiza o estado do carrinho sempre que for add um novo item
 
     return (
-        <div className="sales-container">
-            {/* <div><MenuToolbar/></div> */}
-            <div className="cupom">
-                <div className="cupom-div">
+        <div className="venda-container">
+          <div className="entradas-saidas">
+            <ul className="cupom-form">
+                {carrinho.map((produto, index) => (
+                    <li key={index}>
+                        <span className="nome-produto">{produto.nome}</span>
+                        <span className="preco-produto">{produto.preco.toFixed(2)}</span>
+                        {<img 
+                            onClick={() => {
+                                removerDoCarrinho(index)
+                        }}
+                        className="imgRemover" src={imgRemover}/>}
+                    </li>
+                ))}
+            </ul>
+            
+        <form>
+
+        <label className="labelEAN">
+        EAN:</label ><input
+                    onChange={(e) => {
+                        setCodigo(e.target.value)    
+        }}
+                    value={codigo} className="inputEAN" type="numbem" />
+        
+        <label className="labelQtd">
+                    Qtd:</label><input
+                    className="inputQtd" type="number"
+                    value={Qtd}
+                    onChange={(e) => {
+                        setQtd(e.target.value) 
+                    }
+                    }
+                   
+                    />
+                    <label className="labelTRD">Dinheiro recebido:</label><input className="inputTRD" type="number" />           
+                
+                <button className="buttonAdd" 
+                    onClick={(e) => {
+                        e.preventDefault()
+                        adicionarAoCarrinho()
+        }} >Adicionar ao carrinho</button>
                     
-                    <div className="cupom-form">
-                        <h1 className="tituloVenda">Tela de Venda</h1>
-                        <ul className="carrinho"><br />
-                            <li className="liInformacao"><span className="trInformacao">
-                                <span className="thCliente" >Cliente:<select className="selectCliente">
-                                    <option value="">Consumidor</option>
-                                </select></span>
-                                <span className="thNome" ></span>
-                                <span className="thPag" > Pgto:<select className="selectPag">
-                                    <option value="">À vista</option>
-                                </select></span>
-                                <span className="thExcluir">Excluir produto ↓</span>
-                            </span></li>
-                            {carrinho.map((produto, index) => (
-                                <li className="liCarrinho" key={index}>
-                                    {`${produto.codigoDeBarras} ${produto.nome} ${produto.qtd}x - R$ ${produto.preco.toFixed(2)}`}
-                                    <span className="btnRemover" onClick={() => removerDoCarrinho(index)}><img className="imgRemover" src={imgRemover} /> ←</span>
-                                </li>
-                            ))}
-                        </ul>
-                        <form>
-                            <span className="labelEAN">EAN:
-                            </span><input className="inputEAN"
-                                type="number"
-                                value={codigo}
-                                onChange={(e) => setCodigo(e.target.value)}
-                            />
-                            <span className="labelQtd">Qtd:</span>
-                            <input type="number" className="inputQtd" value={parseInt(qtd)} onChange={(e) => {
-                                const inputValue = e.target.value
-                                if (!isNaN(parseInt(inputValue)) && parseInt(inputValue) >= 0) {
-                                    setQtd(inputValue)
-                                }
+                </form> 
 
-                            }} />
-                            <button onClick={(e) => {
-                                e.preventDefault();
-                                adicionarAoCarrinho();
-                            }} className="buttonAdd">Adicionar</button>
-                            <span className="labelTRD">Total recebido em Dinheiro:</span>
-
-                            <input
-                                type="number"
-                                className="inputTRD"
-                                value={TRD === 0 ? "" : TRD}
-                                onChange={(e) => {
-                                    const inputValue = e.target.value;
-                                    if (inputValue === "" || inputValue === "0" || (inputValue.startsWith("0.") && inputValue.length === 2)) {
-                                        // Limpar o TRD se estiver vazio, "0" ou "0." (deixe apenas o ponto decimal)
-                                        setTRD(0);
-                                    } else {
-                                        const parsedValue = parseFloat(inputValue);
-                                        if (!isNaN(parsedValue) && parsedValue >= 0) {
-                                            setTRD(parsedValue);
-                                        }
-                                    }
-                                }}
-                            />
-
-                            <span className="troco">Troco R$:</span>
-                            <span className={`spanTroco ${calcularTroco(TRD, total) < 0 ? 'vermelho' : 'gray'}`}>
-                                {isNaN(TRD) ? '0.00' : calcularTroco(TRD, total).toFixed(2)
-                                }
-                            </span>
-
-                            <span className="total">Total R$:</span><span className="spanTotal">{total.toFixed(2)}</span>
-                        </form>
-                    </div>
-                    <span className="totalCarrinho"><img className="carrinhoTotal" src={carrinhoTotal} /><button className="buttonFinalizar" type="submit">Finalizar Venda</button></span>
-
-                </div>
+              <div className="informacoes-cupom">       
+                    <p className="total" >Total R$:</p>
+                    <span className="spanTotal" > {total.toFixed(2)}</span>
+                </div> 
+                <img className="imgCarrinho" src={imgCarrinho}/>
             </div>
         </div>
+       
     );
 }
 

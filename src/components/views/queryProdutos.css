@@ -139,10 +139,8 @@ th{color: rgb(0, 0, 0);}
 }
 
 /* tela Venda */
-/* .h2{
-   padding-top: 10px;
-} */
 
+/* 
 .tituloVenda{
     justify-content: center; 
     color:rgb(0, 38, 87);
@@ -151,46 +149,97 @@ th{color: rgb(0, 0, 0);}
     position: absolute;
     top: 10px;
     right: 205px;
-}
+} */
 
-.sales-container{
+.venda-container{
 display: flex;
 height: 100vh;
 width: 100%;
-/* align-items: center;
-text-align: center; */
+align-items: center;
+text-align: center; 
+justify-content: center;
 background-color: rgb(0, 38, 87);
 }
 
-.cupom{
-    margin-bottom: 10px;
-    height: 100vh;
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    position: relative;
-   
-}
+
 .cupom-form{
     background-color: rgb(255, 255, 255);
-    width: 570px;
+    width: 300px;
     color:rgb(0, 38, 87);
-    font-size: 20px;
+    font-size: 15px;
     position: relative;
-    height: 400px;
-    border-radius: 5px;
-    border-bottom-left-radius:0;
-    border-bottom-right-radius: 0;
-    margin-top: 100px;
+    height: 300px;
     padding: 20px;
     border: 1px solid rgb(0, 38, 87);
+    margin-top: 50px;
+    margin-left: 20px;
+    
+}
+.informacoes-cupom{
+    border: 1px solid rgb(0, 38, 87);
+    height: 300px;
+    width: 315px;
+    position: absolute;
+    bottom: 110px;
+    right: 10px;
+}
+
+.total {
+    left: 5px;
+    bottom: 10px;
+    position: absolute;
+    font-size: 25px;
+    box-sizing: border-box;
+    color: rgb(0, 38, 87)
+}
+
+.spanTotal {
+    background-color:white;
+    width: 200px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 40px;
+    color: rgb(0, 38, 87);
+    border: 1px solid rgba(0, 38, 87, 0.74);
+}
+
+.entradas-saidas{
+    width: 700px;
+    height: 600px;
+    position: relative;
+    background-color: #fbffdf;
+}
+
+.nome-produto {
+    float: left;
+    /* Alinha o nome do produto à esquerda */
+    margin-right: 10px;
+    /* Adiciona espaço entre o nome do produto e o preço */
+}
+
+.preco-produto {
+    float: center;
+    /* Alinha o preço no centro */
+}
+
+
+.imgRemover {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    width: 15px;
+    height: auto;
+    cursor: pointer;
+    float: right;
 }
 
 .labelQtd{
 position: absolute;
-bottom: 30px;
+bottom: 140px;
 color:rgb(0, 38, 87);
 display: flex;
+left: 140px;
 }
 
 .inputQtd{
@@ -198,115 +247,91 @@ display: flex;
     border-radius: 0;
     color: rgb(0, 38, 87);
     position: absolute;
-    bottom: 20px;
+    bottom: 130px;
     width: 80px;
     height: 20px;
-    left: 67px;
+    left: 180px;
     padding: 2px;
     border: 1px solid rgb(0, 38, 87);
 }
 
 .labelEAN{
 position: absolute;
-bottom: 80px;
+bottom: 170px;
 color: rgb(0, 38, 87);
-left: 20px;
+left: 130px;
 display: flex;
 }
+
 .inputEAN{
     padding: 0;
     border-radius: 0;
     color: rgb(0, 38, 87);
     position: absolute;
-    bottom: 72px;
+    bottom: 162px;
     width: 130px;
-    left: 78px;
+    left: 180px;
     padding: 2px;
     border: 1px solid rgb(0, 38, 87);
 }
 
-.cupom-div{
-    position: relative;
-}
-
-.totalCarrinho{
-background-color: white;
-font-size: 30px;
-color: rgb(0, 38, 87);
-position: absolute;
-left: 0;
-margin-top: -1px;
-border: 1px solid rgb(0, 38, 87);
-width: 100%;
-padding-top: 5px;
-padding-bottom: 5px;
-border-bottom-left-radius: 5px;
-border-bottom-right-radius: 5px;
-height: 50px;
-box-sizing: border-box;
-}
-
-
-
-.carrinho{
-width: 95%;
-height: 250px;
-border: 1px solid rgb(0, 38, 87);;
-position: absolute;
-top: 65px;
-right: 2.5%;
-background-color: white;
-box-sizing: border-box;
-overflow: auto;
-}
-.imgCarrinho {
-    width: 60px;
-}
-.liCarrinho{
-    font-size: 15px;
-    text-align: start;
-    color: rgb(0, 38, 87);
-    margin-top: 2px;
-    margin-left: 5px;
-    /* background-color: red; */
-    position: relative;
-}
-
 .buttonAdd {
     position: absolute;
-    bottom: 27px;
-    left: 150px;
-    background-color:rgb(0, 38, 87);
+    bottom: 80px;
+    left: 140px;
+    background-color: rgb(0, 38, 87);
     color: rgb(255, 255, 255);
     border-radius: 5px;
     height: 50px;
     font-weight: none;
 }
-
 .buttonAdd:hover {
     background-color: #059200;
     color: white;
     /* Cor de fundo quando o mouse passa sobre o botão */
 }
+
+.imgCarrinho{
+    font-size: 15px;
+    color: rgb(0, 38, 87);
+    /* background-color: red; */
+    position: absolute;
+    width: 120px;
+    bottom: 70px;
+    left: 10px;
+}
+
+
+
+
 .labelTRD{
     position: absolute;
-    bottom: 88px;
-    right: 158px;
+    top: 135px;
+    right: 175px;
     font-size: 16px;
+    font-size: 20px;
+}
 
-}
-.inputTRD{
+.inputTRD {
     position: absolute;
-    padding: 0;
-    border-radius: 0;
-    color: rgb(0, 38, 87);
-    position: absolute;
-    bottom: 72px;
-    width: 130px;
-    right: 25px;
-    padding: 5px;
+    top: 110px;
+    right: 20px;
+    width: 140px;
+    padding: 10px;
     border: 1px solid rgb(0, 38, 87);
+    font-size: 30px;
+    color: rgb(0, 38, 87);
+    border-radius: 0;
 }
+
+/* Estilize o controle interno do input number / remove as setas*/
+.inputTRD::-webkit-inner-spin-button,
+.inputTRD::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
 
 .buttonFinalizar{
     position: absolute;
@@ -342,8 +367,6 @@ overflow: auto;
     background-color: rgb(230, 230, 230);
 }
 
-
-
 .vermelho {
     background-color: red;
     color: white;
@@ -356,101 +379,14 @@ overflow: auto;
     /* Outros estilos verdes, se necessário */
 }
 
-.total {
-    background-color: white;
-    color: rgb(0, 38, 87);
-    position: absolute;
-    bottom: 5px;
-    font-size: 30px;
-    right: 160px;
-}
-.spanTotal {
-    position: absolute;
-    bottom: 3px;
-    right: 10px;
-    width: 130px;
-    right: 15px;
-    padding: 5px;
-    border: 1px solid rgb(0, 38, 87);
-    background-color:rgb(230, 230, 230);
-}
-
-.carrinhoTotal{
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 20px;
-    bottom: 6px;
-}
-
-.imgRemover{
-    width: 30px;
-    height: 30px;
-    background-color: white;
-}
-
-.btnRemover{
-   background-color: rgb(255, 255, 255);
-   margin-left: 10px;
-   padding-right: 3px;
-   position: absolute;
-   right: 100px;
-}
-.imgRemover{
-    width: 15px;
-    height: auto;
-    cursor: pointer;
-}
 
 
-.selectCliente{
-    width: 130px;
-    margin-left: 1px;
-    margin-top: 1px;
-    padding: 0px;
-    border-radius: 0;
-    color:rgb(0, 38, 87);
-    border: 1px solid rgb(0, 38, 87);
-}
-.selectPag{
-    width: 130px;
-    margin-left: 1px;
-    margin-top: 1px;
-    padding: 0px;
-    border-radius: 0;
-    color: rgb(0, 38, 87);
-    border: 1px solid rgb(0, 38, 87);
-}
-.thPag{
-position: absolute;
-top: 0;
-left: 210px;
-width: 210px;
-display: flex;
-font-weight: normal;
-margin-left: 1px;
-color: rgb(0, 38, 87);
-}
 
-.thCliente {
-   position: absolute;
-   top: 0;
-   width: 210px;
-   display: flex;
-   font-weight: normal;
-   margin-left: 5px;
-   color: rgb(0, 38, 87);
-}
 
-.thExcluir {
-    position: absolute;
-    right: 30px;
-    top: 0;
-    color: rgb(0, 38, 87);
-    font-weight: normal;
-}
 
-.liInformacao{
-    border-bottom: 1px solid rgb(0, 38,87); 
-    margin-bottom: 13px;
-}
+
+
+
+
+
+
