@@ -3,8 +3,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 // import carrinhoTotal from '../../assets/imagens gestaoLite/carrinhoTotal.png';
 import imgRemover from '../../assets/imagens gestaoLite/remover.png';
-import imgCarrinho from '../../assets/imagens gestaoLite/carrinho-de-compras.png'
+import imgCarrinho from '../../assets/imagens gestaoLite/carrinho-de-compras.png';
+import lupa from '../../assets/imagens gestaoLite/procurar.png'
 import '../views/queryProdutos.css';
+
 
 interface Produto {
     _id: string;
@@ -15,7 +17,7 @@ interface Produto {
     categoria: string;
     estoque: string;
     qtd: number;
-   
+  
 }
 
 
@@ -26,7 +28,9 @@ function SalesScreen() {
     const [total, setTotal] = useState(0);
     const [Qtd, setQtd] = useState(""); 
     const [TRD, setTRD] = useState(0);
-   
+    const [produtoImprimir, setProdutoImprimir] = useState<Produto[]>([]);
+
+    
 
     // O URL da solicitação deve ser construído corretamente
     const url = "http://localhost:3000/findProduto";
@@ -47,6 +51,7 @@ function SalesScreen() {
     function encontrarProdutoPorCodigo(codigo: number) {
         return data.find(produto => produto.codigoDeBarras === codigo);
     }
+
 
     function adicionarAoCarrinho() {
         const produtoSelecionado = encontrarProdutoPorCodigo(parseInt(codigo));
@@ -76,13 +81,15 @@ function SalesScreen() {
         calcularTotal(); // Recalcula o total
     }
 
-      useEffect(() => {
+    useEffect(() => {
         calcularTotal();
-    }, [carrinho,TRD]); //atualiza o estado do carrinho sempre que for add um novo item
+      
+    }, [carrinho,TRD,]); //atualiza o estado do carrinho sempre que for add um novo item
 
     return (
         <div className="venda-container">
-          <div className="entradas-saidas">
+            <div className="entradas-saidas">
+                <h1 className="titulo-venda">Tela de venda</h1>
             <ul className="cupom-form">
                 {carrinho.map((produto, index) => (
                     <li key={index}>
@@ -102,7 +109,7 @@ function SalesScreen() {
         <label className="labelEAN">
         EAN:</label ><input
                     onChange={(e) => {
-                        setCodigo(e.target.value)    
+                            setCodigo(e.target.value)   
         }}
                     value={codigo} className="inputEAN" type="numbem" />
         
@@ -130,7 +137,14 @@ function SalesScreen() {
                     <p className="total" >Total R$:</p>
                     <span className="spanTotal" > {total.toFixed(2)}</span>
                 </div> 
-                <img className="imgCarrinho" src={imgCarrinho}/>
+                <img className="imgCarrinho" src={imgCarrinho} />
+                <ul className="produto-encontrado">
+                    {produtoImprimir.map((produto,index) => (
+                        <li key={index}>{produto.nome}</li>
+                    ))}
+                </ul>
+
+<img className="lupa" src={lupa} />
             </div>
         </div>
        
