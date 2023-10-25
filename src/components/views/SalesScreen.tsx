@@ -27,9 +27,9 @@ function SalesScreen() {
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
     const [total, setTotal] = useState(0);
     const [Qtd, setQtd] = useState(""); 
-    const [TRD, setTRD] = useState(0);
-    const [produtoImprimir, setProdutoImprimir] = useState<Produto[]>([]);
-
+    const [inputTroco, setTroco] = useState(0);
+    const [search, setSearch] = useState('');
+    const [formaPagamento, setPagamento]=useState('A Vista')
     
 
     // O URL da solicitação deve ser construído corretamente
@@ -47,11 +47,14 @@ function SalesScreen() {
     }, []);
 
   
+    const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
 
+        
     function encontrarProdutoPorCodigo(codigo: number) {
         return data.find(produto => produto.codigoDeBarras === codigo);
     }
 
+    
 
     function adicionarAoCarrinho() {
         const produtoSelecionado = encontrarProdutoPorCodigo(parseInt(codigo));
@@ -61,7 +64,7 @@ function SalesScreen() {
             setCodigo(""); // Limpa o campo de código
             setQtd(""); // Limpa o campo de quantidade
         } else {
-            console.log("Erro: Produto não encontrado ou quantidade inválida.");
+             alert("Produto não encontrado ou quantidade inválida.");
         }
     }
 
@@ -74,26 +77,42 @@ function SalesScreen() {
         return trocoRecebido - total;
     }
 
+    const resultadoTroco = calcularTroco(inputTroco, total)
+    console.log(resultadoTroco)
+
     function removerDoCarrinho(index: number) {
         const novoCarrinho = [...carrinho];
         novoCarrinho.splice(index, 1); // Remove o item do carrinho
         setCarrinho(novoCarrinho); // Atualiza o estado do carrinho
         calcularTotal(); // Recalcula o total
+        
     }
 
     useEffect(() => {
         calcularTotal();
       
-    }, [carrinho,TRD,]); //atualiza o estado do carrinho sempre que for add um novo item
+    }, [carrinho, inputTroco]); //atualiza o estado do carrinho sempre que for add um novo item
 
     return (
         <div className="venda-container">
             <div className="entradas-saidas">
                 <h1 className="titulo-venda">Tela de venda</h1>
-            <ul className="cupom-form">
+                <ul className="cupom-form">
+                    <li><span className="cod">cod.</span>
+                        <span className="index">num.</span>
+                        <span className="nome-produto">nome</span>
+                        <span className="Qtd">Qtd</span>
+                        <span className="preco-produto">valor</span>
+                        <span className="imgRemover" >excluir</span>
+                    </li>
+                        
+                       
                 {carrinho.map((produto, index) => (
                     <li key={index}>
+                        <span className="cod">{produto.codigoDeBarras}</span>
+                        <span className="index">{index + 1}</span>
                         <span className="nome-produto">{produto.nome}</span>
+                        <span className="Qtd">{`${produto.qtd}x`}</span>
                         <span className="preco-produto">{produto.preco.toFixed(2)}</span>
                         {<img 
                             onClick={() => {
@@ -106,9 +125,18 @@ function SalesScreen() {
             
         <form>
 
+        <label className="labelPagamento">
+        Pagamento:</label ><input
+                        onChange={(e) => {
+                            setSearch(e.target.value)
+                            setCodigo(e.target.value)   
+        }}
+                    value={formaPagamento} className="inputPagamento" type="string" />
+        
         <label className="labelEAN">
         EAN:</label ><input
-                    onChange={(e) => {
+                        onChange={(e) => {
+                            setSearch(e.target.value)
                             setCodigo(e.target.value)   
         }}
                     value={codigo} className="inputEAN" type="numbem" />
@@ -117,32 +145,44 @@ function SalesScreen() {
                     Qtd:</label><input
                     className="inputQtd" type="number"
                     value={Qtd}
-                    onChange={(e) => {
-                        setQtd(e.target.value) 
+                        onChange={(e) => {
+                            setQtd(e.target.value)
+                          
                     }
                     }
                    
                     />
-                    <label className="labelTRD">Dinheiro recebido:</label><input className="inputTRD" type="number" />           
+                    <label className="labelTRD">Dinheiro recebido:</label><input value={inputTroco} onChange={(e) => {
+                        setTroco(parseFloat(e.target.value))
+                    }} className="inputTRD" type="number" />        
                 
                 <button className="buttonAdd" 
                     onClick={(e) => {
                         e.preventDefault()
                         adicionarAoCarrinho()
-        }} >Adicionar ao carrinho</button>
+                        }} >Adicionar ao carrinho</button>
+                    
+                    <button className="buttonFinalizar" type="submit"
+                    >Finalizar Compra</button>
                     
                 </form> 
 
               <div className="informacoes-cupom">       
-                    <p className="total" >Total R$:</p>
-                    <span className="spanTotal" > {total.toFixed(2)}</span>
+                    <p className="total" >Total da Compra</p>
+                    <span className={total <= 0 ? "spanTotal" : "spanTotalVermelho"}>{`R$ ${total.toFixed(2)}`}</span>
+                    <p className="troco">Troco</p>
+                    <span className="spanTroco">{resultadoTroco >= 0 ? `R$ ${resultadoTroco.toFixed(2)}` : 'R$ 0.00'}</span>
+
                 </div> 
                 <img className="imgCarrinho" src={imgCarrinho} />
                 <ul className="produto-encontrado">
-                    {produtoImprimir.map((produto,index) => (
-                        <li key={index}>{produto.nome}</li>
+                    {filterData.map((produto, index) => (
+                        <li key={index}>
+                            {`${produto.nome}: ${produto.descricao} `}
+                        </li>
                     ))}
                 </ul>
+
 
 <img className="lupa" src={lupa} />
             </div>

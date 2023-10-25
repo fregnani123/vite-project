@@ -58,7 +58,6 @@ form input {
     padding: 10px;
     margin: 10px -10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
     font-size: 16px;
 }
 
@@ -163,7 +162,7 @@ background-color: rgb(0, 38, 87);
     background-color: rgb(255, 255, 255);
     width: 300px;
     color:rgb(0, 38, 87);
-    font-size: 15px;
+    font-size: 14px;
     position: relative;
     height: 270px;
     padding: 20px;
@@ -174,32 +173,46 @@ background-color: rgb(0, 38, 87);
 }
 .informacoes-cupom{
     border: 1px solid rgb(0, 38, 87);
-    height: 300px;
+    height: 280px;
     width: 315px;
     position: absolute;
     bottom: 110px;
     right: 10px;
+    background-color: white;
 }
 
 .total {
-    left: 5px;
-    bottom: 10px;
+    left: 40px;
+    bottom: 65px;
     position: absolute;
-    font-size: 25px;
+    font-size: 35px;
     box-sizing: border-box;
-    color: rgb(0, 38, 87)
+    color: rgb(0, 0, 0)
+}
+.spanTotalVermelho {
+    color: rgb(235, 0, 0);
+    background-color: white;
+    width: 300px;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    font-size: 43px;
+    border: 1px solid rgba(0, 38, 87, 0.74);
+    border-radius: 5px;
 }
 
 .spanTotal {
-    background-color:white;
-    width: 200px;
+    background-color: white;
+    width: 300px;
     position: absolute;
     bottom: 10px;
-    right: 10px;
-    font-size: 40px;
-    color: rgb(0, 38, 87);
+    right: 7px;
+    font-size: 43px;
     border: 1px solid rgba(0, 38, 87, 0.74);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
 }
+
 
 .entradas-saidas{
     width: 700px;
@@ -207,7 +220,19 @@ background-color: rgb(0, 38, 87);
     position: relative;
     background-color: #fbffdf;
 }
-
+.Qtd{
+    margin-right:10px ;
+    float: center;
+    
+}
+.cod{
+    float: left;
+    margin-right: 10px;
+}
+.index{
+    float: left;
+    margin-right: 5px;
+}
 .nome-produto {
     float: left;
     /* Alinha o nome do produto à esquerda */
@@ -292,7 +317,7 @@ display: flex;
     border-top: 1px solid rgb(0, 38, 87);
     border-bottom: 1px solid rgb(0, 38, 87);
     border-right: 1px solid rgb(0, 38, 87);
-    color:rgb(0, 38, 87);
+    color:rgb(0, 0, 0);
     position: absolute;
     height: 30px;
     width: 320px;
@@ -303,6 +328,8 @@ display: flex;
     /* Centralizar horizontalmente */
     align-items: center;
     /* Centralizar verticalmente */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .imgCarrinho{
@@ -313,6 +340,7 @@ display: flex;
     width: 120px;
     bottom: 50px;
     left: 10px;
+    
 }
 
 .lupa{
@@ -325,11 +353,13 @@ display: flex;
     border-top: 1px solid rgb(0, 38, 87);
     border-left: 1px solid rgb(0, 38, 87);
     border-bottom: 1px solid rgb(0, 38, 87);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .labelTRD{
     position: absolute;
-    top: 135px;
+    top: 155px;
     right: 175px;
     font-size: 16px;
     font-size: 20px;
@@ -337,7 +367,7 @@ display: flex;
 
 .inputTRD {
     position: absolute;
-    top: 110px;
+    top: 130px;
     right: 20px;
     width: 140px;
     padding: 10px;
@@ -358,51 +388,73 @@ display: flex;
 
 .buttonFinalizar{
     position: absolute;
-    bottom: 2px;
+    bottom: 35px;
     right: 8px;
-    background-color:rgb(0, 38, 87);
     color: rgb(255, 255, 255);
-    font-weight: none;
     border-radius: 5px;
-    height: 40px;
-    font-size: 13px;
+    height: 60px;
+    font-size: 25px;
+    font-weight:bold;
+    background: rgb(0, 38, 87);
+   
 }
 
 .buttonFinalizar:hover{
-    background: yellow;
-    color: rgb(0, 38, 87);
-    border: 1px solid rgb(0, 38, 87);
+    background-color: rgb(231, 0, 0);
+    color: rgb(255, 255, 255);
+    
 }
+
+
+
+.produto-encontrado{
+    font-size: 14px;
+}
+
 .troco{
     position: absolute;
-    bottom: 47px;
+    bottom: 120px;
+    right: 220px;
+    color: rgb(0, 1, 2);
+    position: absolute;
     font-size: 25px;
-    right: 160px;
 }
 .spanTroco{
     position: absolute;
-    bottom: 43px;
-    right: 10px; 
-    width: 130px;
+    bottom: 120px;
+    left: 100px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 38, 87);
+    background-color: white;
     right: 15px;
     padding: 5px;
+    width: 195px;
+    overflow-y:auto;
+}
+
+.labelPagamento{
+    position: absolute;
+    top: 105px;
+    right: 180px;
+    font-size: 20px;
+}
+.inputPagamento{
+    position: absolute;
+    top: 90px;
+    right: 60px;
+    font-size: 20px;
+    width: 100px;
+    height: 10px;
+    color:rgb(0, 38, 87);
     border: 1px solid rgb(0, 38, 87);
-    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
 }
-
-.vermelho {
-    background-color: red;
-    color: white;
-    /* Outros estilos vermelhos, se necessário */
-}
-
-.gray {
-    background-color: rgb(230, 230, 230);
     
-    /* Outros estilos verdes, se necessário */
-}
 
-
+    
+    
+    
 
 
 
