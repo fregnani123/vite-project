@@ -53,7 +53,7 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
                 </button>
             </form>
             <footer>
-                <p className="copy">© 2023 Fabiano Fregnani - Front-End Developer.</p>
+                <p className="copy">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</p>
             </footer>
         </>
     )

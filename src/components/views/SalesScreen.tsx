@@ -29,9 +29,13 @@ function SalesScreen() {
     const [Qtd, setQtd] = useState(""); 
     const [inputTroco, setTroco] = useState(0);
     const [search, setSearch] = useState('');
-    const [formaPagamento, setPagamento]=useState('A Vista')
+    const [formaPagamento, setPagamento] = useState('À Vista');
+    const [adicionarCliente,setCliente] = useState("Consumidor")
     
-
+    console.log(carrinho)
+       
+   
+    
     // O URL da solicitação deve ser construído corretamente
     const url = "http://localhost:3000/findProduto";
 
@@ -46,7 +50,9 @@ function SalesScreen() {
             });
     }, []);
 
-  
+    
+
+
     const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
 
         
@@ -94,23 +100,24 @@ function SalesScreen() {
     }, [carrinho, inputTroco]); //atualiza o estado do carrinho sempre que for add um novo item
 
     return (
-        <div className="venda-container">
+        <div className="venda-container" >
+        <div className="acabamento-tela" >
             <div className="entradas-saidas">
                 <h1 className="titulo-venda">Tela de venda</h1>
                 <ul className="cupom-form">
-                    <li><span className="cod">cod.</span>
-                        <span className="index">num.</span>
-                        <span className="nome-produto">nome</span>
+                    <li className="descricaoItens"><span className="cod">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cod. &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span className="index">num. &nbsp;&nbsp;</span>
+                        <span className="nome-produto">nome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <span className="Qtd">Qtd</span>
                         <span className="preco-produto">valor</span>
-                        <span className="imgRemover" >excluir</span>
+                        <span className="remover" >excluir</span>
                     </li>
                         
                        
                 {carrinho.map((produto, index) => (
-                    <li key={index}>
+                    <li className="liCriar" key={index}>
                         <span className="cod">{produto.codigoDeBarras}</span>
-                        <span className="index">{index + 1}</span>
+                        <span className="index">{`${index + 1}:`}</span>
                         <span className="nome-produto">{produto.nome}</span>
                         <span className="Qtd">{`${produto.qtd}x`}</span>
                         <span className="preco-produto">{produto.preco.toFixed(2)}</span>
@@ -126,15 +133,21 @@ function SalesScreen() {
         <form>
 
         <label className="labelPagamento">
-        Pagamento:</label ><input
+        Pagamento</label ><input
                         onChange={(e) => {
-                            setSearch(e.target.value)
-                            setCodigo(e.target.value)   
+                                setPagamento(e.target.value)
         }}
-                    value={formaPagamento} className="inputPagamento" type="string" />
+        value={formaPagamento} className="inputPagamento" type="string" />
+                        
+        <label className="labelCliente">
+        Cliente</label ><input 
+                        onChange={(e) => {
+                      setCliente(e.target.value)
+        }}
+                    value={adicionarCliente} className="inputCliente" type="string" />
         
         <label className="labelEAN">
-        EAN:</label ><input
+        EAN</label ><input
                         onChange={(e) => {
                             setSearch(e.target.value)
                             setCodigo(e.target.value)   
@@ -142,7 +155,7 @@ function SalesScreen() {
                     value={codigo} className="inputEAN" type="numbem" />
         
         <label className="labelQtd">
-                    Qtd:</label><input
+                    Qtd</label><input
                     className="inputQtd" type="number"
                     value={Qtd}
                         onChange={(e) => {
@@ -152,7 +165,7 @@ function SalesScreen() {
                     }
                    
                     />
-                    <label className="labelTRD">Dinheiro recebido:</label><input value={inputTroco} onChange={(e) => {
+                    <label className="labelTRD">Dinheiro recebido</label><input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
                         setTroco(parseFloat(e.target.value))
                     }} className="inputTRD" type="number" />        
                 
@@ -164,12 +177,11 @@ function SalesScreen() {
                     
                     <button className="buttonFinalizar" type="submit"
                     >Finalizar Compra</button>
-                    
                 </form> 
 
               <div className="informacoes-cupom">       
                     <p className="total" >Total da Compra</p>
-                    <span className={total <= 0 ? "spanTotal" : "spanTotalVermelho"}>{`R$ ${total.toFixed(2)}`}</span>
+                    <span className={"spanTotal"}>{`R$ ${total.toFixed(2)}`}</span>
                     <p className="troco">Troco</p>
                     <span className="spanTroco">{resultadoTroco >= 0 ? `R$ ${resultadoTroco.toFixed(2)}` : 'R$ 0.00'}</span>
 
@@ -185,8 +197,8 @@ function SalesScreen() {
 
 
 <img className="lupa" src={lupa} />
-            </div>
-        </div>
+                </div> 
+            </div><footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer></div>
        
     );
 }
