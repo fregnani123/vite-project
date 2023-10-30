@@ -1,13 +1,21 @@
+:root {
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: #0056b3;
+    --background-color: #f0f0f0;
+    --text-color: #000;
+    --button-hover-color: #7c7c7c;
+    --total-background-color: rgb(0, 38, 87);
+}
+
 /* Estilo para o formulário */
 .register-form {
-     
     width: 100%;
     align-items: center;
     justify-content: center;
     height: 100vh;
-   
 }
-.register-container{
+
+.register-container {
     display: flex;
     width: 100%;
 }
@@ -24,32 +32,31 @@
 }
 
 select {
-        width: 107%;
-        padding: 10px;
-        margin: 10px -10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
+    width: 107%;
+    padding: 10px;
+    margin: 10px -10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
-.optionSelecionar{
-    background-color: #0056b3;
+
+.optionSelecionar {
+    background-color: var(--secondary-color);
     color: white;
 }
 
-
-
 /* Estilo para o cabeçalho do formulário */
- .registroH1{
+.registroH1 {
     margin-top: 20px;
-    color: rgb(0, 38, 87);
- }
+    color: var(--primary-color);
+}
 
 form h1 {
     font-size: 26px;
 }
 
-label{
-   color: rgb(0, 38, 87);
+label {
+    color: var(--primary-color);
 }
 
 /* Estilo para os campos de entrada */
@@ -59,10 +66,10 @@ form input {
     margin: 10px -10px;
     border: 1px solid #ccc;
     font-size: 16px;
-}
 
-input:focus{
-outline: 1px solid rgb(0, 0, 0);
+    &:focus {
+        outline: 1px solid #000;
+    }
 }
 
 .logar {
@@ -75,33 +82,28 @@ outline: 1px solid rgb(0, 0, 0);
 }
 
 button {
-    background-color: rgb(0, 38, 87);
-    /* Cor de fundo padrão do botão */
+    background-color: var(--primary-color);
     color: #fff;
-    /* Cor do texto padrão do botão */
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    /* Transição suave de cor de fundo */
-}
 
-.button:hover {
-    background-color: #7c7c7c;
-    color: white;
-    /* Cor de fundo quando o mouse passa sobre o botão */
+    &:hover {
+        background-color: var(--button-hover-color);
+        color: white;
+    }
 }
 
 /* MyComponent.css */
-
-.register-queryProdutos{
+.register-queryProdutos {
     width: 100%;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
 
-.query-Container{
+.query-Container {
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -130,56 +132,57 @@ button {
     background-color: #f2f2f2;
 }
 
-th{color: rgb(0, 0, 0);}
+th {
+    color: var(--text-color);
+}
 
 .my-table tr:hover {
-    background-color: #4b4b4b;
+    background-color: var(--primary-color);
     color: white;
 }
 
 /* tela Venda */
-
-
-.titulo-venda{ 
-    color:rgb(0, 38, 87);
-    font-size: 35px;
+.titulo-venda {
+    position: absolute;
+    color: var(--primary-color);
+    font-size: 17px;
     font-weight: normal;
-    margin-top: 10px;
-} 
-
-.venda-container{
-display: flex;
-height: 100vh;
-width: 100%;
-align-items: center;
-text-align: center; 
-justify-content: center;
-background-color: rgb(0, 38, 87);
-/* background-color: #fbffdf; */
+    border-bottom: 1px solid #7c7c7c83;
+    top: 10px;
+    width: 100%;
 }
 
+.venda-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color:#f0f0f0;
+}
 
-.cupom-form{
-    background-color: rgb(255, 255, 255);
-    width: 300px;
-    color:rgb(0, 38, 87);
+.cupom-form {
+    background-color: #f0f0f0;
+    width: 500px;
+    color: var(--primary-color);
     font-size: 14px;
     position: relative;
     height: 270px;
     padding: 20px;
-    border: 1px solid rgb(0, 38, 87);
+    border: 1px solid #7c7c7c83;
     margin-top: 20px;
     margin-left: 20px;
-    
 }
-.informacoes-cupom{
-    border: 1px solid rgb(0, 38, 87);
+
+.informacoes-cupom {
+    border: 1px solid var(--primary-color);
     height: 280px;
     width: 315px;
     position: absolute;
     bottom: 110px;
     right: 10px;
-    background-color: white;
+    background-color: #fff;
 }
 
 .total {
@@ -188,142 +191,165 @@ background-color: rgb(0, 38, 87);
     position: absolute;
     font-size: 35px;
     box-sizing: border-box;
-    color: rgb(0, 0, 0);
-    
+    color: var(--text-color);
 }
 
-
 .spanTotal {
-    background-color: #0056b3;
+    background-color: var(--secondary-color);
     color: white;
     width: 300px;
     position: absolute;
     bottom: 10px;
     right: 7px;
     font-size: 43px;
-    border: 1px solid rgba(0, 38, 87, 0.74);
+    border: 1px solid var(--total-background-color);
     border-radius: 5px;
-    
 }
 
-
-.entradas-saidas{
-    width: 700px;
+.entradas-saidas {
+    width: 800px;
     height: 600px;
     position: relative;
-    background-color: #fbffdf;
-}
-.Qtd{
-    margin-right:10px ;
-    float: center;
+    background-color: var(--background-color);
+    margin-top: 33px;
     
 }
-.cod{
-    float: left;
-    margin-right: 10px;
-}
-.index{
-    float: left;
-    margin-right: 5px;
-}
-.nome-produto {
-    float: left;
-    /* Alinha o nome do produto à esquerda */
-    margin-right: 10px;
-    /* Adiciona espaço entre o nome do produto e o preço */
-}
 
-.preco-produto {
-    float: center;
-    margin-right: 10px;
-    /* Alinha o preço no centro */
+.remover {
+    margin-right: -1px;
 }
-.remover{
-   margin-right: -1px;
-}
-
-
 
 .imgRemover {
     width: 30px;
     height: 30px;
-    background-color: white;
+    background-color: #fff;
     width: 15px;
     height: auto;
     cursor: pointer;
     float: right;
     margin-right: 7px;
 }
-.descricaoItens{
-    border-bottom: 1px solid black;
+
+.descricaoItens {
+    border-top: 1px solid #7c7c7c83;
+    border-bottom: 1px solid #7c7c7c83;
     position: absolute;
-    top: 0px;
+    width: 100%;
     left: 0;
-    width: 100%;  
+}
+.liCriar{
+    margin-top: 20px;
+}
+.index{
+    border: 1px solid black;
+        position: absolute;
+        left: 0;
+        width: 60px;
+}
+.cod{
+    border: 1px solid black;
+    position: absolute;
+    left: 20px;
+    width: 60px;
+}
+.Qtd{
+    border: 1px solid black;
+    position: absolute;
+    right: 121px;
+    width: 60px;
+}
+.cod{
+    border: 1px solid black;
+        position: absolute;
+        right: 0px;
+        width: 60px;
+}
+.preco-produto{
+    border: 1px solid black;
+        position: absolute;
+        right: 60px;
+        width: 60px;
+}
+.remover{
+border: 1px solid black;
+    position: absolute;
+    right: 0;
+    width: 60px;
 }
 
-.labelQtd{
-position: absolute;
-bottom: 108px;
-color:rgb(0, 38, 87);
-display: flex;
-left: 140px;
+.nome-produto{
+    border: 1px solid black;
+    position: absolute;
+    left: 176px;
+    width: 180px;
 }
 
-.inputQtd{
+.correcaoEspacoLi{
+ margin-top: 23px;
+}
+
+.labelQtd {
+    position: absolute;
+    bottom: 108px;
+    color: var(--primary-color);
+    display: flex;
+    left: 140px;
+}
+
+.inputQtd {
     padding: 0;
     border-radius: 0;
-    color: rgb(0, 38, 87);
+    color: var(--primary-color);
     position: absolute;
     bottom: 100px;
     width: 80px;
     height: 20px;
     left: 180px;
     padding: 2px;
-    border: 1px solid rgb(0, 38, 87);
+    border: 1px solid var(--primary-color);
 }
 
-.labelEAN{
-position: absolute;
-bottom: 140px;
-color: rgb(0, 38, 87);
-left: 130px;
-display: flex;
+.labelEAN {
+    position: absolute;
+    bottom: 140px;
+    color: var(--primary-color);
+    left: 130px;
+    display: flex;
 }
 
-.inputEAN{
+.inputEAN {
     padding: 0;
     border-radius: 0;
-    color: rgb(0, 38, 87);
+    color: var(--primary-color);
     position: absolute;
     bottom: 132px;
     width: 130px;
     left: 180px;
     padding: 2px;
-    border: 1px solid rgb(0, 38, 87);
+    border: 1px solid var(--primary-color);
 }
 
 .buttonAdd {
     position: absolute;
     bottom: 40px;
     left: 150px;
-    background-color: rgb(0, 38, 87);
-    color: rgb(255, 255, 255);
+    background-color: var(--primary-color);
+    color: #fff;
     border-radius: 5px;
     height: 50px;
     font-weight: none;
 }
+
 .buttonAdd:hover {
     background-color: #059200;
     color: white;
-    /* Cor de fundo quando o mouse passa sobre o botão */
 }
 
 .produto-encontrado {
-    border-top: 1px solid rgb(0, 38, 87);
-    border-bottom: 1px solid rgb(0, 38, 87);
-    border-right: 1px solid rgb(0, 38, 87);
-    color:rgb(0, 0, 0);
+    border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    border-right: 1px solid var(--primary-color);
+    color: var(--text-color);
     position: absolute;
     height: 30px;
     width: 320px;
@@ -331,44 +357,40 @@ display: flex;
     left: 40px;
     display: flex;
     justify-content: center;
-    /* Centralizar horizontalmente */
     align-items: center;
-    /* Centralizar verticalmente */
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: white;
+    background-color: #fff;
 }
 
-.imgCarrinho{
+/* .imgCarrinho {
     font-size: 15px;
-    color: rgb(0, 38, 87);
+    color: var(--primary-color);
     position: absolute;
     width: 120px;
     bottom: 50px;
     left: 10px;
-    
-}
+} */
 
-.lupa{
+.lupa {
     width: 30px;
     height: 30px;
     margin-top: 8px;
-    position:absolute;
+    position: absolute;
     left: 20px;
     bottom: 180px;
-    border-top: 1px solid rgb(0, 38, 87);
-    border-left: 1px solid rgb(0, 38, 87);
-    border-bottom: 1px solid rgb(0, 38, 87);
+    border-top: 1px solid var(--primary-color);
+    border-left: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    background-color: white;
+    background-color: #fff;
 }
 
-.labelTRD{
+.labelTRD {
     position: absolute;
     top: 165px;
     right: 175px;
-    font-size: 16px;
     font-size: 20px;
 }
 
@@ -378,13 +400,12 @@ display: flex;
     right: 20px;
     width: 140px;
     padding: 5px;
-    border: 1px solid rgb(0, 38, 87);
+    border: 1px solid var(--primary-color);
     font-size: 30px;
-    color: rgb(0, 38, 87);
+    color: var(--primary-color);
     border-radius: 0;
 }
 
-/* Estilize o controle interno do input number / remove as setas*/
 .inputTRD::-webkit-inner-spin-button,
 .inputTRD::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -392,79 +413,76 @@ display: flex;
     margin: 0;
 }
 
-
-.buttonFinalizar{
+.buttonFinalizar {
     position: absolute;
     bottom: 35px;
     right: 8px;
-    color: rgb(255, 255, 255);
+    color: #fff;
     border-radius: 5px;
     height: 60px;
     font-size: 25px;
-    font-weight:bold;
-    background: rgb(0, 38, 87);
-   
+    font-weight: bold;
+    background: var(--primary-color);
 }
 
-.buttonFinalizar:hover{
-    background-color: rgb(231, 0, 0);
-    color: rgb(255, 255, 255);
-    
+.buttonFinalizar:hover {
+    background-color: #e70000;
+    color: #fff;
 }
 
-
-
-.produto-encontrado{
+.produto-encontrado {
     font-size: 14px;
 }
 
-.troco{
+.troco {
     position: absolute;
     bottom: 120px;
     right: 220px;
-    color: rgb(0, 1, 2);
-    position: absolute;
+    color: #010102;
     font-size: 25px;
 }
-.spanTroco{
+
+.spanTroco {
     position: absolute;
     bottom: 120px;
     left: 100px;
     font-size: 30px;
-    color:white;
-    border: 1px solid rgb(0, 38, 87);
-    background-color:#0056b3;
+    color: white;
+    border: 1px solid var(--total-background-color);
+    background-color: var(--secondary-color);
     right: 15px;
     padding: 5px;
     width: 195px;
-    overflow-y:auto;
+    overflow-y: auto;
     border-radius: 5px;
 }
 
-.labelPagamento{
+.labelPagamento {
     position: absolute;
     top: 120px;
     right: 180px;
     font-size: 20px;
 }
-.inputPagamento{
+
+.inputPagamento {
     position: absolute;
     top: 108px;
     right: 50px;
     font-size: 20px;
     width: 100px;
     height: 10px;
-    color:rgb(0, 38, 87);
-    border: 1px solid rgb(0, 38, 87);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     background-color: #f1f1f1;
-   
 }
-.labelCliente{
+
+.labelCliente {
     position: absolute;
     top: 83px;
     right: 190px;
     font-size: 20px;
 }
+
 .inputCliente {
     position: absolute;
     top: 71px;
@@ -472,26 +490,21 @@ display: flex;
     font-size: 15px;
     width: 150px;
     height: 10px;
-    color:rgb(0, 38, 87);
-    border: 1px solid rgb(0, 38, 87);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     background-color: #f1f1f1;
 }
-    
-.acabamento-tela {
-    background-color: #fbffdf;
-    width: 800px;
-    justify-content: center;
-    display: flex;
+
+
+
+.footerVenda {
+    color: white;
+    font-weight: normal;
 }
 
-.footerVenda{
-color: white;
-font-weight: normal;
-}
-
-
-
-
-
-
-
+.carrinhoSpan{
+position: absolute;
+top: 10px;      
+left: 25px;    
+background-color:#f0f0f0;
+               }

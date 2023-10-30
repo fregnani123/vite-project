@@ -1,13 +1,12 @@
-// import MenuToolbar from "../MenuToolbar";
+// Importação das bibliotecas e módulos necessários
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import carrinhoTotal from '../../assets/imagens gestaoLite/carrinhoTotal.png';
 import imgRemover from '../../assets/imagens gestaoLite/remover.png';
 import imgCarrinho from '../../assets/imagens gestaoLite/carrinho-de-compras.png';
-import lupa from '../../assets/imagens gestaoLite/procurar.png'
+import lupa from '../../assets/imagens gestaoLite/procurar.png';
 import '../views/queryProdutos.css';
 
-
+// Definição de tipos (interfaces)
 interface Produto {
     _id: string;
     nome: string;
@@ -17,17 +16,18 @@ interface Produto {
     categoria: string;
     estoque: string;
     qtd: number;
-
 }
+
 interface Relatorio {
     cliente: string;
     total: number;
     formaPagamento: string;
     dinheiroRecebido: number;
-    carrinho: Produto[]; // Use o tipo Produto[] para representar um array de produtos
+    carrinho: Produto[]; // Uso do tipo Produto[] para representar um array de produtos
 }
 
 function SalesScreen() {
+    // Estados
     const [data, setData] = useState<Produto[]>([]);
     const [codigo, setCodigo] = useState("");
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
@@ -36,13 +36,13 @@ function SalesScreen() {
     const [inputTroco, setTroco] = useState(0);
     const [search, setSearch] = useState('');
     const [formaPagamento, setPagamento] = useState('À Vista');
-    const [adicionarCliente, setCliente] = useState("Consumidor")
+    const [adicionarCliente, setCliente] = useState("Consumidor");
     const [relatorio, setRelatorio] = useState<Relatorio | null>(null);
     const [relatoriosDoDia, setRelatoriosDoDia] = useState<Relatorio[]>([]);
 
-    console.log(JSON.stringify(relatoriosDoDia))
- 
+    console.log(JSON.stringify(relatoriosDoDia));
 
+    // Função para finalizar a venda
     function finalizarVenda() {
         if (inputTroco === 0) {
             alert("Preencha todos os campos antes de finalizar a compra.");
@@ -66,14 +66,12 @@ function SalesScreen() {
         setCodigo("");
         setQtd("");
         setTroco(0);
-        setSearch("")
+        setSearch("");
     }
 
+    console.log(relatorio);
 
-  
-    console.log(relatorio)
-
-    // O URL da solicitação deve ser construído corretamente
+    // Construção da URL para solicitar os produtos (verifique a configuração correta)
     const url = "http://localhost:3000/findProduto";
 
     useEffect(() => {
@@ -87,18 +85,15 @@ function SalesScreen() {
             });
     }, []);
 
-
-
-
+    // Filtrar produtos com base na pesquisa por código
     const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
 
-
+    // Função para encontrar um produto com base no código
     function encontrarProdutoPorCodigo(codigo: number) {
         return data.find(produto => produto.codigoDeBarras === codigo);
     }
 
-
-
+    // Função para adicionar um item ao carrinho
     function adicionarAoCarrinho() {
         const produtoSelecionado = encontrarProdutoPorCodigo(parseInt(codigo));
         if (produtoSelecionado && parseInt(Qtd) > 0) {
@@ -111,53 +106,52 @@ function SalesScreen() {
         }
     }
 
+    // Função para calcular o total da compra
     function calcularTotal() {
         const novoTotal = carrinho.reduce((acc, produto) => acc + produto.preco * (produto.qtd || 1), 0);
         setTotal(novoTotal);
     }
 
+    // Função para calcular o troco
     function calcularTroco(trocoRecebido: number, total: number): number {
         return trocoRecebido - total;
     }
 
-    const resultadoTroco = calcularTroco(inputTroco, total)
+    const resultadoTroco = calcularTroco(inputTroco, total);
 
-
+    // Função para remover um item do carrinho
     function removerDoCarrinho(index: number) {
         const novoCarrinho = [...carrinho];
         novoCarrinho.splice(index, 1); // Remove o item do carrinho
         setCarrinho(novoCarrinho); // Atualiza o estado do carrinho
         calcularTotal(); // Recalcula o total
-
     }
 
     useEffect(() => {
         calcularTotal();
+    }, [carrinho, inputTroco]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
 
-    }, [carrinho, inputTroco]); //atualiza o estado do carrinho sempre que for add um novo item
-
+    // Renderização do componente
     return (
-        <div className="venda-container" >
-            <div className="acabamento-tela" >
-                <div className="entradas-saidas">
-                    <h1 className="titulo-venda">Tela de venda</h1>
+        <div className="venda-container">
+            <p className="titulo-venda">Tela de Vendas</p>
+               <div className="entradas-saidas">
                     <ul className="cupom-form">
-                        <li className="descricaoItens"><span className="cod">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cod. &nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <span className="index">num. &nbsp;&nbsp;</span>
-                            <span className="nome-produto">nome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <li className="descricaoItens">
+                            <span className="cod">cod.</span>
+                            <span className="index">num.</span>
+                            <span className="nome-produto">nome</span>
                             <span className="Qtd">Qtd</span>
                             <span className="preco-produto">valor</span>
                             <span className="remover" >excluir</span>
-                        </li>
-
-
+                        </li><li className="correcaoEspacoLi"></li>
                         {carrinho.map((produto, index) => (
                             <li className="liCriar" key={index}>
-                                <span className="cod">{produto.codigoDeBarras}</span>
-                                <span className="index">{`${index + 1}:`}</span>
-                                <span className="nome-produto">{produto.nome}</span>
-                                <span className="Qtd">{`${produto.qtd}x`}</span>
-                                <span className="preco-produto">{produto.preco.toFixed(2)}</span>
+                                <span className="cod1">{produto.codigoDeBarras}</span>
+                                <span className="index1">{`${index + 1}:`}</span>
+                                <span className="nome-produto1">{produto.nome}</span>
+                                <span className="Qtd1">{`${produto.qtd}x`}</span>
+                                <span className="preco-produto1">{produto.preco.toFixed(2)}</span>
                                 {<img
                                     onClick={() => {
                                         removerDoCarrinho(index)
@@ -168,41 +162,40 @@ function SalesScreen() {
                     </ul>
 
                     <form>
-
-                        <label className="labelPagamento">
-                            Pagamento</label ><input
+                        <label className="labelPagamento">Pagamento</label>
+                        <input
                             onChange={(e) => {
                                 setPagamento(e.target.value)
                             }}
                             value={formaPagamento} className="inputPagamento" type="string" />
 
-                        <label className="labelCliente">
-                            Cliente</label ><input
+                        <label className="labelCliente">Cliente</label>
+                        <input
                             onChange={(e) => {
                                 setCliente(e.target.value)
                             }}
                             value={adicionarCliente} className="inputCliente" type="string" />
 
-                        <label className="labelEAN">
-                            EAN</label ><input
+                        <label className="labelEAN">EAN</label>
+                        <input
                             onChange={(e) => {
                                 setSearch(e.target.value)
                                 setCodigo(e.target.value)
                             }}
-                            value={codigo} className="inputEAN" type="numbem" />
+                            value={codigo} className="inputEAN" type="number" />
 
-                        <label className="labelQtd">
-                            Qtd</label><input
+                        <label className="labelQtd">Qtd</label>
+                        <input
                             className="inputQtd" type="number"
                             value={Qtd}
                             onChange={(e) => {
                                 setQtd(e.target.value)
-
                             }
                             }
-
                         />
-                        <label className="labelTRD">Dinheiro recebido</label><input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
+
+                        <label className="labelTRD">Dinheiro recebido</label>
+                        <input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
                             setTroco(parseFloat(e.target.value))
                         }} className="inputTRD" type="number" />
 
@@ -210,39 +203,36 @@ function SalesScreen() {
                             onClick={(e) => {
                                 e.preventDefault()
                                 adicionarAoCarrinho()
-                            }} >Adicionar ao carrinho</button>
+                            }} >Adicionar Item</button>
                     </form>
-                   
-                    <form onSubmit={(e) => { e.preventDefault(); finalizarVenda();  }}>
+
+                    <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
                         <button className="buttonFinalizar" type="submit">
                             Finalizar Compra
                         </button>
                     </form>
 
-
-
-
                     <div className="informacoes-cupom">
-                        <p className="total" >Total da Compra</p>
+                        <p className="total" >Total da Venda</p>
                         <span className={"spanTotal"}>{`R$ ${total.toFixed(2)}`}</span>
                         <p className="troco">Troco</p>
                         <span className="spanTroco">{resultadoTroco >= 0 ? `R$ ${resultadoTroco.toFixed(2)}` : 'R$ 0.00'}</span>
-
                     </div>
-                    <img className="imgCarrinho" src={imgCarrinho} />
+                    <span className="carrinhoSpan">Carrinho de Compras</span>
                     <ul className="produto-encontrado">
+                       
                         {filterData.map((produto, index) => (
                             <li key={index}>
                                 {`${produto.nome}: ${produto.descricao} `}
                             </li>
+                    
                         ))}
                     </ul>
-
-
-                    <img className="lupa" src={lupa} />
+                    {/* <img className="lupa" src={lupa} /> */}
                 </div>
-            </div><footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer></div>
-
+           
+            {/* <footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer> */}
+        </div>
     );
 }
 
