@@ -160,242 +160,323 @@ th {
     text-align: center;
     justify-content: center;
     background-color:#f0f0f0;
+    
 }
+
 
 .cupom-form {
     background-color: #f0f0f0;
-    width: 500px;
+    width: 550px;
     color: var(--primary-color);
     font-size: 14px;
     position: relative;
     height: 270px;
-    padding: 20px;
+    padding-top: 25px;
     border: 1px solid #7c7c7c83;
     margin-top: 20px;
     margin-left: 20px;
+    
 }
 
 .informacoes-cupom {
-    border: 1px solid var(--primary-color);
-    height: 280px;
-    width: 315px;
-    position: absolute;
-    bottom: 110px;
+    margin-top: 30px;
+    width: 540px;
     right: 10px;
-    background-color: #fff;
+    background-color: #ffffff;
+    display: flex;
 }
 
 .total {
-    left: 40px;
-    bottom: 65px;
-    position: absolute;
-    font-size: 35px;
-    box-sizing: border-box;
-    color: var(--text-color);
+     width: 100%;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: -60px;
 }
 
 .spanTotal {
-    background-color: var(--secondary-color);
-    color: white;
-    width: 300px;
-    position: absolute;
+    color: rgb(0, 0, 0);
     bottom: 10px;
-    right: 7px;
     font-size: 43px;
-    border: 1px solid var(--total-background-color);
-    border-radius: 5px;
+    width: 100%;
+    margin-left: -60px;
 }
 
 .entradas-saidas {
-    width: 800px;
-    height: 600px;
-    position: relative;
+    height: calc(100vh - 70px);
     background-color: var(--background-color);
-    margin-top: 33px;
+    margin-top: 10px;
+    margin-left: 20px;
+    display: flex;
+    /* background-color: red; */
     
 }
 
 .remover {
     margin-right: -1px;
+    
 }
 
 .imgRemover {
     width: 30px;
     height: 30px;
-    background-color: #fff;
+    background-color: #cecece79;
     width: 15px;
     height: auto;
     cursor: pointer;
     float: right;
-    margin-right: 7px;
+    margin-right: 20px;
+    
 }
 
 .descricaoItens {
-    border-top: 1px solid #7c7c7c83;
     border-bottom: 1px solid #7c7c7c83;
-    position: absolute;
     width: 100%;
     left: 0;
 }
-.liCriar{
+.div-Form{
+    width: 540px;
+    border: 1px solid #7c7c7c83;;
+    margin-left: 20px;
     margin-top: 20px;
+    height: 400px;
+    bottom: 10px;
+    
 }
+
+
 .index{
-    border: 1px solid black;
-        position: absolute;
-        left: 0;
-        width: 60px;
-}
-.cod{
-    border: 1px solid black;
+    border: 1px solid #7c7c7c83;
     position: absolute;
-    left: 20px;
+    left: 0;
+    width: 60px;
+    
+}
+.index1{
+    border-right: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 0px;
     width: 60px;
 }
+
 .Qtd{
-    border: 1px solid black;
+    border: 1px solid #7c7c7c83;;
+    position: absolute;
+    right: 121px;
+    width: 60px;
+}
+
+.Qtd1{
+    border-right: 1px solid #7c7c7c83;
+    border-left: 1px solid #7c7c7c83;
     position: absolute;
     right: 121px;
     width: 60px;
 }
 .cod{
-    border: 1px solid black;
+        border: 1px solid #7c7c7c83;;
         position: absolute;
-        right: 0px;
-        width: 60px;
+        left: 61px;
+        width: 100px;    
 }
+.cod1{
+        border-right: 1px solid #7c7c7c83;
+        position: absolute;
+        left: 61px;
+        width: 100px;    
+}
+
 .preco-produto{
-    border: 1px solid black;
+    border: 1px solid #7c7c7c83;;
+        position: absolute;
+        right: 60px;
+        width: 60px;
+        
+}
+.preco-produto1{
+        border-right: 1px solid #7c7c7c83;
         position: absolute;
         right: 60px;
         width: 60px;
 }
 .remover{
-border: 1px solid black;
+border: 1px solid #7c7c7c83;;
     position: absolute;
     right: 0;
     width: 60px;
 }
 
+
 .nome-produto{
-    border: 1px solid black;
+    border: 1px solid #7c7c7c83;
     position: absolute;
-    left: 176px;
-    width: 180px;
+    left: 162px;
+    width: 204px;
+}
+.liCriar1{
+    border: 1px solid #7c7c7c83;
+    margin-top: -1px;
+    background-color: #cecece79;
 }
 
 .correcaoEspacoLi{
- margin-top: 23px;
+ margin-top: 17px;
+
 }
 
 .labelQtd {
-    position: absolute;
-    bottom: 108px;
+    align-items: center;
     color: var(--primary-color);
     display: flex;
-    left: 140px;
+    margin-left: 20px;
+    position: absolute;
+    top: 60px;
+    left: 235px;
+    outline: none;
 }
+
+
 
 .inputQtd {
     padding: 0;
-    border-radius: 0;
+    margin-left: 5px;
     color: var(--primary-color);
-    position: absolute;
-    bottom: 100px;
-    width: 80px;
-    height: 20px;
-    left: 180px;
-    padding: 2px;
-    border: 1px solid var(--primary-color);
+    width: 108px;
+    border: 1px solid #7c7c7c83;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
 }
 
 .labelEAN {
-    position: absolute;
-    bottom: 140px;
-    color: var(--primary-color);
-    left: 130px;
-    display: flex;
+ display: flex;
+/* Torna o label um flex container */
+ align-items: center;
+/* Alinha os elementos verticalmente ao centro */
+  margin-left: 30px; 
+  margin-top: 10px;
+             
 }
 
 .inputEAN {
+
     padding: 0;
-    border-radius: 0;
     color: var(--primary-color);
-    position: absolute;
-    bottom: 132px;
-    width: 130px;
-    left: 180px;
-    padding: 2px;
-    border: 1px solid var(--primary-color);
+    margin-left: 5px;
+    width: 150px;
+    border: 1px solid #7c7c7c83;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 23px;
+
+}
+.inputEAN::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputEAN:focus{
+    outline: none;
+    box-shadow: 0 0 1px #007bff;
+}
+.inputQtd:focus{
+    outline: none;
+    box-shadow: 0 0 1px #007bff;
 }
 
 .buttonAdd {
-    position: absolute;
-    bottom: 40px;
-    left: 150px;
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: #cececeb6;
+    color: #000000;
     border-radius: 5px;
-    height: 50px;
     font-weight: none;
+    border-radius: 0;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border: 1px solid #7c7c7c83;
 }
 
 .buttonAdd:hover {
-    background-color: #059200;
-    color: white;
+    background-color: #7c9bb1ea;
+    color: #000000;
+    border: 1px solid #7c7c7c83;
+}
+.dadosCliente{
+    position: absolute;
+    top: 51px;
+    right: 526px;
+    background-color: #f0f0f0;
+}
+.formBusca{
+    margin-top: 20px;
+    border: 1px solid #7c7c7c83;
+    margin-left: 20px;
+    position: relative;
+    
+}
+.dadosProduto{
+    position: absolute;
+    top:-11px;
+    left: 10px;
+    background-color:#f0f0f0;
 }
 
 .produto-encontrado {
-    border-top: 1px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
-    border-right: 1px solid var(--primary-color);
-    color: var(--text-color);
-    position: absolute;
-    height: 30px;
-    width: 320px;
-    bottom: 180px;
-    left: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: #fff;
+     background-color:rgba(255, 255, 255, 0.61);
+     padding-top: 3px;
+     padding-bottom: 1px;
+     width: 302px;
+     height: 18px;
+     padding-left: 5px;
+     margin-top: 25px;
+     display: flex; 
+     margin-left: 63px;
+     border: 1px solid #7c7c7c83;
 }
 
-/* .imgCarrinho {
-    font-size: 15px;
-    color: var(--primary-color);
+.preçoEncotrado {
+     background-color: rgba(255, 255, 255, 0.61);
+     padding-top: 3px;
+     padding-bottom: 1px;
+     width: 100px;
+     height: 18px;
+     padding-left: 5px;
+     display: flex; 
+     right: 15px;
+     top: 25px;
+     border: 1px solid #7c7c7c83;
+     position: absolute;
+}
+
+.Produto{
     position: absolute;
-    width: 120px;
-    bottom: 50px;
-    left: 10px;
-} */
+    margin-top: 28px;
+    margin-left: 5px;
+}
+.ProdutoPreço{
+        position: absolute;
+        margin-top: 28px;
+        right: 125px;
+    }
 
 .lupa {
-    width: 30px;
-    height: 30px;
-    margin-top: 8px;
+    width: 20px;
+    height: auto;
     position: absolute;
-    left: 20px;
-    bottom: 180px;
-    border-top: 1px solid var(--primary-color);
-    border-left: 1px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
+    left: 70px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    background-color: #fff;
-}
+} 
 
 .labelTRD {
-    position: absolute;
+ 
     top: 165px;
     right: 175px;
     font-size: 20px;
 }
 
 .inputTRD {
-    position: absolute;
+   
     top: 145px;
     right: 20px;
     width: 140px;
@@ -414,20 +495,38 @@ border: 1px solid black;
 }
 
 .buttonFinalizar {
-    position: absolute;
-    bottom: 35px;
-    right: 8px;
-    color: #fff;
+     background-color: #cececeb6;
+    color: #000000;
     border-radius: 5px;
-    height: 60px;
-    font-size: 25px;
-    font-weight: bold;
-    background: var(--primary-color);
+    font-weight: none;
+    border-radius: 0;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border: 1px solid #7c7c7c83;
 }
 
 .buttonFinalizar:hover {
-    background-color: #e70000;
-    color: #fff;
+        background-color: #7c9bb1ea;
+        color: #000000;
+        border: 1px solid #7c7c7c83;
+}
+.buttonCancelar {
+     background-color: #cececeb6;
+    color: #000000;
+    border-radius: 5px;
+    font-weight: none;
+    border-radius: 0;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border: 1px solid #7c7c7c83;
+}
+
+.buttonCancelar:hover {
+        background-color: #7c9bb1ea;
+        color: #000000;
+        border: 1px solid #7c7c7c83;
 }
 
 .produto-encontrado {
@@ -435,7 +534,6 @@ border: 1px solid black;
 }
 
 .troco {
-    position: absolute;
     bottom: 120px;
     right: 220px;
     color: #010102;
@@ -443,7 +541,6 @@ border: 1px solid black;
 }
 
 .spanTroco {
-    position: absolute;
     bottom: 120px;
     left: 100px;
     font-size: 30px;
@@ -458,41 +555,37 @@ border: 1px solid black;
 }
 
 .labelPagamento {
-    position: absolute;
-    top: 120px;
-    right: 180px;
-    font-size: 20px;
+ margin-left: -50px;
+
 }
 
 .inputPagamento {
-    position: absolute;
-    top: 108px;
-    right: 50px;
-    font-size: 20px;
-    width: 100px;
-    height: 10px;
+    margin-top: 20px;
+    padding: 0;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    background-color: #f1f1f1;
+    margin-left: 5px;
+    width: 150px;
+    border: 1px solid #7c7c7c83;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 23px;
 }
 
+
 .labelCliente {
-    position: absolute;
-    top: 83px;
-    right: 190px;
-    font-size: 20px;
+   
 }
 
 .inputCliente {
-    position: absolute;
-    top: 71px;
-    right: 20px;
-    font-size: 15px;
-    width: 150px;
-    height: 10px;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    background-color: #f1f1f1;
+        margin-top: 20px;
+        padding: 0;
+        color: var(--primary-color);
+        margin-left: 5px;
+        width: 150px;
+        border: 1px solid #7c7c7c83;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 23px;
 }
 
 
@@ -504,7 +597,7 @@ border: 1px solid black;
 
 .carrinhoSpan{
 position: absolute;
-top: 10px;      
-left: 25px;    
+top: 51px;      
+left: 155px;    
 background-color:#f0f0f0;
                }

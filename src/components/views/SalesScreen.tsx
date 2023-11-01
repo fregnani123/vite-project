@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import imgRemover from '../../assets/imagens gestaoLite/remover.png';
-import imgCarrinho from '../../assets/imagens gestaoLite/carrinho-de-compras.png';
+
 import lupa from '../../assets/imagens gestaoLite/procurar.png';
 import '../views/queryProdutos.css';
 
@@ -35,7 +35,7 @@ function SalesScreen() {
     const [Qtd, setQtd] = useState("");
     const [inputTroco, setTroco] = useState(0);
     const [search, setSearch] = useState('');
-    const [formaPagamento, setPagamento] = useState('À Vista');
+    const [formaPagamento, setPagamento] = useState('');
     const [adicionarCliente, setCliente] = useState("Consumidor");
     const [relatorio, setRelatorio] = useState<Relatorio | null>(null);
     const [relatoriosDoDia, setRelatoriosDoDia] = useState<Relatorio[]>([]);
@@ -135,20 +135,21 @@ function SalesScreen() {
     return (
         <div className="venda-container">
             <p className="titulo-venda">Tela de Vendas</p>
-               <div className="entradas-saidas">
+            <div className="entradas-saidas">
+                <div>
                     <ul className="cupom-form">
                         <li className="descricaoItens">
                             <span className="cod">cod.</span>
                             <span className="index">num.</span>
                             <span className="nome-produto">nome</span>
                             <span className="Qtd">Qtd</span>
-                            <span className="preco-produto">valor</span>
+                            <span className="preco-produto">Preço</span>
                             <span className="remover" >excluir</span>
                         </li><li className="correcaoEspacoLi"></li>
                         {carrinho.map((produto, index) => (
-                            <li className="liCriar" key={index}>
+                            <li className="liCriar1" key={index}>
+                                <span className="index1">{`${index + 1}`}</span>
                                 <span className="cod1">{produto.codigoDeBarras}</span>
-                                <span className="index1">{`${index + 1}:`}</span>
                                 <span className="nome-produto1">{produto.nome}</span>
                                 <span className="Qtd1">{`${produto.qtd}x`}</span>
                                 <span className="preco-produto1">{produto.preco.toFixed(2)}</span>
@@ -158,76 +159,94 @@ function SalesScreen() {
                                     }}
                                     className="imgRemover" src={imgRemover} />}
                             </li>
-                        ))}
+                        ))} 
                     </ul>
+                    <div className="formBusca">
 
-                    <form>
-                        <label className="labelPagamento">Pagamento</label>
-                        <input
-                            onChange={(e) => {
-                                setPagamento(e.target.value)
-                            }}
-                            value={formaPagamento} className="inputPagamento" type="string" />
+                        <p className="dadosProduto">Dados do Produto</p>
+                        <p className="Produto">Produto:</p>
+                        <p className="ProdutoPreço">Preço:</p>
+                        <ul className="produto-encontrado">
+                    {filterData.map((produto, index) => (
+                        <li key={index}>
+                            {`${produto.nome} - ${produto.descricao}`}
+                        </li>
 
-                        <label className="labelCliente">Cliente</label>
-                        <input
-                            onChange={(e) => {
-                                setCliente(e.target.value)
-                            }}
-                            value={adicionarCliente} className="inputCliente" type="string" />
+                    ))}</ul>
+                        <ul className="preçoEncotrado">
+                    {filterData.map((produto, index) => (
+                        <li key={index}>
+                            {`${produto.preco.toFixed(2)}`}
+                        </li>
 
-                        <label className="labelEAN">EAN</label>
-                        <input
-                            onChange={(e) => {
-                                setSearch(e.target.value)
-                                setCodigo(e.target.value)
-                            }}
-                            value={codigo} className="inputEAN" type="number" />
+                    ))}</ul>
+                        <form> <label className="labelEAN">EAN <img className="lupa" src={lupa} /><input
+                        onChange={(e) => {
+                            setSearch(e.target.value)
+                            setCodigo(e.target.value)
+                        }}
+                        value={codigo} className="inputEAN" type="number" /></label>
 
-                        <label className="labelQtd">Qtd</label>
-                        <input
+
+                        <label className="labelQtd">Qtd:<input
                             className="inputQtd" type="number"
                             value={Qtd}
                             onChange={(e) => {
                                 setQtd(e.target.value)
                             }
                             }
-                        />
+                        /></label>
+                        <button className="buttonAdd"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                adicionarAoCarrinho()
+                                setSearch("")
+                                setCodigo("")
+                            }} >Adicionar Item</button>
+                    
+                    </form>
+                </div>
+                </div>
+
+                <div className="div-Form">
+                    <p className="dadosCliente">Dados do Cliente</p>
+                    <form className="form-venda">
+                        <label className="labelCliente">Cliente:<input
+                            onChange={(e) => {
+                                setCliente(e.target.value)
+                            }}
+                            value={adicionarCliente} className="inputCliente" type="string" /></label><br/>
+                        <label className="labelPagamento">Pagamento:<input
+                            onChange={(e) => {
+                                setPagamento(e.target.value)
+                            }}
+                            value={'À vista'} className="inputPagamento" type="string" /></label><br/>
 
                         <label className="labelTRD">Dinheiro recebido</label>
                         <input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
                             setTroco(parseFloat(e.target.value))
                         }} className="inputTRD" type="number" />
 
-                        <button className="buttonAdd"
-                            onClick={(e) => {
-                                e.preventDefault()
-                                adicionarAoCarrinho()
-                            }} >Adicionar Item</button>
+                       
                     </form>
-
-                    <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
-                        <button className="buttonFinalizar" type="submit">
-                            Finalizar Compra
-                        </button>
-                    </form>
-
                     <div className="informacoes-cupom">
                         <p className="total" >Total da Venda</p>
                         <span className={"spanTotal"}>{`R$ ${total.toFixed(2)}`}</span>
-                        <p className="troco">Troco</p>
-                        <span className="spanTroco">{resultadoTroco >= 0 ? `R$ ${resultadoTroco.toFixed(2)}` : 'R$ 0.00'}</span>
+                        {/* <p className="troco">Troco</p>
+                        <span className="spanTroco">{resultadoTroco >= 0 ? `R$ ${resultadoTroco.toFixed(2)}` : 'R$ 0.00'}</span> */}
+                        <span className="carrinhoSpan">Carrinho de Compras</span>
                     </div>
-                    <span className="carrinhoSpan">Carrinho de Compras</span>
-                    <ul className="produto-encontrado">
-                       
-                        {filterData.map((produto, index) => (
-                            <li key={index}>
-                                {`${produto.nome}: ${produto.descricao} `}
-                            </li>
-                    
-                        ))}
-                    </ul>
+                    <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
+                        <button className="buttonFinalizar" type="submit">
+                            Pagamento
+                        </button>
+                        <button className="buttonCancelar" type="submit">
+                            Cancelar venda
+                        </button>
+                    </form> 
+                </div>
+                  
+               
                     {/* <img className="lupa" src={lupa} /> */}
                 </div>
            
