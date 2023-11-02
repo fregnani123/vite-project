@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import imgRemover from '../../assets/imagens gestaoLite/remover.png';
-
+import { format } from 'date-fns'
 import lupa from '../../assets/imagens gestaoLite/procurar.png';
 import '../views/queryProdutos.css';
 
@@ -39,8 +39,18 @@ function SalesScreen() {
     const [adicionarCliente, setCliente] = useState("Consumidor");
     const [relatorio, setRelatorio] = useState<Relatorio | null>(null);
     const [relatoriosDoDia, setRelatoriosDoDia] = useState<Relatorio[]>([]);
+    const [dateVenda, setDateVenda] = useState(new Date());
 
-    console.log(JSON.stringify(relatoriosDoDia));
+    // Função para formatar a data no formato brasileiro
+    const formatDate = (date: Date) => {
+        return format(date, 'dd/MM/yyyy');
+    };
+
+    
+
+    // console.log(JSON.stringify(relatoriosDoDia));
+
+
 
     // Função para finalizar a venda
     function finalizarVenda() {
@@ -162,7 +172,6 @@ function SalesScreen() {
                         ))} 
                     </ul>
                     <div className="formBusca">
-
                         <p className="dadosProduto">Dados do Produto</p>
                         <p className="Produto">Produto:</p>
                         <p className="ProdutoPreço">Preço:</p>
@@ -173,7 +182,7 @@ function SalesScreen() {
                         </li>
 
                     ))}</ul>
-                        <ul className="preçoEncotrado">
+                        <ul className="precoEncotrado">
                     {filterData.map((produto, index) => (
                         <li key={index}>
                             {`${produto.preco.toFixed(2)}`}
@@ -209,33 +218,36 @@ function SalesScreen() {
                 </div>
 
                 <div className="div-Form">
-                    <p className="dadosCliente">Dados do Cliente</p>
+                    <div><p className="dadosCliente">Dados do Cliente</p>
+                    </div>
+                    <div className="divDadosCliente">
                     <form className="form-venda">
+                            <span className="spanData">Data <span className="inputDate">{formatDate(dateVenda)}</span></span>
                         <label className="labelCliente">Cliente:<input
                             onChange={(e) => {
                                 setCliente(e.target.value)
                             }}
-                            value={adicionarCliente} className="inputCliente" type="string" /></label><br/>
+                            value={'Consumidor'} className="inputCliente" type="string" /></label><br/>
                         <label className="labelPagamento">Pagamento:<input
                             onChange={(e) => {
                                 setPagamento(e.target.value)
                             }}
                             value={'À vista'} className="inputPagamento" type="string" /></label><br/>
 
-                        <label className="labelTRD">Dinheiro recebido</label>
-                        <input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
-                            setTroco(parseFloat(e.target.value))
-                        }} className="inputTRD" type="number" />
-
+                            <label className="labelTRD">Dinheiro recebido:<input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
+                                setTroco(parseFloat(e.target.value))
+                            }} className="inputTRD" type="number" /></label>
                        
-                    </form>
-                    <div className="informacoes-cupom">
-                        <p className="total" >Total da Venda</p>
-                        <span className={"spanTotal"}>{`R$ ${total.toFixed(2)}`}</span>
-                        {/* <p className="troco">Troco</p>
-                        <span className="spanTroco">{resultadoTroco >= 0 ? `R$ ${resultadoTroco.toFixed(2)}` : 'R$ 0.00'}</span> */}
-                        <span className="carrinhoSpan">Carrinho de Compras</span>
+
+                        </form>
                     </div>
+                    <div className="informacoes-cupom">
+                        <p className="pagamento">Total Venda</p>
+                        <p className="troco">Troco: <span className="spanTroco">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span> </p>
+                        
+                        <span className="carrinhoSpan">Carrinho de Compras</span>
+                        <p className="total" >Total da Venda:  <span className={"spanTotal"}>{`${total.toFixed(2)}`}</span></p>
+                       </div>
                     <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
                         <button className="buttonFinalizar" type="submit">
                             Pagamento
@@ -246,8 +258,6 @@ function SalesScreen() {
                     </form> 
                 </div>
                   
-               
-                    {/* <img className="lupa" src={lupa} /> */}
                 </div>
            
             {/* <footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer> */}
