@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import MyComponent from './components/views/queryProdutos';
 import RegisterProduct from './components/views/register';
 import SalesScreen from "./components/views/SalesScreen";
+import DetalhesVenda from "./components/views/detalhesVenda"
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -14,6 +15,7 @@ function App() {
     <div className='app'>
       <Router>
         <Routes>
+          <Route path='/detalhes'element={<DetalhesVenda/>}/>
           <Route path='/SalesScreen' element={<SalesScreen />} />
           <Route path='/newProduct' element={<RegisterProduct />} />
           <Route path='/queryProdutos' element={<MyComponent />} />

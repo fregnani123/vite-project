@@ -24,6 +24,7 @@ interface Relatorio {
     formaPagamento: string;
     dinheiroRecebido: number;
     carrinho: Produto[]; // Uso do tipo Produto[] para representar um array de produtos
+    dateVenda: Date;
 }
 
 function SalesScreen() {
@@ -35,7 +36,7 @@ function SalesScreen() {
     const [Qtd, setQtd] = useState("");
     const [inputTroco, setTroco] = useState(0);
     const [search, setSearch] = useState('');
-    const [formaPagamento, setPagamento] = useState('');
+    const [formaPagamento, setPagamento] = useState('À vista');
     const [adicionarCliente, setCliente] = useState("Consumidor");
     const [relatorio, setRelatorio] = useState<Relatorio | null>(null);
     const [relatoriosDoDia, setRelatoriosDoDia] = useState<Relatorio[]>([]);
@@ -64,6 +65,7 @@ function SalesScreen() {
             formaPagamento: formaPagamento,
             dinheiroRecebido: inputTroco,
             carrinho: carrinho,
+            dateVenda: dateVenda, 
         };
 
         setRelatorio(relatorioVenda);

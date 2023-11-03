@@ -5,7 +5,6 @@ import imgDetalhesVendas from '../assets/imagens gestaoLite/detalhes vendas.png'
 import imgEntradaSaida from '../assets/imagens gestaoLite/grafico-de-barras.png';
 import MenuPainel from './MenuToolbar';
 
-
 function Menu() {
     return (
         <div className='container'>
