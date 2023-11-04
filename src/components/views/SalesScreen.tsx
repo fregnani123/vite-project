@@ -38,8 +38,7 @@ function SalesScreen() {
     const [search, setSearch] = useState('');
     const [formaPagamento, setPagamento] = useState('À vista');
     const [adicionarCliente, setCliente] = useState("Consumidor");
-    const [relatorio, setRelatorio] = useState<Relatorio | null>(null);
-    const [relatoriosDoDia, setRelatoriosDoDia] = useState<Relatorio[]>([]);
+   
     const [dateVenda, setDateVenda] = useState(new Date());
 
     // Função para formatar a data no formato brasileiro
@@ -47,44 +46,43 @@ function SalesScreen() {
         return format(date, 'dd/MM/yyyy');
     };
 
-    
-
-    // console.log(JSON.stringify(relatoriosDoDia));
-
-
-
     // Função para finalizar a venda
-    function finalizarVenda() {
+    const finalizarVenda = async () => {
+       
         if (inputTroco === 0) {
             alert("Preencha todos os campos antes de finalizar a compra.");
             return;
         }
-        const relatorioVenda: Relatorio = {
+
+        const relatorioVenda ={
             cliente: adicionarCliente,
             total: total,
             formaPagamento: formaPagamento,
             dinheiroRecebido: inputTroco,
             carrinho: carrinho,
-            dateVenda: dateVenda, 
+            dateVenda: dateVenda,
         };
-
-        setRelatorio(relatorioVenda);
-
+       
+        try {
+            const response = await axios.post(urlPost, relatorioVenda);
+            console.log("Produto registrado com sucesso:", response.data);
+            setCarrinho([]);
+            setCodigo("");
+            setQtd("");
+            setTroco(0);
+            setSearch("");
+        } catch (error) {
+            console.error("Erro ao registrar produto:", error);
+        }
         // Adicione o relatório ao array relatoriosDoDia
-        setRelatoriosDoDia([...relatoriosDoDia, relatorioVenda]);
-
         // Limpe outros estados como o carrinho, código, etc.
-        setCarrinho([]);
-        setCodigo("");
-        setQtd("");
-        setTroco(0);
-        setSearch("");
+       
     }
 
-    console.log(relatorio);
 
     // Construção da URL para solicitar os produtos (verifique a configuração correta)
     const url = "http://localhost:3000/findProduto";
+    const urlPost = "http://localhost:3000/detalhesdevendaPost"
 
     useEffect(() => {
         // Certifique-se de que a URL esteja corretamente construída
@@ -96,6 +94,8 @@ function SalesScreen() {
                 console.error("Erro ao buscar dados:", error);
             });
     }, []);
+
+    
 
     // Filtrar produtos com base na pesquisa por código
     const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
