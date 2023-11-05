@@ -178,28 +178,26 @@ th {
 
 .informacoes-cupom {
     margin-top: 30px;
-    width: 540px;
-    right: 10px;
+    width: 525px;
     background-color: #f0f0f0;
     height: 210px;
     border: 1px solid #7c7c7c83;
+    /* background-color: red; */
 }
 
 .total {
     font-size: 25px;
-    margin-top: 138px;
+    margin-top: 35px;
     margin-right: 350px;
-    height: 50px;
 }
 
 .spanTotal {
-    color: rgb(0, 0, 0);
     font-size: 43px;
     margin-left: 10px;
     border: 1px solid #7c7c7c83;
     position: absolute;
     width: 340px;
-    top: 364px;
+    top: 375px;
     background-color: white;
 }
 
@@ -207,12 +205,12 @@ th {
     height: calc(100vh - 70px);
     background-color: var(--background-color);
     margin-top: 10px;
-    margin-left: 20px;
+    justify-content: center;
     display: flex;
     position: relative;
     /* background-color: red; */
     width: 100%;
-    
+   
 }
 
 .remover {
@@ -243,7 +241,7 @@ th {
     margin-top: 20px;
     height: 400px;
     bottom: 10px;
-    
+    position: relative;
 }
 
 
@@ -391,6 +389,9 @@ border: 1px solid #7c7c7c83;;
 .form-venda{
     border: 1px solid #7c7c7c83; 
     height: 190px;
+    position: relative;
+    width: 525px;
+    margin-top: 10px;
 }
 
 .buttonAdd {
@@ -412,12 +413,11 @@ border: 1px solid #7c7c7c83;;
 }
 
 .dadosCliente{
-  position: absolute;
+  margin-top: -10px;
+  margin-left: 5px;
   top: 10px;
-  left: 595px;
+  width: 95px;
   background-color: #f0f0f0;
-  width: 115px;
-
 }
 .formBusca{
     margin-top: 20px;
@@ -480,10 +480,17 @@ border: 1px solid #7c7c7c83;;
     border-bottom-left-radius: 5px;
 } 
 
+.divDadosCliente
+{
+position: relative;
+/* background-color: red; */
+overflow-x:hidden ;
+}
+
 .labelTRD {
 position: absolute;
-top: 280px;
-left: 600px;
+bottom: -115px;
+left: 28px;
 font-size: 19px;
 }
 
@@ -497,13 +504,14 @@ font-size: 19px;
     padding-bottom: 2px;
     padding-left: 3px;
     margin-top: 10px;
+   
 
 }
 
 .spanData{
     position: absolute;
-    top: 55px;
-    left: 950px;
+    top: 32px;
+    left: 355px;
 }
 
 .inputDate{
@@ -574,28 +582,21 @@ font-size: 19px;
 }
 
 .troco {
-    left: 898px;
     color: #010102;
-    font-size: 19px;
-    top: 290px;
-    position: absolute;
+    font-size: 30px;
+    margin-top: 90px;
+    margin-right: 261px;
 }
 
 .spanTroco {
-    padding: 0;
-    margin-left: 5px;
-    width: 150px;
-    border: 1px solid #7c7c7c83;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 3px;
-    margin-top: 15px;
-    background-color: rgb(228, 228, 228);
-    width: 150px;
     position: absolute;
-    top: -20px;
+    width: 300px;
+    margin-left: 5px;
+    border: 1px solid #7c7c7c83;
 }
-
+.pagamento{
+    margin-top: -10px;
+}
 .labelPagamento {
  margin-left: -255px;
 }
@@ -645,7 +646,7 @@ border: 1px solid #7c7c7c83;
 
 .carrinhoSpan{
 position: absolute;
-top: 11px;      
-left: 25px;    
+top: -9px;      
+left: 10px;    
 background-color:#f0f0f0;
                }

@@ -41,6 +41,7 @@ function SalesScreen() {
    
     const [dateVenda, setDateVenda] = useState(new Date());
 
+
     // Função para formatar a data no formato brasileiro
     const formatDate = (date: Date) => {
         return format(date, 'dd/MM/yyyy');
@@ -147,9 +148,12 @@ function SalesScreen() {
     return (
         <div className="venda-container">
             <p className="titulo-venda">Tela de Vendas</p>
+            
             <div className="entradas-saidas">
+               
                 <div>
-                    <ul className="cupom-form">
+                 
+                    <ul className="cupom-form">        <span className="carrinhoSpan">Carrinho de Compras</span>
                         <li className="descricaoItens">
                             <span className="cod">cod.</span>
                             <span className="index">num.</span>
@@ -219,11 +223,10 @@ function SalesScreen() {
                 </div>
                 </div>
 
-                <div className="div-Form">
-                    <div><p className="dadosCliente">Dados do Cliente</p>
-                    </div>
+                <div className="div-Form">  
                     <div className="divDadosCliente">
-                    <form className="form-venda">
+                        <form className="form-venda">
+                            <p className="dadosCliente">Dados Cliente</p>
                             <span className="spanData">Data <span className="inputDate">{formatDate(dateVenda)}</span></span>
                         <label className="labelCliente">Cliente:<input
                             onChange={(e) => {
@@ -239,16 +242,11 @@ function SalesScreen() {
                             <label className="labelTRD">Dinheiro recebido:<input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
                                 setTroco(parseFloat(e.target.value))
                             }} className="inputTRD" type="number" /></label>
-                       
-
                         </form>
-                    </div>
-                    <div className="informacoes-cupom">
+                      <div className="informacoes-cupom">
                         <p className="pagamento">Total Venda</p>
-                        <p className="troco">Troco: <span className="spanTroco">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span> </p>
-                        
-                        <span className="carrinhoSpan">Carrinho de Compras</span>
-                        <p className="total" >Total da Venda:  <span className={"spanTotal"}>{`${total.toFixed(2)}`}</span></p>
+                        <p className="troco">Troco: <span className="spanTroco">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span></p>
+                        <p className="total">Total da Venda:  <span className={"spanTotal"}>{`${total.toFixed(2)}`}</span></p>
                        </div>
                     <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
                         <button className="buttonFinalizar" type="submit">
@@ -259,7 +257,7 @@ function SalesScreen() {
                         </button>
                     </form> 
                 </div>
-                  
+                </div>
                 </div>
            
             {/* <footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer> */}
