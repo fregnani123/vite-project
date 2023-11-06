@@ -1,3 +1,66 @@
 .detalhesContainer{
     display: flex;
 }
+.tituloDetalhes{
+    margin-top: 20px;
+  color: rgb(0, 38, 87);
+}
+
+/* Estilo para a tabela de detalhes */
+.detalhesTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+/* Estilo para as células do cabeçalho */
+.detalhesTable th {
+    background-color: rgb(0, 38, 87);
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgb(78, 78, 78);
+}
+
+/* Estilo para as células das linhas de dados */
+.detalhesTable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/* Estilo para a primeira célula (Data venda) */
+.detalhesTable td:first-child {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Estilo para a última linha (Total de venda) */
+.detalhesTable tr:last-child {
+    background-color: rgb(0, 38, 87);
+    color: white;
+}
+
+/* Estilo para as células na última linha */
+.detalhesTable tr:last-child td {
+    font-weight: bold;
+}
+
+/* Estilo para a classe .totalVendasMes */
+.totalVendasMes {
+    background-color: rgb(0, 38, 87);
+    color: white;
+    text-align: right;
+    font-weight: bold;
+    
+}
+
+/* Estilo para as células da última linha */
+.detalhesTable tr:last-child td {
+    background-color: rgb(0, 38, 87);
+    color: white;
+    font-weight: bold;
+    border: 1px solid black;
+}

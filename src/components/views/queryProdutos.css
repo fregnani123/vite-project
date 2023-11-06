@@ -7,6 +7,8 @@
     --total-background-color: rgb(0, 38, 87);
 }
 
+
+
 /* Estilo para o formulário */
 .register-form {
     width: 100%;
@@ -48,7 +50,7 @@ select {
 /* Estilo para o cabeçalho do formulário */
 .registroH1 {
     margin-top: 20px;
-    color: var(--primary-color);
+    color: var(--total-background-color);
 }
 
 form h1 {
@@ -82,7 +84,7 @@ form input {
 }
 
 button {
-    background-color: var(--primary-color);
+    background-color: rgb(0, 38, 87);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -144,8 +146,8 @@ th {
 /* tela Venda */
 .titulo-venda {
     position: absolute;
-    color: var(--primary-color);
-    font-size: 17px;
+    color: var(--total-background-color);
+    font-size: 20px;
     font-weight: normal;
     border-bottom: 1px solid #7c7c7c83;
     top: 10px;
@@ -510,7 +512,7 @@ font-size: 19px;
 
 .spanData{
     position: absolute;
-    top: 32px;
+    top: 41px;
     left: 355px;
 }
 

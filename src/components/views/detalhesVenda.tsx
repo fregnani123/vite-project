@@ -1,7 +1,8 @@
 import MenuToolbar from "../MenuToolbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../views/detalhes.css"
+import "../views/detalhes.css";
+import { format } from 'date-fns'
 
 interface Relatorio {
     cliente: string;
@@ -27,37 +28,52 @@ function detalhesVendasScreen() {
         
     },[])
 
-  
-        return (
-            <div className="detalhesContainer"><div><MenuToolbar /></div>
+    return (
+        <div className="detalhesContainer">
+            <div className="menuDetalhes">
+                <MenuToolbar />
+            </div>
+            <div className="detalhesBody">
+                <h1 className="tituloDetalhes">Detalhes de Venda</h1>
                 <div>
-                    <ul>
-                        {
-                            data.map((venda, index) => (<li key={index}>{venda.dateVenda.toString()}</li>))
-                        }
-                        {
-                            data.map((venda, index) => (<li key={index}>{venda.cliente.toString()}</li>))
-                        }
-                        {
-                            data.map((venda, index) => (<li key={index}>{venda.formaPagamento.toString()}</li>))
-                        }
-                        {
-                            data.map((venda, index) => (<li key={index}>{`Total Venda: ${venda.total.toFixed(2)}`}</li>))
-                        }
-                        {
-                            data.map((venda, index) => (<li key={index}>{`Dinheiro Recebido: ${venda.dinheiroRecebido.toFixed(2)}`}</li>))
-                        }
-                        {
-                            data.map((venda, index) => (<li key={index}>{`Troco: ${(Number(venda.dinheiroRecebido) - Number(venda.total)).toFixed(2)}`}</li>))
-                        }
-                    </ul>
+                    <table className="detalhesTable">
+                        <thead>
+                            <tr>
+                                <th >Data venda</th>
+                                <th >Cliente</th>
+                                <th >Pagamento</th>
+                                <th >Total</th>
+                                <th >Dinheiro Recebido</th>
+                                <th >Troco</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.map((venda, index) => (
+                                <tr key={index}>
+                                    <td className="span">
+                                        {format(new Date(venda.dateVenda), 'dd/MM/yyyy')}
+                                    </td>
+                                    <td>{venda.cliente.toString()}</td>
+                                    <td>{venda.formaPagamento.toString()}</td>
+                                    <td>{`R$ ${venda.total.toFixed(2)}`}</td>
+                                    <td>{`R$ ${venda.dinheiroRecebido.toFixed(2)}`}</td>
+                                    <td>{`R$ ${(Number(venda.dinheiroRecebido) - Number(venda.total)).toFixed(2)}`}</td>
+                                </tr>
+                            ))}
+                            <tr>
+                                <td colSpan={6} className="totalVendasMes">
+                                    {`Total de venda: R$ ${data.reduce(
+                                        (acumulador, totalVendas) => acumulador + totalVendas.total,
+                                        0
+                                    ).toFixed(2)}`}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            
-        )
-    
+        </div>
+    );
 }
-
-
 
 export default detalhesVendasScreen;
