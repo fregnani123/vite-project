@@ -82,7 +82,7 @@ form input {
 }
 
 button {
-    background-color: rgb(0, 38, 87);
+    background-color: #7c9bb1ea;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -159,7 +159,7 @@ th {
     align-items: center;
     text-align: center;
     justify-content: center;
-    background-color:#f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .cupom-form {
@@ -173,7 +173,7 @@ th {
     border: 1px solid #7c7c7c83;
     margin-top: 20px;
     margin-left: 20px;
-    
+
 }
 
 .informacoes-cupom {
@@ -210,12 +210,12 @@ th {
     position: relative;
     /* background-color: red; */
     width: 100%;
-   
+
 }
 
 .remover {
     margin-right: -1px;
-    
+
 }
 
 .imgRemover {
@@ -227,7 +227,7 @@ th {
     cursor: pointer;
     float: right;
     margin-right: 20px;
-    
+
 }
 
 .descricaoItens {
@@ -235,7 +235,8 @@ th {
     width: 100%;
     left: 0;
 }
-.div-Form{
+
+.div-Form {
     width: 540px;
     margin-left: 20px;
     margin-top: 20px;
@@ -245,83 +246,104 @@ th {
 }
 
 
-.index{
+.index {
     border: 1px solid #7c7c7c83;
     position: absolute;
     left: 0;
     width: 60px;
-    
+    background-color: rgb(107, 107, 107);
+    color: white;
 }
-.index1{
+
+.index1 {
     border-right: 1px solid #7c7c7c83;
     position: absolute;
     left: 0px;
     width: 60px;
+    
 }
 
-.Qtd{
-    border: 1px solid #7c7c7c83;;
+.Qtd {
+    border: 1px solid #7c7c7c83;
+    ;
     position: absolute;
     right: 121px;
     width: 60px;
+    background-color: rgb(107, 107, 107);
+    color: white;
 }
 
-.Qtd1{
+.Qtd1 {
     border-right: 1px solid #7c7c7c83;
     border-left: 1px solid #7c7c7c83;
     position: absolute;
     right: 121px;
     width: 60px;
 }
-.cod{
-        border: 1px solid #7c7c7c83;;
-        position: absolute;
-        left: 61px;
-        width: 100px;    
-}
-.cod1{
-        border-right: 1px solid #7c7c7c83;
-        position: absolute;
-        left: 61px;
-        width: 100px;    
+
+.cod {
+    border: 1px solid #7c7c7c83;
+    ;
+    position: absolute;
+    left: 61px;
+    width: 100px;
+    background-color: rgb(107, 107, 107);
+    color: white;
 }
 
-.preco-produto{
-    border: 1px solid #7c7c7c83;;
-        position: absolute;
-        right: 60px;
-        width: 60px;
-        
-        
-}
-.preco-produto1{
-        border-right: 1px solid #7c7c7c83;
-        position: absolute;
-        right: 60px;
-        width: 60px;
-}
-.remover{
-border: 1px solid #7c7c7c83;;
+.cod1 {
+    border-right: 1px solid #7c7c7c83;
     position: absolute;
-    right: 0;
+    left: 61px;
+    width: 100px;
+}
+
+.preco-produto {
+    border: 1px solid #7c7c7c83;
+    ;
+    position: absolute;
+    right: 60px;
+    width: 60px;
+    background-color: rgb(107, 107, 107);
+        color: white;
+    
+}
+
+.preco-produto1 {
+    border-right: 1px solid #7c7c7c83;
+    position: absolute;
+    right: 60px;
     width: 60px;
 }
 
+.remover {
+    border: 1px solid #7c7c7c83;
+    ;
+    position: absolute;
+    right: 0;
+    width: 60px;
+    background-color: rgb(107, 107, 107);
+        color: white;
+}
 
-.nome-produto{
+
+.nome-produto {
     border: 1px solid #7c7c7c83;
     position: absolute;
     left: 162px;
     width: 204px;
+    background-color: rgb(107, 107, 107);
+        color: white;
 }
-.liCriar1{
+
+.liCriar1 {
     border: 1px solid #7c7c7c83;
     margin-top: -1px;
     background-color: #cecece79;
 }
 
-.correcaoEspacoLi{
- margin-top: 17px;
+.correcaoEspacoLi {
+    margin-top: 17px;
 
 }
 
@@ -332,15 +354,25 @@ border: 1px solid #7c7c7c83;;
     margin-left: 20px;
     position: absolute;
     top: 60px;
+    left: 203px;
+    outline: none;
+
+}
+
+.labelEstoque {
+    align-items: center;
+    color: var(--primary-color);
+    display: flex;
+    margin-left: 136px;
+    position: absolute;
+    top: 73px;
     left: 235px;
     outline: none;
 }
 
-
-
 .inputQtd {
     padding: 0;
-    margin-left: 5px;
+    margin-left: 3px;
     color: var(--primary-color);
     width: 108px;
     border: 1px solid #7c7c7c83;
@@ -350,17 +382,15 @@ border: 1px solid #7c7c7c83;;
 }
 
 .labelEAN {
- display: flex;
-/* Torna o label um flex container */
- align-items: center;
-/* Alinha os elementos verticalmente ao centro */
-  margin-left: 30px; 
-  margin-top: 10px;
-             
+    display: flex;
+    /* Torna o label um flex container */
+    align-items: center;
+    /* Alinha os elementos verticalmente ao centro */
+    margin-left: 5px;
+    margin-top: 10px;
 }
 
 .inputEAN {
-
     padding: 0;
     color: var(--primary-color);
     margin-left: 5px;
@@ -371,23 +401,25 @@ border: 1px solid #7c7c7c83;;
     padding-left: 23px;
 
 }
+
 .inputEAN::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
     display: none;
 }
 
-.inputEAN:focus{
-    outline: none;
-    box-shadow: 0 0 1px #007bff;
-}
-.inputQtd:focus{
+.inputEAN:focus {
     outline: none;
     box-shadow: 0 0 1px #007bff;
 }
 
-.form-venda{
-    border: 1px solid #7c7c7c83; 
+.inputQtd:focus {
+    outline: none;
+    box-shadow: 0 0 1px #007bff;
+}
+
+.form-venda {
+    border: 1px solid #7c7c7c83;
     height: 190px;
     position: relative;
     width: 525px;
@@ -412,86 +444,106 @@ border: 1px solid #7c7c7c83;;
     border: 1px solid #7c7c7c83;
 }
 
-.dadosCliente{
-  margin-top: -10px;
-  margin-left: 5px;
-  top: 10px;
-  width: 95px;
-  background-color: #f0f0f0;
+.dadosCliente {
+    margin-top: -10px;
+    margin-left: 5px;
+    top: 10px;
+    width: 95px;
+    background-color: #f0f0f0;
 }
-.formBusca{
+
+.formBusca {
     margin-top: 20px;
     border: 1px solid #7c7c7c83;
     margin-left: 20px;
     position: relative;
-    
+
 }
-.dadosProduto{
+
+.dadosProduto {
     position: absolute;
-    top:-11px;
+    top: -11px;
     left: 10px;
-    background-color:#f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .produto-encontrado {
-    background-color: rgba(202, 202, 202, 0.37);
-     padding-top: 3px;
-     padding-bottom: 1px;
-     width: 302px;
-     height: 18px;
-     padding-left: 5px;
-     margin-top: 25px;
-     display: flex; 
-     margin-left: 63px;
-     border: 1px solid #7c7c7c83;
+    background-color: rgb(107, 107, 107);
+    padding-top: 3px;
+    color: white;
+    padding-bottom: 1px;
+    width: 302px;
+    height: 18px;
+    padding-left: 5px;
+    margin-top: 25px;
+    display: flex;
+    margin-left: 63px;
+    border: 1px solid #7c7c7c83;
 }
 
 .precoEncotrado {
-    background-color: rgba(202, 202, 202, 0.37);
-     padding-top: 3px;
-     padding-bottom: 1px;
-     width: 100px;
-     height: 18px;
-     padding-left: 5px;
-     display: flex; 
-     right: 15px;
-     top: 25px;
-     border: 1px solid #7c7c7c83;
-     position: absolute;
+    background-color: rgb(107, 107, 107);
+    padding-top: 3px;
+    padding-bottom: 1px;
+    width: 100px;
+    height: 18px;
+    padding-left: 5px;
+    display: flex;
+    right: 15px;
+    top: 25px;
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    color: white;
 }
 
-.Produto{
+.estoqueAtual {
+    background-color: rgb(107, 107, 107);
+    padding-top: 3px;
+    color: white;
+    padding-bottom: 1px;
+    width: 100px;
+    height: 18px;
+    padding-left: 5px;
+    display: flex;
+    right: 15px;
+    top: 70px;
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+}
+
+.Produto {
     position: absolute;
     margin-top: 28px;
     margin-left: 5px;
 }
-.ProdutoPreço{
-        position: absolute;
-        margin-top: 28px;
-        right: 125px;
-    }
+
+.ProdutoPreço {
+    position: absolute;
+    margin-top: 28px;
+    right: 125px;
+
+}
 
 .lupa {
     width: 20px;
     height: auto;
     position: absolute;
-    left: 70px;
+    left: 45px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-} 
+}
 
-.divDadosCliente
-{
-position: relative;
-/* background-color: red; */
-overflow-x:hidden ;
+.divDadosCliente {
+    position: relative;
+    /* background-color: red; */
+    overflow-x: hidden;
 }
 
 .labelTRD {
-position: absolute;
-bottom: -115px;
-left: 28px;
-font-size: 19px;
+    position: absolute;
+    bottom: -115px;
+    left: 28px;
+    font-size: 19px;
 }
 
 .inputTRD {
@@ -507,13 +559,15 @@ font-size: 19px;
    
 }
 
-.spanData{
+.spanData {
     position: absolute;
     top: 41px;
     left: 355px;
+   
 }
 
-.inputDate{
+.inputDate {
+    background-color: rgb(107, 107, 107);
     padding: 0;
     margin-left: 5px;
     width: 140px;
@@ -522,10 +576,8 @@ font-size: 19px;
     padding-bottom: 2px;
     padding-left: 3px;
     margin-top: 10px;
-    background-color: rgb(228, 228, 228);
+    color: white;
 }
-
-
 
 .inputTRD::-webkit-inner-spin-button,
 .inputTRD::-webkit-outer-spin-button {
@@ -551,29 +603,30 @@ font-size: 19px;
 }
 
 .buttonFinalizar:hover {
-        background-color: #7c9bb1ea;
-        color: #000000;
-        border: 1px solid #7c7c7c83;
+    background-color: #7c9bb1ea;
+    color: #000000;
+    border: 1px solid #7c7c7c83;
 }
+
 .buttonCancelar {
     background-color: #cececeb6;
-        color: #000000;
-        border-radius: 5px;
-        font-weight: none;
-        border-radius: 0;
-        text-align: center;
-        margin-bottom: 25px;
-        margin-top: 25px;
-        border: 1px solid #7c7c7c83;
-        margin-right: 20px;
-        width:200px;
-        font-size: 20px;
+    color: #000000;
+    border-radius: 5px;
+    font-weight: none;
+    border-radius: 0;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border: 1px solid #7c7c7c83;
+    margin-right: 20px;
+    width: 200px;
+    font-size: 20px;
 }
 
 .buttonCancelar:hover {
-        background-color: #7c9bb1ea;
-        color: #000000;
-        border: 1px solid #7c7c7c83;
+    background-color: #7c9bb1ea;
+    color: #000000;
+    border: 1px solid #7c7c7c83;
 }
 
 .produto-encontrado {
@@ -592,12 +645,16 @@ font-size: 19px;
     width: 300px;
     margin-left: 5px;
     border: 1px solid #7c7c7c83;
+    background-color: rgb(107, 107, 107);
+    color: white;
 }
-.pagamento{
+
+.pagamento {
     margin-top: -10px;
 }
+
 .labelPagamento {
- margin-left: -255px;
+    margin-left: -255px;
 }
 
 .inputPagamento {
@@ -605,7 +662,7 @@ font-size: 19px;
     padding: 0;
     margin-left: 5px;
     width: 150px;
-border: 1px solid #7c7c7c83;
+    border: 1px solid #7c7c7c83;
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 3px;
@@ -614,26 +671,27 @@ border: 1px solid #7c7c7c83;
 
 
 .labelCliente {
-   margin-left: -180px;
+    margin-left: -180px;
 }
 
 .inputCliente {
-        margin-top: 30px;
-        padding: 0;
-        color: var(--primary-color);
-        margin-left: 5px;
-        width: 250px;
-        border: 1px solid #7c7c7c83;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        padding-left: 5px;}
+    margin-top: 30px;
+    padding: 0;
+    color: var(--primary-color);
+    margin-left: 5px;
+    width: 250px;
+    border: 1px solid #7c7c7c83;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+}
 
-.pagamento{
+.pagamento {
     position: absolute;
     top: 233px;
     margin-left: 5px;
     background-color: #f0f0f0;
-    
+
 }
 
 
@@ -643,9 +701,9 @@ border: 1px solid #7c7c7c83;
     font-weight: normal;
 }
 
-.carrinhoSpan{
-position: absolute;
-top: -9px;      
-left: 10px;    
-background-color:#f0f0f0;
-               }
+.carrinhoSpan {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #f0f0f0;
+}

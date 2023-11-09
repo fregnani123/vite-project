@@ -38,7 +38,6 @@ function SalesScreen() {
     const [search, setSearch] = useState('');
     const [formaPagamento, setPagamento] = useState('À vista');
     const [adicionarCliente, setCliente] = useState("Consumidor");
-    const [novoEstoque, setEstoque] = useState<number | undefined>(undefined); // Defina um valor inicial como undefined
     const [dateVenda, setDateVenda] = useState(new Date());
 
 
@@ -99,6 +98,7 @@ function SalesScreen() {
             setQtd("");
             setTroco(0);
             setSearch("");
+            window.location.reload()
         } catch (error) {
             console.error("Erro ao registrar produto:", error);
         }
@@ -163,7 +163,7 @@ function SalesScreen() {
 
     useEffect(() => {
         calcularTotal();
-    }, [carrinho, inputTroco]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
+    }, [carrinho, inputTroco,]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
     
     // Renderização do componente
     return (
@@ -199,12 +199,14 @@ function SalesScreen() {
                         <p className="dadosProduto">Dados do Produto</p>
                         <p className="Produto">Produto:</p>
                         <p className="ProdutoPreço">Preço:</p>
+                        <p className="labelEstoque">Estoque:</p>
                         <ul className="produto-encontrado">
                     {filterData.map((produto, index) => (
                         <li key={index}>
                             {`${produto.nome} - ${produto.descricao}`}
                         </li>
                     ))}</ul>
+                        
                         <ul className="precoEncotrado">
                     {filterData.map((produto, index) => (
                         <li key={index}>
@@ -212,6 +214,13 @@ function SalesScreen() {
                         </li>
 
                     ))}</ul>
+                        <ul className="estoqueAtual">
+                            {filterData.map((produto, index) => (
+                                <li key={index}>
+                                    {`${produto.estoque}`}
+                                </li>
+                            ))}</ul>
+
                         <form> <label className="labelEAN">EAN <img className="lupa" src={lupa} /><input
                         onChange={(e) => {
                             setSearch(e.target.value)
@@ -226,6 +235,7 @@ function SalesScreen() {
                             }
                             }
                         /></label>
+                        
                         <button className="buttonAdd"
                             onClick={(e) => {
                                 e.preventDefault()

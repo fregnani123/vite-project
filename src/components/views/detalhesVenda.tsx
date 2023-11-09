@@ -35,7 +35,7 @@ function detalhesVendasScreen() {
             </div>
             <div className="detalhesBody">
                 <h1 className="tituloDetalhes">Detalhes de Venda</h1>
-                <div>
+                <div className="detalhes">
                     <table className="detalhesTable">
                         <thead>
                             <tr>
@@ -50,7 +50,7 @@ function detalhesVendasScreen() {
                         <tbody>
                             {data.map((venda, index) => (
                                 <tr key={index}>
-                                    <td className="span">
+                                    <td className="">
                                         {format(new Date(venda.dateVenda), 'dd/MM/yyyy')}
                                     </td>
                                     <td>{venda.cliente.toString()}</td>
@@ -60,17 +60,19 @@ function detalhesVendasScreen() {
                                     <td>{`R$ ${(Number(venda.dinheiroRecebido) - Number(venda.total)).toFixed(2)}`}</td>
                                 </tr>
                             ))}
-                            <tr>
-                                <td colSpan={6} className="totalVendasMes">
-                                    {`Total de venda: R$ ${data.reduce(
-                                        (acumulador, totalVendas) => acumulador + totalVendas.total,
-                                        0
-                                    ).toFixed(2)}`}
-                                </td>
-                            </tr>
+                           
                         </tbody>
+                        
                     </table>
                 </div>
+                <table className="detalhesTable" > <tr>
+                    <td colSpan={6} className="totalVendasMes">
+                        {`Total vendas: R$ ${data.reduce(
+                            (acumulador, totalVendas) => acumulador + totalVendas.total,
+                            0
+                        ).toFixed(2)}`}
+                    </td>
+                </tr></table>
             </div>
         </div>
     );

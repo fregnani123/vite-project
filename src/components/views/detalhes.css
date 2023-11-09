@@ -1,5 +1,11 @@
 .detalhesContainer{
     display: flex;
+    
+}
+.detalhes{
+    width: 100%;
+    height: 400px;
+    overflow: auto;
 }
 .tituloDetalhes{
     margin-top: 20px;
