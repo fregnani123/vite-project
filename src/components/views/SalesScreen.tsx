@@ -14,7 +14,7 @@ interface Produto {
     preco: number;
     descricao: string;
     categoria: string;
-    estoque: string;
+    estoque: number;
     qtd: number;
 }
 
@@ -38,7 +38,7 @@ function SalesScreen() {
     const [search, setSearch] = useState('');
     const [formaPagamento, setPagamento] = useState('À vista');
     const [adicionarCliente, setCliente] = useState("Consumidor");
-   
+    const [novoEstoque, setEstoque] = useState<number | undefined>(undefined); // Defina um valor inicial como undefined
     const [dateVenda, setDateVenda] = useState(new Date());
 
 
@@ -47,25 +47,52 @@ function SalesScreen() {
         return format(date, 'dd/MM/yyyy');
     };
 
+    // Função para atualizar estoque
+    
+    const atualizarEstoqueNoBanco = async (produtoDoCarrinho:Produto) => {
+        const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho._id}`;
+        try {
+            const novaQuantidade = produtoDoCarrinho.qtd || 1;
+            const response = await axios.patch(urlEstoque, { estoque: produtoDoCarrinho.estoque - novaQuantidade });
+            console.log("Estoque atualizado com sucesso:", response.data);
+        } catch (error) {
+            console.error("Erro ao atualizar estoque:", error);
+        }
+    }
+
     // Função para finalizar a venda
     const finalizarVenda = async () => {
-       
         if (inputTroco === 0) {
             alert("Preencha todos os campos antes de finalizar a compra.");
             return;
         }
 
-        const relatorioVenda ={
-            cliente: adicionarCliente,
-            total: total,
-            formaPagamento: formaPagamento,
-            dinheiroRecebido: inputTroco,
-            carrinho: carrinho,
-            dateVenda: dateVenda,
-        };
-       
+        const novoCarrinho = [...carrinho];
+
         try {
+            for (const produtoDoCarrinho of novoCarrinho) {
+                const novaQuantidade = produtoDoCarrinho.qtd || 1;
+                const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho._id}`;
+
+                // Verifique se a quantidade no carrinho é menor ou igual ao estoque disponível
+                if (produtoDoCarrinho.estoque >= novaQuantidade) {
+                    const response = await axios.patch(urlEstoque, { estoque: produtoDoCarrinho.estoque - novaQuantidade });
+                    console.log("Estoque atualizado com sucesso:", response.data);
+                } else {
+                    console.error("Quantidade no carrinho maior que o estoque disponível:", produtoDoCarrinho);
+                    // Lide com o erro de estoque insuficiente
+                }
+            }
+            const relatorioVenda = {
+                cliente: adicionarCliente,
+                total: total,
+                formaPagamento: formaPagamento,
+                dinheiroRecebido: inputTroco,
+                carrinho: carrinho,
+                dateVenda: dateVenda,
+            };
             const response = await axios.post(urlPost, relatorioVenda);
+
             console.log("Produto registrado com sucesso:", response.data);
             setCarrinho([]);
             setCodigo("");
@@ -75,11 +102,7 @@ function SalesScreen() {
         } catch (error) {
             console.error("Erro ao registrar produto:", error);
         }
-        // Adicione o relatório ao array relatoriosDoDia
-        // Limpe outros estados como o carrinho, código, etc.
-       
     }
-
 
     // Construção da URL para solicitar os produtos (verifique a configuração correta)
     const url = "http://localhost:3000/findProduto";
@@ -95,8 +118,6 @@ function SalesScreen() {
                 console.error("Erro ao buscar dados:", error);
             });
     }, []);
-
-    
 
     // Filtrar produtos com base na pesquisa por código
     const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
@@ -143,16 +164,13 @@ function SalesScreen() {
     useEffect(() => {
         calcularTotal();
     }, [carrinho, inputTroco]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
-
+    
     // Renderização do componente
     return (
         <div className="venda-container">
             <p className="titulo-venda">Tela de Vendas</p>
-            
             <div className="entradas-saidas">
-               
                 <div>
-                 
                     <ul className="cupom-form">        <span className="carrinhoSpan">Carrinho de Compras</span>
                         <li className="descricaoItens">
                             <span className="cod">cod.</span>
@@ -186,7 +204,6 @@ function SalesScreen() {
                         <li key={index}>
                             {`${produto.nome} - ${produto.descricao}`}
                         </li>
-
                     ))}</ul>
                         <ul className="precoEncotrado">
                     {filterData.map((produto, index) => (
@@ -201,8 +218,6 @@ function SalesScreen() {
                             setCodigo(e.target.value)
                         }}
                         value={codigo} className="inputEAN" type="number" /></label>
-
-
                         <label className="labelQtd">Qtd:<input
                             className="inputQtd" type="number"
                             value={Qtd}
@@ -222,7 +237,6 @@ function SalesScreen() {
                     </form>
                 </div>
                 </div>
-
                 <div className="div-Form">  
                     <div className="divDadosCliente">
                         <form className="form-venda">
@@ -259,7 +273,6 @@ function SalesScreen() {
                 </div>
                 </div>
                 </div>
-           
             {/* <footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer> */}
         </div>
     );
