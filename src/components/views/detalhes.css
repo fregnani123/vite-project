@@ -42,7 +42,6 @@
     background-color: #f0f0f0;
     font-weight: bold;
 }
-
 /* Estilo para a última linha (Total de venda) */
 .detalhesTable tr:last-child {
     background-color: rgb(0, 38, 87);
@@ -53,7 +52,7 @@
 .detalhesTable tr:last-child td {
     font-weight: bold;
 }
-
+   
 /* Estilo para a classe .totalVendasMes */
 .totalVendasMes {
     background-color: rgb(0, 38, 87);
