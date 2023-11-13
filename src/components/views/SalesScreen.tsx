@@ -272,47 +272,47 @@ function SalesScreen() {
                             onChange={(e) => {
                                 setPagamento(e.target.value)
                             }}
-                            value={'À vista'} className="inputPagamento" type="string" /></label><br/>
-
+                                value={'À vista'} className="inputPagamento" type="string" /></label><br />
+                            
+                        <label className="labelTroco"><input
+                                value={inputTroco === 0 ? "" : inputTroco}
+                                onChange={(e) => {
+                                    setTroco(parseFloat(e.target.value));
+                                }}
+                                className="inputTroco"
+                                type="number"
+                            /></label>
                         </form>
                         <div className="informacoes-cupom">
-                            <table>
-                                <tbody>
+                            <table className="table-informacoes">
+                                <tbody >
                                     <tr>
                                         <td className="pagamento">Total Venda</td>
-                                        <td>
-                                            <label className="trocoRecebido">Dinheiro recebido</label>
-                                            <input
-                                                value={inputTroco === 0 ? "" : inputTroco}
-                                                onChange={(e) => {
-                                                    setTroco(parseFloat(e.target.value));
-                                                }}
-                                                className="inputTRD"
-                                                type="number"
-                                            />
+                                    </tr>
+                                    <tr>
+                                        <td className="trocoRecebido">
+                                            Dinheiro recebido
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label className="trocoLabel">Troco:</label>
+                                            <span className="trocoLabel">Troco:</span>
                                         </td>
-                                        <td>
+                                        <td className="tdResultado">
                                             <span className="trocoResultado">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label className="totalVendaLabel">Total da Venda</label>
+                                            <span className="totalVendaLabel">Total da Venda</span>
                                         </td>
-                                        <td>
+                                        <td className="tdTotal">
                                             <span className="totalVendaResultado">{`${total.toFixed(2)}`}</span>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-
-
 
                     <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
                         <button className="buttonFinalizar" type="submit">

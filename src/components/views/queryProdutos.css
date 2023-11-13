@@ -72,6 +72,8 @@ form input {
     }
 }
 
+
+
 .logar {
     width: 100%;
     padding: 10px;
@@ -174,6 +176,11 @@ th {
     margin-top: 20px;
     margin-left: 20px;
 
+}
+.table-informacoes{
+    /* background-color: #0056b3; */
+    margin-top: 25px;
+    
 }
 
 .informacoes-cupom {
@@ -590,6 +597,16 @@ input {
     font-size: 16px;
     /* Tamanho de fonte ajustável */
 }
+.tdResultado {
+background-color: rgb(107, 107, 107);
+width: 150px;
+color: white;
+}
+.tdTotal{
+    background-color: rgb(107, 107, 107);
+    width: 150px;
+    color: white;
+}
 
 .buttonFinalizar {
     background-color: #cececeb6;
@@ -645,14 +662,38 @@ input {
     margin-right: 261px;
 }
 
-.spanTroco {
-    position: absolute;
-    width: 300px;
-    margin-left: 5px;
-    border: 1px solid #7c7c7c83;
-    background-color: rgb(107, 107, 107);
-    color: white;
+
+.labelTroco{
+position: absolute;
+right: 73px;
+top: 237px;
+
 }
+
+
+.inputTroco {
+    padding: 0;
+    color: var(--primary-color);
+    margin-left: 5px;
+    width: 140px;
+    border: 1px solid #7c7c7c83;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 23px;
+    height: 29px;
+}
+
+.inputTroco::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputTroco:focus {
+    outline: none;
+    box-shadow: 0 0 1px #007bff;
+}
+
 
 .pagamento {
     margin-top: -10px;
@@ -663,15 +704,14 @@ input {
 }
 
 .inputPagamento {
-
-    padding: 0;
-    margin-left: 5px;
-    width: 150px;
+   padding: 0;
+    margin-left: 3px;
+    color: var(--primary-color);
+    width: 108px;
     border: 1px solid #7c7c7c83;
     padding-top: 2px;
     padding-bottom: 2px;
-    padding-left: 3px;
-    margin-top: 15px;
+    padding-left: 2px;
 }
 
 
