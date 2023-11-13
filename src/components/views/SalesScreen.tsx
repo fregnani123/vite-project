@@ -18,14 +18,14 @@ interface Produto {
     qtd: number;
 }
 
-interface Relatorio {
-    cliente: string;
-    total: number;
-    formaPagamento: string;
-    dinheiroRecebido: number;
-    carrinho: Produto[]; // Uso do tipo Produto[] para representar um array de produtos
-    dateVenda: Date;
-}
+// interface Relatorio {
+//     cliente: string;
+//     total: number;
+//     formaPagamento: string;
+//     dinheiroRecebido: number;
+//     carrinho: Produto[]; // Uso do tipo Produto[] para representar um array de produtos
+//     dateVenda: Date;
+// }
 
 function SalesScreen() {
     // Estados
@@ -60,10 +60,21 @@ function SalesScreen() {
     }
 
     // Função para finalizar a venda
+    const cancelarVenda = () => {
+        setCarrinho([]);
+        setCodigo("");
+        setQtd("");
+        setTroco(0);
+        setSearch("");
+    }
+
     const finalizarVenda = async () => {
-        if (inputTroco === 0) {
+        if (inputTroco === 0){
             alert("Preencha todos os campos antes de finalizar a compra.");
             return;
+        } else if (total <= 0) {
+            alert("O carrinho está sem itens adicione itens para finalizar a venda.");
+            return   
         }
 
         const novoCarrinho = [...carrinho];
@@ -263,20 +274,51 @@ function SalesScreen() {
                             }}
                             value={'À vista'} className="inputPagamento" type="string" /></label><br/>
 
-                            <label className="labelTRD">Dinheiro recebido:<input value={inputTroco === 0 ? "" : inputTroco} onChange={(e) => {
-                                setTroco(parseFloat(e.target.value))
-                            }} className="inputTRD" type="number" /></label>
                         </form>
-                      <div className="informacoes-cupom">
-                        <p className="pagamento">Total Venda</p>
-                        <p className="troco">Troco: <span className="spanTroco">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span></p>
-                        <p className="total">Total da Venda:  <span className={"spanTotal"}>{`${total.toFixed(2)}`}</span></p>
-                       </div>
+                        <div className="informacoes-cupom">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td className="pagamento">Total Venda</td>
+                                        <td>
+                                            <label className="trocoRecebido">Dinheiro recebido</label>
+                                            <input
+                                                value={inputTroco === 0 ? "" : inputTroco}
+                                                onChange={(e) => {
+                                                    setTroco(parseFloat(e.target.value));
+                                                }}
+                                                className="inputTRD"
+                                                type="number"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label className="trocoLabel">Troco:</label>
+                                        </td>
+                                        <td>
+                                            <span className="trocoResultado">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label className="totalVendaLabel">Total da Venda</label>
+                                        </td>
+                                        <td>
+                                            <span className="totalVendaResultado">{`${total.toFixed(2)}`}</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
                     <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
                         <button className="buttonFinalizar" type="submit">
                             Pagamento
                         </button>
-                        <button className="buttonCancelar" type="submit">
+                            <button onClick={(e) => { e.preventDefault(); cancelarVenda();  }} className="buttonCancelar" type="submit">
                             Cancelar venda
                         </button>
                     </form> 

@@ -539,51 +539,56 @@ th {
     overflow-x: hidden;
 }
 
-.labelTRD {
-    position: absolute;
-    bottom: -115px;
-    left: 28px;
-    font-size: 19px;
+.informacoes-cupom {
+    text-align: center;
 }
 
-.inputTRD {
-    padding: 0;
-    color: var(--primary-color);
-    margin-left: 5px;
-    width: 140px;
-    border: 1px solid #7c7c7c83;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 3px;
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px;
+    /* Ajuste o valor conforme necessário */
+    margin: 0 auto;
+}
+
+table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.trocoLabel,
+.totalVendaLabel {
+    font-weight: bold;
+    font-size: 18px;
+    /* Tamanho de fonte ajustável */
     margin-top: 10px;
-   
 }
 
-.spanData {
-    position: absolute;
-    top: 41px;
-    left: 355px;
-   
+.trocoRecebido {
+    font-weight: bold;
+    font-size: 16px;
 }
 
-.inputDate {
-    background-color: rgb(107, 107, 107);
-    padding: 0;
-    margin-left: 5px;
-    width: 140px;
-    border: 1px solid #7c7c7c83;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 3px;
-    margin-top: 10px;
-    color: white;
-}
-
-.inputTRD::-webkit-inner-spin-button,
-.inputTRD::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
+.trocoResultado,
+.totalVendaResultado {
+    font-size: 16px;
+    /* Tamanho de fonte ajustável */
 }
 
 .buttonFinalizar {
@@ -688,13 +693,12 @@ th {
 
 .pagamento {
     position: absolute;
-    top: 233px;
-    margin-left: 5px;
+    top: 225px;
+    margin-left: -60px;
     background-color: #f0f0f0;
-
+    border: none;
+    
 }
-
-
 
 .footerVenda {
     color: white;
@@ -707,3 +711,4 @@ th {
     left: 10px;
     background-color: #f0f0f0;
 }
+
