@@ -212,9 +212,9 @@ function SalesScreen() {
                     </ul>
                     <div className="formBusca">
                         <p className="dadosProduto">Dados do Produto</p>
-                        <p className="Produto">Produto:</p>
-                        <p className="ProdutoPreço">Preço:</p>
-                        <p className="labelEstoque">Estoque:</p>
+                        <p className="Produto">Produto</p>
+                        <p className="produtoPreco">Preço</p>
+                        <p className="labelEstoque">Estoque</p>
                         <ul className="produto-encontrado">
                     {filterData.map((produto, index) => (
                         <li key={index}>
@@ -236,20 +236,20 @@ function SalesScreen() {
                                 </li>
                             ))}</ul>
 
-                        <form> <label className="labelEAN">EAN <img className="lupa" src={lupa} /><input
-                        onChange={(e) => {
-                            setSearch(e.target.value)
-                            setCodigo(e.target.value)
-                        }}
-                        value={codigo} className="inputEAN" type="number" /></label>
-                        <label className="labelQtd">Qtd:<input
-                            className="inputQtd" type="number"
-                            value={Qtd}
+                        <form> <label className="labelEAN">EAN<img className="lupa" src={lupa} /></label><input
                             onChange={(e) => {
-                                setQtd(e.target.value)
-                            }
-                            }
-                        /></label>
+                                setSearch(e.target.value)
+                                setCodigo(e.target.value)
+                            }}
+                            value={codigo} className="inputEAN" type="number" />
+                            <label className="labelQtd">Qtd:</label><input
+                                className="inputQtd" type="number"
+                                value={Qtd}
+                                onChange={(e) => {
+                                    setQtd(e.target.value)
+                                }
+                                }
+                            />
                         
                         <button className="buttonAdd"
                             onClick={(e) => {
@@ -267,11 +267,11 @@ function SalesScreen() {
                         <form className="form-venda">
                             <p className="dadosCliente">Dados Cliente</p>
                             <span className="spanData">Data</span><span className="inputDate">{formatDate(dateVenda)}</span>
-                        <label className="labelCliente">Cliente:<input
+                            <label className="labelCliente">Cliente<input value={'Consumidor'} className="inputCliente" type="string" 
                             onChange={(e) => {
                                 setCliente(e.target.value)
                             }}
-                                value={'Consumidor'} className="inputCliente" type="string" /></label>
+                            /></label>
                             
                             <label></label>
                             <select className="inputPagamento" value={formaPagamento} onChange={(e) => { setPagamento(e.target.value) }}>

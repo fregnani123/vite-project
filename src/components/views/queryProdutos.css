@@ -305,7 +305,7 @@ th {
     right: 60px;
     width: 60px;
     background-color: rgb(107, 107, 107);
-        color: white;
+    color: white;
     
 }
 
@@ -314,16 +314,16 @@ th {
     position: absolute;
     right: 60px;
     width: 60px;
+    
 }
 
 .remover {
-    border: 1px solid #7c7c7c83;
-    ;
+    border: 1px solid #7c7c7c83;;
     position: absolute;
     right: 0;
     width: 60px;
     background-color: rgb(107, 107, 107);
-        color: white;
+    color: white;
 }
 
 
@@ -333,7 +333,7 @@ th {
     left: 162px;
     width: 204px;
     background-color: rgb(107, 107, 107);
-        color: white;
+    color: white;
 }
 
 .liCriar1 {
@@ -351,12 +351,13 @@ th {
     align-items: center;
     color: var(--primary-color);
     display: flex;
-    margin-left: 20px;
     position: absolute;
-    top: 60px;
-    left: 203px;
-    outline: none;
-
+    top: 70px;
+    left: 227px;
+    border: 1px solid #ddd;
+    width: 25px;
+    padding: 8px;
+    height: 20px;
 }
 
 .labelEstoque {
@@ -364,42 +365,55 @@ th {
     color: var(--primary-color);
     display: flex;
     margin-left: 136px;
+    height: 20px;
     position: absolute;
-    top: 73px;
-    left: 235px;
+    top: 70px;
+    left: 245px;
     outline: none;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
 .inputQtd {
-    padding: 0;
-    margin-left: 3px;
-    color: var(--primary-color);
-    width: 108px;
-    border: 1px solid #7c7c7c83;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 2px;
+        padding: 0;
+        color: var(--primary-color);
+        margin-left: 5px;
+        width: 95px;
+        border: 1px solid #ddd;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 23px;
+        position: absolute;
+        top: 60px;
+        left: 263px;
+        padding: 8px;
+        height: 20px;
 }
 
 .labelEAN {
     display: flex;
-    /* Torna o label um flex container */
     align-items: center;
-    /* Alinha os elementos verticalmente ao centro */
     margin-left: 5px;
     margin-top: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    width: 45px;
+    padding-right: 10px;
 }
-
 .inputEAN {
     padding: 0;
     color: var(--primary-color);
     margin-left: 5px;
-    width: 150px;
-    border: 1px solid #7c7c7c83;
+    width: 140px;
+    border: 1px solid #ddd;
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 23px;
-
+    position: absolute;
+    top: 60px;
+    left:65px;
+    padding: 8px;
+    height: 20px;
 }
 
 .inputEAN::-webkit-inner-spin-button {
@@ -465,6 +479,7 @@ th {
     top: -11px;
     left: 10px;
     background-color: #f0f0f0;
+    
 }
 
 .produto-encontrado {
@@ -472,28 +487,35 @@ th {
     padding-top: 3px;
     color: white;
     padding-bottom: 1px;
-    width: 302px;
-    height: 18px;
+    width: 300px;
+    height: 22px;
     padding-left: 5px;
-    margin-top: 25px;
+    margin-top: 20px;
     display: flex;
-    margin-left: 63px;
+    margin-left: 62px;
     border: 1px solid #7c7c7c83;
+    padding: 8px;
+    align-items: center;
+    font-size: 14px;
 }
 
 .precoEncotrado {
     background-color: rgb(107, 107, 107);
     padding-top: 3px;
     padding-bottom: 1px;
-    width: 100px;
-    height: 18px;
+    width: 91px;
+    height: 22px;
     padding-left: 5px;
     display: flex;
-    right: 15px;
-    top: 25px;
+    right: 6px;
+    top: 20px;
     border: 1px solid #7c7c7c83;
     position: absolute;
     color: white;
+    border: 1px solid #7c7c7c83;
+    padding: 8px;
+    text-align: center;
+    align-items: center;
 }
 
 .estoqueAtual {
@@ -501,34 +523,48 @@ th {
     padding-top: 3px;
     color: white;
     padding-bottom: 1px;
-    width: 100px;
+    width: 80px;
     height: 18px;
     padding-left: 5px;
     display: flex;
-    right: 15px;
+    right: 6px;
     top: 70px;
     border: 1px solid #7c7c7c83;
     position: absolute;
+    height: 20px;
+    padding: 8px;
+    align-items: center;
 }
 
 .Produto {
     position: absolute;
     margin-top: 28px;
     margin-left: 5px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    height: 38px;
+    align-items: center;
+    padding-left: 3px;
+    padding-right: 2px;
 }
 
-.ProdutoPreço {
+.produtoPreco {
     position: absolute;
-    margin-top: 28px;
-    right: 125px;
-
+    right: 115px;
+    top: 20px;
+    height: 22px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    align-items: center;
+    text-align: center;
 }
 
 .lupa {
     width: 20px;
-    height: auto;
-    position: absolute;
-    left: 45px;
+    height: 20px;
+    left: 52px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -557,11 +593,13 @@ table td {
 }
 
 .spanData {
-    width: 150px;
+    width: 104px;
     padding: 8px;
     border: 1px solid #ddd;
-    margin-top: 20px;
-    /* position: absolute; */
+    margin-top: 60px;
+    left: 20px;
+    position: absolute;
+    font-weight: normal;
 }
 
 .inputDate {
@@ -569,8 +607,9 @@ table td {
     border: 1px solid #ddd;
     background-color: rgb(107, 107, 107);
     color: white;
-    margin-top: 20px;
-    /* position: absolute; */
+    margin-top: 60px;
+    position: absolute;
+    left: 142px;
 }
 
 table tr:nth-child(odd) {
@@ -579,7 +618,7 @@ table tr:nth-child(odd) {
 
 label {
     display: block;
-    font-weight: bold;
+    font-weight: normal;
     margin-bottom: 5px;
 }
 
@@ -591,14 +630,14 @@ input {
 
 .trocoLabel,
 .totalVendaLabel {
-    font-weight: bold;
+    font-weight: normal;
     font-size: 18px;
     /* Tamanho de fonte ajustável */
     margin-top: 10px;
 }
 
 .trocoRecebido {
-    font-weight: bold;
+    font-weight: normal;
     font-size: 16px;
 }
 
@@ -664,9 +703,7 @@ color: white;
     border: 1px solid #7c7c7c83;
 }
 
-.produto-encontrado {
-    font-size: 14px;
-}
+
 
 
 .labelTroco{
@@ -676,7 +713,7 @@ top: 273px;
 }
 
 .formaPagamento{
-    font-weight: bolder;
+    font-weight: normal;
 }
 
 .inputTroco {
@@ -739,19 +776,23 @@ top: 273px;
 
 
 .labelCliente {
-    margin-left: -180px;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+        display: flex;
+        position: absolute;
+        height: 38px;
+        align-items: center;
+        left: 20px;
+        width: 100px;
+        padding-left: 30px;
 }
 
+
 .inputCliente {
-    margin-top: 30px;
-    padding: 0;
-    color: var(--primary-color);
-    margin-left: 5px;
-    width: 250px;
-    border: 1px solid #7c7c7c83;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 5px;
+   margin-left: 90px;
+   position: absolute;
+   width: 350px;
+   
 }
 
 .pagamento {
