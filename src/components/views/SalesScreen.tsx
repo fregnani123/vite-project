@@ -35,8 +35,8 @@ function SalesScreen() {
     const [total, setTotal] = useState(0);
     const [Qtd, setQtd] = useState("");
     const [inputTroco, setTroco] = useState(0);
-    const [search, setSearch] = useState('');
-    const [formaPagamento, setPagamento] = useState('À vista');
+    const [search, setSearch] = useState("");
+    const [formaPagamento, setPagamento] = useState("");
     const [adicionarCliente, setCliente] = useState("Consumidor");
     const [dateVenda, setDateVenda] = useState(new Date());
 
@@ -75,6 +75,9 @@ function SalesScreen() {
         } else if (total <= 0) {
             alert("O carrinho está sem itens adicione itens para finalizar a venda.");
             return   
+        } else if (formaPagamento === "Selecionar" || formaPagamento === "") {
+            alert("Escolha a forma de pagamento para finalizar a venda.");
+            return  
         }
 
         const novoCarrinho = [...carrinho];
@@ -109,6 +112,7 @@ function SalesScreen() {
             setQtd("");
             setTroco(0);
             setSearch("");
+            setPagamento("");
             window.location.reload()
         } catch (error) {
             console.error("Erro ao registrar produto:", error);
@@ -262,17 +266,20 @@ function SalesScreen() {
                     <div className="divDadosCliente">
                         <form className="form-venda">
                             <p className="dadosCliente">Dados Cliente</p>
-                            <span className="spanData">Data <span className="inputDate">{formatDate(dateVenda)}</span></span>
+                            <span className="spanData">Data</span><span className="inputDate">{formatDate(dateVenda)}</span>
                         <label className="labelCliente">Cliente:<input
                             onChange={(e) => {
                                 setCliente(e.target.value)
                             }}
-                            value={'Consumidor'} className="inputCliente" type="string" /></label><br/>
-                        <label className="labelPagamento">Pagamento:<input
-                            onChange={(e) => {
-                                setPagamento(e.target.value)
-                            }}
-                                value={'À vista'} className="inputPagamento" type="string" /></label><br />
+                                value={'Consumidor'} className="inputCliente" type="string" /></label>
+                            
+                            <label></label>
+                            <select className="inputPagamento" value={formaPagamento} onChange={(e) => { setPagamento(e.target.value) }}>
+                                <option className= "inputFormaPagamento" value={'Selecionar'}>Selecionar</option>
+                                <option  className="inputFormaPagamento" value="À Vista(BRL)">À Vista(BRL)</option>
+                                <option  className="inputFormaPagamento" value="PIX">PIX </option>
+                                <option  className="inputFormaPagamento" value="Cartão">Cartão </option>
+                            </select>
                             
                         <label className="labelTroco"><input
                                 value={inputTroco === 0 ? "" : inputTroco}
@@ -287,6 +294,11 @@ function SalesScreen() {
                             <table className="table-informacoes">
                                 <tbody >
                                     <tr>
+                                        <td className="formaPagamento">
+                                         Forma de Pagamento
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td className="pagamento">Total Venda</td>
                                     </tr>
                                     <tr>
@@ -296,7 +308,7 @@ function SalesScreen() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span className="trocoLabel">Troco:</span>
+                                            <span className="trocoLabel">Troco</span>
                                         </td>
                                         <td className="tdResultado">
                                             <span className="trocoResultado">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span>

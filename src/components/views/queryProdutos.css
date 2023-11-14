@@ -36,14 +36,9 @@ select {
     padding: 10px;
     margin: 10px -10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
     font-size: 16px;
 }
 
-.optionSelecionar {
-    background-color: var(--secondary-color);
-    color: white;
-}
 
 /* Estilo para o cabeçalho do formulário */
 .registroH1 {
@@ -71,8 +66,6 @@ form input {
         outline: 1px solid #000;
     }
 }
-
-
 
 .logar {
     width: 100%;
@@ -563,6 +556,23 @@ table td {
     border: 1px solid #ddd;
 }
 
+.spanData {
+    width: 150px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    /* position: absolute; */
+}
+
+.inputDate {
+    padding: 8px;
+    border: 1px solid #ddd;
+    background-color: rgb(107, 107, 107);
+    color: white;
+    margin-top: 20px;
+    /* position: absolute; */
+}
+
 table tr:nth-child(odd) {
     background-color: #f2f2f2;
 }
@@ -602,6 +612,9 @@ background-color: rgb(107, 107, 107);
 width: 150px;
 color: white;
 }
+
+
+
 .tdTotal{
     background-color: rgb(107, 107, 107);
     width: 150px;
@@ -655,21 +668,16 @@ color: white;
     font-size: 14px;
 }
 
-.troco {
-    color: #010102;
-    font-size: 30px;
-    margin-top: 90px;
-    margin-right: 261px;
-}
-
 
 .labelTroco{
 position: absolute;
 right: 73px;
-top: 237px;
-
+top: 273px;
 }
 
+.formaPagamento{
+    font-weight: bolder;
+}
 
 .inputTroco {
     padding: 0;
@@ -693,6 +701,16 @@ top: 237px;
     outline: none;
     box-shadow: 0 0 1px #007bff;
 }
+.inputPagamento::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputPagamento:focus {
+    outline: none;
+    box-shadow: 0 0 1px #007bff;
+}
 
 
 .pagamento {
@@ -704,15 +722,20 @@ top: 237px;
 }
 
 .inputPagamento {
-   padding: 0;
-    margin-left: 3px;
-    color: var(--primary-color);
-    width: 108px;
-    border: 1px solid #7c7c7c83;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 2px;
-}
+        position: absolute;
+        padding: 0;
+        color: var(--primary-color);
+        width: 140px;
+        border: 1px solid #7c7c7c83;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 23px;
+        height: 36px;
+        top: 237px;
+        right: 73px;
+        border-radius: none;
+        width: 165px;
+    }
 
 
 .labelCliente {
