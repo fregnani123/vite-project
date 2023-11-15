@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import imgRemover from '../../assets/imagens gestaoLite/remover.png';
 import { format } from 'date-fns'
 import lupa from '../../assets/imagens gestaoLite/procurar.png';
-import '../views/queryProdutos.css';
+import '../views/style.css';
+import MenuToolbar from "../MenuToolbar";
 
 // Definição de tipos (interfaces)
 interface Produto {
@@ -183,10 +184,13 @@ function SalesScreen() {
     // Renderização do componente
     return (
         <div className="venda-container">
-            <p className="titulo-venda">Tela de Vendas</p>
-            <div className="entradas-saidas">
-                <div>
-                    <ul className="cupom-form">        <span className="carrinhoSpan">Carrinho de Compras</span>
+            <div className="z-index"></div>
+            <div className="ajusteContainer">
+                <div className="entradas-saidas">
+                    <div className="menu"> <MenuToolbar /></div>
+                    <div className=" ulCupon">
+                        <h1 className="tituloVendas">Tela de Vendas</h1>
+                    <ul className="cupom-form"><span className="carrinhoSpan">Carrinho de Compras</span>
                         <li className="descricaoItens">
                             <span className="cod">cod.</span>
                             <span className="index">num.</span>
@@ -211,10 +215,11 @@ function SalesScreen() {
                         ))} 
                     </ul>
                     <div className="formBusca">
-                        <p className="dadosProduto">Dados do Produto</p>
+                        
                         <p className="Produto">Produto</p>
                         <p className="produtoPreco">Preço</p>
-                        <p className="labelEstoque">Estoque</p>
+                            <p className="labelEstoque">Estoque</p>
+                            <p className="dadosProduto">Dados do Produto</p>
                         <ul className="produto-encontrado">
                     {filterData.map((produto, index) => (
                         <li key={index}>
@@ -337,9 +342,10 @@ function SalesScreen() {
                 </div>
                 </div>
                 </div>
+               </div>
             {/* <footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer> */}
-        </div>
+    </div>
+   
     );
 }
-
 export default SalesScreen;

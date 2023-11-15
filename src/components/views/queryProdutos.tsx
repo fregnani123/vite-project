@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import '../views/queryProdutos.css';
 import MenuToolbar from "../MenuToolbar";
+import '../views/queryProdutos.css'
 
 interface Produto {
     _id: string ;
@@ -30,12 +31,13 @@ function MyComponent() {
     return (<div className="query-Container">
         <div><MenuToolbar/></div>
         <div className="register-queryProdutos">
-        <h1 className="registroH1">Informações Produtos</h1> 
+            <h1 className="registroH1">Informações Produtos</h1>
+            <div className="containerTable">
             <table className="my-table">
                 <thead>
                     <tr>
-                        <th>EAN</th>
-                        <th>Nome do Produto</th>
+                        <th className="thEAN">EAN</th>
+                        <th className="thNome">Nome do Produto</th>
                         <th>Preço</th>
                         <th>Descrição</th>
                         <th>Categoria</th>
@@ -44,7 +46,7 @@ function MyComponent() {
                 </thead>
                 <tbody>
                     {data.map((produto, index) => (
-                        <tr key={index}>
+                        <tr className="tr" key={index}>
                             <td>{produto.codigoDeBarras}</td>
                             <td>
                             {produto.nome}</td>
@@ -56,7 +58,7 @@ function MyComponent() {
                     ))}
                 </tbody>
             </table>
-            
+            </div>
             </div></div>
     );
 }
