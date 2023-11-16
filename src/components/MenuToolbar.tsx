@@ -15,7 +15,7 @@ function MenuToolbar() {
             <Link className='link' to= "/detalhes"><li className='listaMenu'>Detalhes de Venda</li></Link>
             <Link className='link' to="/newProduct"><li className='listaMenu'>Cadastro de Produtos</li></Link>
             <Link to="/queryProdutos" className='link'><li className='listaMenu'>Informções Produtos</li></Link >
-            <li className='listaMenu'>Controle de Entrada/Saída</li>
+            <Link to="/controleES" className='link'><li className='listaMenu'>Controle de Entrada/Saída</li></Link>
         </ul>
         <div className='exit'>
             <img src={imgExit} className='imgExit' />

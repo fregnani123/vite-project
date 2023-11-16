@@ -29,10 +29,10 @@ function MyComponent() {
     }, []);
 
     return (<div className="query-Container">
-        <div><MenuToolbar/></div>
+        <div className="menu"><MenuToolbar/></div>
         <div className="register-queryProdutos">
-            <h1 className="registroH1">Informações Produtos</h1>
             <div className="containerTable">
+                <h1 className="registroH1">Informações Produtos</h1>
             <table className="my-table">
                 <thead>
                     <tr>

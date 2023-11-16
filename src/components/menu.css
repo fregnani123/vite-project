@@ -10,7 +10,9 @@
 .container {
     display: flex;
     position: absolute;
-    left: 0;
+    left: 240px;
+    top: 0;
+    /* background-color: red; */
 }
 
 ul {
@@ -134,6 +136,7 @@ ul {
     padding: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     color: rgb(0, 38, 87);
+    
 }
 
 .detalhesVenda:hover {
@@ -147,6 +150,7 @@ ul {
     padding: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     color: rgb(0, 38, 87);
+    
 }
 
 .cadastroProdutos:hover {
