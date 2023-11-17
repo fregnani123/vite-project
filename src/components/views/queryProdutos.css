@@ -1,64 +1,133 @@
 
+.registroH1{
+    padding-bottom: 10px;
+}
+
 .query-Container{
-    width: 100%;
+    /* background-color: rgb(184, 138, 138); */
     height: 100vh;
-    background-color: rgb(184, 138, 138);
-    display: flex;
 }
 .register-queryProdutos{
-    width: 100%;
-    height: 100vh;
     position: relative;
-    background-color: burlywood;
+    background-color: #f0f0f0;
     margin-left: 233px;
 }
 .containerTable{
-    background-color: #888;
+    /* background-color: #a80b0b; */
+    width: 990px;
+    height: 350px;
+    overflow-y: auto;
+}
+.ulInformacoes{
+    /* background-color: rebeccapurple; */
     position: absolute;
+    height: 350px; 
     width: 100%;
 }
 
-/* Adicione estilos para a tabela */
-.my-table {
-    width: 650px;
-    height: 300px;
-    overflow-y: auto;
-    display: block;
+.thEAN{
+    position: absolute;
+    width: 135px;
+    background-color: rgb(0, 38, 87);
+    left: 20px;
+    border: 1px solid #7c7c7c83;
+    color: white;
 }
-
-/* Estilize as células da tabela */
-.my-table th,
-.my-table td {
-    padding: 10px;
-    text-align: left;
+.thEAN1{
+    position: absolute;
+    width: 135px;
+    left: 20px;
+    margin-top: 2px;
+    border: 1px solid #7c7c7c83;
+}
+.thNome {
+    width: 185px;
+    position: absolute;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    left: 156px;
+    border: 1px solid #7c7c7c83;
+}
+.thNome1 {
+    border: 1px solid #7c7c7c83;
+    width:185px;
+    position: absolute;
+    left: 156px;
+    margin-top: 2px;
+}
+.thPreco{
+    width: 100px;
+    position: absolute;
+    width: 110px;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    left: 342px;
+    border: 1px solid #7c7c7c83;
+}
+.thPreco1{
+    position: absolute;
+    width: 110px;
+    left: 342px;
+    margin-top: 2px;
+    border: 1px solid #7c7c7c83;
+}
+.thDescricao{
+    background-color: rgb(0, 38, 87);
+    color: white;
+    position: absolute;
+    width: 250px;
+    left: 453px;
+    border: 1px solid #7c7c7c83;
+}
+.thDescricao1{
+    position: absolute;
+    width: 250px;
+    left: 453px;
+    margin-top: 2px;
+    border: 1px solid #7c7c7c83;
+}
+.thCategoria{
+    width: 180px;
+    position: absolute;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    left: 704px;
+    border: 1px solid #7c7c7c83;
     
 }
-
-/* Adicione estilos à tabela de cabeçalho */
-.my-table thead {
-    background-color: #f2f2f2;
+.thCategoria1{
+    position: absolute;
+    width: 180px;
+    left: 704px; 
+    margin-top: 2px;
+    border: 1px solid #7c7c7c83;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Estilize as linhas da tabela */
-.my-table tbody tr {
-    border-bottom: 1px solid #ddd;
+.thEstoque{
+    border: 1px solid #7c7c7c83;
+    width: 150px;
+    position: absolute;
+    width: 90px;
+    left: 885px;
+    background-color: rgb(0, 38, 87);
+    color: white;
+}
+.thestoque1{
+    border: 1px solid #7c7c7c83;
+    width: 150px;
+    position: absolute;
+    width: 90px;
+    left: 885px;
+    margin-top: 2px;
+}
+.thestoque{
+   font-size: 0;
+   color: #f0f0f000;
 }
 
-/* Adicione estilos a células específicas, se necessário */
-.thEAN,
-.thNome {
-    /* Adicione estilos específicos aqui */
-}
 
-/* Estilize a barra de rolagem, se estiver visível */
-.my-table::-webkit-scrollbar {
-    width: 8px;
-}
 
-.my-table::-webkit-scrollbar-thumb {
-    background-color: #888;
-}
 
-.my-table::-webkit-scrollbar-track {
-    background-color: #f2f2f2;
-}

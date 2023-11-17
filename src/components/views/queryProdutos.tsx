@@ -33,31 +33,28 @@ function MyComponent() {
         <div className="register-queryProdutos">
             <div className="containerTable">
                 <h1 className="registroH1">Informações Produtos</h1>
-            <table className="my-table">
-                <thead>
-                    <tr>
-                        <th className="thEAN">EAN</th>
-                        <th className="thNome">Nome do Produto</th>
-                        <th>Preço</th>
-                        <th>Descrição</th>
-                        <th>Categoria</th>
-                        <th>Estoque</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <ul className="ulInformacoes">
+                    <li>
+                        <span className="thEAN">EAN</span>
+                        <span className="thNome">Nome do Produto</span>
+                        <span className="thPreco">Preço</span>
+                        <span className="thDescricao">Descrição</span>
+                        <span className="thCategoria">Categoria</span>
+                        <span className="thEstoque">Estoque</span>
+                        <span></span>
+                    </li>
+                    <li className="correcaoEspacoLi"></li>
                     {data.map((produto, index) => (
-                        <tr className="tr" key={index}>
-                            <td>{produto.codigoDeBarras}</td>
-                            <td>
-                            {produto.nome}</td>
-                            <td>R$  {produto.preco.toFixed(2)}</td>
-                            <td>{produto.descricao}</td>
-                            <td>{produto.categoria}</td>
-                            <td>{produto.estoque}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                        <li className="liSpan" key={index}>
+                            <span className="thEAN1">{produto.codigoDeBarras}</span>
+                            <span className="thNome1" >{produto.nome}</span>
+                            <span className="thPreco1" >{produto.preco.toFixed(2)}</span>
+                            <span className="thDescricao1">{produto.descricao}</span>
+                            <span className="thCategoria1">{produto.categoria}</span>
+                            <span className="thestoque1">{produto.estoque}</span>
+                            <span className="thestoque">correçãoTabela</span>
+                        </li>
+                    ))}</ul>
             </div>
             </div></div>
     );

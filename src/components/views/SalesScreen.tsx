@@ -151,9 +151,12 @@ function SalesScreen() {
             setCarrinho([...carrinho, produtoComQtd]);
             setCodigo(""); // Limpa o campo de código
             setQtd(""); // Limpa o campo de quantidade
+            setSearch("")
+            setCodigo("")
         } else {
             alert("Produto não encontrado ou quantidade inválida.");
         }
+        
     }
 
     // Função para calcular o total da compra
@@ -192,12 +195,12 @@ function SalesScreen() {
                         <h1 className="tituloVendas">Tela de Vendas</h1>
                     <ul className="cupom-form"><span className="carrinhoSpan">Carrinho de Compras</span>
                         <li className="descricaoItens">
-                            <span className="cod">cod.</span>
+                            <span className="cod">EAN</span>
                             <span className="index">num.</span>
-                            <span className="nome-produto">nome</span>
+                            <span className="nome-produto">Produto</span>
                             <span className="Qtd">Qtd</span>
                             <span className="preco-produto">Preço</span>
-                            <span className="remover" >excluir</span>
+                            <span className="remover" >Excluir</span>
                         </li><li className="correcaoEspacoLi"></li>
                         {carrinho.map((produto, index) => (
                             <li className="liCriar1" key={index}>
@@ -215,11 +218,11 @@ function SalesScreen() {
                         ))} 
                     </ul>
                     <div className="formBusca">
-                        
-                        <p className="Produto">Produto</p>
-                        <p className="produtoPreco">Preço</p>
-                            <p className="labelEstoque">Estoque</p>
-                            <p className="dadosProduto">Dados do Produto</p>
+                        <span className="Produto">Produto</span>
+                        <span className="produtoPreco">Preço</span>
+                        <span className="estoque">Estoque</span>
+                        <span className="buscarItem">Buscar item</span>
+                        <span className="dadosProduto">Dados do Produto</span>
                         <ul className="produto-encontrado">
                     {filterData.map((produto, index) => (
                         <li key={index}>
@@ -241,14 +244,16 @@ function SalesScreen() {
                                 </li>
                             ))}</ul>
 
-                        <form> <label className="labelEAN">EAN<img className="lupa" src={lupa} /></label><input
+                            <form>
+                                <label htmlFor="EAN" className="buscar">Digite EAN &rarr;</label>
+                                <label htmlFor="EAN" className="labelEAN">EAN</label><input
                             onChange={(e) => {
                                 setSearch(e.target.value)
                                 setCodigo(e.target.value)
                             }}
-                            value={codigo} className="inputEAN" type="number" />
-                            <label className="labelQtd">Qtd:</label><input
-                                className="inputQtd" type="number"
+                            value={codigo} id="EAN" className="EAN" type="number" />
+                                <label htmlFor="inputQtd" className="labelQtd">Qtd</label><input
+                              id="inputQtd"  className="inputQtd" type="number"
                                 value={Qtd}
                                 onChange={(e) => {
                                     setQtd(e.target.value)
@@ -260,8 +265,7 @@ function SalesScreen() {
                             onClick={(e) => {
                                 e.preventDefault()
                                 adicionarAoCarrinho()
-                                setSearch("")
-                                setCodigo("")
+                               
                             }} >Adicionar Item</button>
                     
                     </form>
@@ -278,19 +282,62 @@ function SalesScreen() {
                             }}
                             /></label>
                             
-                            <label></label>
-                            <select className="inputPagamento" value={formaPagamento} onChange={(e) => { setPagamento(e.target.value) }}>
-                                <option className= "inputFormaPagamento" value={'Selecionar'}>Selecionar</option>
-                                <option  className="inputFormaPagamento" value="À Vista(BRL)">À Vista(BRL)</option>
-                                <option  className="inputFormaPagamento" value="PIX">PIX </option>
-                                <option  className="inputFormaPagamento" value="Cartão">Cartão </option>
-                            </select>
-                            
-                        <label className="labelTroco"><input
+                                <label></label>
+                                
+                                <div className="grupoRadios">
+                                    {/* <input
+                                        type="radio"
+                                        id="pagamentoSelecionar"
+                                        className="inputFormaPagamento"
+                                        name="formaPagamento"
+                                        value="Selecionar"
+                                        checked={formaPagamento === 'Selecionar'}
+                                        onChange={() => setPagamento('Selecionar')}
+                                    />
+                                    <label htmlFor="pagamentoSelecionar">Selecionar:</label> */}
+
+                                  
+                                    <label id="labelRadios" htmlFor="pagamentoAVista"><input
+                                        type="radio"
+                                        id="pagamentoAVista"
+                                        className="inputFormaPagamento"
+                                        name="formaPagamento"
+                                        value="À Vista(BRL)"
+                                        checked={formaPagamento === 'À Vista(BRL)'}
+                                        onChange={() => setPagamento('À Vista(BRL)')}
+                                    />À Vista(BRL)</label>
+
+                                    <label id="labelRadios" htmlFor="pagamentoPIX">
+                                        <input
+                                            type="radio"
+                                            id="pagamentoPIX"
+                                            className="inputFormaPagamento"
+                                            name="formaPagamento"
+                                            value="PIX"
+                                            checked={formaPagamento === 'PIX'}
+                                            onChange={() => setPagamento('PIX')}
+                                        />PIX</label>
+
+                                  
+                                    <label id="labelRadios" htmlFor="pagamentoCartao">  <input
+                                        type="radio"
+                                        id="pagamentoCartao"
+                                        className="inputFormaPagamento"
+                                        name="formaPagamento"
+                                        value="Cartão"
+                                        checked={formaPagamento === 'Cartão'}
+                                        onChange={() => setPagamento('Cartão')}
+                                    />Cartão</label>
+                                </div>
+                                <label htmlFor="inputTroco" className="trocoRecebido">
+                                    Dinheiro recebido
+                                </label>
+                        <label  className="labelTroco"><input
                                 value={inputTroco === 0 ? "" : inputTroco}
                                 onChange={(e) => {
                                     setTroco(parseFloat(e.target.value));
-                                }}
+                                    }}
+                                    id="inputTroco"
                                 className="inputTroco"
                                 type="number"
                             /></label>
@@ -298,34 +345,32 @@ function SalesScreen() {
                         <div className="informacoes-cupom">
                             <table className="table-informacoes">
                                 <tbody >
-                                    <tr>
-                                        <td className="formaPagamento">
+                                        <tr>
+                                            <td className="formaPagamento">
                                          Forma de Pagamento
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="pagamento">Total Venda</td>
+                                        <td className="pagamentoTitulo">Total Venda</td>
                                     </tr>
                                     <tr>
-                                        <td className="trocoRecebido">
-                                            Dinheiro recebido
-                                        </td>
+                                        
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <span className="trocoLabel">Troco</span>
+                                            <td className="trocoLabel">
+                                            <span >Troco</span>
                                         </td>
                                         <td className="tdResultado">
                                             <span className="trocoResultado">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <span className="totalVendaLabel">Total da Venda</span>
+                                        <td className="totalVendaEnd">
+                                            <span>Total da Venda</span>
                                         </td>
-                                        <td className="tdTotal">
+                                            <td className="totalVenda">
                                             <span className="totalVendaResultado">{`${total.toFixed(2)}`}</span>
-                                        </td>
+                                            </td>
                                     </tr>
                                 </tbody>
                             </table>

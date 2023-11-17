@@ -55,7 +55,7 @@ label {
 }
 
 /* Estilo para os campos de entrada */
-form input {
+/* form input {
     width: 100%;
     padding: 10px;
     margin: 10px -10px;
@@ -65,7 +65,7 @@ form input {
     &:focus {
         outline: 1px solid #000;
     }
-}
+} */
 
 .logar {
     width: 100%;
@@ -91,17 +91,18 @@ button {
 }
 
 
-.menu{
+.menu {
     position: absolute;
     left: 0;
     top: 0;
-   
+
 }
 
 /* tela Venda */
-.tituloVendas {color: var(--total-background-color);
-float: inline-end;
-margin-top: 10px;
+.tituloVendas {
+    color: var(--total-background-color);
+    float: inline-end;
+    margin-top: 10px;
 }
 
 .venda-container {
@@ -124,10 +125,11 @@ margin-top: 10px;
     top: 30px;
 
 }
-.table-informacoes{
+
+.table-informacoes {
     /* background-color: #0056b3; */
     margin-top: 25px;
-    
+
 }
 
 .informacoes-cupom {
@@ -136,7 +138,7 @@ margin-top: 10px;
     background-color: #f0f0f0;
     height: 210px;
     border: 1px solid #7c7c7c83;
-    
+
     /* background-color: red; */
 }
 
@@ -155,16 +157,18 @@ margin-top: 10px;
     top: 375px;
     background-color: white;
 }
-.ajusteContainer{
+
+.ajusteContainer {
     position: absolute;
     width: 100%;
     background-color: #f0f0f0;
 }
 
-.ulCupon{
-margin-left: 220px;
-background-color: #f0f0f0;
+.ulCupon {
+    margin-left: 220px;
+    background-color: #f0f0f0;
 }
+
 .entradas-saidas {
     background-color: var(--background-color);
     display: flex;
@@ -172,10 +176,12 @@ background-color: #f0f0f0;
     height: 100vh;
     background-color: #f0f0f0;
 }
+
 .remover {
     margin-right: -1px;
 }
-.z-index{
+
+.z-index {
     position: absolute;
     background-color: #f0f0f0;
     width: 1350px;
@@ -201,7 +207,7 @@ background-color: #f0f0f0;
     border-bottom: 1px solid #7c7c7c83;
     width: 100%;
     left: 0;
- 
+
 }
 
 .div-Form {
@@ -222,7 +228,7 @@ background-color: #f0f0f0;
     width: 60px;
     background-color: var(--total-background-color);
     color: white;
-    
+
 }
 
 .index1 {
@@ -230,7 +236,7 @@ background-color: #f0f0f0;
     position: absolute;
     left: 0px;
     width: 60px;
-    
+
 }
 
 .Qtd {
@@ -239,7 +245,7 @@ background-color: #f0f0f0;
     position: absolute;
     right: 121px;
     width: 60px;
-    background-color:var(--total-background-color);
+    background-color: var(--total-background-color);
     color: white;
 }
 
@@ -257,7 +263,7 @@ background-color: #f0f0f0;
     position: absolute;
     left: 61px;
     width: 100px;
-    background-color:var(--total-background-color);
+    background-color: var(--total-background-color);
     color: white;
 }
 
@@ -274,9 +280,9 @@ background-color: #f0f0f0;
     position: absolute;
     right: 60px;
     width: 60px;
-    background-color:var(--total-background-color);
+    background-color: var(--total-background-color);
     color: white;
-    
+
 }
 
 .preco-produto1 {
@@ -284,15 +290,16 @@ background-color: #f0f0f0;
     position: absolute;
     right: 60px;
     width: 60px;
-    
+
 }
 
 .remover {
-    border: 1px solid #7c7c7c83;;
+    border: 1px solid #7c7c7c83;
+    ;
     position: absolute;
     right: 0;
     width: 60px;
-    background-color:var(--total-background-color);
+    background-color: var(--total-background-color);
     color: white;
 }
 
@@ -318,88 +325,104 @@ background-color: #f0f0f0;
 }
 
 .labelQtd {
-    align-items: center;
-    color: var(--primary-color);
-    display: flex;
-    position: absolute;
-    top: 70px;
-    left: 227px;
-    border: 1px solid #ddd;
-    width: 25px;
-    padding: 8px;
-    height: 20px;
-}
-
-.labelEstoque {
-    align-items: center;
-    color: var(--primary-color);
-    display: flex;
-    margin-left: 136px;
-    height: 20px;
-    position: absolute;
-    top: 70px;
-    left: 245px;
-    outline: none;
-    border: 1px solid #ddd;
-    padding: 8px;
+        position: absolute;
+        right:0px;
+        width: 150px;
+        top: 80px;
+        border: 1px solid #7c7c7c83;
+        position: absolute;
+        align-items: center;
+        text-align: center;
+        background-color: var(--total-background-color);
+        color: white;
+        cursor: pointer;
 }
 
 .inputQtd {
-        padding: 0;
-        color: var(--primary-color);
-        margin-left: 5px;
-        width: 95px;
-        border: 1px solid #ddd;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        padding-left: 23px;
-        position: absolute;
-        top: 60px;
-        left: 263px;
-        padding: 8px;
-        height: 20px;
+    position: absolute;
+        /* background-color: #cecece79; */
+        right: 0px;
+        width: 150px;
+        border: 1px solid #7c7c7c83;
+        text-align: center;
+        align-items: center;
+        top: 99px;
+        height: 18px;
+        cursor: pointer;
+}
+.inputQtd::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+.inputQtd:focus {
+    outline: none;
+    box-shadow: 0 0 1px #007bff;
 }
 
 .labelEAN {
-    display: flex;
-    align-items: center;
-    margin-left: 5px;
-    margin-top: 10px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    width: 45px;
-    padding-right: 10px;
-}
-.inputEAN {
-    padding: 0;
-    color: var(--primary-color);
-    margin-left: 5px;
-    width: 140px;
-    border: 1px solid #ddd;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 23px;
     position: absolute;
-    top: 60px;
-    left:65px;
-    padding: 8px;
-    height: 20px;
+    left: 177px;
+    width: 220px;
+    top: 80px;
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    background-color: var(--total-background-color);
+    color: white;
+    cursor: pointer;
 }
 
-.inputEAN::-webkit-inner-spin-button {
+
+.EAN {
+    position: absolute;
+    width: 220px;
+    border: 1px solid #7c7c7c83;
+    text-align: center;
+    align-items: center;
+    left: 177px;
+    top: 99px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.EAN::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
     display: none;
 }
 
-.inputEAN:focus {
+.EAN:focus {
     outline: none;
     box-shadow: 0 0 1px #007bff;
 }
 
-.inputQtd:focus {
-    outline: none;
-    box-shadow: 0 0 1px #007bff;
+
+
+.buscarItem{
+    position: absolute;
+    left: 0px;
+    width: 177px;
+    top: 80px;
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    background-color: var(--total-background-color);
+    color: white;
+}
+.buscar{
+    position: absolute;
+    left: 0px;
+    width: 177px;
+    top: 99px;
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    background-color: #cecece79;
+    cursor: pointer;
 }
 
 .form-venda {
@@ -413,13 +436,15 @@ background-color: #f0f0f0;
 .buttonAdd {
     background-color: #cececeb6;
     color: #000000;
-    border-radius: 5px;
     font-weight: none;
     border-radius: 0;
     text-align: center;
-    margin-bottom: 25px;
-    margin-top: 25px;
     border: 1px solid #7c7c7c83;
+    position: absolute;
+    bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    left: 200px;
 }
 
 .buttonAdd:hover {
@@ -442,6 +467,7 @@ background-color: #f0f0f0;
     border: 1px solid #7c7c7c83;
     margin-left: 20px;
     position: relative;
+    height: 190px;
 
 }
 
@@ -454,91 +480,89 @@ background-color: #f0f0f0;
 }
 
 .produto-encontrado {
-    background-color:var(--total-background-color);
-    padding-top: 3px;
-    color: white;
-    padding-bottom: 1px;
-    width: 300px;
-    height: 22px;
-    padding-left: 5px;
-    margin-top: 20px;
-    display: flex;
-    margin-left: 62px;
+    position: absolute;
+    background-color: #cecece79;
+    width: 342px;
     border: 1px solid #7c7c7c83;
-    padding: 8px;
+    text-align: center;
     align-items: center;
-    font-size: 14px;
+    left: -1px;
+    top: 40px;
+    height: 18px;
 }
 
 .precoEncotrado {
-    background-color: var(--total-background-color);
-    padding-top: 3px;
-    padding-bottom: 1px;
-    width: 91px;
-    height: 22px;
-    padding-left: 5px;
-    display: flex;
-    right: 6px;
-    top: 20px;
-    border: 1px solid #7c7c7c83;
-    position: absolute;
-    color: white;
-    border: 1px solid #7c7c7c83;
-    padding: 8px;
+    background-color: #cecece79;
     text-align: center;
     align-items: center;
+    width: 110px;
+    height: 18px;
+    left: 342px;
+    top: 40px;
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    border: 1px solid #7c7c7c83;
 }
 
 .estoqueAtual {
-    background-color:var(--total-background-color);
-    padding-top: 3px;
-    color: white;
-    padding-bottom: 1px;
-    width: 80px;
+    background-color: #cecece79;
+    text-align: center;
+    align-items: center;
+    width: 96px;
     height: 18px;
-    padding-left: 5px;
-    display: flex;
-    right: 6px;
-    top: 70px;
+    left: 453px;
+    top: 40px;
     border: 1px solid #7c7c7c83;
     position: absolute;
-    height: 20px;
-    padding: 8px;
+}
+
+.estoque {
+    position: absolute;
+    left: 453px;
+    top: 20px;
+    border: 1px solid #7c7c7c83;
     align-items: center;
+    text-align: center;
+    width: 96px;
+    background-color: var(--total-background-color);
+    color: white;
 }
 
 .Produto {
     position: absolute;
-    margin-top: 28px;
-    margin-left: 5px;
-    border: 1px solid #ddd;
-    margin-top: 20px;
-    display: flex;
+    left: -1px;
+    width: 342px;
+    top: 20px;
+    border: 1px solid #7c7c7c83;
     position: absolute;
-    height: 38px;
     align-items: center;
-    padding-left: 3px;
-    padding-right: 2px;
+    text-align: center;
+    background-color: var(--total-background-color);
+    color: white;
 }
 
 .produtoPreco {
     position: absolute;
-    right: 115px;
+    left: 342px;
     top: 20px;
-    height: 22px;
-    border: 1px solid #ddd;
-    padding: 8px;
+    /* height: 22px; */
+    border: 1px solid #7c7c7c83;
+    /* padding: 8px; */
     align-items: center;
     text-align: center;
+    width: 110px;
+    background-color: var(--total-background-color);
+    color: white;
 }
 
-.lupa {
+/* .lupa {
     width: 20px;
     height: 20px;
-    left: 52px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-}
+    position: absolute;
+    right: 0;
+} */
 
 .divDadosCliente {
     position: relative;
@@ -558,13 +582,13 @@ table {
     max-width: 400px;
     /* Ajuste o valor conforme necessário */
     margin: 0 auto;
-    
+
 }
 
-table td {
+/* table td {
     padding: 8px;
     border: 1px solid #ddd;
-}
+} */
 
 .spanData {
     width: 104px;
@@ -596,43 +620,106 @@ label {
     margin-bottom: 5px;
 }
 
-input {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
+.trocoLabel{
+position: absolute;
+    width: 160px;
+    top: 260px;
+    left: 365px;
+    border: 1px solid #7c7c7c83;
+    align-items: center;
+    text-align: center;
+    background-color: var(--total-background-color);
+    color: white;
 }
 
-.trocoLabel,
-.totalVendaLabel {
-    font-weight: normal;
-    font-size: 18px;
-    /* Tamanho de fonte ajustável */
-    margin-top: 10px;
+.totalVendaEnd{
+position: absolute;
+    width: 321px;
+    top:302px;
+    left: 204px;
+    border: 1px solid #7c7c7c83;
+    align-items: center;
+    text-align: center;
+    background-color: var(--total-background-color);
+    color: white;
+    cursor: pointer;
 }
 
 .trocoRecebido {
-    font-weight: normal;
-    font-size: 16px;
+    position: absolute;
+    width: 160px;
+    top: 249px;
+    left: 204px;
+    border: 1px solid #7c7c7c83;
+    align-items: center;
+    text-align: center;
+    background-color: var(--total-background-color);
+    color: white;
+    cursor: pointer;
 }
 
-.trocoResultado,
-.totalVendaResultado {
-    font-size: 16px;
-    /* Tamanho de fonte ajustável */
+.trocoResultado{
+   
+}
+
+.tdResultado{
+    position: absolute;
+    background-color: #cecece79;
+    left: 364px;
+    top: 280px;
+    border: 1px solid #7c7c7c83;
+    width: 161px;
+    height: 20px;
+}
+
+.labelTroco{
+    position: absolute;
+    top: 269px;
+    left: 203px;
+}
+
+.totalVenda {
+    background-color: red;
+    display: none;
+}
+.grupoRadios {
+    position: absolute;
+    border: 1px solid #7c7c7c83;
+    top: 269px;
+    width: 203px;
+    height: 162px;
+    left: -1px;
+}
+
+.formaPagamento {
+    position: absolute;
+    width: 203px;
+    top: 260px;
+    left: 0;
+    border: 1px solid #7c7c7c83;
+    align-items: center;
+    text-align: center;
+    background-color: var(--total-background-color);
+    color: white;
     
 }
-.tdResultado {
-background-color: var(--total-background-color);
-width: 150px;
-color: white;
+#labelRadios{
+    margin-top: 10px;
 }
-
-
-
-.tdTotal{
-    background-color:var(--total-background-color);
-    width: 150px;
-    color: white;
+#pagamentoAVista{
+ position: absolute;
+ left: 35px;
+ margin-top: 2px;
+}
+#pagamentoCartao{
+position: absolute;
+left: 35px;
+margin-top: 2px;
+}
+#pagamentoPIX{
+position: absolute;
+left: 35px;
+margin-top: 2px;
 }
 
 .buttonFinalizar {
@@ -678,30 +765,15 @@ color: white;
     border: 1px solid #7c7c7c83;
 }
 
-
-
-
-.labelTroco{
-position: absolute;
-right: 73px;
-top: 273px;
-}
-
-.formaPagamento{
-    font-weight: normal;
-    background-color: #f0f0f0;
-}
-
 .inputTroco {
-    padding: 0;
-    color: var(--primary-color);
-    margin-left: 5px;
-    width: 140px;
-    border: 1px solid #7c7c7c83;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 23px;
-    height: 29px;
+    position: absolute;
+        width: 159px;
+        border: 1px solid #7c7c7c83;
+        text-align: center;
+        align-items: center;
+        top: 0px;
+        height: 20px;
+        
 }
 
 .inputTroco::-webkit-inner-spin-button {
@@ -714,6 +786,7 @@ top: 273px;
     outline: none;
     box-shadow: 0 0 1px #007bff;
 }
+
 .inputPagamento::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
@@ -726,59 +799,62 @@ top: 273px;
 }
 
 
-.pagamento {
-    margin-top: -10px;
+.pagamentoTitulo {
+    position: absolute;
+    top: 223px;
+    margin-left: -57px;
+    background-color: #f0f0f0;
+    border: none;
+   
+    color: var(--total-background-color);
 }
 
-.labelPagamento {
-    margin-left: -255px;
-}
+
 
 .inputPagamento {
-        position: absolute;
-        padding: 0;
-        color: var(--primary-color);
-        width: 140px;
-        border: 1px solid #7c7c7c83;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        padding-left: 23px;
-        height: 36px;
-        top: 237px;
-        right: 73px;
-        border-radius: none;
-        width: 165px;
-    }
+    position: absolute;
+    padding: 0;
+    color: var(--primary-color);
+    width: 140px;
+    border: 1px solid #7c7c7c83;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 23px;
+    height: 36px;
+    top: 237px;
+    right: 73px;
+    border-radius: none;
+    width: 165px;
+}
 
 
 .labelCliente {
-        border: 1px solid #ddd;
-        margin-top: 20px;
-        display: flex;
-        position: absolute;
-        height: 38px;
-        align-items: center;
-        left: 20px;
-        width: 100px;
-        padding-left: 30px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    height: 29px;
+    align-items: center;
+    left: 20px;
+    width: 90px;
+    padding-left: 40px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 
 .inputCliente {
-   margin-left: 90px;
-   position: absolute;
-   width: 350px;
-   
+    padding: 0;
+    color: var(--primary-color);
+    width: 140px;
+    border: 1px solid #7c7c7c83;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 23px;
+    height: 29px;
+    margin-left: 45px;
 }
 
-.pagamento {
-    position: absolute;
-    top: 225px;
-    margin-left: -60px;
-    background-color: #f0f0f0;
-    border: none;
-    
-}
 
 .footerVenda {
     color: white;
@@ -792,4 +868,3 @@ top: 273px;
     background-color: #f0f0f0;
     color: var(--total-background-color);
 }
-
