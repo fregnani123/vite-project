@@ -38,7 +38,7 @@ function SalesScreen() {
     const [inputTroco, setTroco] = useState(0);
     const [search, setSearch] = useState("");
     const [formaPagamento, setPagamento] = useState("");
-    const [adicionarCliente, setCliente] = useState("Consumidor");
+    const [adicionarCliente, setAdicionarCliente] = useState("");
     const [dateVenda, setDateVenda] = useState(new Date());
 
 
@@ -184,6 +184,10 @@ function SalesScreen() {
         calcularTotal();
     }, [carrinho, inputTroco,]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
     
+
+
+  
+
     // Renderização do componente
     return (
         <div className="venda-container">
@@ -276,11 +280,16 @@ function SalesScreen() {
                         <form className="form-venda">
                             <p className="dadosCliente">Dados Cliente</p>
                             <span className="spanData">Data</span><span className="inputDate">{formatDate(dateVenda)}</span>
-                            <label className="labelCliente">Cliente<input value={'Consumidor'} className="inputCliente" type="string" 
-                            onChange={(e) => {
-                                setCliente(e.target.value)
-                            }}
-                            /></label>
+                                <label className="labelCliente">
+                                    Cliente
+                                    <input
+                                        value={adicionarCliente}
+                                        className="inputCliente"
+                                        type="text"
+                                        onChange={(e)=> setAdicionarCliente(e.target.value)}
+                                        onBlur={() => {adicionarCliente === '' ? 'Consumidor': adicionarCliente }}  
+                                    />
+                                </label>
                             
                                 <label></label>
                                 
@@ -369,7 +378,7 @@ function SalesScreen() {
                                             <span>Total da Venda</span>
                                         </td>
                                             <td className="totalVenda">
-                                            <span className="totalVendaResultado">{`${total.toFixed(2)}`}</span>
+                                            <span>{`${total.toFixed(2)}`}</span>
                                             </td>
                                     </tr>
                                 </tbody>

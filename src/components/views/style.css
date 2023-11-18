@@ -343,7 +343,7 @@ button {
         /* background-color: #cecece79; */
         right: 0px;
         width: 150px;
-        border: 1px solid #7c7c7c83;
+        border: 1px solid var(--total-background-color);
         text-align: center;
         align-items: center;
         top: 99px;
@@ -378,7 +378,7 @@ button {
 .EAN {
     position: absolute;
     width: 220px;
-    border: 1px solid #7c7c7c83;
+    border: 1px solid var(--total-background-color);
     text-align: center;
     align-items: center;
     left: 177px;
@@ -622,33 +622,34 @@ label {
 
 .trocoLabel{
 position: absolute;
-    width: 160px;
-    top: 260px;
-    left: 365px;
+    width: 320px;
+    top: 347px;
+    left: 205px;
     border: 1px solid #7c7c7c83;
     align-items: center;
     text-align: center;
     background-color: var(--total-background-color);
     color: white;
+   
 }
 
 .totalVendaEnd{
 position: absolute;
     width: 321px;
-    top:302px;
+    top:393px;
     left: 204px;
     border: 1px solid #7c7c7c83;
     align-items: center;
     text-align: center;
     background-color: var(--total-background-color);
     color: white;
-    cursor: pointer;
 }
 
+/* dinheiro recebido titulo */
 .trocoRecebido {
     position: absolute;
-    width: 160px;
-    top: 249px;
+    width: 320px;
+    top: 280px;
     left: 204px;
     border: 1px solid #7c7c7c83;
     align-items: center;
@@ -656,45 +657,56 @@ position: absolute;
     background-color: var(--total-background-color);
     color: white;
     cursor: pointer;
+    
 }
 
-.trocoResultado{
+/* .trocoResultado{
    
-}
+} */
 
 .tdResultado{
     position: absolute;
     background-color: #cecece79;
-    left: 364px;
-    top: 280px;
+    left: 205px;
+    top: 367px;
     border: 1px solid #7c7c7c83;
-    width: 161px;
-    height: 20px;
+    width: 320px;
+    height: 20px;  
 }
 
+/* input troco */
 .labelTroco{
     position: absolute;
-    top: 269px;
-    left: 203px;
+    top: 300px;
+    left: 203px; 
 }
-
-.totalVenda {
-    background-color: red;
-    display: none;
+.totalVenda{
+    background-color: #cecece79;
+        position: absolute;
+        border: 1px solid #7c7c7c83;
+        width: 320px;
+        left: 204px;
+        height: 30px;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        font-size: 30px;
+        top: 412px;
 }
 .grupoRadios {
     position: absolute;
     border: 1px solid #7c7c7c83;
-    top: 269px;
+    top: 299px;
     width: 203px;
-    height: 162px;
+    height: 132px;
     left: -1px;
 }
 
 .formaPagamento {
     position: absolute;
     width: 203px;
-    top: 260px;
+    top: 291px;
     left: 0;
     border: 1px solid #7c7c7c83;
     align-items: center;
@@ -766,14 +778,13 @@ margin-top: 2px;
 }
 
 .inputTroco {
-    position: absolute;
-        width: 159px;
-        border: 1px solid #7c7c7c83;
+        position: absolute;
+        width: 320px;
+        border: 1px solid var(--total-background-color);
         text-align: center;
         align-items: center;
-        top: 0px;
-        height: 20px;
-        
+        height: 20px; 
+        font-size: 15px;
 }
 
 .inputTroco::-webkit-inner-spin-button {
