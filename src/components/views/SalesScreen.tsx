@@ -40,12 +40,14 @@ function SalesScreen() {
     const [formaPagamento, setPagamento] = useState("");
     const [adicionarCliente, setAdicionarCliente] = useState("");
     const [dateVenda, setDateVenda] = useState(new Date());
-
+    const [codigoCliente, setCodigoCliente] = useState('01');
 
     // Função para formatar a data no formato brasileiro
     const formatDate = (date: Date) => {
         return format(date, 'dd/MM/yyyy');
     };
+
+  
 
     // Função para atualizar estoque
     
@@ -184,10 +186,6 @@ function SalesScreen() {
         calcularTotal();
     }, [carrinho, inputTroco,]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
     
-
-
-  
-
     // Renderização do componente
     return (
         <div className="venda-container">
@@ -280,19 +278,18 @@ function SalesScreen() {
                         <form className="form-venda">
                             <p className="dadosCliente">Dados Cliente</p>
                             <span className="spanData">Data</span><span className="inputDate">{formatDate(dateVenda)}</span>
-                                <label className="labelCliente">
-                                    Cliente
-                                    <input
-                                        value={adicionarCliente}
-                                        className="inputCliente"
-                                        type="text"
-                                        onChange={(e)=> setAdicionarCliente(e.target.value)}
-                                        onBlur={() => {adicionarCliente === '' ? 'Consumidor': adicionarCliente }}  
-                                    />
-                                </label>
-                            
-                                <label></label>
-                                
+                                <label className="buscarCliente">
+                                   Buscar Cliente
+                                </label><input
+                                    placeholder="Digitar cod."
+                                    value={codigoCliente}
+                                    className="inputCliente"
+                                    type="number"
+                                    onChange={(e) => setCodigoCliente(e.target.value)}
+                                />
+                                <p className="codigoCliente">Cod. Cliente</p> 
+                                <span className="spanCodigo">{adicionarCliente}</span>
+                                <p className="clienteAdicionado">Cliente:</p><p className="consumidor">{"Consumidor"}</p>
                                 <div className="grupoRadios">
                                     {/* <input
                                         type="radio"
@@ -341,7 +338,7 @@ function SalesScreen() {
                                 <label htmlFor="inputTroco" className="trocoRecebido">
                                     Dinheiro recebido
                                 </label>
-                        <label  className="labelTroco"><input
+                                <label className="labelTroco"><input placeholder="0,00"
                                 value={inputTroco === 0 ? "" : inputTroco}
                                 onChange={(e) => {
                                     setTroco(parseFloat(e.target.value));
@@ -353,7 +350,10 @@ function SalesScreen() {
                         </form>
                         <div className="informacoes-cupom">
                             <table className="table-informacoes">
-                                <tbody >
+                                    <tbody >
+                                        <tr>
+                                            <td className="trocoSeta">Valor recebido &rarr;</td>
+                                        </tr>
                                         <tr>
                                             <td className="formaPagamento">
                                          Forma de Pagamento
@@ -366,8 +366,8 @@ function SalesScreen() {
                                         
                                     </tr>
                                     <tr>
-                                            <td className="trocoLabel">
-                                            <span >Troco</span>
+                                            <td className="trocoTitulo">
+                                            <span>Troco</span>
                                         </td>
                                         <td className="tdResultado">
                                             <span className="trocoResultado">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span>

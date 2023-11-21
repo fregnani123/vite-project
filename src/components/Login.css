@@ -28,3 +28,26 @@ footer{
 .logar{
     background-color:rgb(0, 38, 87) ;
 }
+
+.inputLogin{
+   margin-top: 10px; 
+   margin-bottom: 10px;
+   padding: 8px;
+   width: 275px;
+   font-size: 15px;
+}
+.inputLogin:focus {
+    outline: none;
+}
+
+.inputSenha{
+   padding: 8px;
+    width: 275px;
+    font-size: 15px;
+}
+
+
+.inputSenha:focus {
+    outline: none;
+}
+

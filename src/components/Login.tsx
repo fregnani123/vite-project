@@ -19,7 +19,7 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
             <h1 className='logo'><img className='imgMenuLogin' src={imgMenu} /> Gestão Lite</h1>
             <form className='form'>
                 <h1 className='loginH1' >Login</h1>
-                <input
+                <input className='inputLogin'
                     type='text'
                     placeholder='Digite o seu usuário'
                     value={usuarioInput}
@@ -29,7 +29,7 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
                     required
                 />
                 <input
-                    type='password'
+                    type='password' className='inputSenha'
                     placeholder='Digite a sua senha'
                     value={senhaInput}
                     onChange={(e) => {
