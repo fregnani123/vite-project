@@ -338,7 +338,7 @@ function SalesScreen() {
                                 <label htmlFor="inputTroco" className="trocoRecebido">
                                     Dinheiro recebido
                                 </label>
-                                <label className="labelTroco"><input placeholder="0,00"
+                                <label className="labelTroco"><input 
                                 value={inputTroco === 0 ? "" : inputTroco}
                                 onChange={(e) => {
                                     setTroco(parseFloat(e.target.value));
