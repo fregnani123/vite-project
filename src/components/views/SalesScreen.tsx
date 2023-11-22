@@ -29,7 +29,7 @@ interface Produto {
 // }
 
 function SalesScreen() {
-    // Estados
+   
     const [data, setData] = useState<Produto[]>([]);
     const [codigo, setCodigo] = useState("");
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
@@ -42,12 +42,10 @@ function SalesScreen() {
     const [dateVenda, setDateVenda] = useState(new Date());
     const [codigoCliente, setCodigoCliente] = useState('01');
 
-    // Função para formatar a data no formato brasileiro
+   
     const formatDate = (date: Date) => {
         return format(date, 'dd/MM/yyyy');
     };
-
-  
 
     // Função para atualizar estoque
     
@@ -281,7 +279,6 @@ function SalesScreen() {
                                 <label className="buscarCliente">
                                    Buscar Cliente
                                 </label><input
-                                    placeholder="Digitar cod."
                                     value={codigoCliente}
                                     className="inputCliente"
                                     type="number"

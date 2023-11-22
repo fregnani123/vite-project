@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import MenuToolbar from "../MenuToolbar";
-import '../menu.css'
+import '../views/register.css'
 
 function RegisterProduct() {
     const [nome, setNome] = useState("");
@@ -39,44 +39,45 @@ function RegisterProduct() {
         }
     };
 
-    return (<div className="register-container"><div><MenuToolbar/></div>
-        <div className="register-form"> <h1 className="registroH1">Cadastro de Produtos</h1>
-            <form className="form" onSubmit={handleSubmit}>
-                <div>
+    return (<div className="register-container"><div className="MenuRegister"><MenuToolbar /></div>
+        <div>
+             <h1 className="titulo">Cadastrar Produto</h1>
+            <form className="formRegister" onSubmit={handleSubmit}>
+              
                     <label>EAN (Código de barras)</label>
                     <input
                         type="number"
                         value={parseInt(EAN)}
                         onChange={(e) => setEAN(e.target.value)}
                     />
-                </div>
-              <div>
+        
+              
                     <label>Nome do Produto:</label>
                     <input
                         type="text"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                     />
-                </div>
-                <div>
+               
+               
                     <label>Descrição:</label>
                     <input
                         type="text"
                         value={descricao}
                         onChange={(e) => setDescricao(e.target.value)}
                     />
-                </div>
-                <div>
-                    <label>Preço:</label>
+                
+              
+                    <label className='registerPreco'>Preço:</label>
                     <input
                         type="number"value={preco.toFixed(2)}
                         onChange={(e) => setPreco(parseFloat(e.target.value))}
                     />
-                </div>
-                <div>
-                    <label>Categoria:</label>
+         
+               
+                    <label className="categoria">Categoria:</label>
                     <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
-                        <option className="optionSelecionar">Selecionar</option>
+                        <option className="selecionar">Selecionar</option>
                         <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
                         <option value="Beleza e Cuidados Pessoais">Beleza e Cuidados Pessoais</option>
                         <option value="Brinquedos">Brinquedos</option>
@@ -89,15 +90,13 @@ function RegisterProduct() {
                         <option value="Móveis">Móveis</option>
                         <option value="Roupas">Roupas</option>
                     </select>
-                </div>
-                <div>
                     <label>Estoque:</label>
                     <input 
                         type="number"
                         value={estoque}
                         onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
                     />
-                </div>
+               
                 <button type="submit" className="buttonRegister">Registrar Produto</button>
             </form>
         </div></div>

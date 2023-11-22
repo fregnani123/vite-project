@@ -1,0 +1,18 @@
+
+.register-container{
+    height: 100vh;
+}
+.titulo{
+    background-color: red;
+    position: absolute;
+    width: 80%;
+    left: 235px;
+}
+
+.formRegister{
+    position: absolute;
+    left: 350px;
+    top: 150px;
+    width: 500px;
+    background-color: red;
+}

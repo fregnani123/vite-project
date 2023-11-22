@@ -1,11 +1,11 @@
 :root {
     --primary-color: rgb(0, 0, 0);
     --secondary-color: #0056b3;
-     background-color: #9c9c9c;
+     background-color: white;
     --text-color: #000;
     --button-hover-color: #ffffff;
     --total-background-color: rgb(0, 38, 87);
-    --corFundo:#9c9c9c;
+    --corFundo:white;
     --variavelResultados:  #ffffff;
 }
 
@@ -110,11 +110,11 @@ button {
 .venda-container {
     display: flex;
     height: 100vh;
-    background-color: #9c9c9c;
+    background-color:var(--corFundo);
 }
 
 .cupom-form {
-    background-color: #9c9c9c;
+background-color: var(--corFundo);
     width: 550px;
     color: var(--primary-color);
     font-size: 14px;
@@ -168,7 +168,7 @@ button {
 
 .ulCupon {
     margin-left: 220px;
-    background-color: #9c9c9c;
+background-color: var(--corFundo);
 }
 
 .entradas-saidas {
@@ -176,7 +176,7 @@ button {
     display: flex;
     position: relative;
     height: 100vh;
-    background-color: #9c9c9c;
+    background-color: var(--corFundo);
 }
 
 .remover {
@@ -186,7 +186,7 @@ button {
 
 .z-index {
     position: absolute;
-    background-color: #9c9c9c;
+    background-color: var(--corFundo);
     width: 1350px;
     height: 100vh;
     z-index: -1;
@@ -197,7 +197,6 @@ button {
 .imgRemover {
     width: 30px;
     height: 30px;
-    background-color: #cecece79;
     width: 15px;
     height: auto;
     cursor: pointer;
@@ -220,7 +219,7 @@ button {
     height: 400px;
     bottom: 10px;
     position: relative;
-    background-color: #9c9c9c;
+    background-color: var(--corFundo);
 }
 
 
@@ -342,7 +341,7 @@ button {
         position: absolute;
         align-items: center;
         text-align: center;
-        background-color: var(--total-background-color);
+    background-color: var(--total-background-color);
         color: white;
         cursor: pointer;
 }
@@ -488,7 +487,7 @@ button {
     position: absolute;
     top: -11px;
     left: 10px;
-    background-color: #9c9c9c;
+    background-color: var(--corFundo);
     color: var(--total-background-color)
 }
 
@@ -581,7 +580,7 @@ button {
     position: relative;
     /* background-color: red; */
     overflow-x: hidden;
-    background-color: #9c9c9c;
+    background-color: var(--corFundo);
 }
 
 .informacoes-cupom {
@@ -620,13 +619,14 @@ table {
     background-color:var(--variavelResultados);
         text-align: center;
         align-items: center;
-        width: 108px;
+        width: 107px;
         height: 18px;
-        left: 415px;
+        left: 416px;
         top: 70px;
         border: 1px solid #7c7c7c83;
         position: absolute;
         border: 1px solid #7c7c7c83;
+        padding-bottom: 2px;
 }
 
 table tr:nth-child(odd) {
@@ -694,6 +694,7 @@ position: absolute;
     text-align: center;
     justify-content: center;
     display: flex;
+    color: var(--total-background-color);
 }
 
 /* input troco */
@@ -720,7 +721,9 @@ position: absolute;
 }
 .grupoRadios {
     position: absolute;
-    border: 1px solid var(--total-background-color);
+    border-right: 1px solid #7c7c7c83;
+    border-bottom: 1px solid #7c7c7c83;
+    border-left: 1px solid var(--total-background-color);
     top: 299px;
     width: 203px;
     height: 132px;
@@ -846,8 +849,7 @@ margin-top: 2px;
 }
 
 .inputPagamento:focus {
-    outline: none;
-    box-shadow: 0 0 1px #007bff;
+    outline: none;   
 }
 
 
@@ -889,7 +891,7 @@ margin-top: 2px;
     text-align: center;
     background-color: var(--total-background-color);
     color: white;
-    cursor: pointer;
+    
 }
 .codigoCliente{
     position: absolute;
@@ -907,13 +909,14 @@ margin-top: 2px;
 .inputCliente {
     position: absolute;
         width: 100px;
-        border: 1px solid var(--total-background-color);
+        border: 1px solid white;
         text-align: center;
         align-items: center;
-        height: 20px;
         font-size: 15px;
-        top: 68px;
-        left: -1px;
+        top: 71px;
+        left: 1px;
+        height: 18px;
+        box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
        
 }
 .inputCliente::-webkit-inner-spin-button {
@@ -924,9 +927,8 @@ margin-top: 2px;
 
 .inputCliente:focus {
     outline: none;
-    box-shadow: 0 0 1px #007bff;
+box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
-
 
 .footerVenda {
     color: white;
@@ -955,12 +957,13 @@ margin-top: 2px;
 }
 .consumidor{
     position: absolute;
-        width: 313px;
-        top: 70px;
-        left: 101px;
-        border: 1px solid #7c7c7c83;
+        width: 309px;
+        top: 71px;
+        left: 104px;
+        border: 1px solid white;
         align-items: center;
         text-align: center;
         background-color: var(--variavelResultados);
         color: white;  
+        box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
