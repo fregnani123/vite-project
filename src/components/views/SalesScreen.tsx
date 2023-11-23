@@ -382,15 +382,16 @@ function SalesScreen() {
                             </table>
                         </div>
 
-                    <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
-                        <button className="buttonFinalizar" type="submit">
-                            Pagamento
-                        </button>
-                            <button onClick={(e) => { e.preventDefault(); cancelarVenda();  }} className="buttonCancelar" type="submit">
-                            Cancelar venda
-                        </button>
-                    </form> 
-                </div>
+                 
+                        </div>
+                        <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
+                            <button className="buttonFinalizar" type="submit">
+                                Pagamento
+                            </button>
+                            <button onClick={(e) => { e.preventDefault(); cancelarVenda(); }} className="buttonCancelar" type="submit">
+                                Cancelar venda
+                            </button>
+                        </form> 
                 </div>
                 </div>
                </div>

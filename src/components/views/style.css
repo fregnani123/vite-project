@@ -5,7 +5,7 @@
     --text-color: #000;
     --button-hover-color: #ffffff;
     --total-background-color: rgb(0, 38, 87);
-    --corFundo:white;
+    --corFundo:rgb(241, 241, 241);
     --variavelResultados:  #ffffff;
 }
 
@@ -79,7 +79,6 @@ label {
 }
 
 button {
-    background-color: #7c9bb1ea;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -769,20 +768,19 @@ margin-top: 2px;
     font-weight: none;
     border-radius: 0;
     text-align: center;
-    margin-bottom: 25px;
-    margin-top: 25px;
     border: 1px solid #7c7c7c83;
-    margin-right: 20px;
-    width: 200px;
-    font-size: 20px;
-    margin-left: 50px;
+    width: 180px;
+    font-size: 15px;
     border-radius: 5px;
+    position: absolute;
+    right: 290px;
+    top: 490px;
 }
 
 .buttonFinalizar:hover {
     background-color: var(--button-hover-color);
     color: black;
-   
+    
 }
 
 .buttonCancelar {
@@ -791,18 +789,18 @@ margin-top: 2px;
     border-radius: 5px;
     font-weight: none;
     text-align: center;
-    margin-top: 25px;
     border: 1px solid #7c7c7c83;
-    margin-right: 20px;
-    width: 200px;
-    font-size: 20px;
-    
+    width: 180px;
+    font-size: 15px;
+    position: absolute;
+    right: 80px;
+    top: 490px;
 }
 
 .buttonCancelar:hover {
     background-color: var(--button-hover-color);
-    color: #000000;
-    border: 1px solid #7c7c7c83;
+    color: var(--total-background-color);
+    border: 1px solid var(--total-background-color);
 }
 
 .inputTroco {

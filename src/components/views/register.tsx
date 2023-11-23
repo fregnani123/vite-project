@@ -102,7 +102,7 @@ function RegisterProduct() {
                         value={estoque}
                         onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
                     /><br></br> 
-                  <button type="submit" className="button">Registrar Produto</button>
+                  <button type="submit" className="button">Cadastrar</button>
             </form>
         </div></div>
     );

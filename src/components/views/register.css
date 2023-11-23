@@ -5,9 +5,10 @@
     --text-color: #000;
     --button-hover-color: #ffffff;
     --total-background-color: rgb(0, 38, 87);
-    --corFundo: white;
+    --corFundo: rgb(241, 241, 241);
     --variavelResultados: #ffffff;
 }
+
 .register-container{
     position: absolute;
     justify-content: center;
@@ -20,7 +21,7 @@
 .divForm{
     position: relative;
     margin-left: 200px;
-    background-color: white;
+    background-color: var(--corFundo);
 }
 
 .titulo{
@@ -38,7 +39,7 @@ justify-content: center;
 align-items: center;
 text-align: center;
 width: 500px;
-height: 400px;
+height: 250px;
 border: 1px solid var(--total-background-color);
 }
 
@@ -52,8 +53,8 @@ border: 1px solid var(--total-background-color);
     transition: background-color 0.3s ease;
     border-radius: 5px;
     border: 1px solid var(--total-background-color);
-    top: 250px;
-    left: 175px;
+    top: 200px;
+    right: 10px;
     }
     .button:hover {
         background-color: var(--button-hover-color);

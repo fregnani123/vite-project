@@ -39,7 +39,8 @@ footer{
 }
 
 .logar:hover{
-    color: black;
+    color:rgb(0, 38, 87);
+    border: 1px solid rgb(0, 38, 87);
 }
 
 .inputLogin{
