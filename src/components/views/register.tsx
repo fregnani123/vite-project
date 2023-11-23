@@ -39,44 +39,50 @@ function RegisterProduct() {
         }
     };
 
-    return (<div className="register-container"><div className="MenuRegister"><MenuToolbar /></div>
-        <div>
-             <h1 className="titulo">Cadastrar Produto</h1>
+    return (<div className="register-container">
+      
+      <MenuToolbar />  <div className="divForm">
+        <h1 className="titulo">Cadastrar Produto</h1>
             <form className="formRegister" onSubmit={handleSubmit}>
-              
-                    <label>EAN (Código de barras)</label>
-                    <input
+            
+                <label className="labelEANCadastro">EAN (Código de barras)</label>
+                    <input className="inputEANCadastro"
                         type="number"
                         value={parseInt(EAN)}
                         onChange={(e) => setEAN(e.target.value)}
                     />
         
               
-                    <label>Nome do Produto:</label>
-                    <input
+                <label className="labelNomeCadastro">Nome do Produto</label>
+                <input className="inputNomeCadastro"
                         type="text"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                     />
                
                
-                    <label>Descrição:</label>
-                    <input
+                <label className="labelDescricaoCadastro">Descrição</label>
+                <input className="inputDescricaoCadastro"
                         type="text"
                         value={descricao}
                         onChange={(e) => setDescricao(e.target.value)}
                     />
                 
               
-                    <label className='registerPreco'>Preço:</label>
-                    <input
-                        type="number"value={preco.toFixed(2)}
-                        onChange={(e) => setPreco(parseFloat(e.target.value))}
-                    />
-         
-               
-                    <label className="categoria">Categoria:</label>
-                    <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+
+                <label className='labelPrecoCadastro'>Preço de Venda</label>
+                <input
+                    className="inputPrecoCadastro"
+                    type="number"
+                    value={preco === 0 ? "" : preco}
+                    onChange={(e) => {
+                        
+                        setPreco(parseFloat(e.target.value));
+                    }}
+                />
+
+                <label className="labelCategoriaCadastro">Categoria:</label>
+                    <select className="inputCategoriaCadastro" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
                         <option className="selecionar">Selecionar</option>
                         <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
                         <option value="Beleza e Cuidados Pessoais">Beleza e Cuidados Pessoais</option>
@@ -90,14 +96,13 @@ function RegisterProduct() {
                         <option value="Móveis">Móveis</option>
                         <option value="Roupas">Roupas</option>
                     </select>
-                    <label>Estoque:</label>
-                    <input 
+                <label className="labelEstoqueCadastro">Estoque Inicial</label>
+                <input className="inputEstoqueCadastro"
                         type="number"
                         value={estoque}
                         onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
-                    />
-               
-                <button type="submit" className="buttonRegister">Registrar Produto</button>
+                    /><br></br> 
+                  <button type="submit" className="button">Registrar Produto</button>
             </form>
         </div></div>
     );

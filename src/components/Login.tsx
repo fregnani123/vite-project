@@ -17,7 +17,7 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
     return (
         <>
             <h1 className='logo'><img className='imgMenuLogin' src={imgMenu} /> Gestão Lite</h1>
-            <form className='form'>
+            <form className='formLogin'>
                 <h1 className='loginH1' >Login</h1>
                 <input className='inputLogin'
                     type='text'

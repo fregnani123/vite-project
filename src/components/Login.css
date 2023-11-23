@@ -1,5 +1,5 @@
 .loginH1{
-color: rgb(0, 38, 87);
+color: white;
 }
 .logo{
     z-index: -1;
@@ -12,7 +12,16 @@ color: rgb(0, 38, 87);
     justify-content: center;
     color:rgb(0, 38, 87);
 }
-
+.formLogin{
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color:white;
+    border: 1px solid rgb(0, 38, 87);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
 .imgMenuLogin{
     width: 80px;
     display: none;
@@ -26,15 +35,20 @@ footer{
 }
 
 .logar{
-    background-color:rgb(0, 38, 87) ;
+    background-color:rgb(0, 38, 87);
+}
+
+.logar:hover{
+    color: black;
 }
 
 .inputLogin{
    margin-top: 10px; 
-   margin-bottom: 10px;
+   margin-bottom: 20px;
    padding: 8px;
    width: 275px;
-   font-size: 15px;
+   font-size: 16px;
+   border: 1px solid rgb(0, 38, 87);
 }
 .inputLogin:focus {
     outline: none;
@@ -43,9 +57,10 @@ footer{
 .inputSenha{
    padding: 8px;
     width: 275px;
-    font-size: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(0, 38, 87);
 }
-
 
 .inputSenha:focus {
     outline: none;
