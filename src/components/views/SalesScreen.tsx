@@ -38,9 +38,9 @@ function SalesScreen() {
     const [inputTroco, setTroco] = useState(0);
     const [search, setSearch] = useState("");
     const [formaPagamento, setPagamento] = useState("");
-    const [adicionarCliente, setAdicionarCliente] = useState("");
+    const [adicionarCliente, setAdicionarCliente] = useState('Consumidor');
     const [dateVenda, setDateVenda] = useState(new Date());
-    const [codigoCliente, setCodigoCliente] = useState('01');
+    const [codigoCliente, setCodigoCliente] = useState('1');
 
    
     const formatDate = (date: Date) => {
@@ -285,8 +285,15 @@ function SalesScreen() {
                                     onChange={(e) => setCodigoCliente(e.target.value)}
                                 />
                                 <p className="codigoCliente">Cod. Cliente</p> 
-                                <span className="spanCodigo">{adicionarCliente}</span>
-                                <p className="clienteAdicionado">Cliente:</p><p className="consumidor">{"Consumidor"}</p>
+                                <span className="spanCodigo"></span>
+                                <label className="clienteAdicionado">Cliente:</label>
+                                <input
+                                    type="text"
+                                    value={adicionarCliente}
+                                    onChange={(e) => setAdicionarCliente(e.target.value)}
+                                    className="consumidor"
+                                />
+
                                 <div className="grupoRadios">
                                     {/* <input
                                         type="radio"
@@ -299,7 +306,6 @@ function SalesScreen() {
                                     />
                                     <label htmlFor="pagamentoSelecionar">Selecionar:</label> */}
 
-                                  
                                     <label id="labelRadios" htmlFor="pagamentoAVista"><input
                                         type="radio"
                                         id="pagamentoAVista"
@@ -320,8 +326,6 @@ function SalesScreen() {
                                             checked={formaPagamento === 'PIX'}
                                             onChange={() => setPagamento('PIX')}
                                         />PIX</label>
-
-                                  
                                     <label id="labelRadios" htmlFor="pagamentoCartao">  <input
                                         type="radio"
                                         id="pagamentoCartao"
@@ -381,8 +385,6 @@ function SalesScreen() {
                                 </tbody>
                             </table>
                         </div>
-
-                 
                         </div>
                         <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
                             <button className="buttonFinalizar" type="submit">

@@ -1,78 +1,156 @@
-.detalhesContainer{
+:root {
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: #0056b3;
+    background-color: white;
+    --text-color: #000;
+    --button-hover-color: #ffffff;
+    --total-background-color: rgb(0, 38, 87);
+    --corFundo: rgb(241, 241, 241);
+    --variavelResultados: #ffffff;
+}
+
+.ulRelative{
+    width:800px;
+    position: absolute;
+    box-sizing: border-box;
+    height: 300px;
+    overflow-x: hidden;
+    left: 235px;
+    margin-top: 100px;
+    border: 1px solid #ddd;
+    
+}
+.detalhesTable{
     display: flex;
-    width: 100%;
-    margin-left: 250px;
+    position: absolute;
+    top: 81px;
+    left: 235px;
+    }
 
+.detalhesContainer{
+    position: relative;
+    height: 100vh;
 }
-.detalhes{
-    width: 100%;
-    height: 400px;
-    overflow: auto;
-    
+.menuDetalhes{
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-.tituloDetalhes{
-    margin-top: 20px;
-  color: rgb(0, 38, 87);
+.detalhesTable1 {
+   overflow-y: auto;
+}
+.tituloDetalhes {
+    margin-left: 90px;
+    margin-top: 25px;
+    font-size: 24px;
+    width: 1100px;
+    position: absolute;
+    color: var(--total-background-color);
 }
 
-
-/* Estilo para a tabela de detalhes */
-.detalhesTable {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
-    margin: 20px 0;
- 
-}
-
-/* Estilo para as células do cabeçalho */
-.detalhesTable th {
-    background-color: rgb(0, 38, 87);
-    color: white;
-    font-weight: bold;
+.detalhesTable li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
     padding: 10px;
-    text-align: center;
-    border: 1px solid rgb(78, 78, 78);
-}
-
-/* Estilo para as células das linhas de dados */
-.detalhesTable td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
     
 }
-
-/* Estilo para a primeira célula (Data venda) */
-.detalhesTable td:first-child {
-    background-color: #f0f0f0;
-    font-weight: bold;
-}
-/* Estilo para a última linha (Total de venda) */
-.detalhesTable tr:last-child {
-    background-color: rgb(0, 38, 87);
+.dataDetalhes{
+    border: 1px solid gray;
+    width: 90px;
     color: white;
-}
-
-/* Estilo para as células na última linha */
-.detalhesTable tr:last-child td {
-    font-weight: bold;
-}
-   
-/* Estilo para a classe .totalVendasMes */
-.totalVendasMes {
-    background-color: rgb(0, 38, 87);
-    color: white;
-    text-align: right;
-    font-weight: bold;
+    background-color: var(--total-background-color);
     
 }
-
-/* Estilo para as células da última linha */
-.detalhesTable tr:last-child td {
-    background-color: rgb(0, 38, 87);
-    color: white;
-    font-weight: bold;
-    border: 1px solid black;
+.dataDetalhes1{
+    border: 1px solid gray;
+    width: 90px;
+    background-color: var(--variavelResultados);
+    color: var(--total-background-color);
+    position: absolute;
+    left: 0px;
+    margin-top: 0px;
 }
 
+.clienteDetalhes{
+width: 220px;
+background-color: var(--total-background-color);
+color: white;
+border: 1px solid gray;
+}
+.clienteDetalhes1{
+width: 220px;
+background-color: var(--variavelResultados);
+color: var(--total-background-color);
+border: 1px solid gray;
+position: absolute;
+left: 92px;
+margin-top: 0px;
+}
+
+.pagamentoDetalhes{
+background-color: var(--total-background-color);
+color: white;
+border: 1px solid gray;
+width: 110px;
+}
+.pagamentoDetalhes1{
+width: 110px;
+background-color: var(--variavelResultados);
+color: var(--total-background-color);
+border: 1px solid gray;
+position: absolute;
+left: 314px;
+margin-top: 0px;
+}
+
+.totalDetalhes{
+background-color: var(--total-background-color);
+color: white;
+border: 1px solid gray;
+width: 100px;
+}
+.totalDetalhes1{
+width: 100px;
+background-color: var(--variavelResultados);
+color: var(--total-background-color);
+border: 1px solid gray;
+position: absolute;
+left: 426px;
+margin-top: 0px;
+}
+.dinheiroDetalhes{
+background-color: var(--total-background-color);
+color: white;
+border: 1px solid gray;
+width: 150px;
+}
+.dinheiroDetalhes1{
+width: 150px;
+background-color: var(--variavelResultados);
+color: var(--total-background-color);
+border: 1px solid gray;
+position: absolute;
+left: 528px;
+margin-top: 0px;
+}
+.trocoDetalhes {
+background-color: var(--total-background-color);
+color: white;
+border: 1px solid gray;
+width: 90px;
+}
+.trocoDetalhes1 {
+    width: 90px;
+    background-color: var(--variavelResultados);
+    color: var(--total-background-color);
+    border: 1px solid gray;
+    position: absolute;
+    right: 11px;
+    margin-top: 0px;
+}
+.correcaoSpan{
+   color:rgba(255, 255, 255, 0.007);
+   display: flex;
+}

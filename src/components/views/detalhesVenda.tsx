@@ -24,58 +24,50 @@ function detalhesVendasScreen() {
     useEffect(() => {
         axios.get(URL).then((response => setData(response.data) )
             
-        ).catch(error => console.log(error));
-        
+        ).catch(error => console.log(error)); 
     },[])
 
     return (
         <div className="detalhesContainer">
             <div className="menuDetalhes">
-                <MenuToolbar />
+                <MenuToolbar/>
             </div>
-            <div className="detalhesBody">
-                <h1 className="tituloDetalhes">Detalhes de Venda</h1>
-                <div className="detalhes">
-                    <table className="detalhesTable">
-                        <thead>
-                            <tr>
-                                <th className="dataVenda">Data venda</th>
-                                <th >Cliente</th>
-                                <th >Pagamento</th>
-                                <th >Total</th>
-                                <th >Dinheiro Recebido</th>
-                                <th >Troco</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+            <h1 className="tituloDetalhes">Detalhes de Venda</h1>
+            <li className="detalhesTable">
+                <span className="dataDetalhes">Data venda</span>
+                <span className="clienteDetalhes">Cliente</span>
+                <span className="pagamentoDetalhes">Pagamento</span>
+                <span className="totalDetalhes">Total</span>
+                <span className="dinheiroDetalhes">Dinheiro Recebido</span>
+                <span className="trocoDetalhes">Troco</span>
+                <span className="correcaoSpan">.</span>
+            </li>
+                    <ul className="ulRelative">
+
                             {data.map((venda, index) => (
-                                <tr key={index}>
-                                    <td className="">
+                                <li key={index} className="detalhesTable1">
+                                    <span className="dataDetalhes1">
                                         {format(new Date(venda.dateVenda), 'dd/MM/yyyy')}
-                                    </td>
-                                    <td>{venda.cliente.toString()}</td>
-                                    <td>{venda.formaPagamento.toString()}</td>
-                                    <td>{`R$ ${venda.total.toFixed(2)}`}</td>
-                                    <td>{`R$ ${venda.dinheiroRecebido.toFixed(2)}`}</td>
-                                    <td>{`R$ ${(Number(venda.dinheiroRecebido) - Number(venda.total)).toFixed(2)}`}</td>
-                                </tr>
-                            ))}
-                           
-                        </tbody>
-                        
-                    </table>
-                </div>
-                <table className="detalhesTable" > <tr>
-                    <td colSpan={6} className="totalVendasMes">
-                        {`Total vendas: R$ ${data.reduce(
-                            (acumulador, totalVendas) => acumulador + totalVendas.total,
-                            0
-                        ).toFixed(2)}`}
-                    </td>
-                </tr></table>
+                                    </span>
+                                    <span className="clienteDetalhes1">{venda.cliente.toString()}</span>
+                                    <span className="pagamentoDetalhes1">{venda.formaPagamento.toString()}</span>
+                                    <span className="totalDetalhes1">{`R$ ${venda.total.toFixed(2)}`}</span>
+                                    <span className="dinheiroDetalhes1">{`R$ ${venda.dinheiroRecebido.toFixed(2)}`}</span>
+                                    <span className="trocoDetalhes1">{`R$ ${(Number(venda.dinheiroRecebido) - Number(venda.total)).toFixed(2)}`}</span>
+                                    <span className="correcaoSpan">.</span>
+                                </li>
+                            ))}     
+                    </ul>
+                    {/* <ul className="detalhesTable" >
+                        <li className="totalVendasMes">
+                            {`Total vendas: R$ ${data.reduce(
+                                (acumulador, totalVendas) => acumulador + totalVendas.total,
+                                0
+                            ).toFixed(2)}`}
+                        </li>
+                    </ul> */}
             </div>
-        </div>
-    );
-}
+            )}
+
 
 export default detalhesVendasScreen;
