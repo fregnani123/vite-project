@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import '../views/queryProdutos.css';
 import MenuToolbar from "../MenuToolbar";
 import '../views/queryProdutos.css'
+import RegisterProduct from "./register";
+
 
 interface Produto {
     _id: string ;
@@ -29,35 +31,39 @@ function MyComponent() {
     }, []);
 
     return (<div className="query-Container">
-        <div className="menu"><MenuToolbar/></div>
+        <div className="menu"><MenuToolbar /></div>
+        <h1 className="registroH1">Informações de todos os Produtos</h1>
         <div className="register-queryProdutos">
+            <ul className="ulInformacoes">
+                <li>
+                    <span className="thEAN">EAN</span>
+                    <span className="thNome">Nome do Produto</span>
+                    <span className="thPreco">Preço</span>
+                    <span className="thDescricao">Descrição</span>
+                    <span className="thCategoria">Categoria</span>
+                    <span className="thEstoque">Estoque</span>
+                    <span></span>
+                </li>
+            </ul>
             <div className="containerTable">
-                <h1 className="registroH1">Informações Produtos</h1>
-                <ul className="ulInformacoes">
-                    <li>
-                        <span className="thEAN">EAN</span>
-                        <span className="thNome">Nome do Produto</span>
-                        <span className="thPreco">Preço</span>
-                        <span className="thDescricao">Descrição</span>
-                        <span className="thCategoria">Categoria</span>
-                        <span className="thEstoque">Estoque</span>
-                        <span></span>
-                    </li>
+                    <ul className="ulInformacoesTabela">
                     <li className="correcaoEspacoLi"></li>
                     {data.map((produto, index) => (
                         <li className="liSpan" key={index}>
                             <span className="thEAN1">{produto.codigoDeBarras}</span>
                             <span className="thNome1" >{produto.nome}</span>
                             <span className="thPreco1" >{produto.preco.toFixed(2)}</span>
-                            <span className="thDescricao1">{produto.descricao}</span>
+                            <span className="thDescricao1">{produto.descricao.length > 25 ? produto.descricao.slice(0, 50) + "..." : produto.descricao}</span>
                             <span className="thCategoria1">{produto.categoria}</span>
                             <span className="thestoque1">{produto.estoque}</span>
                             <span className="thestoque">correçãoTabela</span>
                         </li>
+                        
                     ))}</ul>
             </div>
+            <div><RegisterProduct/></div>
             </div></div>
-    );
+    ); 
 }
 
 export default MyComponent;

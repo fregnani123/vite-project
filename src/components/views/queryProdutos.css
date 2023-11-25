@@ -1,28 +1,41 @@
 
 .registroH1{
-    padding-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-left: 150px;
 }
 
 .query-Container{
-    /* background-color: rgb(184, 138, 138); */
     height: 100vh;
+    background-color: var(--corFundo);
+    width: 1500px;
 }
 .register-queryProdutos{
+    top: 20px;
     position: relative;
-    background-color: #f0f0f0;
+    background-color:var(--corFundo);
     margin-left: 233px;
 }
+
 .containerTable{
     /* background-color: #a80b0b; */
+    position: relative;
     width: 990px;
-    height: 350px;
+    height: 200px;
+    overflow-x: hidden;
     overflow-y: auto;
 }
+
 .ulInformacoes{
-    /* background-color: rebeccapurple; */
     position: absolute;
-    height: 350px; 
-    width: 100%;
+    width: 100%; 
+    top: -20px;
+}
+.ulInformacoesTabela{
+    position:relative;
+    bottom: 4px;
+    bottom: 18px;
+    color: rgb(0, 38, 87);
 }
 
 .thEAN{
@@ -32,6 +45,7 @@
     left: 20px;
     border: 1px solid #7c7c7c83;
     color: white;
+    
 }
 .thEAN1{
     position: absolute;
@@ -39,6 +53,8 @@
     left: 20px;
     margin-top: 2px;
     border: 1px solid #7c7c7c83;
+    background-color: white;
+    
 }
 .thNome {
     width: 185px;
@@ -54,6 +70,10 @@
     position: absolute;
     left: 156px;
     margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: white;
 }
 .thPreco{
     width: 100px;
@@ -63,6 +83,7 @@
     color: white;
     left: 342px;
     border: 1px solid #7c7c7c83;
+    
 }
 .thPreco1{
     position: absolute;
@@ -70,6 +91,7 @@
     left: 342px;
     margin-top: 2px;
     border: 1px solid #7c7c7c83;
+    background-color: white;
 }
 .thDescricao{
     background-color: rgb(0, 38, 87);
@@ -85,6 +107,10 @@
     left: 453px;
     margin-top: 2px;
     border: 1px solid #7c7c7c83;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: white;
 }
 .thCategoria{
     width: 180px;
@@ -104,6 +130,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    background-color: white;
 }
 
 .thEstoque{
@@ -122,6 +149,7 @@
     width: 90px;
     left: 885px;
     margin-top: 2px;
+    background-color: white;
 }
 .thestoque{
    font-size: 0;

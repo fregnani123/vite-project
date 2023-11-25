@@ -13,8 +13,8 @@ function MenuToolbar() {
         <ul>
             <Link className='link' to="/SalesScreen"><li className='listaMenu'>Realizar Venda</li></Link>
             <Link className='link' to= "/detalhes"><li className='listaMenu'>Detalhes de Venda</li></Link>
-            <Link className='link' to="/newProduct"><li className='listaMenu'>Cadastro de Produtos</li></Link>
-            <Link to="/queryProdutos" className='link'><li className='listaMenu'>Informções Produtos</li></Link >
+            <Link className='link' to="/queryProdutos"><li className='listaMenu'>Cadastro e Informações de Produtos </li></Link>
+            {/* <Link to="/queryProdutos" className='link'><li className='listaMenu'></li></Link > */}
             <Link to="/controleES" className='link'><li className='listaMenu'>Controle de Entrada/Saída</li></Link>
         </ul>
         <div className='exit'>

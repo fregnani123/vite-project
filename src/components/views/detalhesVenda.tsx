@@ -24,7 +24,8 @@ function detalhesVendasScreen() {
     useEffect(() => {
         axios.get(URL).then((response => setData(response.data) )
             
-        ).catch(error => console.log(error)); 
+        ).catch(error => console.log(error));
+ 
     },[])
 
     return (

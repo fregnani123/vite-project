@@ -9,25 +9,19 @@
     --variavelResultados: #ffffff;
 }
 
-.register-container{
-    position: absolute;
-    justify-content: center;
-    height: 100vh;
-    width: 700px;
-    display: flex;
-    overflow: auto;
-    background-color: var(--corFundo);
-}
 .divForm{
-    position: relative;
-    margin-left: 200px;
     background-color: var(--corFundo);
+    /* background-color: red; */
+    position: absolute;
+    top: 210px;
+    left: 20px;
 }
 
 .titulo{
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-top:20px ;
     color: var(--total-background-color);
+    font-size: 15px;
 }
 .menu3{
     position: absolute;

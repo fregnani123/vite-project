@@ -835,10 +835,8 @@ margin-top: 2px;
         align-items: center;
         text-align: center;
         background-color: var(--variavelResultados);
-        color: var(--total-background-color);
-       
+        color: var(--total-background-color);   
 }
-
 .inputPagamento::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
@@ -849,7 +847,6 @@ margin-top: 2px;
     outline: none;   
 }
 
-
 .pagamentoTitulo {
     position: absolute;
     top: 223px;
@@ -858,8 +855,6 @@ margin-top: 2px;
     border: none;
     color: var(--total-background-color);
 }
-
-
 
 .inputPagamento {
     position: absolute;
