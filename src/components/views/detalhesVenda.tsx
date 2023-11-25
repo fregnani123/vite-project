@@ -39,7 +39,7 @@ function detalhesVendasScreen() {
                     <table className="detalhesTable">
                         <thead>
                             <tr>
-                                <th >Data venda</th>
+                                <th className="dataVenda">Data venda</th>
                                 <th >Cliente</th>
                                 <th >Pagamento</th>
                                 <th >Total</th>
