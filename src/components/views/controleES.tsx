@@ -1,8 +1,13 @@
 import '../views/controleES.css'
+import MenuToolbar from '../MenuToolbar';
 
 
 function controleES() {
-    return (<div>ok</div>)
+    return (<div>
+        <div>
+            <MenuToolbar/>
+        </div>
+    </div>)
        
 }
 

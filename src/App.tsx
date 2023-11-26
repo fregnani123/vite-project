@@ -16,16 +16,14 @@ function App() {
     <div className='app'>
       <Router>
         <Routes>
-          <Route path='/detalhes'element={<DetalhesVenda/>}/>
-          <Route path='/SalesScreen' element={<SalesScreen />} />
-          {/* <Route path='/newProduct' element={<RegisterProduct />} /> */}
-          <Route path='/queryProdutos' element={<MyComponent />} />
-          <Route path='controleES' element={<DetalheES/>}/>
-          <Route path='/' element={<PaginaLogin setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path='/login' element={<PaginaLogin setIsAuthenticated={setIsAuthenticated} />} />
           <Route
-            path='/painel'
-            element={isAuthenticated ? <MenuPage /> : <Navigate to='/' />}
-          />
+            path='/painel' element={isAuthenticated ? <MenuPage /> : <Navigate to='/login'/>}/>
+          <Route path='/detalhes' element={isAuthenticated ? <DetalhesVenda /> : <Navigate to='/login' />}/>
+          <Route path='/SalesScreen' element={isAuthenticated ? <SalesScreen /> : <Navigate to='/login' /> } />
+          {/* <Route path='/newProduct' element={<RegisterProduct />} /> */}
+          <Route path='/queryProdutos' element={isAuthenticated ? <MyComponent /> : <Navigate to='/login' />}  />
+          <Route path='controleES' element={isAuthenticated ? <DetalheES /> : <Navigate to='/login'/>}/>
         </Routes>
       </Router>
     </div>

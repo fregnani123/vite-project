@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import MenuToolbar from "../MenuToolbar";
 import '../views/register.css'
 
 function RegisterProduct() {
@@ -40,7 +39,6 @@ function RegisterProduct() {
     };
 
     return (<div className="register-container">
-      
      <div className="divForm">
         <h1 className="titulo">Cadastrar Produto</h1>
             <form className="formRegister" onSubmit={handleSubmit}>
@@ -51,25 +49,18 @@ function RegisterProduct() {
                         value={parseInt(EAN)}
                         onChange={(e) => setEAN(e.target.value)}
                     />
-        
-              
                 <label className="labelNomeCadastro">Nome do Produto</label>
                 <input className="inputNomeCadastro"
                         type="text"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                     />
-               
-               
                 <label className="labelDescricaoCadastro">Descrição</label>
                 <input className="inputDescricaoCadastro"
                         type="text"
                         value={descricao}
                         onChange={(e) => setDescricao(e.target.value)}
                     />
-                
-              
-
                 <label className='labelPrecoCadastro'>Preço de Venda</label>
                 <input
                     className="inputPrecoCadastro"
@@ -80,7 +71,6 @@ function RegisterProduct() {
                         setPreco(parseFloat(e.target.value));
                     }}
                 />
-
                 <label className="labelCategoriaCadastro">Categoria:</label>
                     <select className="inputCategoriaCadastro" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
                         <option className="selecionar">Selecionar</option>
