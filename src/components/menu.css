@@ -84,6 +84,9 @@ text-decoration: none;
     color: rgb(0, 43, 100);
     width: 230px;
 }
+#liLista{
+    font-size: 14px;
+}
 
 .imgExit {
     width: 40px;

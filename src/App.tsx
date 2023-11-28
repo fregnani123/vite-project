@@ -16,14 +16,14 @@ function App() {
     <div className='app'>
       <Router>
         <Routes>
-          <Route path='/login' element={<PaginaLogin setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path='/' element={<PaginaLogin setIsAuthenticated={setIsAuthenticated} />} />
           <Route
-            path='/painel' element={isAuthenticated ? <MenuPage /> : <Navigate to='/login'/>}/>
-          <Route path='/detalhes' element={isAuthenticated ? <DetalhesVenda /> : <Navigate to='/login' />}/>
-          <Route path='/SalesScreen' element={isAuthenticated ? <SalesScreen /> : <Navigate to='/login' /> } />
+            path='/painel' element={isAuthenticated ? <MenuPage /> : <Navigate to='/'/>}/>
+          <Route path='/detalhes' element={isAuthenticated ? <DetalhesVenda /> : <Navigate to='/' />}/>
+          <Route path='/SalesScreen' element={isAuthenticated ? <SalesScreen /> : <Navigate to='/' /> } />
           {/* <Route path='/newProduct' element={<RegisterProduct />} /> */}
-          <Route path='/queryProdutos' element={isAuthenticated ? <MyComponent /> : <Navigate to='/login' />}  />
-          <Route path='controleES' element={isAuthenticated ? <DetalheES /> : <Navigate to='/login'/>}/>
+          <Route path='/queryProdutos' element={isAuthenticated ? <MyComponent /> : <Navigate to='/' />}  />
+          <Route path='controleES' element={isAuthenticated ? <DetalheES /> : <Navigate to='/'/>}/>
         </Routes>
       </Router>
     </div>
