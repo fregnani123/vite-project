@@ -29,17 +29,18 @@ function detalhesVendasScreen() {
         ).catch(error => console.log(error));
  
     }, []);
-    
 
-    const dataInicial = new Date('2023-11-10T12:30:00.000Z');
-    const dataLimite = new Date("2023-11-15T00:00:00.000Z");
+    
+    
+    // const dataInicial = new Date('2023-11-10T12:30:00.000Z');
+    // const dataLimite = new Date("2023-11-15T00:00:00.000Z");
   
     return (
         <div className="detalhesContainer">
             <div className="menuDetalhes">
                 <MenuToolbar />
             </div>
-            <h1 className="tituloDetalhes">Detalhes de Venda</h1>
+            <h1 className="tituloDetalhes">Histórico de Vendas</h1>
 
             {/* <div className="container">
             <ul className="content">
@@ -64,7 +65,7 @@ function detalhesVendasScreen() {
                 <span className="correcaoSpan">.</span>
                 </li></ul> 
                     <ul className="ulRelative">
-                            {data.map((venda, index) => (
+                {data.slice().reverse().map((venda, index) => (
                                 <li key={index} className="detalhesTable1">
                                     <span className="dataDetalhes1">
                                         {format(new Date(venda.dateVenda), 'dd/MM/yyyy')}
@@ -77,20 +78,15 @@ function detalhesVendasScreen() {
                                     <span className="correcaoSpan">.</span>
                                 </li>
                             ))}     
-            </ul>
-           
-            
-                    {/* <ul className="detalhesTable" >
+                    </ul>
+                   <ul className="detalhesTable" >
                         <li className="totalVendasMes">
                             {`Total vendas: R$ ${data.reduce(
                                 (acumulador, totalVendas) => acumulador + totalVendas.total,
                                 0
                             ).toFixed(2)}`}
                         </li>
-                    </ul> */} 
-            
-            
-
+                    </ul> 
             </div>
             )}
 

@@ -260,14 +260,12 @@ function SalesScreen() {
                                 }
                                 }
                             />
-                        
                         <button className="buttonAdd"
                             onClick={(e) => {
                                 e.preventDefault()
                                 adicionarAoCarrinho()
                                
                             }} >Adicionar Item</button>
-                    
                     </form>
                 </div>
                 </div>
@@ -388,7 +386,7 @@ function SalesScreen() {
                         </div>
                         <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
                             <button className="buttonFinalizar" type="submit">
-                                Pagamento
+                                Finalizar Venda
                             </button>
                             <button onClick={(e) => { e.preventDefault(); cancelarVenda(); }} className="buttonCancelar" type="submit">
                                 Cancelar venda

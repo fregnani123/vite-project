@@ -13,12 +13,11 @@
     width:800px;
     position: absolute;
     box-sizing: border-box;
-    height: 300px;
+    height: 200px;
     overflow-x: hidden;
     left: 235px;
     margin-top: 100px;
-    border: 1px solid #ddd;
-    
+    border: 1px solid #ddd;   
 }
 .detalhesTable{
     display: flex;
@@ -26,7 +25,10 @@
     top: 81px;
     left: 235px;
     }
-
+.totalVendasMes{
+    position: absolute;
+    top: 210px;
+}
 .detalhesContainer{
     position: relative;
     height: 100vh;
@@ -40,9 +42,9 @@
    overflow-y: auto;
 }
 .tituloDetalhes {
-    margin-left: 90px;
-    margin-top: 25px;
-    font-size: 24px;
+    margin-left: 100px;
+    margin-top: 55px;
+    font-size: 15px;
     width: 1100px;
     position: absolute;
     color: var(--total-background-color);
@@ -54,7 +56,6 @@
     flex-direction: column;
     border-right: 1px solid #ddd;
     padding: 10px;
-    
 }
 .dataDetalhes{
     border: 1px solid gray;
