@@ -17,15 +17,73 @@
     left: 20px;
 }
 
-.titulo{
-    margin-bottom: 5px;
-    margin-top:20px ;
+
+/* Estilo básico do botão */
+.titulo,
+.tituloAlterar {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 15px;
+    font-size: 14px;
+    border: 1px solid var(--total-background-color);
+    padding: 4px;
     color: var(--total-background-color);
-    font-size: 15px;
+    
 }
+
+/* Estilo do botão padrão */
+.titulo {
+    position: absolute;
+    margin-left: -251px;
+    margin-bottom: -1px;
+    width: 250px;
+}
+
+.classTitulo{
+    color: var(--total-background-color);
+    padding: 6px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
+    position: absolute;
+    margin-left: -251px;
+    margin-bottom: -1px;
+    width: 250px;
+}
+
+.titulo:hover {
+    margin-left: -251px;
+    width: 250px;
+}
+
+.titulo:hover,
+.tituloAlterar:hover {
+    color: var(--total-background-color);
+    padding: 6px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
+}
+
+.tituloAlterar {
+    position: absolute;
+    right: 0;
+    width: 253px;
+    top: 0px;
+}
+
 .menu3{
     position: absolute;
     left: 0;
+}
+
+.formRegister{
+position: relative;
+justify-content: center;
+align-items: center;
+text-align: center;
+width: 500px;
+height: 250px;
+border-bottom: 1px solid var(--total-background-color);
+border-left: 1px solid var(--total-background-color);
+border-right: 1px solid var(--total-background-color);
+margin-top: 40px;
 }
 .formRegister{
 position: relative;
@@ -34,7 +92,26 @@ align-items: center;
 text-align: center;
 width: 500px;
 height: 250px;
-border: 1px solid var(--total-background-color);
+border-bottom: 1px solid var(--total-background-color);
+border-left: 1px solid var(--total-background-color);
+border-right: 1px solid var(--total-background-color);
+margin-top: 40px;
+}
+
+.formRegisterNone{
+   display: none;}
+
+.formRegister2{
+/* display: none; */
+position:relative;
+justify-content: center;
+align-items: center;
+text-align: center;
+width: 500px;
+height: 250px;
+border-bottom: 1px solid var(--total-background-color);
+margin-top: -251px;
+margin-left: 1px;
 }
 
 .button {

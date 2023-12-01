@@ -79,13 +79,24 @@ function detalhesVendasScreen() {
                                 </li>
                             ))}     
                     </ul>
-                   <ul className="detalhesTable" >
-                        <li className="totalVendasMes">
-                            {`Total vendas: R$ ${data.reduce(
-                                (acumulador, totalVendas) => acumulador + totalVendas.total,
-                                0
-                            ).toFixed(2)}`}
-                        </li>
+            <ul className="totalVendasMes" >
+                        <li>
+                    <span> {`Total vendas: R$ ${data.reduce(
+                        (acumulador, totalVendas) => acumulador + totalVendas.total,
+                        0
+                    ).toFixed(2)}`
+                    }</span><br />
+                    {data.filter( (venda,index) => {
+                        return index === 0
+                    }).map((venda, index) => (
+                        <span key={index}> 
+                            <span className="">
+                                {`Data de inicio: ${format(new Date(venda.dateVenda), 'dd/MM/yyyy')}`}
+                            </span>
+                            <span className="correcaoSpan">.</span>
+                        </span>
+                    ))}     
+                </li>
                     </ul> 
             </div>
             )}

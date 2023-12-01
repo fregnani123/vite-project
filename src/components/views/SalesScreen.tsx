@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import imgRemover from '../../assets/imagens gestaoLite/remover.png';
 import { format } from 'date-fns'
-import lupa from '../../assets/imagens gestaoLite/procurar.png';
+// import lupa from '../../assets/imagens gestaoLite/procurar.png';
 import '../views/style.css';
 import MenuToolbar from "../MenuToolbar";
 
@@ -41,7 +41,7 @@ function SalesScreen() {
     const [adicionarCliente, setAdicionarCliente] = useState('Consumidor');
     const [dateVenda, setDateVenda] = useState(new Date());
     const [codigoCliente, setCodigoCliente] = useState('1');
-
+    
    
     const formatDate = (date: Date) => {
         return format(date, 'dd/MM/yyyy');
@@ -55,6 +55,7 @@ function SalesScreen() {
             const novaQuantidade = produtoDoCarrinho.qtd || 1;
             const response = await axios.patch(urlEstoque, { estoque: produtoDoCarrinho.estoque - novaQuantidade });
             console.log("Estoque atualizado com sucesso:", response.data);
+        
         } catch (error) {
             console.error("Erro ao atualizar estoque:", error);
         }
@@ -91,6 +92,10 @@ function SalesScreen() {
                 // Verifique se a quantidade no carrinho é menor ou igual ao estoque disponível
                 if (produtoDoCarrinho.estoque >= novaQuantidade) {
                     const response = await axios.patch(urlEstoque, { estoque: produtoDoCarrinho.estoque - novaQuantidade });
+
+                    const responseProduto = await axios.get(url);
+                    setData(responseProduto.data);   //aqui resolvi a questão do estoque na tela de venda ao finalizar o estoque e mostrar o novo estoque.
+
                     console.log("Estoque atualizado com sucesso:", response.data);
                 } else {
                     console.error("Quantidade no carrinho maior que o estoque disponível:", produtoDoCarrinho);
@@ -114,7 +119,7 @@ function SalesScreen() {
             setTroco(0);
             setSearch("");
             setPagamento("");
-            window.location.reload()
+           
         } catch (error) {
             console.error("Erro ao registrar produto:", error);
         }
@@ -182,7 +187,7 @@ function SalesScreen() {
 
     useEffect(() => {
         calcularTotal();
-    }, [carrinho, inputTroco,]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
+    }, [carrinho, inputTroco]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
     
     // Renderização do componente
     return (
@@ -362,7 +367,6 @@ function SalesScreen() {
                                         <td className="pagamentoTitulo">Total Venda</td>
                                     </tr>
                                     <tr>
-                                        
                                     </tr>
                                     <tr>
                                             <td className="trocoTitulo">

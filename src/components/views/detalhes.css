@@ -27,7 +27,11 @@
     }
 .totalVendasMes{
     position: absolute;
-    top: 210px;
+    top: 330px;
+    width: 400px;
+    height: 250px;
+    left: 250px;
+    border: 1px solid #ddd;
 }
 .detalhesContainer{
     position: relative;
