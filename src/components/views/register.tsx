@@ -3,13 +3,20 @@ import axios from "axios";
 import '../views/register.css'
 
 function RegisterProduct() {
-    const [nome, setNome] = useState("");
+
     const [EAN, setEAN] = useState("");
+    const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
     const [preco, setPreco] = useState(0);
     const [categoria, setCategoria] = useState("");
     const [estoque, setEstoque] = useState(0);
-    const [active, setActive] = useState(false)
+    const [active, setActive] = useState(false);
+
+    const [nomeAlterar, setNomeAlterar] = useState("");
+    const [descricaoAlterar, setDescricaoAlterar] = useState("");
+    const [precoAlterar, setPrecoAlterar] = useState(0);
+    const [categoriaAlterar, setCategoriaAlterar] = useState("");
+    const [estoqueAlterar, setEstoqueAlterar] = useState(0);
 
 
     const url = "http://localhost:3000/newProduto";
@@ -35,6 +42,7 @@ function RegisterProduct() {
             setPreco(0);
             setCategoria("");
             setEstoque(0);
+            setEAN('');
         } catch (error) {
             console.error("Erro ao registrar produto:", error);
         }
@@ -43,17 +51,26 @@ function RegisterProduct() {
 
     const alterarInformacoesProduto = async () => {
          
+        const urlAlterar = `http://localhost:3000/updateProduto/${EAN}`;
+       
         const dataAlterar = {
-            nome: nome,
-            codigoDeBarras: EAN,
-            descricao: descricao,
-            preco: preco,
-            categoria: categoria,
-            estoque: estoque,
+            nome: nomeAlterar,
+            descricao: descricaoAlterar,
+            preco: precoAlterar,
+            categoria: categoriaAlterar,
+            estoque: estoqueAlterar,
         };
 
         try {
-           
+           const response = await axios.patch(urlAlterar,dataAlterar)
+            console.log("Produto registrado com sucesso:", response.data);
+            setNome("");
+            setPreco(0);
+            setDescricao("");
+            setPreco(0);
+            setCategoria("");
+            setEstoque(0);
+            setEAN('');
         } catch (error) {
             console.error("Erro ao Alterar produto:", error);
         }
@@ -61,14 +78,19 @@ function RegisterProduct() {
 
 
     const toglleMenu = () => {
-       setActive(!active)
+     setActive(!active)
     }
     
-
     return (<div className="register-container">
      <div className="divForm">
-            <button className="titulo" onClick={toglleMenu}>Cadastrar Produto</button>
-            <form className={active ? 'formRegister' :'formRegisterNone'} onSubmit={handleSubmit}>
+            <button className={active ? 'titulo' : 'tituloActive'} onClick={(event) => {
+                event.preventDefault()
+                toglleMenu()
+            }}>Cadastrar Produto</button>
+            <form className={active ? 'formRegisterNone' : 'formRegister'} onSubmit={(event) => {
+                event.preventDefault()
+                handleSubmit()
+            }}>
                 <label className="labelEANCadastro">EAN (Código de barras)</label>
                     <input className="inputEANCadastro"
                         type="number"
@@ -118,43 +140,45 @@ function RegisterProduct() {
                         value={estoque}
                         onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
                     /><br></br> 
-                  <button type="submit" className="button">Cadastrar</button>
-            </form>
-
-            <button onClick={toglleMenu} className="tituloAlterar">Alterar Informações do Produto</button>
-            <form className={active ? 'formRegisterNone' : 'formRegister2'} onSubmit={handleSubmit}>
+                <button type="submit" className="button">Cadastrar</button>
                 
+            </form>
+            <button className={active ? 'tituloAlterarActive' : 'tituloAlterar'} onClick={toglleMenu} >Alterar Informações do Produto</button>
+            <form className={active ? 'formRegister2None' : 'formRegister2'} onSubmit={(event) => {
+                event.preventDefault()
+                alterarInformacoesProduto()
+            }}>
                 <label className="labelEANCadastro">EAN (Código de barras)</label>
                     <input className="inputEANCadastro"
                         type="number"
                         value={parseInt(EAN)}
                         onChange={(e) => setEAN(e.target.value)}
                     />
-                <label className="labelNomeCadastro">Nome do Produto</label>
+                <label className="labelNomeCadastro">Alterar Nome do Produto</label>
                 <input className="inputNomeCadastro"
                         type="text"
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
+                        value={nomeAlterar}
+                        onChange={(e) => setNomeAlterar(e.target.value)}
                     />
                 <label className="labelDescricaoCadastro">Alterar Descrição</label>
                 <input className="inputDescricaoCadastro"
                         type="text"
-                        value={descricao}
-                        onChange={(e) => setDescricao(e.target.value)}
+                        value={descricaoAlterar}
+                    onChange={(e) => setDescricaoAlterar(e.target.value)}
                     />
                 <label className='labelPrecoCadastro'>Alterar Preço</label>
                 <input
                     className="inputPrecoCadastro"
                     type="number"
-                    value={preco === 0 ? "" : preco}
+                    value={precoAlterar === 0 ? "" : precoAlterar}
                     onChange={(e) => {
                         
-                        setPreco(parseFloat(e.target.value));
+                        setPrecoAlterar(parseFloat(e.target.value));
                     }}
                 />
 
                 <label className="labelCategoriaCadastro">Alterar Categoria:</label>
-                    <select className="inputCategoriaCadastro" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+                <select className="inputCategoriaCadastro" value={categoriaAlterar} onChange={(e) => setCategoriaAlterar(e.target.value)}>
                         <option className="selecionar">Selecionar</option>
                         <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
                         <option value="Beleza e Cuidados Pessoais">Beleza e Cuidados Pessoais</option>
@@ -171,8 +195,8 @@ function RegisterProduct() {
                 <label className="labelEstoqueCadastro">Alterar Estoque</label>
                 <input className="inputEstoqueCadastro"
                         type="number"
-                        value={estoque}
-                        onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
+                        value={estoqueAlterar}
+                    onChange={(e) => setEstoqueAlterar(parseInt(e.target.value, 10))}
                     /><br></br> 
                   <button type="submit" className="button">Alterar</button>
             </form>

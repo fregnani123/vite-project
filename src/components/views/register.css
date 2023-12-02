@@ -11,10 +11,10 @@
 
 .divForm{
     background-color: var(--corFundo);
-    /* background-color: red; */
-    position: absolute;
-    top: 210px;
-    left: 20px;
+    background-color: red;
+    position: relative;
+    top: 20px;
+    left: 270px;
 }
 
 
@@ -27,45 +27,72 @@
     font-size: 14px;
     border: 1px solid var(--total-background-color);
     padding: 4px;
-    color: var(--total-background-color);
-    
+    color: var(--total-background-color); 
 }
 
 /* Estilo do botão padrão */
 .titulo {
     position: absolute;
-    margin-left: -251px;
     margin-bottom: -1px;
-    width: 250px;
+    width: 251px;
+    top:0 ;
+    right: 2px;
+}
+.titulo:hover {
+    color: var(--total-background-color);
 }
 
-.classTitulo{
+.tituloActive{
     color: var(--total-background-color);
     padding: 6px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
     position: absolute;
-    margin-left: -251px;
     margin-bottom: -1px;
-    width: 250px;
+    right: 2px;
+    width: 251px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 15px;
+    font-size: 14px;
+    border: 1px solid var(--total-background-color);
+    background-color: white; 
+   
 }
-
-.titulo:hover {
-    margin-left: -251px;
-    width: 250px;
-}
-
-.titulo:hover,
-.tituloAlterar:hover {
+.tituloActive:hover{
     color: var(--total-background-color);
-    padding: 6px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
 }
+
 
 .tituloAlterar {
     position: absolute;
-    right: 0;
-    width: 253px;
+    left: -3px;
+    width: 252px;
     top: 0px;
+}
+
+
+.tituloAlterarActive {
+    color: var(--total-background-color);
+    padding: 6px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
+    position: absolute;
+    margin-bottom: -1px;
+    left: -3px;
+    width: 252px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 15px;
+    font-size: 14px;
+    border: 1px solid var(--total-background-color);
+    color: var(--total-background-color);
+    background-color: rgb(255, 255, 255);
+}
+
+.tituloAlterarActive:hover {
+    color: var(--total-background-color);
+}
+.tituloAlterar:hover {
+    color: var(--total-background-color);
 }
 
 .menu3{
@@ -74,7 +101,7 @@
 }
 
 .formRegister{
-position: relative;
+position: absolute;
 justify-content: center;
 align-items: center;
 text-align: center;
@@ -83,35 +110,52 @@ height: 250px;
 border-bottom: 1px solid var(--total-background-color);
 border-left: 1px solid var(--total-background-color);
 border-right: 1px solid var(--total-background-color);
-margin-top: 40px;
-}
-.formRegister{
-position: relative;
-justify-content: center;
-align-items: center;
-text-align: center;
-width: 500px;
-height: 250px;
-border-bottom: 1px solid var(--total-background-color);
-border-left: 1px solid var(--total-background-color);
-border-right: 1px solid var(--total-background-color);
-margin-top: 40px;
+top: 40px;
+left: -253px;
 }
 
 .formRegisterNone{
-   display: none;}
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 250px;
+    border-bottom: 1px solid var(--total-background-color);
+     border-left: 1px solid var(--total-background-color);
+    border-right: 1px solid var(--total-background-color);
+    top: 40px;
+    left: -253px;
+}
 
 .formRegister2{
-/* display: none; */
-position:relative;
-justify-content: center;
-align-items: center;
-text-align: center;
-width: 500px;
-height: 250px;
-border-bottom: 1px solid var(--total-background-color);
-margin-top: -251px;
-margin-left: 1px;
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 250px;
+    border-bottom: 1px solid var(--total-background-color);
+    border-left: 1px solid var(--total-background-color);
+    border-right: 1px solid var(--total-background-color);
+    top: 40px;
+    left: -253px;
+}
+
+.formRegister2None{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 250px;
+    border-bottom: 1px solid var(--total-background-color);
+    border-left: 1px solid var(--total-background-color);
+    border-right: 1px solid var(--total-background-color);
+    top: 40px;
+    left: -253px;
 }
 
 .button {
