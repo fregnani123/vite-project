@@ -157,5 +157,446 @@
 }
 
 
+:root {
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: #0056b3;
+    background-color: white;
+    --text-color: #000;
+    --button-hover-color: #ffffff;
+    --total-background-color: rgb(0, 38, 87);
+    --corFundo: rgb(241, 241, 241);
+    --variavelResultados: #ffffff;
+}
 
+.divForm {
+    background-color: var(--corFundo);
+    /* background-color: red; */
+    position: relative;
+    top: 20px;
+    left: 270px;
+}
+
+
+/* Estilo básico do botão */
+.titulo,
+.tituloAlterar {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 15px;
+    font-size: 14px;
+    border: 1px solid var(--total-background-color);
+    padding: 4px;
+    color: var(--total-background-color);
+}
+
+/* Estilo do botão padrão */
+.titulo {
+    position: absolute;
+    margin-bottom: -1px;
+    width: 251px;
+    top: 0;
+    right: 2px;
+}
+
+.titulo:hover {
+    color: var(--total-background-color);
+}
+
+.tituloActive {
+    color: var(--total-background-color);
+    padding: 6px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
+    position: absolute;
+    margin-bottom: -1px;
+    right: 2px;
+    width: 251px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 15px;
+    font-size: 14px;
+    border: 1px solid var(--total-background-color);
+    background-color: white;
+
+}
+
+.tituloActive:hover {
+    color: var(--total-background-color);
+}
+
+
+.tituloAlterar {
+    position: absolute;
+    left: -3px;
+    width: 252px;
+    top: 0px;
+}
+
+.tituloAlterarActive {
+    color: var(--total-background-color);
+    padding: 6px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
+    position: absolute;
+    margin-bottom: -1px;
+    left: -3px;
+    width: 252px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 15px;
+    font-size: 14px;
+    border: 1px solid var(--total-background-color);
+    color: var(--total-background-color);
+    background-color: rgb(255, 255, 255);
+}
+
+.tituloAlterarActive:hover {
+    color: var(--total-background-color);
+}
+
+.tituloAlterar:hover {
+    color: var(--total-background-color);
+}
+
+.menu3 {
+    position: absolute;
+    left: 0;
+}
+
+.produtoEncontrado {
+    background-color: var(--corFundo);
+    width: 450px;
+    height: 250px;
+    position: absolute;
+    left: 530px;
+    top: 261px;
+    border: 1px solid var(--total-background-color);
+}
+
+.formRegister {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 250px;
+    border-bottom: 1px solid var(--total-background-color);
+    border-left: 1px solid var(--total-background-color);
+    border-right: 1px solid var(--total-background-color);
+    top: 40px;
+    left: -253px;
+}
+
+.formRegisterNone {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 250px;
+    border-bottom: 1px solid var(--total-background-color);
+    border-left: 1px solid var(--total-background-color);
+    border-right: 1px solid var(--total-background-color);
+    top: 40px;
+    left: -253px;
+}
+
+.formRegister2 {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 250px;
+    border-bottom: 1px solid var(--total-background-color);
+    border-left: 1px solid var(--total-background-color);
+    border-right: 1px solid var(--total-background-color);
+    top: 40px;
+    left: -253px;
+}
+
+.formRegister2None {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 250px;
+    border-bottom: 1px solid var(--total-background-color);
+    border-left: 1px solid var(--total-background-color);
+    border-right: 1px solid var(--total-background-color);
+    top: 40px;
+    left: -253px;
+}
+
+.button {
+    position: absolute;
+    background-color: var(--total-background-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    border: 1px solid var(--total-background-color);
+    top: 200px;
+    right: 10px;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+    color: var(--total-background-color);
+    border: 1px solid var(--total-background-color);
+}
+
+.labelEANCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 0;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 200px;
+    top: 20px;
+}
+
+.inputEANCadastro {
+    position: absolute;
+    /* background-color: #cecece79; */
+    left: 0px;
+    width: 200px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    top: 40px;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputEANCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputEANCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.labelNomeCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 201px;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 297px;
+    top: 20px;
+}
+
+.inputNomeCadastro {
+    position: absolute;
+    /* background-color: #cecece79; */
+    left: 201px;
+    width: 297px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    top: 40px;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputNomeCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputNomeCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.labelDescricaoCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 0px;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 498px;
+    top: 80px;
+}
+
+.inputDescricaoCadastro {
+    position: absolute;
+    /* background-color: #cecece79; */
+    left: 0px;
+    width: 498px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    top: 100px;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputDescricaoCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputDescricaoCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.labelNomeCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 201px;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 297px;
+    top: 20px;
+}
+
+.inputNomeCadastro {
+    position: absolute;
+    /* background-color: #cecece79; */
+    left: 201px;
+    width: 297px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    top: 40px;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputNomeCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputNomeCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.labelPrecoCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 0px;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 130px;
+    top: 135px;
+}
+
+.inputPrecoCadastro {
+    position: absolute;
+    /* background-color: #cecece79; */
+    left: 0px;
+    width: 130px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    top: 155px;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputPrecoCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputPrecoCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+
+
+.labelCategoriaCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 132px;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 245px;
+    top: 135px;
+}
+
+.inputCategoriaCadastro {
+    position: absolute;
+    /* background-color: #cecece79; */
+    left: 135px;
+    width: 244px;
+    top: 155px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 20px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+select:focus {
+    outline: none;
+}
+
+.inputCategoriaCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputCategoriaCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.labelEstoqueCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    right: 0px;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 120px;
+    top: 135px;
+}
+
+.inputEstoqueCadastro {
+    position: absolute;
+    /* background-color: #cecece79; */
+    right: 0px;
+    width: 120px;
+    top: 155px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputEstoqueCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputEstoqueCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
 
