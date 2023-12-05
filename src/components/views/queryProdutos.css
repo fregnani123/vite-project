@@ -8,7 +8,14 @@
 .query-Container{
     height: 100vh;
     background-color: var(--corFundo);
-    width: 1500px;
+    width: 100%;
+}
+.correcaoCorFundo{
+    position: absolute;
+    z-index: -1;
+    width: 1270px;
+    height: 100vh;
+    background-color:var(--corFundo)
 }
 .register-queryProdutos{
     top: 20px;
@@ -158,6 +165,7 @@
 
 
 :root {
+    --gray:#7c7c7c83;
     --primary-color: rgb(0, 0, 0);
     --secondary-color: #0056b3;
     background-color: white;
@@ -180,12 +188,8 @@
 /* Estilo básico do botão */
 .titulo,
 .tituloAlterar {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-top: 15px;
+    margin-top: 30px;
     font-size: 14px;
-    border: 1px solid var(--total-background-color);
-    padding: 4px;
     color: var(--total-background-color);
 }
 
@@ -195,32 +199,7 @@
     margin-bottom: -1px;
     width: 251px;
     top: 0;
-    right: 2px;
-}
-
-.titulo:hover {
-    color: var(--total-background-color);
-}
-
-.tituloActive {
-    color: var(--total-background-color);
-    padding: 6px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
-    position: absolute;
-    margin-bottom: -1px;
-    right: 2px;
-    width: 251px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-top: 15px;
-    font-size: 14px;
-    border: 1px solid var(--total-background-color);
-    background-color: white;
-
-}
-
-.tituloActive:hover {
-    color: var(--total-background-color);
+    left: -130px;
 }
 
 
@@ -229,32 +208,9 @@
     left: -3px;
     width: 252px;
     top: 0px;
+    left: 380px;
 }
 
-.tituloAlterarActive {
-    color: var(--total-background-color);
-    padding: 6px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.321);
-    position: absolute;
-    margin-bottom: -1px;
-    left: -3px;
-    width: 252px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-top: 15px;
-    font-size: 14px;
-    border: 1px solid var(--total-background-color);
-    color: var(--total-background-color);
-    background-color: rgb(255, 255, 255);
-}
-
-.tituloAlterarActive:hover {
-    color: var(--total-background-color);
-}
-
-.tituloAlterar:hover {
-    color: var(--total-background-color);
-}
 
 .menu3 {
     position: absolute;
@@ -263,12 +219,27 @@
 
 .produtoEncontrado {
     background-color: var(--corFundo);
-    width: 450px;
-    height: 250px;
+    width: 1005px;
+    height: 18px;
     position: absolute;
-    left: 530px;
-    top: 261px;
-    border: 1px solid var(--total-background-color);
+    left: 20px;
+    top: 220px;
+    border: 1px solid var(--gray);
+    
+}
+.produtoAlterar{
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+
+.ulAlterarProduto{
+
+}
+
+.spanNomeAlterar{
+position: absolute;
+top: 150px;
 }
 
 .formRegister {
@@ -279,29 +250,14 @@
     width: 500px;
     height: 250px;
     border-bottom: 1px solid var(--total-background-color);
+    border-top: 1px solid var(--total-background-color);
     border-left: 1px solid var(--total-background-color);
     border-right: 1px solid var(--total-background-color);
-    top: 40px;
-    left: -253px;
-}
-
-.formRegisterNone {
-    display: none;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 500px;
-    height: 250px;
-    border-bottom: 1px solid var(--total-background-color);
-    border-left: 1px solid var(--total-background-color);
-    border-right: 1px solid var(--total-background-color);
-    top: 40px;
-    left: -253px;
+    top: 50px;
+    left: -250px;
 }
 
 .formRegister2 {
-    display: none;
     position: absolute;
     justify-content: center;
     align-items: center;
@@ -311,23 +267,12 @@
     border-bottom: 1px solid var(--total-background-color);
     border-left: 1px solid var(--total-background-color);
     border-right: 1px solid var(--total-background-color);
-    top: 40px;
-    left: -253px;
+    border-top: 1px solid var(--total-background-color);
+    top: 50px;
+    left: 255px;
 }
 
-.formRegister2None {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 500px;
-    height: 250px;
-    border-bottom: 1px solid var(--total-background-color);
-    border-left: 1px solid var(--total-background-color);
-    border-right: 1px solid var(--total-background-color);
-    top: 40px;
-    left: -253px;
-}
+
 
 .button {
     position: absolute;
@@ -343,10 +288,29 @@
     right: 10px;
 }
 
-.button:hover {
+.button:hover  {
     background-color: var(--button-hover-color);
     color: var(--total-background-color);
     border: 1px solid var(--total-background-color);
+}
+.buttonLimparAlterar:hover{
+        background-color: var(--button-hover-color);
+        color: var(--total-background-color);
+        border: 1px solid var(--total-background-color);
+    }
+
+.buttonLimparAlterar{
+    position: absolute;
+        background-color: var(--total-background-color);
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: 5px;
+        border: 1px solid var(--total-background-color);
+        top: 200px;
+        right: 100px;
 }
 
 .labelEANCadastro {

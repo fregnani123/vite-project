@@ -18,18 +18,21 @@ function MyComponent() {
 
     const [data, setData] = useState<Produto[]>([]); 
     const [EAN, setEAN] = useState("");
+    const [EANAlterar, setEANAlterar] = useState("");
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
     const [preco, setPreco] = useState(0);
     const [categoria, setCategoria] = useState("");
     const [estoque, setEstoque] = useState(0);
-    const [active, setActive] = useState(false);
 
     const [nomeAlterar, setNomeAlterar] = useState("");
     const [descricaoAlterar, setDescricaoAlterar] = useState("");
     const [precoAlterar, setPrecoAlterar] = useState(0);
     const [categoriaAlterar, setCategoriaAlterar] = useState("");
     const [estoqueAlterar, setEstoqueAlterar] = useState(0);
+    
+    const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+
 
     const handleSubmit = async () => {
 
@@ -63,7 +66,7 @@ function MyComponent() {
     };
 
     const alterarInformacoesProduto = async () => {
-        const urlAlterar = `http://localhost:3000/updateProduto/${EAN}`;
+        const urlAlterar = `http://localhost:3000/updateProduto/${EANAlterar}`;
 
         const dataAlterar: {
             nome?: string;
@@ -82,7 +85,7 @@ function MyComponent() {
         }
 
         if (precoAlterar !== 0) {
-            dataAlterar.preco = precoAlterar;
+           dataAlterar.preco = Number(precoAlterar.toFixed(2));
         }
 
         if (categoriaAlterar.trim() !== "") {
@@ -102,7 +105,7 @@ function MyComponent() {
             setPrecoAlterar(0);
             setCategoriaAlterar("");
             setEstoqueAlterar(0);
-
+            setEAN('')
      
             const updatedData = await axios.get(urlProdutoFind);
             setData(updatedData.data);   
@@ -126,7 +129,6 @@ function MyComponent() {
             });
     }, []);
 
-
     const urlBuscar = "http://localhost:3000/findProduto";
 
     useEffect(() => {
@@ -140,20 +142,34 @@ function MyComponent() {
             });
     }, []);
 
+    const handleEditarProduto = (codigoDeBarras: number) => {
+        const produto = data.find(produto => produto.codigoDeBarras === codigoDeBarras);
+        if (produto) {
+            setProdutoSelecionado(produto);
 
-    const filterData = (codigo: Number) => {
-        return data.find(produto => produto.codigoDeBarras === codigo)
-    }
+            // Atualize outros estados conforme necessário
+            setEANAlterar(String(produto.codigoDeBarras));
+            setNomeAlterar(produto.nome || "");
+            setDescricaoAlterar(produto.descricao || "");
+            setPrecoAlterar(Number(produto.preco.toFixed(2)) || 0);
+            setCategoriaAlterar(produto.categoria || "");
+            setEstoqueAlterar(Number(produto.estoque) || 0);
+        }
+    };
 
-    const test = filterData(987654321)
-    console.log(test)
 
-
-    const toglleMenu = () => {
-        setActive(!active)
+    const hamdleLimparImput = () => {
+    
+            setEANAlterar("");
+            setNomeAlterar("");
+            setDescricaoAlterar("");
+            setPrecoAlterar(0);
+            setCategoriaAlterar("");
+            setEstoqueAlterar(0);  
     }
 
     return (<div className="query-Container">
+        <div className="correcaoCorFundo"></div>
         <div className="menu"><MenuToolbar /></div>
         <h1 className="registroH1">Informações de todos os Produtos</h1>
         <div className="register-queryProdutos">
@@ -183,17 +199,13 @@ function MyComponent() {
                         </li>
                     ))}</ul>
             </div>
-
-
             <div>
 
                 <div className="register-container">
+
                     <div className="divForm">
-                        <button className={active ? 'titulo' : 'tituloActive'} onClick={(event) => {
-                            event.preventDefault()
-                            toglleMenu()
-                        }}>Cadastrar Produto</button>
-                        <form className={active ? 'formRegisterNone' : 'formRegister'} onSubmit={(event) => {
+                        <h1 className= 'titulo'>Cadastrar Produto</h1>
+                        <form className='formRegister' onSubmit={(event) => {
                             event.preventDefault()
                             handleSubmit()
                         }}>
@@ -249,17 +261,25 @@ function MyComponent() {
                             <button type="submit" className="button">Cadastrar</button>
 
                         </form>
-                        <button className={active ? 'tituloAlterarActive' : 'tituloAlterar'} onClick={toglleMenu} >Alterar Informações do Produto</button>
-                        <form className={active ? 'formRegister2None' : 'formRegister2'} onSubmit={(event) => {
+                        <h1 className='tituloAlterar'>Alterar Informações do Produto</h1>
+
+                        <form className='formRegister2' onSubmit={(event) => {
                             event.preventDefault()
                             alterarInformacoesProduto()
+                            setEANAlterar('')
                         }}>
-                            <label className="labelEANCadastro">EAN (Código de barras)</label>
-                            <input className="inputEANCadastro"
+                            <label className="labelEANCadastro">Buscar Produto - EAN</label>
+                            <input
+                                className="inputEANCadastro"
                                 type="number"
-                                value={parseInt(EAN)}
-                                onChange={(e) => setEAN(e.target.value)}
+                                value={parseInt(EANAlterar)}
+                                onChange={(e) => {
+                                    const newEAN = e.target.value;
+                                    setEANAlterar(newEAN);
+                                    handleEditarProduto(Number(newEAN));
+                                }}
                             />
+
                             <label className="labelNomeCadastro">Alterar Nome do Produto</label>
                             <input className="inputNomeCadastro"
                                 type="text"
@@ -275,13 +295,15 @@ function MyComponent() {
                             <label className='labelPrecoCadastro'>Alterar Preço</label>
                             <input
                                 className="inputPrecoCadastro"
-                                type="number"
+                                type="Number"
+                                pattern="[0-9]+([\.,][0-9]+)?"
                                 value={precoAlterar === 0 ? "" : precoAlterar}
                                 onChange={(e) => {
-
-                                    setPrecoAlterar(parseFloat(e.target.value));
+                                    setPrecoAlterar(Number(parseFloat(e.target.value).toFixed(2)));
                                 }}
                             />
+
+
 
                             <label className="labelCategoriaCadastro">Alterar Categoria:</label>
                             <select className="inputCategoriaCadastro" value={categoriaAlterar} onChange={(e) => setCategoriaAlterar(e.target.value)}>
@@ -304,16 +326,25 @@ function MyComponent() {
                                 value={estoqueAlterar === 0 ? '' : estoqueAlterar}
                                 onChange={(e) => setEstoqueAlterar(parseInt(e.target.value))}
                             /><br></br>
-                            <button type="submit" className="button">Alterar</button>
+                            <button type="submit"  className="button">Alterar</button>
+                            <button onClick={hamdleLimparImput}  className="buttonLimparAlterar">Limpar Campos</button>
                         </form>
                     </div>
 
-                    <div className="produtoEncontrado">
-                        <ul>
-                            {/* <li>{data.filter()}</li>*/}
-                        </ul>
-
-                    </div>
+                    {/* <div className="produtoEncontrado">
+                     
+                        {<ul className="ulAlterarProduto">{data.filter(produto => Number(produto.codigoDeBarras) === Number(EANAlterar)).map((produto, index) => (
+                            <li key={index} className="produtoAlterar">
+                                <span>{produto.codigoDeBarras}</span>
+                                <span >{produto.nome}</span>
+                                <span>{produto.preco.toFixed(2)}</span>
+                                <span>{produto.descricao}</span>
+                                <span>{produto.categoria}</span>
+                                <span>{produto.estoque}</span>
+                            </li>
+                            ))}</ul>}
+    
+                    </div> */}
 
                 </div>
 
