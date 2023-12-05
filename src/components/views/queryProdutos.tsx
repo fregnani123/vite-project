@@ -2,12 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import '../views/queryProdutos.css';
 import MenuToolbar from "../MenuToolbar";
-import '../views/queryProdutos.css'
+import '../views/queryProdutos.css';
+import imgExcluir from '../../assets/imagens gestaoLite/remover.png';
+
 
 interface Produto {
     _id: string ;
     nome: string;
-    preco: Number;
+    preco: string;
     descricao: string;
     categoria: string;
     estoque: string;
@@ -21,13 +23,13 @@ function MyComponent() {
     const [EANAlterar, setEANAlterar] = useState("");
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [preco, setPreco] = useState(0);
+    const [preco, setPreco] = useState('');
     const [categoria, setCategoria] = useState("");
     const [estoque, setEstoque] = useState(0);
 
     const [nomeAlterar, setNomeAlterar] = useState("");
     const [descricaoAlterar, setDescricaoAlterar] = useState("");
-    const [precoAlterar, setPrecoAlterar] = useState(0);
+    const [precoAlterar, setPrecoAlterar] = useState('');
     const [categoriaAlterar, setCategoriaAlterar] = useState("");
     const [estoqueAlterar, setEstoqueAlterar] = useState(0);
     
@@ -44,15 +46,16 @@ function MyComponent() {
             categoria: categoria,
             estoque: estoque,
         };
-        const url = "http://localhost:3000/newProduto";
+            const url = "http://localhost:3000/newProduto";
+            
         try {
             const response = await axios.post(url, data);
             console.log("Produto registrado com sucesso:", response.data);
             // Limpar os campos do formulário após o registro bem-sucedido
             setNome("");
-            setPreco(0);
+            setPreco('');
             setDescricao("");
-            setPreco(0);
+            setPreco('');
             setCategoria("");
             setEstoque(0);
             setEAN('');
@@ -65,13 +68,36 @@ function MyComponent() {
         }
     };
 
+
+    const VerificarInputs = () => {
+        // Verificar se os campos obrigatórios estão preenchidos
+        if (EAN.trim() === '' || nome.trim() === '' || descricao.trim() === '' || preco.trim() === '' || categoria === 'Selecionar' || isNaN(parseFloat(preco)) || Number(estoque)) {
+            // Exibir mensagem de erro ou lidar com a validação de acordo com sua lógica
+            alert('Preencha todos os campos corretamente!');
+            return;
+        }
+
+        // Se todos os campos estiverem preenchidos, continue com o envio do formulário
+        // ... lógica de envio do formulário aqui ...
+    };
+
+    // No formulário, adicione o manipulador de evento onSubmit ao formulário
+    <form className='formRegister' onSubmit={(event) => {
+        event.preventDefault();
+        handleSubmit();
+    }}>
+        {/* Resto do código do formulário */}
+    </form>
+
+
+
     const alterarInformacoesProduto = async () => {
         const urlAlterar = `http://localhost:3000/updateProduto/${EANAlterar}`;
 
         const dataAlterar: {
             nome?: string;
             descricao?: string;
-            preco?: number;
+            preco?: string;
             categoria?: string;
             estoque?: number;
         } = {};
@@ -84,8 +110,8 @@ function MyComponent() {
             dataAlterar.descricao = descricaoAlterar;
         }
 
-        if (precoAlterar !== 0) {
-           dataAlterar.preco = Number(precoAlterar.toFixed(2));
+        if (precoAlterar.trim() !== "") {
+           dataAlterar.preco = precoAlterar;
         }
 
         if (categoriaAlterar.trim() !== "") {
@@ -102,7 +128,7 @@ function MyComponent() {
             // Limpar os campos do formulário após a atualização bem-sucedida
             setNomeAlterar("");
             setDescricaoAlterar("");
-            setPrecoAlterar(0);
+            setPrecoAlterar('');
             setCategoriaAlterar("");
             setEstoqueAlterar(0);
             setEAN('')
@@ -151,7 +177,7 @@ function MyComponent() {
             setEANAlterar(String(produto.codigoDeBarras));
             setNomeAlterar(produto.nome || "");
             setDescricaoAlterar(produto.descricao || "");
-            setPrecoAlterar(Number(produto.preco.toFixed(2)) || 0);
+            setPrecoAlterar((produto.preco) || "");
             setCategoriaAlterar(produto.categoria || "");
             setEstoqueAlterar(Number(produto.estoque) || 0);
         }
@@ -159,14 +185,16 @@ function MyComponent() {
 
 
     const hamdleLimparImput = () => {
-    
-            setEANAlterar("");
-            setNomeAlterar("");
-            setDescricaoAlterar("");
-            setPrecoAlterar(0);
-            setCategoriaAlterar("");
-            setEstoqueAlterar(0);  
-    }
+        setEANAlterar("");
+        setNomeAlterar("");
+        setDescricaoAlterar("");
+        setPrecoAlterar('');
+        setCategoriaAlterar("");
+        setEstoqueAlterar(0);
+        return;
+    };
+
+   
 
     return (<div className="query-Container">
         <div className="correcaoCorFundo"></div>
@@ -191,7 +219,7 @@ function MyComponent() {
                         <li className="liSpan" key={index}>
                             <span className="thEAN1">{produto.codigoDeBarras}</span>
                             <span className="thNome1" >{produto.nome}</span>
-                            <span className="thPreco1" >{produto.preco.toFixed(2)}</span>
+                            <span className="thPreco1" >{Number(produto.preco).toFixed(2)}</span>
                             <span className="thDescricao1">{produto.descricao.length > 25 ? produto.descricao.slice(0, 50) + "..." : produto.descricao}</span>
                             <span className="thCategoria1">{produto.categoria}</span>
                             <span className="thestoque1">{produto.estoque}</span>
@@ -202,13 +230,12 @@ function MyComponent() {
             <div>
 
                 <div className="register-container">
-
                     <div className="divForm">
-                        <h1 className= 'titulo'>Cadastrar Produto</h1>
                         <form className='formRegister' onSubmit={(event) => {
                             event.preventDefault()
-                            handleSubmit()
-                        }}>
+                            handleSubmit();
+                            VerificarInputs();
+                        }}> <h1 className='titulo'>Cadastrar Produto</h1>
                             <label className="labelEANCadastro">EAN (Código de barras)</label>
                             <input className="inputEANCadastro"
                                 type="number"
@@ -230,11 +257,11 @@ function MyComponent() {
                             <label className='labelPrecoCadastro'>Preço de Venda</label>
                             <input
                                 className="inputPrecoCadastro"
-                                type="number"
-                                value={preco === 0 ? "" : preco}
+                               
+                                type="text"
+                                value={preco}
                                 onChange={(e) => {
-
-                                    setPreco(parseFloat(e.target.value));
+                                    setPreco(e.target.value);
                                 }}
                             />
                             <label className="labelCategoriaCadastro">Categoria:</label>
@@ -258,16 +285,18 @@ function MyComponent() {
                                 value={estoque}
                                 onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
                             /><br></br>
+
                             <button type="submit" className="button">Cadastrar</button>
 
                         </form>
-                        <h1 className='tituloAlterar'>Alterar Informações do Produto</h1>
+                        
 
                         <form className='formRegister2' onSubmit={(event) => {
                             event.preventDefault()
                             alterarInformacoesProduto()
                             setEANAlterar('')
                         }}>
+                            <h1 className='tituloAlterar'>Alterar Informações do Produto</h1>
                             <label className="labelEANCadastro">Buscar Produto - EAN</label>
                             <input
                                 className="inputEANCadastro"
@@ -295,15 +324,13 @@ function MyComponent() {
                             <label className='labelPrecoCadastro'>Alterar Preço</label>
                             <input
                                 className="inputPrecoCadastro"
-                                type="Number"
-                                pattern="[0-9]+([\.,][0-9]+)?"
-                                value={precoAlterar === 0 ? "" : precoAlterar}
+                                type="text"
+                                value={precoAlterar}
                                 onChange={(e) => {
-                                    setPrecoAlterar(Number(parseFloat(e.target.value).toFixed(2)));
-                                }}
+                                        setPrecoAlterar(e.target.value);
+                                    }
+                                }
                             />
-
-
 
                             <label className="labelCategoriaCadastro">Alterar Categoria:</label>
                             <select className="inputCategoriaCadastro" value={categoriaAlterar} onChange={(e) => setCategoriaAlterar(e.target.value)}>
@@ -327,27 +354,53 @@ function MyComponent() {
                                 onChange={(e) => setEstoqueAlterar(parseInt(e.target.value))}
                             /><br></br>
                             <button type="submit"  className="button">Alterar</button>
-                            <button onClick={hamdleLimparImput}  className="buttonLimparAlterar">Limpar Campos</button>
+                            <button onClick={hamdleLimparImput}  className="buttonLimparAlterar">Limpar todos os Campos</button>
                         </form>
                     </div>
 
-                    {/* <div className="produtoEncontrado">
-                     
-                        {<ul className="ulAlterarProduto">{data.filter(produto => Number(produto.codigoDeBarras) === Number(EANAlterar)).map((produto, index) => (
+                    <div className="produtoEncontrado">
+                         <p className="tititulExcluir">Excluir Produto do Banco de Dados </p>
+                        {<ul className="ulAlterarProduto">
+                            
+                            <li className="liProdutoEncontrado">
+                                <span className="thEAN">EAN</span>
+                                <span className="thNome">Nome do Produto</span>
+                                <span className="thPreco">Preço</span>
+                                <span className="thDescricao">Descrição</span>
+                                <span className="thCategoria">Categoria</span>
+                                <span className="thEstoque">Estoque</span>
+                                <span className="thExcluir">Excluir</span>
+                                <span></span>
+                            </li>
+                            {
+                            data.filter(produto => Number(produto.codigoDeBarras) ===
+                            Number(EANAlterar)).map((produto, index) => (
                             <li key={index} className="produtoAlterar">
-                                <span>{produto.codigoDeBarras}</span>
-                                <span >{produto.nome}</span>
-                                <span>{produto.preco.toFixed(2)}</span>
-                                <span>{produto.descricao}</span>
-                                <span>{produto.categoria}</span>
-                                <span>{produto.estoque}</span>
+                                <span className="spanCodigo">{produto.codigoDeBarras}</span>
+                                <span className="spanNome">{produto.nome}</span>
+                                    <span className="spanPreco" >{Number(produto.preco).toFixed(2)}</span>
+                                    <span className="spanDescricao">{produto.descricao}</span>
+                                    <span className="spanCategoria">{produto.categoria}</span>
+                                    <span className="spanEstoque">{produto.estoque}</span>
                             </li>
                             ))}</ul>}
-    
-                    </div> */}
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            if (window.confirm('Deseja realmente excluir este produto?')) {
+                                // Lógica de exclusão do produto aqui
+                                alert('Produto excluído com sucesso!');
+                            } else {
+                                alert('Exclusão cancelada.');
+                            }
+                        }}>
+                            {/* Seus campos de formulário aqui */}
+                            <button className="buttonDeletarProduto" type="submit"><img src={imgExcluir} className="imgExcluirAlterar"/></button>
+                        </form>
+
+                    </div>
 
                 </div>
-
+                
             </div>
 
 

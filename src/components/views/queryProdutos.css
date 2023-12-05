@@ -158,6 +158,24 @@
     margin-top: 2px;
     background-color: white;
 }
+.thExcluir{
+    border: 1px solid #7c7c7c83;
+    width: 150px;
+    position: absolute;
+    width: 90px;
+    left: 976px;
+    background-color: rgb(0, 38, 87);
+    color: white;
+}
+.theExcluir1{
+    border: 1px solid #7c7c7c83;
+    width: 150px;
+    position: absolute;
+    width: 90px;
+    left: 885px;
+    margin-top: 2px;
+    background-color: white;
+}
 .thestoque{
    font-size: 0;
    color: #f0f0f000;
@@ -188,7 +206,7 @@
 /* Estilo básico do botão */
 .titulo,
 .tituloAlterar {
-    margin-top: 30px;
+   
     font-size: 14px;
     color: var(--total-background-color);
 }
@@ -196,19 +214,16 @@
 /* Estilo do botão padrão */
 .titulo {
     position: absolute;
-    margin-bottom: -1px;
     width: 251px;
-    top: 0;
-    left: -130px;
+    top: -20px;
+    left: 120px;
 }
-
 
 .tituloAlterar {
     position: absolute;
-    left: -3px;
     width: 252px;
-    top: 0px;
-    left: 380px;
+    top: -20px;
+    left: 130px;
 }
 
 
@@ -216,30 +231,49 @@
     position: absolute;
     left: 0;
 }
-
+.liProdutoEncontrado {
+    position: absolute;
+    bottom: 40px;
+    left:-21px ;
+   
+}
+.tititulExcluir{
+    position: absolute;
+    border: 1px solid var(--gray);
+    top: -40px;
+    left: -1px;
+    color: var(--total-background-color);
+    font-weight: 500;
+    background-color: white;
+    width: 1046px;
+}
 .produtoEncontrado {
-    background-color: var(--corFundo);
-    width: 1005px;
-    height: 18px;
+  background-color: rgba(255, 255, 150, 0.726);
+  width: 955px;
+    height: 19px;
     position: absolute;
     left: 20px;
-    top: 220px;
-    border: 1px solid var(--gray);
-    
+    top: 540px;
+border: 1px solid var(--gray);
+
 }
+
 .produtoAlterar{
 text-align: center;
 align-items: center;
 justify-content: center;
-}
-
-.ulAlterarProduto{
-
+font-size: 16px;
+background-color: rgba(255, 255, 150, 0.726);
+margin-top: 1px;
 }
 
 .spanNomeAlterar{
 position: absolute;
-top: 150px;
+}
+
+.imgExcluirAlterar{
+    width: 15px;
+   margin-top: 1px;
 }
 
 .formRegister {
@@ -249,11 +283,11 @@ top: 150px;
     text-align: center;
     width: 500px;
     height: 250px;
-    border-bottom: 1px solid var(--total-background-color);
-    border-top: 1px solid var(--total-background-color);
-    border-left: 1px solid var(--total-background-color);
-    border-right: 1px solid var(--total-background-color);
-    top: 50px;
+    border-bottom: 1px solid var(--gray);
+    border-top: 1px solid var(--gray);
+    border-left: 1px solid var(--gray);
+    border-right: 1px solid var(--gray);
+    top: 10px;
     left: -250px;
 }
 
@@ -264,21 +298,19 @@ top: 150px;
     text-align: center;
     width: 500px;
     height: 250px;
-    border-bottom: 1px solid var(--total-background-color);
-    border-left: 1px solid var(--total-background-color);
-    border-right: 1px solid var(--total-background-color);
-    border-top: 1px solid var(--total-background-color);
-    top: 50px;
-    left: 255px;
+    border-bottom: 1px solid var(--gray);
+    border-top: 1px solid var(--gray);
+    border-left: 1px solid var(--gray);
+    border-right: 1px solid var(--gray);
+    top: 10px;
+    left: 296px;
 }
-
-
 
 .button {
     position: absolute;
     background-color: var(--total-background-color);
     color: #fff;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -300,10 +332,10 @@ top: 150px;
     }
 
 .buttonLimparAlterar{
-    position: absolute;
+        position: absolute;
         background-color: var(--total-background-color);
         color: #fff;
-        padding: 10px 20px;
+        padding: 5px 20px;
         border: none;
         cursor: pointer;
         transition: background-color 0.3s ease;
@@ -312,6 +344,29 @@ top: 150px;
         top: 200px;
         right: 100px;
 }
+
+.buttonDeletarProduto{
+    position: absolute;
+    background-color:white;
+    color: rgb(255, 255, 255);
+    padding: 0px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--gray);
+    top: -1px;
+    right: -92px; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 90px;
+}
+
+.buttonDeletarProduto:hover {
+    background-color: var(--button-hover-color);
+    color: var(--gray);
+    background-color: rgba(255, 255, 150, 0.726);
+}
+
 
 .labelEANCadastro {
     border: 1px solid #7c7c7c83;
@@ -371,7 +426,6 @@ top: 150px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
-
 .inputNomeCadastro::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
