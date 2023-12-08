@@ -87,7 +87,8 @@ function SalesScreen() {
         try {
             for (const produtoDoCarrinho of novoCarrinho) {
                 const novaQuantidade = produtoDoCarrinho.qtd || 1;
-                const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho._id}`;
+
+                const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho.codigoDeBarras}`;
 
                 // Verifique se a quantidade no carrinho é menor ou igual ao estoque disponível
                 if (produtoDoCarrinho.estoque >= novaQuantidade) {
@@ -125,12 +126,10 @@ function SalesScreen() {
         }
     }
 
-    // Construção da URL para solicitar os produtos (verifique a configuração correta)
     const url = "http://localhost:3000/findProduto";
     const urlPost = "http://localhost:3000/detalhesdevendaPost"
 
     useEffect(() => {
-        // Certifique-se de que a URL esteja corretamente construída
         axios.get(url)
             .then(response => {
                 setData(response.data);
@@ -140,56 +139,52 @@ function SalesScreen() {
             });
     }, []);
 
-    // Filtrar produtos com base na pesquisa por código
     const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
 
-    // Função para encontrar um produto com base no código
     function encontrarProdutoPorCodigo(codigo: number) {
         return data.find(produto => produto.codigoDeBarras === codigo);
     }
 
-    // Função para adicionar um item ao carrinho
     function adicionarAoCarrinho() {
         const produtoSelecionado = encontrarProdutoPorCodigo(parseInt(codigo));
         if (produtoSelecionado && parseInt(Qtd) > 0) {
             const produtoComQtd = { ...produtoSelecionado, qtd: parseInt(Qtd) };
             setCarrinho([...carrinho, produtoComQtd]);
-            setCodigo(""); // Limpa o campo de código
-            setQtd(""); // Limpa o campo de quantidade
-            setSearch("")
-            setCodigo("")
+            setCodigo("");
+            setQtd(""); 
+            setSearch("");
+            setCodigo("");
         } else {
             alert("Produto não encontrado ou quantidade inválida.");
         }
         
     }
 
-    // Função para calcular o total da compra
+   
     function calcularTotal() {
         const novoTotal = carrinho.reduce((acc, produto) => acc + produto.preco * (produto.qtd || 1), 0);
         setTotal(novoTotal);
     }
 
-    // Função para calcular o troco
     function calcularTroco(trocoRecebido: number, total: number): number {
         return trocoRecebido - total;
     }
 
     const resultadoTroco = calcularTroco(inputTroco, total);
 
-    // Função para remover um item do carrinho
+   
     function removerDoCarrinho(index: number) {
         const novoCarrinho = [...carrinho];
         novoCarrinho.splice(index, 1); // Remove o item do carrinho
         setCarrinho(novoCarrinho); // Atualiza o estado do carrinho
-        calcularTotal(); // Recalcula o total
+        calcularTotal(); 
     }
 
     useEffect(() => {
         calcularTotal();
     }, [carrinho, inputTroco]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
     
-    // Renderização do componente
+
     return (
         <div className="venda-container">
             <div className="z-index"></div>
@@ -388,7 +383,10 @@ function SalesScreen() {
                             </table>
                         </div>
                         </div>
-                        <form onSubmit={(e) => { e.preventDefault(); finalizarVenda(); }}>
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            finalizarVenda();
+                        }}>
                             <button className="buttonFinalizar" type="submit">
                                 Finalizar Venda
                             </button>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, SetStateAction } from "react";
 import '../views/queryProdutos.css';
 import MenuToolbar from "../MenuToolbar";
 import '../views/queryProdutos.css';
@@ -29,10 +29,10 @@ function MyComponent() {
 
     const [nomeAlterar, setNomeAlterar] = useState("");
     const [descricaoAlterar, setDescricaoAlterar] = useState("");
-    const [precoAlterar, setPrecoAlterar] = useState('');
+    const [precoAlterar, setPrecoAlterar] = useState("");
     const [categoriaAlterar, setCategoriaAlterar] = useState("");
     const [estoqueAlterar, setEstoqueAlterar] = useState(0);
-    
+    const [EANDeletar, setEANDeletar] = useState("")
     const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
 
 
@@ -68,28 +68,35 @@ function MyComponent() {
         }
     };
 
-
     const VerificarInputs = () => {
-        // Verificar se os campos obrigatórios estão preenchidos
-        if (EAN.trim() === '' || nome.trim() === '' || descricao.trim() === '' || preco.trim() === '' || categoria === 'Selecionar' || isNaN(parseFloat(preco)) || Number(estoque)) {
-            // Exibir mensagem de erro ou lidar com a validação de acordo com sua lógica
+        if (
+            EAN.trim() === '' ||
+            nome.trim() === '' ||
+            descricao.trim() === '' ||
+            preco.trim() === '' ||
+            categoria === 'Selecionar' ||
+            isNaN(parseFloat(preco)) ||
+            estoque <= 0
+        ) {
             alert('Preencha todos os campos corretamente!');
             return;
         }
-
-        // Se todos os campos estiverem preenchidos, continue com o envio do formulário
-        // ... lógica de envio do formulário aqui ...
     };
 
-    // No formulário, adicione o manipulador de evento onSubmit ao formulário
-    <form className='formRegister' onSubmit={(event) => {
-        event.preventDefault();
-        handleSubmit();
-    }}>
-        {/* Resto do código do formulário */}
-    </form>
+    const excluirProdutoDB = async () => {
 
-
+        const urlExcluirDB = `http://localhost:3000/deleteproduto/${EANDeletar}`
+        try {
+           
+        const response = await axios.delete(urlExcluirDB)
+           console.log(`Produto excluido do Banco de Dados`, response.data);
+        
+            const updatedData = await axios.get(urlProdutoFind);
+            setData(updatedData.data);  
+           
+       } catch (error) { console.error("Erro ao alterar produto:", error); }
+    }
+    
 
     const alterarInformacoesProduto = async () => {
         const urlAlterar = `http://localhost:3000/updateProduto/${EANAlterar}`;
@@ -172,8 +179,6 @@ function MyComponent() {
         const produto = data.find(produto => produto.codigoDeBarras === codigoDeBarras);
         if (produto) {
             setProdutoSelecionado(produto);
-
-            // Atualize outros estados conforme necessário
             setEANAlterar(String(produto.codigoDeBarras));
             setNomeAlterar(produto.nome || "");
             setDescricaoAlterar(produto.descricao || "");
@@ -182,7 +187,6 @@ function MyComponent() {
             setEstoqueAlterar(Number(produto.estoque) || 0);
         }
     };
-
 
     const hamdleLimparImput = () => {
         setEANAlterar("");
@@ -193,9 +197,15 @@ function MyComponent() {
         setEstoqueAlterar(0);
         return;
     };
-
-   
-
+    const handleDelete = async () => {
+        if (window.confirm('Deseja realmente excluir este produto?')) {
+            await excluirProdutoDB();
+            alert('Produto excluído com sucesso!');
+        } else {
+            alert('Exclusão cancelada.');
+        }
+    };
+    
     return (<div className="query-Container">
         <div className="correcaoCorFundo"></div>
         <div className="menu"><MenuToolbar /></div>
@@ -232,18 +242,18 @@ function MyComponent() {
                 <div className="register-container">
                     <div className="divForm">
                         <form className='formRegister' onSubmit={(event) => {
-                            event.preventDefault()
-                            handleSubmit();
+                            event.preventDefault();
                             VerificarInputs();
-                        }}> <h1 className='titulo'>Cadastrar Produto</h1>
-                            <label className="labelEANCadastro">EAN (Código de barras)</label>
-                            <input className="inputEANCadastro"
+                            handleSubmit();
+                        }}><h1 className='titulo'>Cadastrar Produto</h1>
+                            <label className="labelEANCadastro1">EAN (Código de barras)</label>
+                            <input className="inputEANCadastro1"
                                 type="number"
                                 value={parseInt(EAN)}
                                 onChange={(e) => setEAN(e.target.value)}
                             />
-                            <label className="labelNomeCadastro">Nome do Produto</label>
-                            <input className="inputNomeCadastro"
+                            <label className="labelNomeCadastro1">Nome do Produto</label>
+                            <input className="inputNomeCadastro1"
                                 type="text"
                                 value={nome}
                                 onChange={(e) => setNome(e.target.value)}
@@ -283,14 +293,13 @@ function MyComponent() {
                             <input className="inputEstoqueCadastro"
                                 type="number"
                                 value={estoque}
-                                onChange={(e) => setEstoque(parseInt(e.target.value, 10))}
+                                onChange={(e) => setEstoque(parseInt(e.target.value))}
                             /><br></br>
 
-                            <button type="submit" className="button">Cadastrar</button>
+                            <button type="submit" className="buttonCadastrar">Cadastrar</button>
 
                         </form>
                         
-
                         <form className='formRegister2' onSubmit={(event) => {
                             event.preventDefault()
                             alterarInformacoesProduto()
@@ -306,6 +315,7 @@ function MyComponent() {
                                     const newEAN = e.target.value;
                                     setEANAlterar(newEAN);
                                     handleEditarProduto(Number(newEAN));
+                                    setEANDeletar(newEAN);
                                 }}
                             />
 
@@ -353,13 +363,13 @@ function MyComponent() {
                                 value={estoqueAlterar === 0 ? '' : estoqueAlterar}
                                 onChange={(e) => setEstoqueAlterar(parseInt(e.target.value))}
                             /><br></br>
-                            <button type="submit"  className="button">Alterar</button>
+                            <button type="submit"  className="buttonAlterar">Alterar</button>
                             <button onClick={hamdleLimparImput}  className="buttonLimparAlterar">Limpar todos os Campos</button>
                         </form>
                     </div>
 
                     <div className="produtoEncontrado">
-                         <p className="tititulExcluir">Excluir Produto do Banco de Dados </p>
+                         <p className="tituloExcluir">Excluir Produto do Banco de Dados </p>
                         {<ul className="ulAlterarProduto">
                             
                             <li className="liProdutoEncontrado">
@@ -386,12 +396,8 @@ function MyComponent() {
                             ))}</ul>}
                         <form onSubmit={(e) => {
                             e.preventDefault();
-                            if (window.confirm('Deseja realmente excluir este produto?')) {
-                                // Lógica de exclusão do produto aqui
-                                alert('Produto excluído com sucesso!');
-                            } else {
-                                alert('Exclusão cancelada.');
-                            }
+                            handleDelete()
+                           
                         }}>
                             {/* Seus campos de formulário aqui */}
                             <button className="buttonDeletarProduto" type="submit"><img src={imgExcluir} className="imgExcluirAlterar"/></button>
