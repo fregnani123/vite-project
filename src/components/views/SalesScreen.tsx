@@ -218,10 +218,10 @@ function SalesScreen() {
                         ))} 
                     </ul>
                     <div className="formBusca">
-                        <span className="Produto">Produto</span>
+                        <span className="Produto">Produto Encontrado</span>
                         <span className="produtoPreco">Preço</span>
                         <span className="estoque">Estoque</span>
-                        <span className="buscarItem">Buscar item</span>
+                            <span className="buscarItem">Buscar Produto - EAN</span>
                         <span className="dadosProduto">Dados do Produto</span>
                         <ul className="produto-encontrado">
                     {filterData.map((produto, index) => (

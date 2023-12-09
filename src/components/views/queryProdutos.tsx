@@ -224,7 +224,7 @@ function MyComponent() {
             </ul>
             <div className="containerTable">
                     <ul className="ulInformacoesTabela">
-                    <li className="correcaoEspacoLi"></li>
+                    <span className="correcaoEspacoLi"></span>
                     {data.map((produto, index) => (
                         <li className="liSpan" key={index}>
                             <span className="thEAN1">{produto.codigoDeBarras}</span>
@@ -292,7 +292,7 @@ function MyComponent() {
                             <label className="labelEstoqueCadastro">Estoque Inicial</label>
                             <input className="inputEstoqueCadastro"
                                 type="number"
-                                value={estoque}
+                                value={estoque === 0 ? '' : estoque}
                                 onChange={(e) => setEstoque(parseInt(e.target.value))}
                             /><br></br>
 
