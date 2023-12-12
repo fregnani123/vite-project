@@ -1,29 +1,42 @@
-import './menu.css'
+
+import { Link } from 'react-router-dom';
 import imgExit from '../assets/imagens gestaoLite/sair.png';
 import imgMenu from '../assets/imagens gestaoLite/menu-aberto.png';
-import { Link } from 'react-router-dom';
+import './menu.css';
 
 function MenuToolbar() {
+  
 
-    return(<div className='menu'>
-        <h4 className='nameStore'>
-            <img src={imgMenu} className='imgMenu' />
-            <span className='nameStoreS'>Gestão Lite</span>
-        </h4>
-        <h4 className='nameMenu'>Menu</h4>
-        <ul>
-            <Link className='link' to='/painel'><li className='listaMenu'>Painel de Controle</li></Link>
-            <Link className='link' to="/SalesScreen"><li className='listaMenu'>Realizar Venda</li></Link>
-            <Link className='link' to= "/detalhes"><li className='listaMenu'>Detalhes de Venda</li></Link>
-            <Link className='link' to="/queryProdutos"><li className='listaMenu' id='liLista'>Cadastro/Informações de Produtos</li></Link>
-            <Link to="/cadastroCliente" className='link'><li className='listaMenu'>Cadastro de Cliente</li></Link >
-            <Link to="/controleES" className='link'><li className='listaMenu'>Controle de Entrada/Saída</li></Link>
-        </ul>
-        <Link to="/" className='exit'>
-            <img src={imgExit} className='imgExit' />
-            <p className='textoSair'>Sair</p>
-        </Link>
-    </div>)
+    // Lista de itens do menu
+    const menuItens = [
+        { id: '1', texto: 'Painel de Controle', to: '/painel' },
+        { id: '2', texto: 'Realizar Venda', to: '/SalesScreen' },
+        { id: '3', texto: 'Detalhes de Venda', to: '/detalhes' },
+        { id: '4', texto: 'Cadastro/Informações de Produtos', to: '/queryProdutos' },
+        { id: '5', texto: 'Cadastro de Cliente', to: '/cadastroCliente' },
+        { id: '6', texto: 'Controle de Entrada/Saída', to: '/controleES' },
+    ];
+    return (
+        <div className='menu'>
+            <h4 className='nameStore'>
+                <img src={imgMenu} className='imgMenu' alt='Menu' />
+                <span className='nameStoreS'>Gestão Lite</span>
+            </h4>
+            <h4 className='nameMenu'>Menu</h4>
+            <ul>
+                {menuItens.map((item) => (
+                    <Link className='link' to={item.to}><li key={item.id}
+                        className='listaMenu'
+                    >  {item.texto} 
+                    </li> </Link>
+                ))}
+            </ul>
+            <Link to="/" className='exit'>
+                <img src={imgExit} className='imgExit' alt='Sair' />
+                <p className='textoSair'>Sair</p>
+            </Link>
+        </div>
+    );
 }
 
-export default MenuToolbar; 
+export default MenuToolbar;

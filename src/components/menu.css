@@ -110,13 +110,23 @@ text-decoration: none;
 
 }
 
+.listaMenuAtiva{
+    background-color: red;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
 /*CSS menu tela*/
 .menuScreen {
     text-align: center;
     height: 100vh;
-    width: 470px;
+    width: 630px;
     display: flex;
     align-items: center;
+    /* background-color: red; */
 }
 
 .ulMenuScreen {
@@ -128,7 +138,8 @@ text-decoration: none;
 }
 
 .imgClass {
-    width: 150px;
+    width: 140px;
+    padding-top: 10px;
 }
 
 .realizarVenda {
