@@ -8,12 +8,11 @@
     --corFundo: rgb(241, 241, 241);
     --variavelResultados: #ffffff;
 }
-
 .ulRelative{
-    width:800px;
+    width:1035px;
     position: absolute;
     box-sizing: border-box;
-    height: 200px;
+    height: 131px;
     overflow-x: hidden;
     left: 235px;
     margin-top: 100px;
@@ -29,12 +28,23 @@
 
 .totalVendasMes{
     position: absolute;
-    top: 330px;
-    width: 400px;
-    height: 250px;
-    left: 250px;
+    top: 232px;
+    width: 1000px;
+    left: 235px;
     border: 1px solid #ddd;
+    display: flex;
+    column-gap: 8px;
+    padding-left: 7px;
+    justify-items: center;
+    height: 20px;
+    padding: 2px;   
+    background-color: var(--total-background-color);
 }
+
+.dataInicio, .dataFim{
+    color: white;
+}
+
 .detalhesContainer{
     position: relative;
     height: 100vh;
@@ -68,7 +78,7 @@
     width: 90px;
     color: white;
     background-color: var(--total-background-color);
-    
+
 }
 .dataDetalhes1{
     border: 1px solid gray;
@@ -78,21 +88,38 @@
     position: absolute;
     left: 0px;
     margin-top: 0px;
+    left: 193px;
+}
+.codigoVenda{
+    border: 1px solid gray;
+    width: 192px;
+    color: white;
+    background-color: var(--total-background-color);
+    
+}
+.codigoVenda1{
+    border: 1px solid gray;
+    width: 191px;
+    background-color: var(--variavelResultados);
+    color: var(--total-background-color);
+    position: absolute;
+    left: 0px;
+    margin-top: 0px;
 }
 
 .clienteDetalhes{
-width: 220px;
+width: 260px;
 background-color: var(--total-background-color);
 color: white;
 border: 1px solid gray;
 }
 .clienteDetalhes1{
-width: 220px;
+width: 260px;
 background-color: var(--variavelResultados);
 color: var(--total-background-color);
 border: 1px solid gray;
 position: absolute;
-left: 92px;
+left: 285px;
 margin-top: 0px;
 }
 
@@ -108,7 +135,7 @@ background-color: var(--variavelResultados);
 color: var(--total-background-color);
 border: 1px solid gray;
 position: absolute;
-left: 314px;
+left: 547px;
 margin-top: 0px;
 }
 
@@ -118,13 +145,14 @@ color: white;
 border: 1px solid gray;
 width: 100px;
 }
+
 .totalDetalhes1{
 width: 100px;
 background-color: var(--variavelResultados);
 color: var(--total-background-color);
 border: 1px solid gray;
 position: absolute;
-left: 426px;
+left: 659px;
 margin-top: 0px;
 }
 .dinheiroDetalhes{
@@ -139,7 +167,7 @@ background-color: var(--variavelResultados);
 color: var(--total-background-color);
 border: 1px solid gray;
 position: absolute;
-left: 528px;
+left: 761px;
 margin-top: 0px;
 }
 .trocoDetalhes {
