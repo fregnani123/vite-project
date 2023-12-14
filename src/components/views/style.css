@@ -108,6 +108,7 @@ button {
     color: var(--total-background-color);
     float: inline-end;
     margin-top: 10px;
+    font-size: 18px;
 }
 
 .venda-container {

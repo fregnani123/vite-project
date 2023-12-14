@@ -2,7 +2,7 @@ import '../components/Login.css'
 import imgMenu from '../assets/imagens gestaoLite/f.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import imgLogo from '../assets/imagens gestaoLite/menu-aberto.png'
 
 interface PaginaLoginProps {
     setIsAuthenticated: (value: boolean) => void; // Define o tipo esperado para setIsAuthenticated
@@ -16,7 +16,7 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
     const keyUsuario = 'adm'
     return (
         <>
-            <h1 className='logo'><img className='imgMenuLogin' src={imgMenu} /> Gestão Lite</h1>
+            <h1 className='logo'><img className='imgMenuLogin' src={imgLogo} /> Gestão Lite</h1>
             <form className='formLogin'>
                 <h1 className='loginH1' >Login</h1>
                 <input className='inputLogin'
@@ -37,8 +37,9 @@ function PaginaLogin({ setIsAuthenticated }: PaginaLoginProps ) {
                     }}
                     required
                 />
+
                 <button
-                    className='logar'
+                    className='buttonlogar'
                     onClick={() => {
                         if (usuarioInput === keyUsuario && senhaInput === keySenha) {
                             console.log('ok');

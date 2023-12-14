@@ -1,7 +1,8 @@
 .loginH1{
-color: white;
+color: var(--total-background-color);
 }
-.logo{
+
+.logo {
     z-index: -1;
     position: absolute;
     top: 80px;
@@ -10,8 +11,12 @@ color: white;
     font-size: 80px;
     display: flex;
     justify-content: center;
-    color:rgb(0, 38, 87);
+    color: transparent;
+    background-image: linear-gradient(to right, #00bcd4, #443b77);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
+
 .formLogin{
     max-width: 300px;
     margin: 0 auto;
@@ -21,10 +26,11 @@ color: white;
     border-radius: 5px;
     text-align: center;
     margin-top: 10px;
+    align-items: center;
 }
 .imgMenuLogin{
     width: 80px;
-    display: none;
+    margin-right: 10px;
 }
 
 footer{
@@ -34,11 +40,20 @@ footer{
     color: rgb(0, 38, 87);
 }
 
-.logar{
-    background-color:rgb(0, 38, 87);
+.buttonlogar{
+        margin-top: 0px;
+        margin-bottom: 20px;
+        padding: 8px;
+        width: 292px;
+        font-size: 16px;
+        border: 1px solid rgb(0, 38, 87);
+       justify-content: center;
+       margin-left: 3px;
+       background-color: var(--total-background-color);
+        
 }
 
-.logar:hover{
+.buttonlogar:hover{
     color:rgb(0, 38, 87);
     border: 1px solid rgb(0, 38, 87);
 }

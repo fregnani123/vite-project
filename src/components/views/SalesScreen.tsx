@@ -192,7 +192,7 @@ function SalesScreen() {
                 <div className="entradas-saidas">
                     <div className="menu"> <MenuToolbar /></div>
                     <div className=" ulCupon">
-                        <h1 className="tituloVendas">Tela de Vendas</h1>
+                        <p className="tituloVendas">Tela de Vendas</p>
                     <ul className="cupom-form"><span className="carrinhoSpan">Carrinho de Compras</span>
                         <li className="descricaoItens">
                             <span className="cod">EAN</span>

@@ -7,30 +7,40 @@
     --total-background-color: rgb(0, 38, 87);
     --corFundo: rgb(241, 241, 241);
     --variavelResultados: #ffffff;
+    --corInput: rgba(255, 255, 150, 0.726);
 }
+.divBorder{
+top: 50px;
+position: absolute;
+width: 1060px;
+height: 300px;
+background-color: var(--corFundo);
+left: 250px;
+border:  1px solid #ccc;
+}
+
 .ulRelative{
     width:1035px;
     position: absolute;
     box-sizing: border-box;
-    height: 131px;
+    height: 202px;
     overflow-x: hidden;
-    left: 235px;
-    margin-top: 100px;
+    left: 15px;
+    top:70px;
     border: 1px solid #ddd;   
 }
 .detalhesTable{
     display: flex;
     position: absolute;
-    top: 81px;
-    left: 235px;
+    top: 50px;
+    left: 15px;
     }
-
 
 .totalVendasMes{
     position: absolute;
-    top: 232px;
+    top: 15px;
     width: 1000px;
-    left: 235px;
+    left: 15px;
     border: 1px solid #ddd;
     display: flex;
     column-gap: 8px;
@@ -48,7 +58,18 @@
 .detalhesContainer{
     position: relative;
     height: 100vh;
+    background-color: var(--corFundo);
 }
+.divCorrecaoCorFundo{
+    position: absolute;
+        height: 100vh;
+        width: 1360px;
+        background-color: var(--corFundo);
+        z-index: -1;
+        overflow: hidden;
+       
+}
+
 .menuDetalhes{
     position: absolute;
     top: 0;
@@ -58,9 +79,9 @@
    overflow-y: auto;
 }
 .tituloDetalhes {
-    margin-left: 100px;
-    margin-top: 55px;
-    font-size: 15px;
+    margin-left: 200px;
+    margin-top: 20px;
+    font-size: 18px;
     width: 1100px;
     position: absolute;
     color: var(--total-background-color);
@@ -175,6 +196,7 @@ background-color: var(--total-background-color);
 color: white;
 border: 1px solid gray;
 width: 90px;
+
 }
 .trocoDetalhes1 {
     width: 90px;
@@ -184,8 +206,35 @@ width: 90px;
     position: absolute;
     right: 11px;
     margin-top: 0px;
+    left: 913px;
 }
 .correcaoSpan{
    color:rgba(255, 255, 255, 0.007);
    display: flex;
+}
+
+.periodo{
+    color: white;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1px;
+}
+.inputInicioFim, .inputFim{
+   color: var(--total-background-color);
+   background-color: rgb(253, 253, 193);
+}
+
+.totalVendasFiltro1{
+    color: var(--total-background-color);
+    margin-left: 15px;
+    padding: 2px;
+    background-color:white;
+}
+.totalVendasFiltro{
+    color: var(--total-background-color);
+    background-color: white;
+    padding-left: 5px;
+    width: 100px;
 }
