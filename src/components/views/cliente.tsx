@@ -6,21 +6,32 @@ function cadastroCliente() {
     return (<div className='containerCliente'>
         <MenuToolbar />
         <div className='divInformacoes'>
-        <form className='formCliente'>    
-                <label>Cliente</label>
-                <input type="text"/>
-                <label>CPF</label>
-                <input type="text"/>
-                <label>RG</label>
-                <input type="text"/>
-                <label>Data Nasc.</label>
+            <p className='tituloCadastro'>Cadastro de Cliente</p>
+            <form className='formCliente'>  
+                
+                <label className='labelClienteCadastro'>Nome</label>
+                <input className='inputClienteCadastro' type="text" />
+                
+                <label className='labelCPFCadastro'>CPF</label>
+                <input className='inputCPFCadastro' type="text" />
+                
+                <label className='labelRGCadastro'>RG</label>
+                <input className='inputRGCadastro' type="text" />
+                
+                {/* <label>Data Nasc.</label>
                 <input type="text"/>
                 <label>Endereço</label>
+                <input type="text" />
+                <label>Bairro</label>
+                <input type="text"/>
+                <label>Cidade</label>
                 <input type="text"/>
                 <label>Ocupação</label>
                 <input type="text"/>
-                <label></label>
+                <label>Fone/Celular</label>
                 <input type="text"/>
+                <label>E-mail</label>
+                <input type="text"/> */}
         </form>
             
         </div>

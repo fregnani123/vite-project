@@ -94,6 +94,7 @@ border:  1px solid #ccc;
     border-right: 1px solid #ddd;
     padding: 10px;
 }
+
 .dataDetalhes{
     border: 1px solid gray;
     width: 90px;
@@ -101,6 +102,7 @@ border:  1px solid #ccc;
     background-color: var(--total-background-color);
 
 }
+
 .dataDetalhes1{
     border: 1px solid gray;
     width: 90px;

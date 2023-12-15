@@ -143,7 +143,6 @@ background-color: var(--corFundo);
     background-color: var(--corFundo);
     height: 235px;
     border: 1px solid var(--gray);
-
     /* background-color: red; */
 }
 
@@ -212,7 +211,6 @@ background-color: var(--corFundo);
     border-bottom: 1px solid #7c7c7c83;
     width: 100%;
     left: 0;
-
 }
 
 .div-Form {

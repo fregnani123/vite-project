@@ -463,11 +463,11 @@ position: absolute;
     appearance: none;
     display: none;
 }
- .inputEANCadastro1::-webkit-inner-spin-button {
+ /* .inputEANCadastro1::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
     display: none;
-}
+} */
 
 .inputEANCadastro1, .inputEANCadastro:focus {
     outline: none;
