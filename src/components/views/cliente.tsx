@@ -18,11 +18,13 @@ function cadastroCliente() {
                 <label className='labelRGCadastro'>RG</label>
                 <input className='inputRGCadastro' type="text" />
                 
-                {/* <label>Data Nasc.</label>
-                <input type="text"/>
-                <label>Endereço</label>
-                <input type="text" />
-                <label>Bairro</label>
+                <label className='labelNascimentoCadastro'>Data Nasc.</label>
+                <input className='inputNascimentoCadastro' type="date" />
+                
+                <label className='labelEnderecoCadastro'>Endereço</label>
+                <input className='inputEnderecoCadastro' type="addres" />
+                
+                {/* <label>Bairro</label>
                 <input type="text"/>
                 <label>Cidade</label>
                 <input type="text"/>
