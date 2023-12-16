@@ -10,6 +10,15 @@
     --variavelResultados: #ffffff;
     --corInput: rgba(255, 255, 150, 0.726);
 }
+.divCorrecaoFundo{
+    position: absolute;
+    width: 1150px;
+    height: 100vh;
+    background-color: var(--corFundo);
+    z-index: -1;
+    left: 0;
+    overflow: hidden;
+}
 .tituloCadastro{
     position: absolute;
     top: -25px;
@@ -28,7 +37,6 @@
  position: absolute;
  height: 400px;
  width: 800px;
- 
  left: 240px;
  top:60px;
 }
@@ -36,19 +44,19 @@
 .formCliente{
     display: flex;
     height: 400px;
-    width: 392px;
+    width: 492px;
     border: 1px solid gray;
 }
-
 
 .labelClienteCadastro {
     position:absolute;
     border: 1px solid gray;
-    width: 390px;
+    width: 490px;
     color: white;
     background-color: var(--total-background-color);
     top: 20px;
 }
+
 .labelCPFCadastro {
     position: absolute;
     border: 1px solid gray;
@@ -69,27 +77,82 @@
 .labelNascimentoCadastro {
     position: absolute;
     border: 1px solid gray;
-    width: 142px;
-    left: 250px;
+    width: 100px;
+    left: 391px;
+    top: 80px;
     color: white;
     background-color: var(--total-background-color);
-    top: 80px;
+    
 }
 .labelEnderecoCadastro {
     position: absolute;
     border: 1px solid gray;
-    width: 142px;
-    left: 250px;
+    width: 390px;
+    left: 0px;
     color: white;
     background-color: var(--total-background-color);
-    top: 80px;
+    top: 150px;
 }
+.labelNumeroCadastro {
+    position: absolute;
+    border: 1px solid gray;
+    width: 100px;
+    left: 391px;
+    color: white;
+    background-color: var(--total-background-color);
+    top: 150px;
+}
+.labelBairroCadastro {
+    position: absolute;
+    border: 1px solid gray;
+    width: 100px;
+    left: 391px;
+    color: white;
+    background-color: var(--total-background-color);
+    top: 150px;
+}
+.labelCidadeCadastro {
+    position: absolute;
+    border: 1px solid gray;
+    width: 100px;
+    left: 391px;
+    color: white;
+    background-color: var(--total-background-color);
+    top: 150px;
+}
+.labelOcupacaoCadastro {
+    position: absolute;
+    border: 1px solid gray;
+    width: 100px;
+    left: 391px;
+    color: white;
+    background-color: var(--total-background-color);
+    top: 150px;
+}
+.labelFoneCadastro {
+    position: absolute;
+    border: 1px solid gray;
+    width: 100px;
+    left: 391px;
+    color: white;
+    background-color: var(--total-background-color);
+    top: 150px;
+}
+.labelEmailCadastro {
+    position: absolute;
+    border: 1px solid gray;
+    width: 100px;
+    left: 391px;
+    color: white;
+    background-color: var(--total-background-color);
+    top: 150px;
+}
+
 
 .inputClienteCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    left: 0px;
-    width: 390px;
+    width: 490px;
     border: 1px solid white;
     text-align: center;
     align-items: center;
@@ -104,24 +167,6 @@
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
 
-.inputClienteCadastro {
-    position: absolute;
-    background-color: var(--varyellow);
-    left: 0px;
-    width: 390px;
-    border: 1px solid white;
-    text-align: center;
-    align-items: center;
-    top: 40px;
-    height: 18px;
-    cursor: pointer;
-    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-}
-
-.inputClienteCadastro:focus {
-    outline: none;
-    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-}
 
 .inputCPFCadastro {
     position: absolute;
@@ -136,7 +181,6 @@
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
-
 .inputCPFCadastro:focus {
     outline: none;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
@@ -154,7 +198,6 @@
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
-
 .inputRGCadastro:focus {
     outline: none;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
@@ -162,12 +205,12 @@
 .inputNascimentoCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    width: 141px;
-    left: 250px;
+    width: 100px;
+    left: 391px;
+    top: 100px;
     border: 1px solid white;
     text-align: center;
     align-items: center;
-    top: 100px;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
@@ -180,18 +223,127 @@
 .inputEnderecoCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    width: 141px;
-    left: 250px;
+    width: 390px;
+    left: 1px;
     border: 1px solid white;
     text-align: center;
     align-items: center;
-    top: 100px;
+    top: 170px;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
 
 .inputEnderecoCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputNumeroCadastro {
+    position: absolute;
+    background-color: var(--varyellow);
+    top: 170px;
+    left: 391px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputNumeroCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+.inputBairroCadastro {
+    position: absolute;
+    background-color: var(--varyellow);
+    top: 170px;
+    left: 391px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputBairroCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+.inputCidadeCadastro {
+    position: absolute;
+    background-color: var(--varyellow);
+    top: 170px;
+    left: 391px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputCidadeCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+.inputOcupacaoCadastro {
+    position: absolute;
+    background-color: var(--varyellow);
+    top: 170px;
+    left: 391px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputOcupacaoCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+.inputFoneCadastro {
+    position: absolute;
+    background-color: var(--varyellow);
+    top: 170px;
+    left: 391px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputFoneCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+.inputEmailCadastro {
+    position: absolute;
+    background-color: var(--varyellow);
+    top: 170px;
+    left: 391px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputEmailCadastro:focus {
     outline: none;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
