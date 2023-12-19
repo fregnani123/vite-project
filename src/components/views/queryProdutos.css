@@ -19,29 +19,36 @@
 }
 .register-queryProdutos{
     top: 20px;
+    width: 1000px;
     position: relative;
     background-color:var(--corFundo);
     margin-left: 233px;
+    /* background-color: red; */
+    left: 20px;
+    height: 500px;
+    border: solid 1px var(--gray);
 }
 
 .containerTable{
     /* background-color: #a80b0b; */
     position: relative;
+    top: 30px;
     width: 990px;
-    height: 200px;
+    height: 130px;
     overflow-x: hidden;
     overflow-y: auto;
+    border: 1px solid var(--gray);
+    left: -1px;
 }
 
 .ulInformacoes{
     position: absolute;
     width: 100%; 
-    top: -20px;
+    top: 10px;
 }
 .ulInformacoesTabela{
     position:relative;
-    bottom: 4px;
-    bottom: 18px;
+    top: 0px;
     color: rgb(0, 38, 87);
 }
 
@@ -275,6 +282,7 @@ position: absolute;
 }
 
 .formRegister {
+    display: none;
     position: absolute;
     justify-content: center;
     align-items: center;
@@ -294,14 +302,14 @@ position: absolute;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 500px;
+    width: 800px;
     height: 250px;
-    border-bottom: 1px solid var(--gray);
+    /* border-bottom: 1px solid var(--gray);
     border-top: 1px solid var(--gray);
     border-left: 1px solid var(--gray);
-    border-right: 1px solid var(--gray);
-    top: 10px;
-    left: 296px;
+    border-right: 1px solid var(--gray); */
+    top: 81px;
+    left: -200px;
 }
 
 .buttonAlterar {
@@ -316,7 +324,7 @@ position: absolute;
     border-radius: 2px;
     border: 1px solid var(--total-background-color);
     top: 228px;
-    right: 02px;
+    left: 403px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -390,13 +398,13 @@ position: absolute;
     position: absolute;
     background-color:white;
     color: rgb(255, 255, 255);
-    padding: 0px 24px;
+    padding: 1px 24px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     border: 1px solid var(--total-background-color);
-    top: 0px;
+    top: 309px;
     border-radius: 2px;
-    right: -92px; 
+    left: 306px; 
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -423,12 +431,50 @@ position: absolute;
     left: 0;
     background-color: var(--total-background-color);
     color: white;
-    width: 469px;
+    width: 565px;
     top: 205px;
     justify-content: start;
     display: flex;
     padding-left: 30px;
 }
+.labelFiltrarCadastro {
+    border: 1px solid #7c7c7c83;
+    position: absolute;
+    left: 0;
+    background-color: var(--total-background-color);
+    color: white;
+    width: 945px;
+    top: -73px;
+    left: -251px;
+    justify-content: start;
+    display: flex;
+    padding-left: 10px;
+    display: flex;
+}
+
+.inputFiltrarCadastro {
+    position: absolute;
+    background-color: var(--varyellow);
+    left: 230px;
+    width: 400px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+.inputFiltrarCadastro::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.inputFiltrarCadastro:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+ 
 
 .inputEANCadastro1 {
     position: absolute;
@@ -442,6 +488,7 @@ position: absolute;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+    margin-left: 10px; 
 }
 .inputEANCadastro {
     position: absolute;
@@ -654,7 +701,7 @@ position: absolute;
 .labelCategoriaCadastro {
     border: 1px solid #7c7c7c83;
     position: absolute;
-    left: 132px;
+    left: 131px;
     background-color: var(--total-background-color);
     color: white;
     width: 245px;
@@ -664,8 +711,8 @@ position: absolute;
 .inputCategoriaCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    left: 135px;
-    width: 244px;
+    left: 132px;
+    width: 245px;
     top: 155px;
     border: 1px solid white;
     text-align: center;
@@ -693,7 +740,7 @@ select:focus {
 .labelEstoqueCadastro {
     border: 1px solid #7c7c7c83;
     position: absolute;
-    right: 0px;
+    left: 377px;
     background-color: var(--total-background-color);
     color: white;
     width: 120px;
@@ -703,7 +750,7 @@ select:focus {
 .inputEstoqueCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    right: 0px;
+    left: 377px;
     width: 120px;
     top: 155px;
     border: 1px solid white;

@@ -32,6 +32,9 @@ function cadastroCliente() {
                 
                 <label className='labelCidadeCadastro'>Cidade</label>
                 <input className='inputCidadeCadastro' type="text" />
+
+                <label className='labelUFCadastro'>UF</label>
+                <input className='inputUFCadastro' type="text" />
                 
                 <label className='labelOcupacaoCadastro'>Ocupação</label>
                 <input className='inputOcupacaoCadastro' type="text" />

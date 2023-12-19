@@ -34,6 +34,7 @@ function MyComponent() {
     const [estoqueAlterar, setEstoqueAlterar] = useState(0);
     const [EANDeletar, setEANDeletar] = useState("")
     const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+    const [filtrarNome, SetfiltrarNome ] = useState ('')
 
 
     const handleSubmit = async () => {
@@ -117,11 +118,11 @@ function MyComponent() {
             dataAlterar.descricao = descricaoAlterar;
         }
 
-        if (precoAlterar.trim() !== "") {
+        if (precoAlterar !== "") {
            dataAlterar.preco = precoAlterar;
         }
 
-        if (categoriaAlterar.trim() !== "") {
+        if (categoriaAlterar !== "") {
             dataAlterar.categoria = categoriaAlterar;
         }
 
@@ -132,7 +133,7 @@ function MyComponent() {
         try {
             const response = await axios.patch(urlAlterar, dataAlterar);
             console.log("Produto alterado com sucesso:", response.data);
-            // Limpar os campos do formulário após a atualização bem-sucedida
+            
             setNomeAlterar("");
             setDescricaoAlterar("");
             setPrecoAlterar('');
@@ -223,22 +224,27 @@ function MyComponent() {
                 </li>
             </ul>
             <div className="containerTable">
-                    <ul className="ulInformacoesTabela">
+                <ul className="ulInformacoesTabela">
                     <span className="correcaoEspacoLi"></span>
-                    {data.map((produto, index) => (
-                        <li className="liSpan" key={index}>
-                            <span className="thEAN1">{produto.codigoDeBarras}</span>
-                            <span className="thNome1" >{produto.nome}</span>
-                            <span className="thPreco1" >{Number(produto.preco).toFixed(2)}</span>
-                            <span className="thDescricao1">{produto.descricao.length > 25 ? produto.descricao.slice(0, 50) + "..." : produto.descricao}</span>
-                            <span className="thCategoria1">{produto.categoria}</span>
-                            <span className="thestoque1">{produto.estoque}</span>
-                            <span className="thestoque">correçãoTabela</span>
-                        </li>
-                    ))}</ul>
+                    {data
+                        .filter(produto => produto.nome.toLowerCase().includes(filtrarNome.toLowerCase()))
+                        .map((produto, index) => (
+                            <li className="liSpan" key={index}>
+                                {<li className="liSpan" key={index}>
+                                    <span className="thEAN1">{produto.codigoDeBarras}</span>
+                                    <span className="thNome1" >{produto.nome}</span>
+                                    <span className="thPreco1" >{Number(produto.preco).toFixed(2)}</span>
+                                    <span className="thDescricao1">{produto.descricao.length > 25 ? produto.descricao.slice(0, 50) + "..." : produto.descricao}</span>
+                                    <span className="thCategoria1">{produto.categoria}</span>
+                                    <span className="thestoque1">{produto.estoque}</span>
+                                    <span className="thestoque">correçãoTabela</span>
+                                </li>}
+                            </li>
+                        ))
+                    }
+                </ul>
             </div>
             <div>
-
                 <div className="register-container">
                     <div className="divForm">
                         <form className='formRegister' onSubmit={(event) => {
@@ -305,7 +311,7 @@ function MyComponent() {
                             alterarInformacoesProduto()
                             setEANAlterar('')
                         }}>
-                            <h1 className='tituloAlterar'>Alterar Informações do Produto</h1>
+                            <h1 className='tituloAlterar'>Alterar / Excluir Produto</h1>
                             <label className="labelEANCadastro">Buscar Produto - EAN</label>
                             <input
                                 className="inputEANCadastro"
@@ -318,7 +324,15 @@ function MyComponent() {
                                     setEANDeletar(newEAN);
                                 }}
                             />
-
+                            <label className="labelFiltrarCadastro">Buscar Produto através nome <input
+                                className="inputFiltrarCadastro"
+                                type="text"
+                                value={filtrarNome}
+                                onChange={(e) => {
+                                    SetfiltrarNome(e.target.value);
+                                }}
+                            /></label>
+                        
                             <label className="labelNomeCadastro">Alterar Nome do Produto</label>
                             <input className="inputNomeCadastro"
                                 type="text"
@@ -364,11 +378,18 @@ function MyComponent() {
                                 onChange={(e) => setEstoqueAlterar(parseInt(e.target.value))}
                             /><br></br>
                             <button type="submit"  className="buttonAlterar">Alterar</button>
-                            <button onClick={hamdleLimparImput}  className="buttonLimparAlterar">Limpar todos os Campos</button>
+                            <button onClick={hamdleLimparImput} className="buttonLimparAlterar">Limpar todos os Campos</button>
+                        </form>
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            handleDelete()
+                        }}>
+                            {/* Seus campos de formulário aqui */}
+                            <button className="buttonDeletarProduto" type="submit"><img src={imgExcluir} className="imgExcluirAlterar" /></button>
                         </form>
                     </div>
 
-                    <div className="produtoEncontrado">
+                    {/* <div className="produtoEncontrado">
                          <p className="tituloExcluir">Excluir Produto do Banco de Dados </p>
                         {<ul className="ulAlterarProduto">
                             
@@ -394,16 +415,7 @@ function MyComponent() {
                                     <span className="spanEstoque">{produto.estoque}</span>
                             </li>
                             ))}</ul>}
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            handleDelete()
-                           
-                        }}>
-                            {/* Seus campos de formulário aqui */}
-                            <button className="buttonDeletarProduto" type="submit"><img src={imgExcluir} className="imgExcluirAlterar"/></button>
-                        </form>
-
-                    </div>
+                    </div> */}
 
                 </div>
                 
