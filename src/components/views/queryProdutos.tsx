@@ -324,7 +324,7 @@ function MyComponent() {
                                     setEANDeletar(newEAN);
                                 }}
                             />
-                            <label className="labelFiltrarCadastro">Buscar Produto através nome <input
+                            <label className="labelFiltrarCadastro">Buscar produto através do nome: <input
                                 className="inputFiltrarCadastro"
                                 type="text"
                                 value={filtrarNome}

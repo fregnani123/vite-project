@@ -1,7 +1,7 @@
 
 .registroH1{
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-bottom: -18px;
     margin-left: 150px;
 }
 
@@ -32,7 +32,7 @@
 .containerTable{
     /* background-color: #a80b0b; */
     position: relative;
-    top: 30px;
+    top: 50px;
     width: 990px;
     height: 130px;
     overflow-x: hidden;
@@ -44,7 +44,7 @@
 .ulInformacoes{
     position: absolute;
     width: 100%; 
-    top: 10px;
+    top: 30px;
 }
 .ulInformacoesTabela{
     position:relative;
@@ -54,13 +54,14 @@
 
 .thEAN{
     position: absolute;
-    width: 135px;
+    width: 136px;
     background-color: rgb(0, 38, 87);
-    left: 20px;
+    left: -1px;
     border: 1px solid #7c7c7c83;
     color: white;
-    
+    padding-left: 20px;
 }
+
 .thEAN1{
     position: absolute;
     width: 135px;
@@ -151,7 +152,7 @@
     border: 1px solid #7c7c7c83;
     width: 150px;
     position: absolute;
-    width: 90px;
+    width: 114px;
     left: 885px;
     background-color: rgb(0, 38, 87);
     color: white;
@@ -230,7 +231,7 @@
 .tituloAlterar {
     position: absolute;
     width: 252px;
-    top: -20px;
+    top: -6px;
     left: 130px;
 }
 
@@ -443,12 +444,13 @@ position: absolute;
     left: 0;
     background-color: var(--total-background-color);
     color: white;
-    width: 945px;
-    top: -73px;
-    left: -251px;
+    width: 990px;
+    top: -234px;
+    left: -71px;
     justify-content: start;
     display: flex;
     padding-left: 10px;
+    padding-bottom: 3px;
     display: flex;
 }
 
