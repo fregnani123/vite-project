@@ -9,6 +9,7 @@ import SalesScreen from './components/views/SalesScreen';
 import DetalhesVenda from './components/views/detalhesVenda'
 import DetalheES from './components/views/controleES'
 import CadastrarCliente from './components/views/cliente';
+import CadastrarProduto from './components/views/cadastrarProduto'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -22,7 +23,7 @@ function App() {
             path='/painel' element={isAuthenticated ? <MenuPage /> : <Navigate to='/'/>}/>
           <Route path='/detalhes' element={isAuthenticated ? <DetalhesVenda /> : <Navigate to='/' />}/>
           <Route path='/SalesScreen' element={isAuthenticated ? <SalesScreen /> : <Navigate to='/' /> } />
-          {/* <Route path='/newProduct' element={<RegisterProduct />} /> */}
+          <Route path='cadastrarProduto' element={isAuthenticated ? <CadastrarProduto /> : <Navigate to='/' />}/>
           <Route path='/queryProdutos' element={isAuthenticated ? <MyComponent /> : <Navigate to='/' />} />
           <Route path='/cadastroCliente' element={isAuthenticated ? <CadastrarCliente/> : <Navigate to='/' />}/>
           <Route path='controleES' element={isAuthenticated ? <DetalheES /> : <Navigate to='/'/>}/>

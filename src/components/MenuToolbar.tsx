@@ -8,13 +8,13 @@ function MenuToolbar() {
   
     // Lista de itens do menu
     const menuItens = [
-        { id: '1', texto: 'Painel de Controle', to: '/painel' },
-        { id: '2', texto: 'Realizar Venda', to: '/SalesScreen' },
-        { id: '3', texto: 'Detalhes de Venda', to: '/detalhes' },
-        { id: '4', texto: 'Produto Cadastro/Informações', to: '/queryProdutos' },
-        { id: '4', texto: 'Produto Alterar/Excluir', to: '/queryProdutos' },
-        { id: '5', texto: 'Cadastro de Cliente', to: '/cadastroCliente' },
-        { id: '6', texto: 'Controle de Entrada/Saída', to: '/controleES' },
+        { id: '1', texto: 'Painel de controle', to: '/painel' },
+        { id: '2', texto: 'Realizar venda', to: '/SalesScreen' },
+        { id: '3', texto: 'Detalhes de venda', to: '/detalhes' },
+        { id: '4', texto: 'Cadastro de produto', to: '/cadastrarProduto' },
+        { id: '5', texto: 'Alterar / Excluir produto', to: '/queryProdutos' },
+        { id: '6', texto: 'Cadastro de cliente', to: '/cadastroCliente' },
+        { id: '7', texto: 'Controle de entrada / saída', to: '/controleES' },
     ];
     
     return (

@@ -18,7 +18,7 @@
     background-color:var(--corFundo)
 }
 .register-queryProdutos{
-    top: 20px;
+    top: 45px;
     width: 1000px;
     position: relative;
     background-color:var(--corFundo);
@@ -224,15 +224,15 @@
 .titulo {
     position: absolute;
     width: 251px;
-    top: -20px;
+    top: -5px;
     left: 120px;
 }
 
 .tituloAlterar {
     position: absolute;
     width: 252px;
-    top: -6px;
-    left: 130px;
+    top: -5px;
+    left: 290px;
 }
 
 
@@ -282,23 +282,23 @@ position: absolute;
    margin-top: 1px;
 }
 
-.formRegister {
-    display: none;
-    /* position: absolute;
+.formCadastro {
+    position: absolute;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 500px;
     height: 250px;
-    border-bottom: 1px solid var(--gray);
+    /* border-bottom: 1px solid var(--gray);
     border-top: 1px solid var(--gray);
     border-left: 1px solid var(--gray);
-    border-right: 1px solid var(--gray);
+    border-right: 1px solid var(--gray); */
     top: 60px;
-    left: -250px; */
+    left: -200px;
 }
 
-.formRegister2 {
+.formCadastro2 {
+    display: none;
     position: absolute;
     justify-content: center;
     align-items: center;
@@ -309,7 +309,7 @@ position: absolute;
     border-top: 1px solid var(--gray);
     border-left: 1px solid var(--gray);
     border-right: 1px solid var(--gray); */
-    top: 60px;
+    top: 81px;
     left: -200px;
 }
 
@@ -343,7 +343,7 @@ position: absolute;
     transition: background-color 0.3s ease;
     border-radius: 2px;
     border: 1px solid var(--total-background-color);
-    top: 228px;
+    top: 180px;
     right: 02px;
     text-align: center;
     justify-content: center;
@@ -403,7 +403,7 @@ position: absolute;
     cursor: pointer;
     transition: background-color 0.3s ease;
     border: 1px solid var(--total-background-color);
-    top: 309px;
+    top: 288px;
     border-radius: 2px;
     left: 306px; 
     align-items: center;
@@ -417,37 +417,37 @@ position: absolute;
     color: var(--gray);
     background-color: rgba(255, 255, 150, 0.726);
 }
-.labelEANCadastro1 {
+/* .labelEANCadastro1 {
     border: 1px solid #7c7c7c83;
     position: absolute;
-    left: -71px;
+    left: 0;
     background-color: var(--total-background-color);
     color: white;
     width: 200px;
     top: 20px;
-    padding-left: 71px;
-}
+} */
 .labelEANCadastro {
     border: 1px solid #7c7c7c83;
     position: absolute;
-    left: 0;
+    left: -71px;
     background-color: var(--total-background-color);
     color: white;
     width: 565px;
     top: 205px;
     justify-content: start;
     display: flex;
-    padding-left: 30px;
+    padding-left: 90px;
+    padding-right: 345px;
 }
-.labelFiltrarCadastro {
+.labelFiltrarCadastro11 {
     border: 1px solid #7c7c7c83;
     position: absolute;
     left: 0;
     background-color: var(--total-background-color);
     color: white;
     width: 990px;
-    top: -234px;
-    left: -71px;
+    top: -153px;
+    left: -271px;
     justify-content: start;
     display: flex;
     padding-left: 10px;
@@ -479,10 +479,10 @@ position: absolute;
 }
  
 
-.inputEANCadastro1 {
+.inputEANCadastro11 {
     position: absolute;
     background-color: var(--varyellow);
-    left: 0px;
+    left: -10px;
     width: 200px;
     border: 1px solid white;
     text-align: center;
@@ -513,13 +513,18 @@ position: absolute;
     appearance: none;
     display: none;
 }
+ .inputEANCadastro11::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
  /* .inputEANCadastro1::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
     display: none;
 } */
 
-.inputEANCadastro1, .inputEANCadastro:focus {
+.inputEANCadastro11, .inputEANCadastro:focus {
     outline: none;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
@@ -575,11 +580,13 @@ position: absolute;
 .labelDescricaoCadastro {
     border: 1px solid #7c7c7c83;
     position: absolute;
-    left: 0px;
+    left: -71px;
     background-color: var(--total-background-color);
     color: white;
     width: 498px;
     top: 80px;
+    padding-left: 71px;
+    padding-right: 431px;
 }
 
 .inputDescricaoCadastro {
@@ -619,11 +626,12 @@ position: absolute;
 .labelNomeCadastro {
     border: 1px solid #7c7c7c83;
     position: absolute;
-    left: 0px;
+    left: -71px;
     background-color: var(--total-background-color);
     color: white;
-    width: 499px;
+    width: 640px;
     top: 18px;
+    padding-right: 360px;
 }
 
 .inputNomeCadastro1 {
@@ -667,11 +675,12 @@ position: absolute;
 .labelPrecoCadastro {
     border: 1px solid #7c7c7c83;
     position: absolute;
-    left: 0px;
+    left: -71px;
     background-color: var(--total-background-color);
     color: white;
     width: 130px;
     top: 135px;
+    padding-left:71px;
 }
 
 .inputPrecoCadastro {
@@ -748,6 +757,7 @@ select:focus {
     color: white;
     width: 120px;
     top: 135px;
+    padding-right: 432px;
 }
 
 .inputEstoqueCadastro {

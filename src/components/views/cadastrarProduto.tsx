@@ -1,13 +1,14 @@
-import axios from "axios";
-import { useEffect, useState, SetStateAction } from "react";
-import '../views/queryProdutos.css';
-import MenuToolbar from "../MenuToolbar";
-import '../views/queryProdutos.css';
-import imgExcluir from '../../assets/imagens gestaoLite/remover.png';
+import '../views/queryProdutos.css'
 
+
+import axios from "axios";
+import { useEffect, useState} from "react";
+import MenuToolbar from "../MenuToolbar";
+import imgExcluir from '../../assets/imagens gestaoLite/remover.png';
+import '../views/cadastrarProduto.css';
 
 interface Produto {
-    _id: string ;
+    _id: string;
     nome: string;
     preco: string;
     descricao: string;
@@ -18,7 +19,7 @@ interface Produto {
 
 function MyComponent() {
 
-    const [data, setData] = useState<Produto[]>([]); 
+    const [data, setData] = useState<Produto[]>([]);
     const [EAN, setEAN] = useState("");
     const [EANAlterar, setEANAlterar] = useState("");
     const [nome, setNome] = useState("");
@@ -34,7 +35,7 @@ function MyComponent() {
     const [estoqueAlterar, setEstoqueAlterar] = useState(0);
     const [EANDeletar, setEANDeletar] = useState("")
     const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
-    const [filtrarNome, SetfiltrarNome ] = useState ('')
+    const [filtrarNome, SetfiltrarNome] = useState('')
 
 
     const handleSubmit = async () => {
@@ -47,8 +48,8 @@ function MyComponent() {
             categoria: categoria,
             estoque: estoque,
         };
-            const url = "http://localhost:3000/newProduto";
-            
+        const url = "http://localhost:3000/newProduto";
+
         try {
             const response = await axios.post(url, data);
             console.log("Produto registrado com sucesso:", response.data);
@@ -61,8 +62,8 @@ function MyComponent() {
             setEstoque(0);
             setEAN('');
 
-        const updatedData = await axios.get(urlProdutoFind);
-        setData(updatedData.data);   
+            const updatedData = await axios.get(urlProdutoFind);
+            setData(updatedData.data);
 
         } catch (error) {
             console.error("Erro ao registrar produto:", error);
@@ -88,16 +89,16 @@ function MyComponent() {
 
         const urlExcluirDB = `http://localhost:3000/deleteproduto/${EANDeletar}`
         try {
-           
-        const response = await axios.delete(urlExcluirDB)
-           console.log(`Produto excluido do Banco de Dados`, response.data);
-        
+
+            const response = await axios.delete(urlExcluirDB)
+            console.log(`Produto excluido do Banco de Dados`, response.data);
+
             const updatedData = await axios.get(urlProdutoFind);
-            setData(updatedData.data);  
-           
-       } catch (error) { console.error("Erro ao alterar produto:", error); }
+            setData(updatedData.data);
+
+        } catch (error) { console.error("Erro ao alterar produto:", error); }
     }
-    
+
 
     const alterarInformacoesProduto = async () => {
         const urlAlterar = `http://localhost:3000/updateProduto/${EANAlterar}`;
@@ -119,7 +120,7 @@ function MyComponent() {
         }
 
         if (precoAlterar !== "") {
-           dataAlterar.preco = precoAlterar;
+            dataAlterar.preco = precoAlterar;
         }
 
         if (categoriaAlterar !== "") {
@@ -133,16 +134,16 @@ function MyComponent() {
         try {
             const response = await axios.patch(urlAlterar, dataAlterar);
             console.log("Produto alterado com sucesso:", response.data);
-            
+
             setNomeAlterar("");
             setDescricaoAlterar("");
             setPrecoAlterar('');
             setCategoriaAlterar("");
             setEstoqueAlterar(0);
             setEAN('')
-     
+
             const updatedData = await axios.get(urlProdutoFind);
-            setData(updatedData.data);   
+            setData(updatedData.data);
 
 
         } catch (error) {
@@ -155,7 +156,7 @@ function MyComponent() {
     useEffect(() => {
         axios.get(urlProdutoFind)
             .then(response => {
-             setData(response.data);
+                setData(response.data);
                 console.log(response)
             })
             .catch(error => {
@@ -206,7 +207,7 @@ function MyComponent() {
             alert('Exclusão cancelada.');
         }
     };
-    
+
     return (<div className="query-Container">
         <div className="correcaoCorFundo"></div>
         <div className="menu"><MenuToolbar /></div>
@@ -247,13 +248,13 @@ function MyComponent() {
             <div>
                 <div className="register-container">
                     <div className="divForm">
-                        <form className='formRegister' onSubmit={(event) => {
+                        <form className='formCadastro' onSubmit={(event) => {
                             event.preventDefault();
                             VerificarInputs();
                             handleSubmit();
                         }}><h1 className='titulo'>Cadastrar novo produto</h1>
                             <label className="labelEANCadastro1">EAN (Código de barras)</label>
-                            <input className="inputEANCadastro1"
+                            <input className="inputEANCadastro11"
                                 type="number"
                                 value={parseInt(EAN)}
                                 onChange={(e) => setEAN(e.target.value)}
@@ -273,7 +274,7 @@ function MyComponent() {
                             <label className='labelPrecoCadastro'>Preço de Venda</label>
                             <input
                                 className="inputPrecoCadastro"
-                               
+
                                 type="text"
                                 value={preco}
                                 onChange={(e) => {
@@ -305,8 +306,17 @@ function MyComponent() {
                             <button type="submit" className="buttonCadastrar">Cadastrar</button>
 
                         </form>
+
+                        <label className="labelFiltrarCadastro11">Buscar produto através do nome: <input
+                            className="inputFiltrarCadastro"
+                            type="text"
+                            value={filtrarNome}
+                            onChange={(e) => {
+                                SetfiltrarNome(e.target.value);
+                            }}
+                        /></label>
                         
-                        <form className='formRegister2' onSubmit={(event) => {
+                        <form className='formCadastro2' onSubmit={(event) => {
                             event.preventDefault()
                             alterarInformacoesProduto()
                             setEANAlterar('')
@@ -324,15 +334,8 @@ function MyComponent() {
                                     setEANDeletar(newEAN);
                                 }}
                             />
-                            <label className="labelFiltrarCadastro">Buscar produto através do nome: <input
-                                className="inputFiltrarCadastro"
-                                type="text"
-                                value={filtrarNome}
-                                onChange={(e) => {
-                                    SetfiltrarNome(e.target.value);
-                                }}
-                            /></label>
-                        
+                           
+
                             <label className="labelNomeCadastro">Alterar Nome do Produto</label>
                             <input className="inputNomeCadastro"
                                 type="text"
@@ -351,8 +354,8 @@ function MyComponent() {
                                 type="text"
                                 value={precoAlterar}
                                 onChange={(e) => {
-                                        setPrecoAlterar(e.target.value);
-                                    }
+                                    setPrecoAlterar(e.target.value);
+                                }
                                 }
                             />
 
@@ -377,53 +380,18 @@ function MyComponent() {
                                 value={estoqueAlterar === 0 ? '' : estoqueAlterar}
                                 onChange={(e) => setEstoqueAlterar(parseInt(e.target.value))}
                             /><br></br>
-                            <button type="submit"  className="buttonAlterar">Alterar</button>
+                            <button type="submit" className="buttonAlterar">Alterar</button>
                             <button onClick={hamdleLimparImput} className="buttonLimparAlterar">Limpar todos os Campos</button>
                         </form>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            handleDelete()
-                        }}>
-                            {/* Seus campos de formulário aqui */}
-                            <button className="buttonDeletarProduto" type="submit"><img src={imgExcluir} className="imgExcluirAlterar" /></button>
-                        </form>
+                       
                     </div>
-
-                    {/* <div className="produtoEncontrado">
-                         <p className="tituloExcluir">Excluir Produto do Banco de Dados </p>
-                        {<ul className="ulAlterarProduto">
-                            
-                            <li className="liProdutoEncontrado">
-                                <span className="thEAN">EAN</span>
-                                <span className="thNome">Nome do Produto</span>
-                                <span className="thPreco">Preço</span>
-                                <span className="thDescricao">Descrição</span>
-                                <span className="thCategoria">Categoria</span>
-                                <span className="thEstoque">Estoque</span>
-                                <span className="thExcluir">Excluir</span>
-                                <span></span>
-                            </li>
-                            {
-                            data.filter(produto => Number(produto.codigoDeBarras) ===
-                            Number(EANAlterar)).map((produto, index) => (
-                            <li key={index} className="produtoAlterar">
-                                <span className="spanCodigo">{produto.codigoDeBarras}</span>
-                                <span className="spanNome">{produto.nome}</span>
-                                    <span className="spanPreco" >{Number(produto.preco).toFixed(2)}</span>
-                                    <span className="spanDescricao">{produto.descricao}</span>
-                                    <span className="spanCategoria">{produto.categoria}</span>
-                                    <span className="spanEstoque">{produto.estoque}</span>
-                            </li>
-                            ))}</ul>}
-                    </div> */}
-
                 </div>
-                
+
             </div>
 
 
-            </div></div>
-    ); 
+        </div></div>
+    );
 }
 
 export default MyComponent;
