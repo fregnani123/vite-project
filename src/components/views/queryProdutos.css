@@ -212,7 +212,7 @@
 }
 
 
-/* Estilo básico do botão */
+Estilo básico do botão
 .titulo,
 .tituloAlterar {
    
@@ -281,7 +281,6 @@ position: absolute;
     width: 15px;
    margin-top: 1px;
 }
-
 .formRegister {
     display: none;
     /* position: absolute;
@@ -446,7 +445,7 @@ position: absolute;
     background-color: var(--total-background-color);
     color: white;
     width: 990px;
-    top: -234px;
+    top: -213px;
     left: -71px;
     justify-content: start;
     display: flex;
@@ -615,6 +614,7 @@ position: absolute;
     color: white;
     width: 297px;
     top: 20px;
+    padding-right: 431px;
 }
 .labelNomeCadastro {
     border: 1px solid #7c7c7c83;

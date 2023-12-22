@@ -13,7 +13,7 @@
 top: 50px;
 position: absolute;
 width: 1060px;
-height: 300px;
+height: 550px;
 background-color: var(--corFundo);
 left: 250px;
 border:  1px solid #ccc;
@@ -26,28 +26,30 @@ border:  1px solid #ccc;
     height: 202px;
     overflow-x: hidden;
     left: 15px;
-    top:70px;
+    top:100px;
     border: 1px solid #ddd;   
 }
+
 .detalhesTable{
     display: flex;
     position: absolute;
-    top: 50px;
+    top: 80px;
     left: 15px;
     }
 
 .totalVendasMes{
     position: absolute;
-    top: 15px;
-    width: 1000px;
-    left: 15px;
+    top: -1px;
+    width: 1045px;
+    left: -2px;
     border: 1px solid #ddd;
     display: flex;
     column-gap: 8px;
     padding-left: 7px;
     justify-items: center;
     height: 20px;
-    padding: 2px;   
+    padding: 2px;  
+    padding-left: 15px; 
     background-color: var(--total-background-color);
 }
 
@@ -118,7 +120,8 @@ border:  1px solid #ccc;
     width: 192px;
     color: white;
     background-color: var(--total-background-color);
-    
+    margin-left: -16px;
+    padding-left: 16px;
 }
 .codigoVenda1{
     border: 1px solid gray;
@@ -198,7 +201,7 @@ background-color: var(--total-background-color);
 color: white;
 border: 1px solid gray;
 width: 90px;
-
+padding-right: 40px;
 }
 .trocoDetalhes1 {
     width: 90px;
@@ -227,16 +230,106 @@ width: 90px;
    color: var(--total-background-color);
    background-color: rgb(253, 253, 193);
 }
-
 .totalVendasFiltro1{
-    color: var(--total-background-color);
-    margin-left: 15px;
-    padding: 2px;
-    background-color:white;
+    position: absolute;
+    background-color: var(--total-background-color);
+    color: white;
+    border: 1px solid gray;
+    width: 300px;
+    top: 30px;
+    left: 0px;
+    padding-left: 60px;
+    padding-right: 10px;
 }
-.totalVendasFiltro{
+.spanFiltroPeriodo{
+    width: 300px;
+    background-color: var(--variavelResultados);
     color: var(--total-background-color);
-    background-color: white;
-    padding-left: 5px;
-    width: 100px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 51px;
+    padding-left: 60px;
+    padding-right: 10px;
+    left: 0px;
+}
+
+.spanTituloPix{
+    position: absolute;
+    background-color: var(--total-background-color);
+    color: white;
+    border: 1px solid gray;
+    width: 180px;
+    top: 30px;
+    left: 371px;
+}
+
+.spanPeriodoPix{
+    width: 180px;
+    background-color: var(--variavelResultados);
+    color: var(--total-background-color);
+    border: 1px solid gray;
+    position: absolute;
+    top: 51px;
+    left: 371px;
+}
+.spanTituloDinheiro{
+    position: absolute;
+    background-color: var(--total-background-color);
+    color: white;
+    border: 1px solid gray;
+    width: 180px;
+    top: 30px;
+    left: 552px;
+}
+
+.spanPeriodoDinheiro{
+    width: 180px;
+    background-color: var(--variavelResultados);
+    color: var(--total-background-color);
+    border: 1px solid gray;
+    position: absolute;
+    top: 51px;
+    left: 552px;
+}
+.spanTituloCartao{
+    position: absolute;
+    background-color: var(--total-background-color);
+    color: white;
+    border: 1px solid gray;
+    width: 210px;
+    top: 30px;
+    left: 733px;
+    padding-right: 117px;
+}
+
+.spanPeriodoCartao{
+    width: 210px;
+    background-color: var(--variavelResultados);
+    color: var(--total-background-color);
+    border: 1px solid gray;
+    position: absolute;
+    top: 51px;
+    left: 733px;
+    padding-right: 117px;
+}
+.spanTituloProdutos{
+    position: absolute;
+    background-color: var(--total-background-color);
+    color: white;
+    border: 1px solid gray;
+    width: 210px;
+    top: 330px;
+    left: 733px;
+    padding-right: 117px;
+}
+
+.spanPeriodoProdutos{
+    width: 400px;
+    background-color: var(--variavelResultados);
+    color: var(--total-background-color);
+    border: 1px solid gray;
+    position: absolute;
+    top: 351px;
+    left: 533px;
+    padding-right: 117px;
 }

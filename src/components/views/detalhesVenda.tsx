@@ -9,7 +9,7 @@ interface Relatorio {
     total: number;
     formaPagamento: string;
     dinheiroRecebido: number;
-    carrinho: [];
+    carrinho: [{nome:String}];
     dateVenda: Date;
     _id: string;
 }
@@ -47,6 +47,68 @@ function detalhesVendasScreen() {
         })
         .reduce((acc, venda) => acc + venda.total, 0)
         .toFixed(2);
+
+    const totalVendasNoPeriodoPix = data
+        .filter((venda) => {
+            const vendaDate = new Date(venda.dateVenda);
+            const inicioDate = new Date(dataInicio);
+            const fimDate = new Date(dataFim);
+
+            // Remover a parte do tempo
+            vendaDate.setUTCHours(0, 0, 0, 0);
+            inicioDate.setUTCHours(0, 0, 0, 0);
+            fimDate.setUTCHours(0, 0, 0, 0);
+
+            return vendaDate >= inicioDate && vendaDate <= fimDate;
+        }).filter((venda) => {
+            return venda.formaPagamento === 'PIX'
+        })
+        .reduce((acc, venda) => acc + venda.total, 0)
+        .toFixed(2);
+    
+    const totalVendasNoPeriodoAvista = data
+        .filter((venda) => {
+            const vendaDate = new Date(venda.dateVenda);
+            const inicioDate = new Date(dataInicio);
+            const fimDate = new Date(dataFim);
+
+            // Remover a parte do tempo
+            vendaDate.setUTCHours(0, 0, 0, 0);
+            inicioDate.setUTCHours(0, 0, 0, 0);
+            fimDate.setUTCHours(0, 0, 0, 0);
+
+            return vendaDate >= inicioDate && vendaDate <= fimDate;
+        }).filter((venda) => {
+            return venda.formaPagamento === 'À Vista(BRL)'
+        })
+        .reduce((acc, venda) => acc + venda.total, 0)
+        .toFixed(2);
+    
+    const totalVendasNoPeriodoCartao = data
+        .filter((venda) => {
+            const vendaDate = new Date(venda.dateVenda);
+            const inicioDate = new Date(dataInicio);
+            const fimDate = new Date(dataFim);
+
+            // Remover a parte do tempo
+            vendaDate.setUTCHours(0, 0, 0, 0);
+            inicioDate.setUTCHours(0, 0, 0, 0);
+            fimDate.setUTCHours(0, 0, 0, 0);
+
+            return vendaDate >= inicioDate && vendaDate <= fimDate;
+        }).filter((venda) => {
+            return venda.formaPagamento === 'Cartão'
+        })
+        .reduce((acc, venda) => acc + venda.total, 0)
+        .toFixed(2);
+    
+    const detalhesVenda = data
+        .filter((venda) => venda._id === '654c27c611b66c18aed5e55c')
+        .map((relatorio, index) => {
+            const primeiroItemCarrinho = relatorio.carrinho[index];
+            const nomeDoPrimeiroItem = primeiroItemCarrinho.nome;
+            return nomeDoPrimeiroItem;
+        });
 
     return (
         <div className="detalhesContainer">
@@ -98,15 +160,25 @@ function detalhesVendasScreen() {
                         </li>
 
                     ))}
-                
             </ul>
             <form className="totalVendasMes" >
                 <span className="periodo">Selecione o Período &rarr;</span>
                 <label className="dataInicio">Início: <input className="inputInicioFim" type="date" value={dataInicio} onChange={(e) => setDataInicio(e.target.value)} /></label>
 
-                <label className="dataFim">Fim: <input className="inputFim" type="date" value={dataFim} onChange={(e) => setDataFim(e.target.value)} /></label>  
-                <span className="totalVendasFiltro1">Total de Vendas no Período: <span className="totalVendasFiltro">{totalVendasNoPeriodo}</span></span>
-            </form>
+                    <label className="dataFim">Fim: <input className="inputFim" type="date" value={dataFim} onChange={(e) => setDataFim(e.target.value)} /></label>
+                    
+                    <span className="totalVendasFiltro1">Total de vendas no Período selecionado</span>
+                    <span className="spanFiltroPeriodo">{`R$ ${totalVendasNoPeriodo}`}</span>
+
+                    <span className="spanTituloPix">Total vendas no PIX </span> <span className="spanPeriodoPix">{`R$ ${totalVendasNoPeriodoPix}`}</span>
+
+                    <span className="spanTituloDinheiro">Total vendas à vista(BRL) </span> <span className="spanPeriodoDinheiro">{`R$ ${totalVendasNoPeriodoAvista}`}</span>
+
+                    <span className="spanTituloCartao">Total vendas Cartão/Cred/Deb </span> <span className="spanPeriodoCartao">{`R$ ${totalVendasNoPeriodoCartao}`}</span>
+
+                    <span className="spanTituloProdutos">Detalhes da Venda</span> <span className="spanPeriodoProdutos">{`R$ ${detalhesVenda}`}</span>
+                </form>
+                
             </div></div>
     );
 }

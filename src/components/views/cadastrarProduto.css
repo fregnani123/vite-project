@@ -1,7 +1,7 @@
 
 .registroH1{
     font-size: 15px;
-    margin-bottom: -18px;
+    margin-bottom: -38px;
     margin-left: 150px;
 }
 
@@ -215,7 +215,6 @@
 /* Estilo básico do botão */
 .titulo,
 .tituloAlterar {
-   
     font-size: 14px;
     color: var(--total-background-color);
 }
@@ -223,9 +222,9 @@
 /* Estilo do botão padrão */
 .titulo {
     position: absolute;
-    width: 251px;
+    width: 300px;
     top: -5px;
-    left: 120px;
+    left: 270px;
 }
 
 .tituloAlterar {
@@ -343,8 +342,8 @@ position: absolute;
     transition: background-color 0.3s ease;
     border-radius: 2px;
     border: 1px solid var(--total-background-color);
-    top: 180px;
-    right: 02px;
+    top: 156px;
+    left: 505px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -603,6 +602,7 @@ position: absolute;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
 
+
 .inputDescricaoCadastro::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
@@ -614,7 +614,7 @@ position: absolute;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
 
-.labelNomeCadastro1 {
+/* .labelNomeCadastro1 {
     border: 1px solid #7c7c7c83;
     position: absolute;
     left: 201px;
@@ -622,7 +622,8 @@ position: absolute;
     color: white;
     width: 297px;
     top: 20px;
-}
+} */
+
 .labelNomeCadastro {
     border: 1px solid #7c7c7c83;
     position: absolute;
@@ -691,7 +692,7 @@ position: absolute;
     border: 1px solid white;
     text-align: center;
     align-items: center;
-    top: 155px;
+    top: 156px;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
@@ -725,7 +726,7 @@ position: absolute;
     background-color: var(--varyellow);
     left: 132px;
     width: 245px;
-    top: 155px;
+    top: 156px;
     border: 1px solid white;
     text-align: center;
     align-items: center;
@@ -765,7 +766,7 @@ select:focus {
     background-color: var(--varyellow);
     left: 377px;
     width: 120px;
-    top: 155px;
+    top: 156px;
     border: 1px solid white;
     text-align: center;
     align-items: center;
