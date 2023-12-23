@@ -175,7 +175,7 @@ function detalhesVendasScreen() {
                     <span className="spanTituloDinheiro">Total vendas à vista(BRL) </span> <span className="spanPeriodoDinheiro">{`R$ ${totalVendasNoPeriodoAvista}`}</span>
 
                     <span className="spanTituloCartao">Total vendas Cartão/Cred/Deb </span> <span className="spanPeriodoCartao">{`R$ ${totalVendasNoPeriodoCartao}`}</span>
-                    <label className="labelInputCodigoVenda">Insira o código da venda para visualizar os detalhes:</label>
+                    <label className="labelInputCodigoVenda">Insira o código da venda para visualizar os detalhes &rarr;</label>
                     <input className="inputCodigoVenda" value={codigoDaVenda} onChange={(e) => {
                         setCodigoDaVenda(e.target.value)
                     }} />
@@ -184,15 +184,17 @@ function detalhesVendasScreen() {
 
                 <ul className="spanPeriodoProdutos">
                     <span>{detalhesVenda.map((detalhes,index) => (
-                        <ul><li key={index} className="cupom">Cupom não fiscal - Data: {format(new Date(detalhes.dateVenda), 'dd/MM/yyyy')}</li>
-                            <li><u>Cliente: {detalhes.cliente}</u></li><li><u>Pagamento: {detalhes.formaPagamento}</u></li></ul>
+                        <ul><li key={index} className="cupom">Cupom não fiscal </li> <li> Data: {format(new Date(detalhes.dateVenda), 'dd/MM/yyyy')}</li>
+                            <li>Cliente: {detalhes.cliente}</li><li>Pagamento: {detalhes.formaPagamento}</li></ul>
                     ))}</span>
                     {detalhesVenda.map((venda) => (
-                        <ul>{venda.carrinho.map((produto, index) => (<li key={index}><span> {Number(produto.codigoDeBarras)}</span> - <span> {produto.nome}</span> - <span>Preco {Number(produto.preco).toFixed(2)}</span> - <span>Qtd: {Number(produto.qtd)}</span></li>))}</ul>
+                        <ul>
+                            <b><li>Produtos</li></b>
+                            {venda.carrinho.map((produto, index) => (<b><li key={index}><span> {Number(produto.codigoDeBarras)}</span> - <span> {produto.nome}</span> - <span>Preco {Number(produto.preco).toFixed(2)}</span> - <span>Qtd: {Number(produto.qtd)}</span></li></b>))}</ul>
                     ))}
 
                     <span>{detalhesVenda.map((detalhes, index) => (
-                        <ul><li key={index}>Total: R${Number(detalhes.total).toFixed(2)}</li>
+                        <ul><u><li key={index}>Total: R${Number(detalhes.total).toFixed(2)}</li></u>
                             <li key={index}>Recebido: R${Number(detalhes.dinheiroRecebido).toFixed(2)}</li>
                             <li key={index}>Troco: R${Number(detalhes.dinheiroRecebido - detalhes.total).toFixed(2)}</li>
                             <li key={index}>cod.Venda: {detalhes._id}</li>

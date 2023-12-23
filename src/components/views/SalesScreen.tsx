@@ -61,7 +61,6 @@ function SalesScreen() {
         }
     }
 
-    // Função para finalizar a venda
     const cancelarVenda = () => {
         setCarrinho([]);
         setCodigo("");
@@ -283,7 +282,7 @@ function SalesScreen() {
                                     onChange={(e) => setCodigoCliente(e.target.value)}
                                 />
                                 <p className="codigoCliente">Cod. Cliente</p> 
-                                <span className="spanCodigo"></span>
+                                {/* <span className="spanCodigo"></span> */}
                                 <label className="clienteAdicionado">Cliente:</label>
                                 <input
                                     type="text"
