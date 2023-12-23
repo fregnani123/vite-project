@@ -9,7 +9,8 @@ interface Relatorio {
     total: number;
     formaPagamento: string;
     dinheiroRecebido: number;
-    carrinho: [{nome:String}];
+    troco: number
+    carrinho: [{ codigoDeBarras:number, nome: String, preco: number, qtd: number, }];
     dateVenda: Date;
     _id: string;
 }
@@ -18,8 +19,8 @@ function detalhesVendasScreen() {
     const [data, setData] = useState<Relatorio[]>([]);
     const [dataInicio, setDataInicio] = useState(format(new Date('2023-11-03'), 'yyyy-MM-dd'));
     const [dataFim, setDataFim] = useState(format(new Date(), 'yyyy-MM-dd'));
-
-
+    const [codigoDaVenda, setCodigoDaVenda] = useState('')
+ 
     console.log(data)
 
     const URL = "http://localhost:3000/detalhes";
@@ -103,24 +104,22 @@ function detalhesVendasScreen() {
         .toFixed(2);
     
     const detalhesVenda = data
-        .filter((venda) => venda._id === '654c27c611b66c18aed5e55c')
-        .map((relatorio, index) => {
-            const primeiroItemCarrinho = relatorio.carrinho[index];
-            const nomeDoPrimeiroItem = primeiroItemCarrinho.nome;
-            return nomeDoPrimeiroItem;
-        });
-
+        .filter((venda) => venda._id === codigoDaVenda)
+        
+   
     return (
         <div className="detalhesContainer">
             <div className="divCorrecaoCorFundo"></div>
             <div className="menuDetalhes">
                 <MenuToolbar />
             </div>
-            <p className="tituloDetalhes">Histórico de Vendas</p>
-           <div className="divBorder">
+            <h1 className="tituloDetalhes">Histórico de Vendas</h1>
+            
+            <div className="divBorder">
+              
             <ul>
                 <li className="detalhesTable">
-                    <span className="codigoVenda">cod. da venda</span>
+                    <span className="codigoVenda">código da venda</span>
                     <span className="dataDetalhes">Data venda</span>
                     <span className="clienteDetalhes">Cliente</span>
                     <span className="pagamentoDetalhes">Pagamento</span>
@@ -161,7 +160,8 @@ function detalhesVendasScreen() {
 
                     ))}
             </ul>
-            <form className="totalVendasMes" >
+                <form className="totalVendasMes" >
+                    <h1 className="tituloVenda">Detalhes da venda selecionada</h1>
                 <span className="periodo">Selecione o Período &rarr;</span>
                 <label className="dataInicio">Início: <input className="inputInicioFim" type="date" value={dataInicio} onChange={(e) => setDataInicio(e.target.value)} /></label>
 
@@ -175,10 +175,31 @@ function detalhesVendasScreen() {
                     <span className="spanTituloDinheiro">Total vendas à vista(BRL) </span> <span className="spanPeriodoDinheiro">{`R$ ${totalVendasNoPeriodoAvista}`}</span>
 
                     <span className="spanTituloCartao">Total vendas Cartão/Cred/Deb </span> <span className="spanPeriodoCartao">{`R$ ${totalVendasNoPeriodoCartao}`}</span>
+                    <label className="labelInputCodigoVenda">Insira o código da venda para visualizar os detalhes:</label>
+                    <input className="inputCodigoVenda" value={codigoDaVenda} onChange={(e) => {
+                        setCodigoDaVenda(e.target.value)
+                    }} />
 
-                    <span className="spanTituloProdutos">Detalhes da Venda</span> <span className="spanPeriodoProdutos">{`R$ ${detalhesVenda}`}</span>
                 </form>
-                
+
+                <ul className="spanPeriodoProdutos">
+                    <span>{detalhesVenda.map((detalhes,index) => (
+                        <ul><li key={index} className="cupom">Cupom não fiscal - Data: {format(new Date(detalhes.dateVenda), 'dd/MM/yyyy')}</li>
+                            <li><u>Cliente: {detalhes.cliente}</u></li><li><u>Pagamento: {detalhes.formaPagamento}</u></li></ul>
+                    ))}</span>
+                    {detalhesVenda.map((venda) => (
+                        <ul>{venda.carrinho.map((produto, index) => (<li key={index}><span> {Number(produto.codigoDeBarras)}</span> - <span> {produto.nome}</span> - <span>Preco {Number(produto.preco).toFixed(2)}</span> - <span>Qtd: {Number(produto.qtd)}</span></li>))}</ul>
+                    ))}
+
+                    <span>{detalhesVenda.map((detalhes, index) => (
+                        <ul><li key={index}>Total: R${Number(detalhes.total).toFixed(2)}</li>
+                            <li key={index}>Recebido: R${Number(detalhes.dinheiroRecebido).toFixed(2)}</li>
+                            <li key={index}>Troco: R${Number(detalhes.dinheiroRecebido - detalhes.total).toFixed(2)}</li>
+                            <li key={index}>cod.Venda: {detalhes._id}</li>
+                            </ul>
+                    ))}</span>
+                </ul>
+               
             </div></div>
     );
 }
