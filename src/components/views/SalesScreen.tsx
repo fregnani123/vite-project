@@ -299,8 +299,8 @@ function SalesScreen() {
                                         value={formaPagamento}
                                         onChange={(e) => setPagamento(e.target.value)}
                                     >
-                                        <option value="À Vista(BRL)">selecionar</option>
-                                        <option value="À Vista(BRL)">à vista(Dinheiro)</option>
+                                        <option value="selecionar">selecionar</option>
+                                        <option value="à vista (Dinheiro)">à vista (Dinheiro)</option>
                                         <option value="PIX">PIX</option>
                                         <option value="Cartão">Cartão</option>
                                     </select>

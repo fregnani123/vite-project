@@ -43,7 +43,9 @@ function cadastroCliente() {
                 <input className='inputFoneCadastro' type="text" />
                 
                 <label className='labelEmailCadastro'>E-mail</label>
-                <input className='inputEmailCadastro' type="text"/>
+                <input className='inputEmailCadastro' type="text" />
+                
+                <button className='cadastrarCliente'>Cadastrar</button>
         </form>
             
         </div>

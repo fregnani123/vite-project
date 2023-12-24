@@ -90,9 +90,7 @@ button {
     display: flex;
     align-items: center;
 
-   
 }
-
 
 .menu {
     position: absolute;
@@ -130,7 +128,6 @@ background-color: var(--corFundo);
 }
 
 .table-informacoes {
-    /* background-color: #0056b3; */
     margin-top: 25px;
 
 }

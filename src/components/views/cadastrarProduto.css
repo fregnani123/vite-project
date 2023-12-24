@@ -1,4 +1,17 @@
 
+:root {
+    --gray: #7c7c7c83;
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: #0056b3;
+    background-color: white;
+    --text-color: #000;
+    --button-hover-color: #ffffff;
+    --total-background-color: rgb(0, 38, 87);
+    --corFundo: rgb(241, 241, 241);
+    --variavelResultados: #ffffff;
+    --varyellow: rgb(253, 253, 214);
+}
+
 .registroH1{
     font-size: 15px;
     margin-bottom: -38px;
@@ -187,20 +200,6 @@
 .thestoque{
    font-size: 0;
    color: #f0f0f000;
-}
-
-
-:root {
-    --gray:#7c7c7c83;
-    --primary-color: rgb(0, 0, 0);
-    --secondary-color: #0056b3;
-    background-color: white;
-    --text-color: #000;
-    --button-hover-color: #ffffff;
-    --total-background-color: rgb(0, 38, 87);
-    --corFundo: rgb(241, 241, 241);
-    --variavelResultados: #ffffff;
-    --varyellow:rgb(253, 253, 214);
 }
 
 .divForm {
