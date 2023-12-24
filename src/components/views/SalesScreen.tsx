@@ -292,46 +292,19 @@ function SalesScreen() {
                                 />
 
                                 <div className="grupoRadios">
-                                    {/* <input
-                                        type="radio"
-                                        id="pagamentoSelecionar"
-                                        className="inputFormaPagamento"
-                                        name="formaPagamento"
-                                        value="Selecionar"
-                                        checked={formaPagamento === 'Selecionar'}
-                                        onChange={() => setPagamento('Selecionar')}
-                                    />
-                                    <label htmlFor="pagamentoSelecionar">Selecionar:</label> */}
 
-                                    <label id="labelRadios" htmlFor="pagamentoAVista"><input
-                                        type="radio"
-                                        id="pagamentoAVista"
-                                        className="inputFormaPagamento"
-                                        name="formaPagamento"
-                                        value="À Vista(BRL)"
-                                        checked={formaPagamento === 'À Vista(BRL)'}
-                                        onChange={() => setPagamento('À Vista(BRL)')}
-                                    />À Vista(BRL)</label>
+                                    <select
+                                        id="selectFormaPagamento"
+                                        className="inputSelect"
+                                        value={formaPagamento}
+                                        onChange={(e) => setPagamento(e.target.value)}
+                                    >
+                                        <option value="À Vista(BRL)">selecionar</option>
+                                        <option value="À Vista(BRL)">à vista(Dinheiro)</option>
+                                        <option value="PIX">PIX</option>
+                                        <option value="Cartão">Cartão</option>
+                                    </select>
 
-                                    <label id="labelRadios" htmlFor="pagamentoPIX">
-                                        <input
-                                            type="radio"
-                                            id="pagamentoPIX"
-                                            className="inputFormaPagamento"
-                                            name="formaPagamento"
-                                            value="PIX"
-                                            checked={formaPagamento === 'PIX'}
-                                            onChange={() => setPagamento('PIX')}
-                                        />PIX</label>
-                                    <label id="labelRadios" htmlFor="pagamentoCartao">  <input
-                                        type="radio"
-                                        id="pagamentoCartao"
-                                        className="inputFormaPagamento"
-                                        name="formaPagamento"
-                                        value="Cartão"
-                                        checked={formaPagamento === 'Cartão'}
-                                        onChange={() => setPagamento('Cartão')}
-                                    />Cartão</label>
                                 </div>
                                 <label htmlFor="inputTroco" className="trocoRecebido">
                                     Dinheiro recebido
