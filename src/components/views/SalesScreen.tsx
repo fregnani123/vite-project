@@ -159,7 +159,6 @@ function SalesScreen() {
         
     }
 
-   
     function calcularTotal() {
         const novoTotal = carrinho.reduce((acc, produto) => acc + produto.preco * (produto.qtd || 1), 0);
         setTotal(novoTotal);

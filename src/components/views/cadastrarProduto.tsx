@@ -53,7 +53,7 @@ function MyComponent() {
         try {
             const response = await axios.post(url, data);
             console.log("Produto registrado com sucesso:", response.data);
-            // Limpar os campos do formulário após o registro bem-sucedido
+         
             setNome("");
             setPreco('');
             setDescricao("");

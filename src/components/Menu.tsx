@@ -35,8 +35,8 @@ function Menu() {
                         </li> </Link>
                 </ul>
                 <ul className='ulMenuScreen'>
-                        <Link to="/detalhes" className='link'><li className='detalhesVenda'>
-                        <p>Cadastro de Clientes</p>
+                        <Link to="/cadastroCliente" className='link'><li className='detalhesVenda'>
+                        <p>Cadastrar novo Cliente</p>
                         <img className='imgClass' src={imgCliente} alt="" />
                         </li></Link> 
                         <Link to='/controleES' className='link' ><li className='entradaSaida'>
