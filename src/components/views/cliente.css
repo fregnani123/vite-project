@@ -14,7 +14,7 @@
 
 .divCorrecaoFundo{
     position: absolute;
-    width: 1150px;
+    width: 1280px;
     height: 100vh;
     background-color: var(--corFundo);
     z-index: -1;
@@ -23,17 +23,21 @@
 }
 .tituloCadastro{
     position: absolute;
-    top: -25px;
+    top: -73px;
     left: 440px;
     color: var(--total-background-color);
+    font-size: 15px;}
+
+    .h1Cliente{
     font-size: 15px;
-}
-.teste{
-         position: absolute;
-            top: -75px;
-            left: 460px;
-            color: var(--total-background-color);
-            font-size: 15px}
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 980px;
+    color: var(--total-background-color);
+    }
+
 
 .containerCliente{
     display: flex;
@@ -54,21 +58,97 @@
 }
 
 .formCliente{
+    position: absolute;
     display: flex;
-    height: 350px;
+    height:270px;
     width: 1000px;
     margin-left: 20px;
-    border: 1px solid var(--gray);
+     border-right: 1px solid var(--gray);
+    border-left: 1px solid var(--gray);
+    border-top: 1px solid var(--gray);
+    /* border-bottom: 1px solid var(--gray); */
+    margin-top: -50px;
+}
+.formBuscarCliente{
+    position: absolute;
+    display: flex;
+    height: 100px;
+    width: 1000px;
+    margin-left: 20px;
+    border-right: 1px solid var(--gray);
+    border-left: 1px solid var(--gray);
+    /* border-bottom: 1px solid var(--gray); */
+    margin-top: -60px;
+    top: 281px;
+}
+.labelFiltrarCliente{
+    border: 1px solid #7c7c7c83;
+        position: absolute;
+        left: 0;
+        background-color: var(--total-background-color);
+        color: white;
+        width: 990px;
+        top: 40px;
+        left: -1px;
+        justify-content: start;
+        display: flex;
+        padding-left: 10px;
+        padding-bottom: 3px;
+        display: flex;
+}
+.inputFiltrarCliente {
+    position: absolute;
+    background-color: var(--varyellow);
+    left: 230px;
+    width: 400px;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    height: 18px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.inputFiltrarCliente:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+}
+
+.ulClienteEncotrado{
+    position: absolute;
+    display: flex;
+    height: 230px;
+    width: 1000px;
+    margin-left: -1px;
+    border-right: 1px solid var(--gray);
+    border-left: 1px solid var(--gray);
+    /* border-bottom: 1px solid var(--gray); */
+    
+   
+}
+.DivClienteEncotrado{
+    position: absolute;
+    display: flex;
+    height: 230px;
+    width: 1000px;
+    margin-left: -1px;
+    border-right: 1px solid var(--gray);
+    border-left: 1px solid var(--gray);
+     border-bottom: 1px solid var(--gray);
+    top: 290px;   
+    left: 21px;
 }
 
 .labelClienteCadastro {
     position:absolute;
     border: 1px solid gray;
     width: 490px;
+    left: -1px;
     color: white;
     background-color: var(--total-background-color);
-    padding-right: 309px;
+    padding-right: 310px;
     padding-left: 200px;
+    top: -1px;
 }
 
 .labelCPFCadastro {
@@ -77,8 +157,9 @@
     width: 249px;
     color: white;
     background-color: var(--total-background-color);
-    top: 60px;
+    top: 40px;
     padding-left: 200px;
+    left: -1px;
 }
 .labelRGCadastro {
     position: absolute;
@@ -87,30 +168,30 @@
     left: 450px;
     color: white;
     background-color: var(--total-background-color);
-    top: 60px;
-    margin-left: 20px;
-}
+    top: 40px;
+} 
+
 .labelNascimentoCadastro {
     position: absolute;
     border: 1px solid gray;
     width: 100px;
     left: 591px;
-    top: 60px;
+    top: 40px;
     color: white;
     background-color: var(--total-background-color);
-    margin-left: 20px;
+   
     padding-right: 309px;
 }
 .labelEnderecoCadastro {
     position: absolute;
     border: 1px solid gray;
     width: 390px;
-    left: 0px;
+    left: -1px;
     color: white;
     background-color: var(--total-background-color);
-    top: 120px;
+    top: 80px;
     padding-left: 200px;
-    margin-left: 20px;
+   
 }
 .labelNumeroCadastro {
     position: absolute;
@@ -119,8 +200,8 @@
     left: 391px;
     color: white;
     background-color: var(--total-background-color);
-    top: 120px;
-    margin-left: 220px;
+    top: 80px;
+    margin-left: 200px;
     padding-right: 309px;
 }
 
@@ -128,12 +209,12 @@
     position: absolute;
     border: 1px solid gray;
     width: 230px;
-    left: 1px;
+    left: -1px;
     color: white;
     background-color: var(--total-background-color);
-    top: 180px;
+    top: 120px;
     padding-left: 200px;
-    margin-left: 20px;
+    
 }
 
 .labelCidadeCadastro {
@@ -143,8 +224,8 @@
     left: 232px;
     color: white;
     background-color: var(--total-background-color);
-    top: 180px;
-    margin-left: 220px;
+    top: 120px;
+    margin-left: 200px;
 }
 .labelUFCadastro {
     position: absolute;
@@ -153,8 +234,8 @@
     left: 433px;
     color: white;
     background-color: var(--total-background-color);
-    top: 180px;
-    margin-left: 220px;
+    top: 120px;
+    margin-left: 200px;
     padding-right: 309px;
 }
 
@@ -165,31 +246,30 @@
     left: 252px;
     color: white;
     background-color: var(--total-background-color);
-    top: 240px;
-    margin-left: 220px;
+    top: 160px;
+    margin-left: 200px;
     padding-right: 309px;
 }
 .labelFoneCadastro {
     position: absolute;
     border: 1px solid gray;
     width: 250px;
-    left: 1px;
+    left: -1px;
     color: white;
     background-color: var(--total-background-color);
-    top: 240px;
+    top: 160px;
     padding-left: 200px;
-    margin-left: 20px;
+
 }
 .labelEmailCadastro {
     position: absolute;
     border: 1px solid gray;
     width: 310px;
-    left: 1px;
+    left: -1px;
     color: white;
     background-color: var(--total-background-color);
-    top:300px;
+    top:200px;
     padding-left: 200px;
-    margin-left: 20px;
     padding-right: 489px;
 }
 
@@ -222,11 +302,11 @@
     border: 1px solid white;
     text-align: center;
     align-items: center;
-    top: 80px;
+    top: 60px;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
     
 }
 .inputCPFCadastro:focus {
@@ -241,11 +321,11 @@
     border: 1px solid white;
     text-align: center;
     align-items: center;
-    top: 80px;
+    top: 60px;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 .inputRGCadastro:focus {
     outline: none;
@@ -256,14 +336,14 @@
     background-color: var(--varyellow);
     width: 100px;
     left: 391px;
-    top: 80px;
+    top: 60px;
     border: 1px solid white;
     text-align: center;
     align-items: center;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputNascimentoCadastro:focus {
@@ -278,11 +358,11 @@
     border: 1px solid white;
     text-align: center;
     align-items: center;
-    top: 140px;
+    top: 100px;
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputEnderecoCadastro:focus {
@@ -293,7 +373,7 @@
 .inputNumeroCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    top: 140px;
+    top: 100px;
     left: 391px;
     width: 100px;
     border: 1px solid white;
@@ -302,7 +382,7 @@
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputNumeroCadastro:focus {
@@ -312,7 +392,7 @@
 .inputBairroCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    top: 200px;
+    top: 140px;
     left: 1px;
     width: 230px;
     border: 1px solid white;
@@ -321,7 +401,7 @@
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputBairroCadastro:focus {
@@ -332,7 +412,7 @@
 .inputCidadeCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    top: 200px;
+    top: 140px;
     left: 232px;
     width: 200px;
     border: 1px solid white;
@@ -341,7 +421,7 @@
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputCidadeCadastro:focus {
@@ -351,7 +431,7 @@
 .inputUFCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    top: 200px;
+    top: 140px;
     width: 58px;
     left: 433px;
     border: 1px solid white;
@@ -360,7 +440,7 @@
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputUFCadastro:focus {
@@ -370,7 +450,7 @@
 .inputOcupacaoCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    top: 260px;
+    top: 180px;
     width: 239px;
     left: 252px;
     border: 1px solid white;
@@ -379,7 +459,7 @@
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputOcupacaoCadastro:focus {
@@ -389,7 +469,7 @@
 .inputFoneCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    top: 260px;
+    top: 180px;
     left: 1px;
     width: 250px;
     border: 1px solid white;
@@ -398,7 +478,7 @@
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputFoneCadastro:focus {
@@ -408,7 +488,7 @@
 .inputEmailCadastro {
     position: absolute;
     background-color: var(--varyellow);
-    top: 320px;
+    top: 220px;
     left: 1px;
     width: 310px;
     border: 1px solid white;
@@ -417,7 +497,7 @@
     height: 18px;
     cursor: pointer;
     box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-    margin-left: 220px;
+    margin-left: 200px;
 }
 
 .inputEmailCadastro:focus {
@@ -432,9 +512,9 @@
         color: var(--total-background-color);
         font-weight: none;
         text-align: center;
-        top: 321px;
+        top: 221px;
         bottom: 10px;
-        left: 540px;
+        left: 520px;
         padding: 1px 20px;
         border-radius: 2px;
         height: 20px;
@@ -445,4 +525,79 @@
         background-color: var(--varyellow);
     }
 
+    /* abaixo css cliente filtrado */
+   .spanTitiloCadastro{
+    position: absolute;
+    margin-top: 10px;
+    left: 420px;
+    font-weight: 600;
+   }
+   .span{
+    display: none;
+   }
 
+   .spanNomeCadastro{
+    position: absolute;
+    margin-top: 35px;
+    left: 360px;
+   }
+   .spanCPFCadastro{
+    position: absolute;
+    margin-top: 60px;
+    left: 250px;
+   }
+   .spanRGCadastro{
+    position: absolute;
+    margin-top: 60px;
+    left: 400px;
+   }
+   .spanIdadeCadastro{
+    position: absolute;
+    margin-top: 60px;
+    left: 520px;
+   }
+   .spanNascimentoCadastro{
+    position: absolute;
+    margin-top: 60px;
+    left: 630px;
+   }
+   .spanEnderecoCadastro{
+    position: absolute;
+    margin-top: 85px;
+    left: 200px;
+   }
+   .spanNumeroCadastro{
+    position: absolute;
+    margin-top: 85px;
+    left: 690px;
+   }
+   .spanBairroCadastro{
+    position: absolute;
+    margin-top: 110px;
+    left: 270px;
+   }
+   .spanCidadeCadastro{
+    position: absolute;
+    margin-top: 110px;
+    left: 450px;
+   }
+   .spanUFCadastro{
+    position: absolute;
+    margin-top: 110px;
+    left: 580px;
+   }
+   .spanFoneCadastro{
+    position: absolute;
+    margin-top: 135px;
+    left: 200px;
+   }
+   .spanOcupacaoCadastro{
+    position: absolute;
+    margin-top: 135px;
+    left: 650px;
+   }
+   .spanEmailCadastro{
+    position: absolute;
+    margin-top: 135px;
+    left: 380px;
+   }

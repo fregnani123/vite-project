@@ -2,17 +2,18 @@ import axios from 'axios';
 import MenuToolbar from '../MenuToolbar';
 import '../views/cliente.css';
 import { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 
 interface cliente {
     cliente: string;
-    CPF: string;
-    RG: string;
-    dataNascimento: Date;
+    cpfFake: string;
+    rgFake: string;
+    nascimento: string;
     endereco: string;
     numero: string;
     bairro: string;
     cidade: string;
-    UF: string;
+    uf: string;
     fone: string;
     email: string;
     ocupacao: string;
@@ -32,9 +33,20 @@ function CadastroCliente() {
     const [fone, setFone] = useState('');
     const [email, setEmail] = useState('');
     const [ocupacao, setOcupacao] = useState('');
+    const [filtrarCliente, setFiltrarCliente] = useState('')
+    
+    console.log(dataCli)
    
+    const calcularIdade = (dataNascimento:string) => {
+        const dataNascimentoDate = new Date(dataNascimento);
+        const diferencaMilissegundos = Date.now() - dataNascimentoDate.getTime();
+        const idadeDate = new Date(diferencaMilissegundos);
+        return Math.abs(idadeDate.getUTCFullYear() - 1970);
+    };
+    const formatDate = (date: Date) => {
+        return format(date, 'dd/MM/yyyy');
+    };
    
-
     const handleSubmit = async () => {
         const data = {
             cliente: nome,
@@ -86,22 +98,59 @@ function CadastroCliente() {
             });
     }, []); 
    
+    const filterClienteNome = dataCli.filter((clienteFiltrado) => {
+        return clienteFiltrado.cliente.toLocaleLowerCase().includes(filtrarCliente.toLocaleLowerCase())   
+    });
+
 
     return (<div className='containerCliente'>
         <div className='divCorrecaoFundo'></div>
         <MenuToolbar />
 
         <div className='divInformacoes'>
-           
-            <h1 className='tituloCadastro'>Cadastro de Cliente <h1 className='teste'>{dataCli.map(clientes => (
-                <p>{clientes.cliente}</p>
-            ))}</h1></h1>
+
+            <form className='formBuscarCliente'>
+                <h1 className='h1Cliente'>Buscar informações de cliente cadastrado</h1>
+            <label className="labelFiltrarCliente">Buscar Cliente através do nome: <input
+                className="inputFiltrarCliente"
+                type="text"
+                value={filtrarCliente}
+                onChange={(e) => {
+                    setFiltrarCliente(e.target.value);
+                }}
+                /></label>
+            </form>
+            
+            <div className='DivClienteEncotrado'>
+            {filtrarCliente.length > 0 && (
+                <ul className='ulClienteEncotrado'>
+                    {filterClienteNome.map((cliente, index) => (
+                        <li key={index}>
+                           <span className='spanTitiloCadastro'>Cadastro do Cliente</span>
+                            <span className='spanNomeCadastro'><b>Nome: </b>{cliente.cliente}</span>
+                            <span className='spanCPFCadastro'><b>CPF: </b> {cliente.cpfFake} - </span>
+                            <span className='spanRGCadastro'><b>RG: </b>{cliente.rgFake} - </span>
+                            <span className='spanUFCadastro'><b>UF: </b>{cliente.uf} - </span>
+                            <span className='spanBairroCadastro'><b>Bairro: </b>{cliente.bairro} - </span>
+                            <span className='spanCidadeCadastro'><b>Cidade: </b>{cliente.cidade} - </span>
+                            <span className='spanIdadeCadastro'><b>Idade: </b> {calcularIdade(cliente.nascimento)} anos  -  </span>
+                            <span className='spanNascimentoCadastro'><b>Nascimento: </b>{formatDate(new Date(cliente.nascimento))}</span>
+                            <span className='spanEmailCadastro'><b>E-mail: </b>{cliente.email}</span>
+                            <span className='spanEnderecoCadastro'><b>Endereço: </b>{cliente.endereco}</span>
+                            <span className='spanNumeroCadastro'><b>Numero: </b>{cliente.numero}</span>
+                            <span className='spanOcupacaoCadastro'><b>Ocupação: </b>{cliente.ocupacao}</span>
+                            <span className='spanFoneCadastro'><b>Fone: </b>{cliente.fone}</span>
+                        </li>
+                    ))}
+                </ul>
+                )}</div>
+
+            <h1 className='tituloCadastro'>Cadastro de Cliente</h1>
 
             <form className='formCliente' onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
             }} >  
-                
                 <label className='labelClienteCadastro'>Nome</label>
                 <input onChange={(e) => {
                     setNome(e.target.value);
@@ -119,7 +168,7 @@ function CadastroCliente() {
                 
                 <label className='labelNascimentoCadastro'>Data Nasc.</label>
                 <input onChange={(e) => {
-                    setNascimento(e.target.value);
+                    setNascimento((e.target.value));
                 }} value={nascimento} className='inputNascimentoCadastro' type="date" />
                 
                 <label className='labelEnderecoCadastro'>Endereço</label>
@@ -165,8 +214,6 @@ function CadastroCliente() {
                 <button  className='cadastrarCliente'>Cadastrar</button>
         </form>
             
-           
-
         </div>
     </div>)
 };
