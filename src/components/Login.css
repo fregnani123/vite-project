@@ -1,7 +1,6 @@
 .loginH1{
 color: var(--total-background-color);
 }
-
 .logo {
     z-index: -1;
     position: absolute;
@@ -16,7 +15,6 @@ color: var(--total-background-color);
     -webkit-background-clip: text;
     background-clip: text;
 }
-
 .formLogin{
     max-width: 300px;
     margin: 0 auto;
@@ -32,14 +30,12 @@ color: var(--total-background-color);
     width: 80px;
     margin-right: 10px;
 }
-
 footer{
     position: absolute;
     bottom: 5px;
     width: 100%;
     color: rgb(0, 38, 87);
 }
-
 .buttonlogar{
         margin-top: 0px;
         margin-bottom: 20px;
@@ -52,12 +48,10 @@ footer{
        background-color: var(--total-background-color);
         
 }
-
 .buttonlogar:hover{
     color:rgb(0, 38, 87);
     border: 1px solid rgb(0, 38, 87);
 }
-
 .inputLogin{
    margin-top: 10px; 
    margin-bottom: 20px;
@@ -69,7 +63,6 @@ footer{
 .inputLogin:focus {
     outline: none;
 }
-
 .inputSenha{
    padding: 8px;
     width: 275px;
@@ -77,7 +70,6 @@ footer{
     margin-bottom: 20px;
     border: 1px solid rgb(0, 38, 87);
 }
-
 .inputSenha:focus {
     outline: none;
 }
