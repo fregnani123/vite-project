@@ -1,5 +1,5 @@
 import '../components/Login.css'
-import imgMenu from '../assets/imagens gestaoLite/f.png';
+// import imgMenu from '../assets/imagens gestaoLite/f.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import imgLogo from '../assets/imagens gestaoLite/menu-aberto.png'

@@ -39,7 +39,7 @@ function SalesScreen() {
     const [search, setSearch] = useState("");
     const [formaPagamento, setPagamento] = useState("");
     const [adicionarCliente, setAdicionarCliente] = useState('Consumidor');
-    const [dateVenda, setDateVenda] = useState(new Date());
+    const [dateVenda] = useState(new Date());
     const [codigoCliente, setCodigoCliente] = useState('1');
     
    
