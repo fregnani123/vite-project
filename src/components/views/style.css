@@ -988,15 +988,23 @@ box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
         border: 1px solid white;
         align-items: center;
         text-align: center;
-        background-color: var(--variavelResultados);
+        border: 1px solid var(--gray);
+        /* background-color: var(--variavelResultados);
         color: var(--total-background-color); 
         background-color: var(--corInput); 
-        box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
+        box-shadow: inset 1px 1px 2px rgb(0, 0, 0); */
 }
 .consumidor:focus{
     outline: none;
 }
 .spanInfo{
+    width: 455px;
+    padding-right:70px ;
+    top: 65px;
+    left: 0;
     position: absolute;
-    background-color: red;
+    background-color: var(--variavelResultados);
+}
+.spanInfo1{
+ border-bottom: 1px solid var(--gray);
 }

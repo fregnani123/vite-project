@@ -315,9 +315,9 @@ function SalesScreen() {
                                     <ul>{filterClienteNome.map((clienteAdd) => (
                                         <li><input className="consumidor" type="text" value={clienteAdd.cliente} readOnly />
                                             <span className="spanInfo">
-                                                <span>CPF:{clienteAdd.cpfFake}<br/>
+                                                <span className="spanInfo1">CPF:{clienteAdd.cpfFake}<br/>
                                                 </span>
-                                                <span>Cidade: {clienteAdd.cidade}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Bairro: {clienteAdd.bairro}</span>&nbsp;<br /><span>Contato: {clienteAdd.fone}</span></span>
+                                                <span className="spanInfo1">Cidade: {clienteAdd.cidade}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="spanInfo1">Bairro: {clienteAdd.bairro}</span>&nbsp;<br /><span className="spanInfo1">Contato: {clienteAdd.fone}</span></span>
                                         </li>
                                     ))}</ul>
                                 ) : (
