@@ -18,19 +18,26 @@ interface Produto {
     estoque: number;
     qtd: number;
 }
-
-// interface Relatorio {
-//     cliente: string;
-//     total: number;
-//     formaPagamento: string;
-//     dinheiroRecebido: number;
-//     carrinho: Produto[]; // Uso do tipo Produto[] para representar um array de produtos
-//     dateVenda: Date;
-// }
+interface Cliente {
+    cliente: string;
+    cpfFake: string;
+    rgFake: string;
+    nascimento: string;
+    endereco: string;
+    numero: string;
+    bairro: string;
+    cidade: string;
+    uf: string;
+    fone: string;
+    email: string;
+    ocupacao: string;
+    _id: string;
+}
 
 function SalesScreen() {
    
     const [data, setData] = useState<Produto[]>([]);
+    const [dataCli, setDataCli] = useState<Cliente[]>([]);
     const [codigo, setCodigo] = useState("");
     const [carrinho, setCarrinho] = useState<Produto[]>([]);
     const [total, setTotal] = useState(0);
@@ -38,17 +45,17 @@ function SalesScreen() {
     const [inputTroco, setTroco] = useState(0);
     const [search, setSearch] = useState("");
     const [formaPagamento, setPagamento] = useState("");
-    const [adicionarCliente, setAdicionarCliente] = useState('Consumidor');
+    // const [adicionarCliente, setAdicionarCliente] = useState('');
     const [dateVenda] = useState(new Date());
-    const [codigoCliente, setCodigoCliente] = useState('1');
+    const [filtrarCliente, setFiltrarCliente] = useState("")
     
    
+
     const formatDate = (date: Date) => {
         return format(date, 'dd/MM/yyyy');
     };
 
-    // Função para atualizar estoque
-    
+   
     const atualizarEstoqueNoBanco = async (produtoDoCarrinho:Produto) => {
         const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho._id}`;
         try {
@@ -60,6 +67,12 @@ function SalesScreen() {
             console.error("Erro ao atualizar estoque:", error);
         }
     }
+
+    const filterClienteNome = dataCli.filter((clienteFiltrado) => {
+        return clienteFiltrado.cliente.toLocaleLowerCase().includes(filtrarCliente.toLocaleLowerCase())
+    });
+
+    console.log(filterClienteNome)
 
     const cancelarVenda = () => {
         setCarrinho([]);
@@ -99,17 +112,21 @@ function SalesScreen() {
                     console.log("Estoque atualizado com sucesso:", response.data);
                 } else {
                     console.error("Quantidade no carrinho maior que o estoque disponível:", produtoDoCarrinho);
-                    // Lide com o erro de estoque insuficiente
+                    // tratar erro de estoque insuficiente
                 }
             }
             const relatorioVenda = {
-                cliente: adicionarCliente,
+                cliente: filtrarCliente.length > 0 && filterClienteNome.length > 0
+                    ? filterClienteNome[0].cliente
+                    : 'Consumidor',
                 total: total,
                 formaPagamento: formaPagamento,
                 dinheiroRecebido: inputTroco,
                 carrinho: carrinho,
                 dateVenda: dateVenda,
             };
+
+
             const response = await axios.post(urlPost, relatorioVenda);
 
             console.log("Produto registrado com sucesso:", response.data);
@@ -126,7 +143,8 @@ function SalesScreen() {
     }
 
     const url = "http://localhost:3000/findProduto";
-    const urlPost = "http://localhost:3000/detalhesdevendaPost"
+    const urlPost = "http://localhost:3000/detalhesdevendaPost";
+    const urlClientes = 'http://localhost:3000/clientes';
 
     useEffect(() => {
         axios.get(url)
@@ -137,6 +155,16 @@ function SalesScreen() {
                 console.error("Erro ao buscar dados:", error);
             });
     }, []);
+
+    useEffect(() => {
+        axios.get(urlClientes)
+            .then(responseCli => {
+                setDataCli(responseCli.data);
+            })
+            .catch(error => {
+                console.error("Erro ao buscar dados:", error);
+            });
+    }, []); 
 
     const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
 
@@ -275,20 +303,21 @@ function SalesScreen() {
                                 <label className="buscarCliente">
                                    Buscar Cliente
                                 </label><input
-                                    value={codigoCliente}
+                                    value={filtrarCliente}
                                     className="inputCliente"
-                                    type="number"
-                                    onChange={(e) => setCodigoCliente(e.target.value)}
-                                />
-                                <p className="codigoCliente">Cod. Cliente</p> 
-                                {/* <span className="spanCodigo"></span> */}
-                                <label className="clienteAdicionado">Cliente:</label>
-                                <input
                                     type="text"
-                                    value={adicionarCliente}
-                                    onChange={(e) => setAdicionarCliente(e.target.value)}
-                                    className="consumidor"
+                                    onChange={(e) => setFiltrarCliente(e.target.value)}
                                 />
+                                <p className="codigoCliente">Buscar cliente:</p> 
+                               
+                                {filtrarCliente.length > 0 && filterClienteNome.length > 0 ? (
+                                    <span>{filterClienteNome.map((clienteAdd) => (
+                                        <input className="consumidor" type="text" value={clienteAdd.cliente} readOnly  />
+                                    ))}</span>
+                                ) : (
+                                    <input className="consumidor" type="text" value="Consumidor" readOnly />
+                                )}
+
 
                                 <div className="grupoRadios">
 

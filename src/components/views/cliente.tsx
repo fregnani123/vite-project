@@ -17,6 +17,7 @@ interface cliente {
     fone: string;
     email: string;
     ocupacao: string;
+    _id: string;
 }
 
 function CadastroCliente() {
@@ -124,8 +125,9 @@ function CadastroCliente() {
             <div className='DivClienteEncotrado'>
             {filtrarCliente.length > 0 && (
                 <ul className='ulClienteEncotrado'>
-                    {filterClienteNome.map((cliente, index) => (
+                    {filterClienteNome.map((cliente,index) => (
                         <li key={index}>
+                            <span className='spanTitiloCadastr'>codigo ID: {cliente._id}</span>
                            <span className='spanTitiloCadastro'>Cadastro do Cliente</span>
                             <span className='spanNomeCadastro'><b>Nome: </b>{cliente.cliente}</span>
                             <span className='spanCPFCadastro'><b>CPF: </b> {cliente.cpfFake} - </span>
