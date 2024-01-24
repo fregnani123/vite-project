@@ -35,7 +35,7 @@ interface Cliente {
 }
 
 function SalesScreen() {
-   
+
     const [data, setData] = useState<Produto[]>([]);
     const [dataCli, setDataCli] = useState<Cliente[]>([]);
     const [codigo, setCodigo] = useState("");
@@ -48,21 +48,21 @@ function SalesScreen() {
     // const [adicionarCliente, setAdicionarCliente] = useState('');
     const [dateVenda] = useState(new Date());
     const [filtrarCliente, setFiltrarCliente] = useState("")
-    
-   
+
+
 
     const formatDate = (date: Date) => {
         return format(date, 'dd/MM/yyyy');
     };
 
-   
-    const atualizarEstoqueNoBanco = async (produtoDoCarrinho:Produto) => {
+
+    const atualizarEstoqueNoBanco = async (produtoDoCarrinho: Produto) => {
         const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho._id}`;
         try {
             const novaQuantidade = produtoDoCarrinho.qtd || 1;
             const response = await axios.patch(urlEstoque, { estoque: produtoDoCarrinho.estoque - novaQuantidade });
             console.log("Estoque atualizado com sucesso:", response.data);
-        
+
         } catch (error) {
             console.error("Erro ao atualizar estoque:", error);
         }
@@ -83,15 +83,15 @@ function SalesScreen() {
     }
 
     const finalizarVenda = async () => {
-        if (inputTroco === 0){
+        if (inputTroco === 0) {
             alert("Preencha todos os campos antes de finalizar a compra.");
             return;
         } else if (total <= 0) {
             alert("O carrinho está sem itens adicione itens para finalizar a venda.");
-            return   
+            return
         } else if (formaPagamento === "Selecionar" || formaPagamento === "") {
             alert("Escolha a forma de pagamento para finalizar a venda.");
-            return  
+            return
         }
 
         const novoCarrinho = [...carrinho];
@@ -136,7 +136,8 @@ function SalesScreen() {
             setTroco(0);
             setSearch("");
             setPagamento("");
-           
+            setFiltrarCliente('');
+
         } catch (error) {
             console.error("Erro ao registrar produto:", error);
         }
@@ -164,7 +165,7 @@ function SalesScreen() {
             .catch(error => {
                 console.error("Erro ao buscar dados:", error);
             });
-    }, []); 
+    }, []);
 
     const filterData = search.length >= 9 ? data.filter(produto => produto.codigoDeBarras.toString().includes(search)) : [];
 
@@ -178,13 +179,13 @@ function SalesScreen() {
             const produtoComQtd = { ...produtoSelecionado, qtd: parseInt(Qtd) };
             setCarrinho([...carrinho, produtoComQtd]);
             setCodigo("");
-            setQtd(""); 
+            setQtd("");
             setSearch("");
             setCodigo("");
         } else {
             alert("Produto não encontrado ou quantidade inválida.");
         }
-        
+
     }
 
     function calcularTotal() {
@@ -198,18 +199,18 @@ function SalesScreen() {
 
     const resultadoTroco = calcularTroco(inputTroco, total);
 
-   
+
     function removerDoCarrinho(index: number) {
         const novoCarrinho = [...carrinho];
         novoCarrinho.splice(index, 1); // Remove o item do carrinho
         setCarrinho(novoCarrinho); // Atualiza o estado do carrinho
-        calcularTotal(); 
+        calcularTotal();
     }
 
     useEffect(() => {
         calcularTotal();
     }, [carrinho, inputTroco]); // Atualiza o estado do carrinho sempre que um novo item é adicionado
-    
+
 
     return (
         <div className="venda-container">
@@ -219,108 +220,110 @@ function SalesScreen() {
                     <div className="menu"> <MenuToolbar /></div>
                     <div className=" ulCupon">
                         <p className="tituloVendas">Tela de Vendas</p>
-                    <ul className="cupom-form"><span className="carrinhoSpan">Carrinho de Compras</span>
-                        <li className="descricaoItens">
-                            <span className="cod">EAN</span>
-                            <span className="index">num.</span>
-                            <span className="nome-produto">Produto</span>
-                            <span className="Qtd">Qtd</span>
-                            <span className="preco-produto">Preço</span>
-                            <span className="remover" >Excluir</span>
-                        </li><li className="correcaoEspacoLi"></li>
-                        {carrinho.map((produto, index) => (
-                            <li className="liCriar1" key={index}>
-                                <span className="index1">{`${index + 1}`}</span>
-                                <span className="cod1">{produto.codigoDeBarras}</span>
-                                <span className="nome-produto1">{produto.nome}</span>
-                                <span className="Qtd1">{`${produto.qtd}x`}</span>
-                                <span className="preco-produto1">{produto.preco.toFixed(2)}</span>
-                                {<img
-                                    onClick={() => {
-                                        removerDoCarrinho(index)
-                                    }}
-                                    className="imgRemover" src={imgRemover} />}
-                            </li>
-                        ))} 
-                    </ul>
-                    <div className="formBusca">
-                        <span className="Produto">Produto Encontrado</span>
-                        <span className="produtoPreco">Preço</span>
-                        <span className="estoque">Estoque</span>
-                            <span className="buscarItem">Buscar Produto - EAN</span>
-                        <span className="dadosProduto">Dados do Produto</span>
-                        <ul className="produto-encontrado">
-                    {filterData.map((produto, index) => (
-                        <li key={index}>
-                            {`${produto.nome} - ${produto.descricao}`}
-                        </li>
-                    ))}</ul>
-                        
-                        <ul className="precoEncotrado">
-                    {filterData.map((produto, index) => (
-                        <li key={index}>
-                            {`${produto.preco.toFixed(2)}`}
-                        </li>
-
-                    ))}</ul>
-                        <ul className="estoqueAtual">
-                            {filterData.map((produto, index) => (
-                                <li key={index}>
-                                    {`${produto.estoque}`}
+                        <ul className="cupom-form"><span className="carrinhoSpan">Carrinho de Compras</span>
+                            <li className="descricaoItens">
+                                <span className="cod">EAN</span>
+                                <span className="index">num.</span>
+                                <span className="nome-produto">Produto</span>
+                                <span className="Qtd">Qtd</span>
+                                <span className="preco-produto">Preço</span>
+                                <span className="remover" >Excluir</span>
+                            </li><li className="correcaoEspacoLi"></li>
+                            {carrinho.map((produto, index) => (
+                                <li className="liCriar1" key={index}>
+                                    <span className="index1">{`${index + 1}`}</span>
+                                    <span className="cod1">{produto.codigoDeBarras}</span>
+                                    <span className="nome-produto1">{produto.nome}</span>
+                                    <span className="Qtd1">{`${produto.qtd}x`}</span>
+                                    <span className="preco-produto1">{produto.preco.toFixed(2)}</span>
+                                    {<img
+                                        onClick={() => {
+                                            removerDoCarrinho(index)
+                                        }}
+                                        className="imgRemover" src={imgRemover} />}
                                 </li>
-                            ))}</ul>
+                            ))}
+                        </ul>
+                        <div className="formBusca">
+                            <span className="Produto">Produto Encontrado</span>
+                            <span className="produtoPreco">Preço</span>
+                            <span className="estoque">Estoque</span>
+                            <span className="buscarItem">Buscar Produto - EAN</span>
+                            <span className="dadosProduto">Dados do Produto</span>
+                            <ul className="produto-encontrado">
+                                {filterData.map((produto, index) => (
+                                    <li key={index}>
+                                        {`${produto.nome} - ${produto.descricao}`}
+                                    </li>
+                                ))}</ul>
+
+                            <ul className="precoEncotrado">
+                                {filterData.map((produto, index) => (
+                                    <li key={index}>
+                                        {`${produto.preco.toFixed(2)}`}
+                                    </li>
+
+                                ))}</ul>
+                            <ul className="estoqueAtual">
+                                {filterData.map((produto, index) => (
+                                    <li key={index}>
+                                        {`${produto.estoque}`}
+                                    </li>
+                                ))}</ul>
 
                             <form>
                                 <label htmlFor="EAN" className="buscar">Digite EAN &rarr;</label>
                                 <label htmlFor="EAN" className="labelEAN">EAN</label><input
-                            onChange={(e) => {
-                                setSearch(e.target.value)
-                                setCodigo(e.target.value)
-                            }}
-                            value={codigo} id="EAN" className="EAN" type="number" />
+                                    onChange={(e) => {
+                                        setSearch(e.target.value)
+                                        setCodigo(e.target.value)
+                                    }}
+                                    value={codigo} id="EAN" className="EAN" type="number" />
                                 <label htmlFor="inputQtd" className="labelQtd">Qtd</label><input
-                              id="inputQtd"  className="inputQtd" type="number"
-                                value={Qtd}
-                                onChange={(e) => {
-                                    setQtd(e.target.value)
-                                }
-                                }
-                            />
-                        <button className="buttonAdd"
-                            onClick={(e) => {
-                                e.preventDefault()
-                                adicionarAoCarrinho()
-                               
-                            }} >Adicionar Item</button>
-                    </form>
-                </div>
-                </div>
-                <div className="div-Form">  
-                    <div className="divDadosCliente">
-                        <form className="form-venda">
-                            <p className="dadosCliente">Dados Cliente</p>
-                            <span className="spanData">Data</span><span className="inputDate">{formatDate(dateVenda)}</span>
+                                    id="inputQtd" className="inputQtd" type="number"
+                                    value={Qtd}
+                                    onChange={(e) => {
+                                        setQtd(e.target.value)
+                                    }
+                                    }
+                                />
+                                <button className="buttonAdd"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        adicionarAoCarrinho()
+
+                                    }} >Adicionar Item</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="div-Form">
+                        <div className="divDadosCliente">
+                            <form className="form-venda">
+                                <p className="dadosCliente">Dados Cliente</p>
+                                <span className="spanData">Data</span><span className="inputDate">{formatDate(dateVenda)}</span>
                                 <label className="buscarCliente">
-                                   Buscar Cliente
+                                    Dados do Cliente
                                 </label><input
                                     value={filtrarCliente}
                                     className="inputCliente"
                                     type="text"
                                     onChange={(e) => setFiltrarCliente(e.target.value)}
                                 />
-                                <p className="codigoCliente">Buscar cliente:</p> 
-                               
+                                <p className="codigoCliente">Buscar: Digite o nome do cliente &darr;</p>
+
                                 {filtrarCliente.length > 0 && filterClienteNome.length > 0 ? (
-                                    <span>{filterClienteNome.map((clienteAdd) => (
-                                        <input className="consumidor" type="text" value={clienteAdd.cliente} readOnly  />
-                                    ))}</span>
+                                    <ul>{filterClienteNome.map((clienteAdd) => (
+                                        <li><input className="consumidor" type="text" value={clienteAdd.cliente} readOnly />
+                                            <span className="spanInfo">
+                                                <span>CPF:{clienteAdd.cpfFake}<br/>
+                                                </span>
+                                                <span>Cidade: {clienteAdd.cidade}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Bairro: {clienteAdd.bairro}</span>&nbsp;<br /><span>Contato: {clienteAdd.fone}</span></span>
+                                        </li>
+                                    ))}</ul>
                                 ) : (
-                                    <input className="consumidor" type="text" value="Consumidor" readOnly />
+                                  <input className="consumidor" type="text" value="Consumidor" readOnly />
                                 )}
-
-
                                 <div className="grupoRadios">
-
                                     <select
                                         id="selectFormaPagamento"
                                         className="inputSelect"
@@ -337,51 +340,51 @@ function SalesScreen() {
                                 <label htmlFor="inputTroco" className="trocoRecebido">
                                     Dinheiro recebido
                                 </label>
-                                <label className="labelTroco"><input 
-                                value={inputTroco === 0 ? "" : inputTroco}
-                                onChange={(e) => {
-                                    setTroco(parseFloat(e.target.value));
+                                <label className="labelTroco"><input
+                                    value={inputTroco === 0 ? "" : inputTroco}
+                                    onChange={(e) => {
+                                        setTroco(parseFloat(e.target.value));
                                     }}
                                     id="inputTroco"
-                                className="inputTroco"
-                                type="number"
-                            /></label>
-                        </form>
-                        <div className="informacoes-cupom">
-                            <table className="table-informacoes">
+                                    className="inputTroco"
+                                    type="number"
+                                /></label>
+                            </form>
+                            <div className="informacoes-cupom">
+                                <table className="table-informacoes">
                                     <tbody >
                                         <tr>
                                             <td className="trocoSeta">Valor recebido &rarr;</td>
                                         </tr>
                                         <tr>
                                             <td className="formaPagamento">
-                                         Forma de Pagamento
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pagamentoTitulo">Total Venda</td>
-                                    </tr>
-                                    <tr>
-                                    </tr>
-                                    <tr>
-                                            <td className="trocoTitulo">
-                                            <span>Troco</span>
-                                        </td>
-                                        <td className="tdResultado">
-                                            <span className="trocoResultado">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="totalVendaEnd">
-                                            <span>Total da Venda</span>
-                                        </td>
-                                            <td className="totalVenda">
-                                            <span>{`${total.toFixed(2)}`}</span>
+                                                Forma de Pagamento
                                             </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                        </tr>
+                                        <tr>
+                                            <td className="pagamentoTitulo">Total Venda</td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                            <td className="trocoTitulo">
+                                                <span>Troco</span>
+                                            </td>
+                                            <td className="tdResultado">
+                                                <span className="trocoResultado">{resultadoTroco >= 0 ? `${resultadoTroco.toFixed(2)}` : '0.00'}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td className="totalVendaEnd">
+                                                <span>Total da Venda</span>
+                                            </td>
+                                            <td className="totalVenda">
+                                                <span>{`${total.toFixed(2)}`}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <form onSubmit={(e) => {
                             e.preventDefault();
@@ -393,13 +396,13 @@ function SalesScreen() {
                             <button onClick={(e) => { e.preventDefault(); cancelarVenda(); }} className="buttonCancelar" type="submit">
                                 Cancelar venda
                             </button>
-                        </form> 
+                        </form>
+                    </div>
                 </div>
-                </div>
-               </div>
+            </div>
             {/* <footer className="footerVenda">© 2023 Fabiano Fregnani - Front-End Developer. v1.0</footer> */}
-    </div>
-   
+        </div>
+
     );
 }
 export default SalesScreen;

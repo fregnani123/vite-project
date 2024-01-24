@@ -902,9 +902,9 @@ margin-top: 2px;
 
 .buscarCliente {
     position: absolute;        
-    width:310px;
+    width:411px;
     top: 26px;
-    left: 101px;
+    left: 0px;
     border: 1px solid #7c7c7c83;
     background-color: var(--total-background-color);
     color: white;
@@ -918,8 +918,8 @@ margin-top: 2px;
 .codigoCliente {
     position: absolute;
     left: 0;
-    top: 26px;
-    width: 100px;
+    top: 151px;
+    width: 100%;
     height: 16px;
     border: 1px solid #7c7c7c83;
     background-color: var(--total-background-color);
@@ -931,16 +931,16 @@ margin-top: 2px;
 }
 .inputCliente {
     position: absolute;
-        width: 100px;
-        border: 1px solid white;
+        width:  524px;
+        border: 1px solid var(--gray);
         text-align: center;
         align-items: center;
         font-size: 15px;
-        top: 44px;
+        top: 170px;
         left: 0px;
         height: 18px;
-        box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
-       color: var(--total-background-color);
+        box-shadow: inset 1px 1px 2px rgb(0, 0, 0); 
+        color:var(--total-background-color);
        background-color: var(--corInput);
 }
 .inputCliente::-webkit-inner-spin-button {
@@ -982,9 +982,9 @@ box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 .consumidor{
     position: absolute;
         height: 18px;
-        width: 312px;
+        width:410px;
         top: 44px;
-        left: 100px;
+        left: 0px;
         border: 1px solid white;
         align-items: center;
         text-align: center;
@@ -995,4 +995,8 @@ box-shadow: inset 1px 1px 2px rgb(0, 0, 0);
 }
 .consumidor:focus{
     outline: none;
+}
+.spanInfo{
+    position: absolute;
+    background-color: red;
 }
