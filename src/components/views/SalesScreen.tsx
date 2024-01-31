@@ -57,7 +57,7 @@ function SalesScreen() {
 
 
     const atualizarEstoqueNoBanco = async (produtoDoCarrinho: Produto) => {
-        const urlEstoque = `https://204.216.187.179/updateProduto/${produtoDoCarrinho._id}`;
+        const urlEstoque = `https://204.216.187.179:3399/updateProduto/${produtoDoCarrinho._id}`;
     
         try {
             const novaQuantidade = produtoDoCarrinho.qtd || 1;
@@ -101,7 +101,7 @@ function SalesScreen() {
             for (const produtoDoCarrinho of novoCarrinho) {
                 const novaQuantidade = produtoDoCarrinho.qtd || 1;
 
-                const urlEstoque = `https://204.216.187.179:3000/updateProduto/${produtoDoCarrinho.codigoDeBarras}`;
+                const urlEstoque = `https://204.216.187.179:3399/updateProduto/${produtoDoCarrinho.codigoDeBarras}`;
 
                 // Verifique se a quantidade no carrinho é menor ou igual ao estoque disponível
                 if (produtoDoCarrinho.estoque >= novaQuantidade) {
@@ -144,9 +144,9 @@ function SalesScreen() {
         }
     }
 
-    const url = "https://204.216.187.179:3000/findProduto";
-    const urlPost = "https://204.216.187.179:3000/detalhesdevendaPost";
-    const urlClientes = 'https://204.216.187.179:3000/clientes';
+    const url = "https://204.216.187.179:3399/findProduto";
+    const urlPost = "https://204.216.187.179:3399/detalhesdevendaPost";
+    const urlClientes = 'https://204.216.187.179:3399/clientes';
 
     console.log(url)
 
