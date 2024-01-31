@@ -146,7 +146,7 @@ function SalesScreen() {
 
     const url = "https://204.216.187.179:3000/findProduto";
     const urlPost = "https://204.216.187.179:3000/detalhesdevendaPost";
-    const urlClientes = 'https://204.216.187.179.124:3000/clientes';
+    const urlClientes = 'https://204.216.187.179:3000/clientes';
 
     console.log(url)
 
