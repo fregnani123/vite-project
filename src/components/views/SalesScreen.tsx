@@ -57,8 +57,8 @@ function SalesScreen() {
 
 
     const atualizarEstoqueNoBanco = async (produtoDoCarrinho: Produto) => {
-        const urlEstoque = `https://204.216.187.179:3399/updateProduto/${produtoDoCarrinho._id}`;
-    
+        const urlEstoque = `https://204.216.187.179:3000/updateProduto/${produtoDoCarrinho._id}`;
+
         try {
             const novaQuantidade = produtoDoCarrinho.qtd || 1;
             const response = await axios.patch(urlEstoque, { estoque: produtoDoCarrinho.estoque - novaQuantidade });
@@ -101,7 +101,7 @@ function SalesScreen() {
             for (const produtoDoCarrinho of novoCarrinho) {
                 const novaQuantidade = produtoDoCarrinho.qtd || 1;
 
-                const urlEstoque = `https://204.216.187.179:3399/updateProduto/${produtoDoCarrinho.codigoDeBarras}`;
+                const urlEstoque = `https://204.216.187.179:3000/updateProduto/${produtoDoCarrinho.codigoDeBarras}`;
 
                 // Verifique se a quantidade no carrinho é menor ou igual ao estoque disponível
                 if (produtoDoCarrinho.estoque >= novaQuantidade) {
@@ -144,9 +144,9 @@ function SalesScreen() {
         }
     }
 
-    const url = "https://204.216.187.179:3399/findProduto";
-    const urlPost = "https://204.216.187.179:3399/detalhesdevendaPost";
-    const urlClientes = 'https://204.216.187.179:3399/clientes';
+    const url = "https://204.216.187.179:3000/findProduto";
+    const urlPost = "https://204.216.187.179:3000/detalhesdevendaPost";
+    const urlClientes = 'https://204.216.187.179:3000/clientes';
 
     console.log(url)
 
@@ -318,13 +318,13 @@ function SalesScreen() {
                                     <ul>{filterClienteNome.map((clienteAdd) => (
                                         <li><input className="consumidor" type="text" value={clienteAdd.cliente} readOnly />
                                             <span className="spanInfo">
-                                                <span className="spanInfo1">CPF:{clienteAdd.cpfFake}<br/>
+                                                <span className="spanInfo1">CPF:{clienteAdd.cpfFake}<br />
                                                 </span>
                                                 <span className="spanInfo1">Cidade: {clienteAdd.cidade}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="spanInfo1">Bairro: {clienteAdd.bairro}</span>&nbsp;<br /><span className="spanInfo1">Contato: {clienteAdd.fone}</span></span>
                                         </li>
                                     ))}</ul>
                                 ) : (
-                                  <input className="consumidor" type="text" value="Consumidor" readOnly />
+                                    <input className="consumidor" type="text" value="Consumidor" readOnly />
                                 )}
                                 <div className="grupoRadios">
                                     <select
