@@ -47,7 +47,7 @@ function MyComponent() {
             categoria: categoria,
             estoque: estoque,
         };
-            const url = "http://localhost:3000/newProduto";
+        const url = "http://204.216.187.179:3000/newProduto";
             
         try {
             const response = await axios.post(url, data);
@@ -86,7 +86,7 @@ function MyComponent() {
 
     const excluirProdutoDB = async () => {
 
-        const urlExcluirDB = `http://localhost:3000/deleteproduto/${EANDeletar}`
+        const urlExcluirDB = `http://204.216.187.179:3000/deleteproduto/${EANDeletar}`
         try {
            
         const response = await axios.delete(urlExcluirDB)
@@ -100,7 +100,7 @@ function MyComponent() {
     
 
     const alterarInformacoesProduto = async () => {
-        const urlAlterar = `http://localhost:3000/updateProduto/${EANAlterar}`;
+        const urlAlterar = `http://204.216.187.179:3000/updateProduto/${EANAlterar}`;
 
         const dataAlterar: {
             nome?: string;
@@ -150,7 +150,7 @@ function MyComponent() {
         }
     };
 
-    const urlProdutoFind = "http://localhost:3000/findProduto";
+    const urlProdutoFind = "http://204.216.187.179:3000/findProduto";
 
     useEffect(() => {
         axios.get(urlProdutoFind)
@@ -163,7 +163,7 @@ function MyComponent() {
             });
     }, []);
 
-    const urlBuscar = "http://localhost:3000/findProduto";
+    const urlBuscar = "http://204.216.187.179:3000/findProduto";
 
     useEffect(() => {
         axios.get(urlBuscar)

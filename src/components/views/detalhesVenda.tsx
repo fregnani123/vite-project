@@ -23,7 +23,7 @@ function detalhesVendasScreen() {
  
     console.log(data)
 
-    const URL = "http://localhost:3000/detalhes";
+    const URL = "http://204.216.187.179:3000/detalhes";
 
     useEffect(() => {
         axios.get(URL)

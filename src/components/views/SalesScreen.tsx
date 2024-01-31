@@ -57,7 +57,8 @@ function SalesScreen() {
 
 
     const atualizarEstoqueNoBanco = async (produtoDoCarrinho: Produto) => {
-        const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho._id}`;
+        const urlEstoque = `http://204.216.187.179/updateProduto/${produtoDoCarrinho._id}`;
+    
         try {
             const novaQuantidade = produtoDoCarrinho.qtd || 1;
             const response = await axios.patch(urlEstoque, { estoque: produtoDoCarrinho.estoque - novaQuantidade });
@@ -100,7 +101,7 @@ function SalesScreen() {
             for (const produtoDoCarrinho of novoCarrinho) {
                 const novaQuantidade = produtoDoCarrinho.qtd || 1;
 
-                const urlEstoque = `http://localhost:3000/updateProduto/${produtoDoCarrinho.codigoDeBarras}`;
+                const urlEstoque = `http://204.216.187.179:3000/updateProduto/${produtoDoCarrinho.codigoDeBarras}`;
 
                 // Verifique se a quantidade no carrinho é menor ou igual ao estoque disponível
                 if (produtoDoCarrinho.estoque >= novaQuantidade) {
@@ -143,9 +144,11 @@ function SalesScreen() {
         }
     }
 
-    const url = "http://localhost:3000/findProduto";
-    const urlPost = "http://localhost:3000/detalhesdevendaPost";
-    const urlClientes = 'http://localhost:3000/clientes';
+    const url = "http://204.216.187.179:3000/findProduto";
+    const urlPost = "http://204.216.187.179:3000/detalhesdevendaPost";
+    const urlClientes = 'http://204.216.187.179.124:3000/clientes';
+
+    console.log(url)
 
     useEffect(() => {
         axios.get(url)
