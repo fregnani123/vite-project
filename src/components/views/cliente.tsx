@@ -64,7 +64,7 @@ function CadastroCliente() {
             ocupacao: ocupacao,
         };
 
-        const urlCliente = 'https://204.216.187.179:3000/criarNovoCliente';
+        const urlCliente = 'http://204.216.187.179:3000/criarNovoCliente';
 
         try {
             const response = await axios.post(urlCliente, data);
@@ -87,7 +87,7 @@ function CadastroCliente() {
             console.error('Erro ao registrar cliente:', error);
         }
     };
-    const urlGetClientes = 'https://204.216.187.179:3000/clientes';
+    const urlGetClientes = 'http://204.216.187.179:3000/clientes';
 
     useEffect(() => {
         axios.get(urlGetClientes)
